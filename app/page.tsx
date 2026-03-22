@@ -1,3 +1,4 @@
+// Trigger redeploy
 import type { Metadata } from "next";
 import { HeroSplit } from "@/components/sections/HeroSplit";
 import { TrustStrip } from "@/components/sections/TrustStrip";
