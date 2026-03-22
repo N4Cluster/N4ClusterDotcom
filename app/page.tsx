@@ -25,7 +25,6 @@ export const metadata: Metadata = {
 // ─── Trust strip ────────────────────────────────────────────────────────────
 const trustItems = [
   "$0.10 flat fee per order",
-  "Zero commission. Ever.",
   "Your brand. Your customers.",
   "Merchant-owned loyalty",
   "30-min delivery SLA",

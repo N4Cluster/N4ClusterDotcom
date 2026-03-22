@@ -87,7 +87,7 @@ export function HeroSplit({
 
 function PlatformDiagram() {
   return (
-    <div className="relative w-full max-w-md mx-auto select-none" style={{ height: 420 }}>
+    <div className="relative w-full max-w-md mx-auto select-none overflow-hidden" style={{ height: 420 }}>
       {/* Grid background */}
       <svg
         className="absolute inset-0 w-full h-full"
@@ -144,14 +144,14 @@ function PlatformDiagram() {
       </div>
 
       {/* N4Sync — middle left */}
-      <div className="absolute" style={{ top: 176, left: 28, width: 144 }}>
+      <div className="absolute" style={{ top: 176, left: 28, width: 156 }}>
         <div
           className="rounded-xl px-4 py-3"
           style={{ background: "#0f2a3a", border: "1.5px solid #14b8a6", boxShadow: "0 4px 16px rgba(20,184,166,0.25)" }}
         >
           <div className="text-xs font-semibold mb-0.5" style={{ color: "#14b8a6" }}>N4Sync</div>
           <div className="text-sm font-bold text-white">Orchestration</div>
-          <div className="flex gap-1 mt-2">
+          <div className="flex flex-wrap gap-1 mt-2">
             {["Orders", "Status", "Sync"].map((tag) => (
               <span
                 key={tag}
@@ -166,14 +166,14 @@ function PlatformDiagram() {
       </div>
 
       {/* N4Logic — middle right */}
-      <div className="absolute" style={{ top: 176, right: 28, width: 144 }}>
+      <div className="absolute" style={{ top: 176, right: 28, width: 156 }}>
         <div
           className="rounded-xl px-4 py-3"
           style={{ background: "#1c1400", border: "1.5px solid #f59e0b", boxShadow: "0 4px 16px rgba(245,158,11,0.25)" }}
         >
           <div className="text-xs font-semibold mb-0.5" style={{ color: "#f59e0b" }}>N4Logic</div>
           <div className="text-sm font-bold text-white">AI Intelligence</div>
-          <div className="flex gap-1 mt-2">
+          <div className="flex flex-wrap gap-1 mt-2">
             {["Demand", "Growth", "Ops"].map((tag) => (
               <span
                 key={tag}
@@ -231,7 +231,7 @@ function PlatformDiagram() {
       {/* Floating metric badge */}
       <div
         className="absolute"
-        style={{ top: 120, right: -16 }}
+        style={{ top: 120, right: 4 }}
       >
         <div
           className="rounded-xl px-3 py-2 text-xs"
