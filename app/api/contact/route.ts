@@ -1,15 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { google } from "googleapis";
 
-const oauth2Client = new google.auth.OAuth2(
-  process.env.GMAIL_CLIENT_ID,
-  process.env.GMAIL_CLIENT_SECRET,
-  "https://developers.google.com/oauthplayground"
-);
-
-oauth2Client.setCredentials({
-  refresh_token: process.env.GMAIL_REFRESH_TOKEN,
-});
+function createOAuth2Client() {
+  const oauth2Client = new google.auth.OAuth2(
+    process.env.GMAIL_CLIENT_ID,
+    process.env.GMAIL_CLIENT_SECRET,
+    "https://developers.google.com/oauthplayground"
+  );
+  oauth2Client.setCredentials({
+    refresh_token: process.env.GMAIL_REFRESH_TOKEN,
+  });
+  return oauth2Client;
+}
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
@@ -57,6 +59,7 @@ export async function POST(req: NextRequest) {
     .replace(/=+$/, "");
 
   try {
+    const oauth2Client = createOAuth2Client();
     const gmail = google.gmail({ version: "v1", auth: oauth2Client });
     await gmail.users.messages.send({
       userId: "me",
@@ -64,8 +67,12 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json({ ok: true });
-  } catch (err) {
-    console.error("Contact form mail error:", err);
-    return NextResponse.json({ ok: false }, { status: 500 });
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err);
+    console.error("Contact form mail error:", message, err);
+    return NextResponse.json(
+      { ok: false, error: "Failed to send message. Please try again later." },
+      { status: 500 }
+    );
   }
 }
