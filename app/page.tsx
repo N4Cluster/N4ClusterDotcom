@@ -20,12 +20,12 @@ import {
 export const metadata: Metadata = {
   title: "N4Cluster | Commission-Free Commerce for Local Restaurants",
   description:
-    "N4Cluster gives restaurants a branded direct ordering channel, neighborhood discovery, AI-powered growth, and delivery — for a flat $0.10 per order. No commissions. Ever.",
+    "N4Cluster gives restaurants a branded direct ordering channel, neighborhood discovery, AI-powered growth, and delivery — for a flat $0.99 per order. No commissions. Ever.",
 };
 
 // ─── Trust strip ────────────────────────────────────────────────────────────
 const trustItems = [
-  "$0.10 flat fee per order",
+  "$0.99 flat fee per order",
   "Your brand. Your customers.",
   "Merchant-owned loyalty",
   "30-min delivery SLA",
@@ -87,7 +87,7 @@ const timeline = [
   {
     tag: "Ongoing",
     title: "Order density compounds",
-    desc: "More neighborhood orders at $0.10 each. More repeat customers you own. More margin per order. The model gets stronger the more it runs.",
+    desc: "More neighborhood orders at $0.99 each. More repeat customers you own. More margin per order. The model gets stronger the more it runs.",
     color: "#2563eb",
   },
 ];
@@ -96,7 +96,7 @@ const timeline = [
 const segments = [
   {
     title: "Independent restaurants",
-    desc: "Stop paying 20–30% commissions. Own your customer, keep your margin, and build direct demand — for $0.10 per order.",
+    desc: "Stop paying 20–30% commissions. Own your customer, keep your margin, and build direct demand — for $0.99 per order.",
     outcomes: ["Direct branded ordering under your domain", "Customer data and loyalty you own", "AI-assisted growth without the overhead"],
     href: "/solutions#independent",
     color: "#2563eb",
@@ -131,10 +131,10 @@ export default function HomePage() {
       <HeroSplit
         eyebrow="Commission-free commerce infrastructure"
         heading="Keep more of every order. Grow your neighborhood."
-        subheading="N4Cluster gives local restaurants a branded direct channel, neighborhood discovery, AI-powered growth automation, and delivery — for a flat $0.10 per order. No commissions. No surprises. Ever."
+        subheading="N4Cluster gives local restaurants a branded direct channel, neighborhood discovery, AI-powered growth automation, and delivery — for a flat $0.99 per order. No commissions. No surprises. Ever."
         primaryCta={{ label: "Request a Demo", href: "/contact" }}
         secondaryCta={{ label: "See How It Works", href: "/how-it-works" }}
-        microcopy="$0.10 per order. No monthly minimum. Optional 1–2 year price lock."
+        microcopy="$0.99 per order. No monthly minimum. Optional 1–2 year price lock."
       />
 
       {/* ── Trust strip ── */}
@@ -155,7 +155,7 @@ export default function HomePage() {
                 DoorDash, Uber Eats, and Grubhub charge 20–30% per order. On a $40 ticket, that&apos;s up to $12 gone before you see a cent. They own your customer data. They control discovery. They can change terms whenever they like.
               </p>
               <p className="text-base leading-relaxed" style={{ color: "#475569" }}>
-                N4Cluster charges <strong style={{ color: "#040d1c" }}>$0.10 flat per order</strong> — infrastructure pricing, not commission extraction. You keep the customer, the data, and the margin.
+                N4Cluster charges <strong style={{ color: "#040d1c" }}>$0.99 flat per order</strong> — infrastructure pricing, not commission extraction. You keep the customer, the data, and the margin.
               </p>
             </div>
             <div className="space-y-4">
@@ -168,7 +168,7 @@ export default function HomePage() {
                   {[
                     { label: "DoorDash / Uber Eats", fee: "Up to $12.00 (30%)", keep: "$28.00", bad: true },
                     { label: "Grubhub", fee: "Up to $8.00 (20%)", keep: "$32.00", bad: true },
-                    { label: "N4Cluster", fee: "$0.10 flat", keep: "$39.90", bad: false },
+                    { label: "N4Cluster", fee: "$0.99 flat", keep: "$39.01", bad: false },
                   ].map((row) => (
                     <div key={row.label} className="flex items-center justify-between px-5 py-4">
                       <div className="flex items-center gap-3">
@@ -191,7 +191,7 @@ export default function HomePage() {
                 </div>
               </div>
               <p className="text-xs pl-2" style={{ color: "#94a3b8" }}>
-                * Commission rates vary. Comparison illustrates typical marketplace fee ranges vs N4Cluster&apos;s flat $0.10/order infrastructure fee.
+                * Commission rates vary. Comparison illustrates typical marketplace fee ranges vs N4Cluster&apos;s flat $0.99/order infrastructure fee.
               </p>
             </div>
           </div>
@@ -367,7 +367,7 @@ export default function HomePage() {
                 <h3 className="text-lg font-bold mb-5 text-white">We grow when neighborhood order volume grows — not by taking more per order.</h3>
                 <ul className="space-y-4">
                   {[
-                    "$0.10 flat per order. No commission. No % of revenue.",
+                    "$0.99 flat per order. No commission. No % of revenue.",
                     "Your customer data. Your loyalty program.",
                     "Branded ordering under your own domain and identity",
                     "No pricing parity requirements — ever",
@@ -403,7 +403,7 @@ export default function HomePage() {
       {/* ── Final CTA ── */}
       <CTASection
         heading="Ready to stop paying commissions?"
-        subheading="See how N4Cluster can launch your branded direct channel, activate neighborhood demand, and grow your restaurant — for $0.10 per order."
+        subheading="See how N4Cluster can launch your branded direct channel, activate neighborhood demand, and grow your restaurant — for $0.99 per order."
         primaryCta={{ label: "Request a Demo", href: "/contact" }}
         secondaryCta={{ label: "See Pricing", href: "/pricing" }}
       />

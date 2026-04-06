@@ -4,17 +4,17 @@ export const faqItems: FAQItem[] = [
   {
     question: "What is N4Cluster?",
     answer:
-      "N4Cluster is commission-free restaurant commerce infrastructure. It gives restaurants a white-label branded ordering site, a presence in the Neighborhood Hub, AI-powered growth tools (N4Logic), and merchant-owned delivery coordination (N4Sync) — all for $0.10 per order, with no commission on revenue.",
+      "N4Cluster is commission-free restaurant commerce infrastructure. It gives restaurants a white-label branded ordering site, a presence in the Neighborhood Hub, AI-powered growth tools (N4Logic), and merchant-owned delivery coordination (N4Sync) — all for $0.99 per order, with no commission on revenue.",
   },
   {
     question: "How is N4Cluster different from DoorDash, Uber Eats, or Grubhub?",
     answer:
-      "Those are marketplace platforms that take 25–30% commission on every order, own the customer relationship, and use your restaurant to drive traffic to their app. N4Cluster is the opposite: you have a fully branded site under your domain, you own the customer data, orders go directly into your POS, and you pay $0.10 per order flat — not a percentage of revenue.",
+      "Those are marketplace platforms that take 25–30% commission on every order, own the customer relationship, and use your restaurant to drive traffic to their app. N4Cluster is the opposite: you have a fully branded site under your domain, you own the customer data, orders go directly into your POS, and you pay $0.99 per order flat — not a percentage of revenue.",
   },
   {
-    question: "What does $0.10 per order actually cover?",
+    question: "What does $0.99 per order actually cover?",
     answer:
-      "Everything. Your white-label ordering site, Neighborhood Hub listing, N4Logic AI Growth Autopilot (demand monitoring, campaign activation, risk alerts), N4Sync delivery coordination (driver dispatch, SLA tracking), and POS integration. There are no tiered plans, no add-on modules, and no monthly minimum. The full platform is included at $0.10 per order.",
+      "Everything. Your white-label ordering site, Neighborhood Hub listing, N4Logic AI Growth Autopilot (demand monitoring, campaign activation, risk alerts), N4Sync delivery coordination (driver dispatch, SLA tracking), and POS integration. There are no tiered plans, no add-on modules, and no monthly minimum. The full platform is included at $0.99 per order.",
   },
   {
     question: "What is the $0.50 customer fee?",
@@ -24,7 +24,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "Will my prices ever increase?",
     answer:
-      "Not without substantial advance notice and within a capped formula. Any increase must follow a CPI-based adjustment formula with a hard cap, and requires at least 90 days written notice. Material changes to the pricing model require 180 days notice and activate your right to exit. You can also lock in $0.10 for 1 or 2 years for full cost certainty.",
+      "Not without substantial advance notice and within a capped formula. Any increase must follow a CPI-based adjustment formula with a hard cap, and requires at least 90 days written notice. Material changes to the pricing model require 180 days notice and activate your right to exit. You can also lock in $0.99 for 1 or 2 years for full cost certainty.",
   },
   {
     question: "What is N4Logic?",

@@ -7,7 +7,7 @@ import { Check, ArrowRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "Solutions — Commission-Free Commerce for Every Restaurant Type",
   description:
-    "N4Cluster adapts to independent restaurants, multi-location brands, and delivery-first operators — always at $0.10 per order, no commission.",
+    "N4Cluster adapts to independent restaurants, multi-location brands, and delivery-first operators — always at $0.99 per order, no commission.",
 };
 
 // ─── Solution blocks ─────────────────────────────────────────────────────────
@@ -17,14 +17,14 @@ const solutions = [
     tag: "For independent restaurants",
     headline: "Stop handing 20–30% of every order to a marketplace.",
     subheadline:
-      "You built the food. You built the following. N4Cluster gives you the ordering channel to match — under your brand, with your customers, at $0.10 per order.",
+      "You built the food. You built the following. N4Cluster gives you the ordering channel to match — under your brand, with your customers, at $0.99 per order.",
     bullets: [
       "Branded direct ordering under your own website — no marketplace branding",
       "Customer data, contact info, and loyalty fully owned by you",
       "AI Growth Autopilot handles the marketing so you can focus on the kitchen",
       "Neighborhood Hub puts you in front of local customers discovering places nearby",
       "Delivery managed by N4Cluster — 30-minute SLA from pickup, logistics risk on us",
-      "$0.10 per order flat. No commission. No monthly minimum. Optional price lock.",
+      "$0.99 per order flat. No commission. No monthly minimum. Optional price lock.",
     ],
     outcomes: [
       { label: "Commission saved per $40 order vs 30% marketplace", value: "$11.90" },
@@ -49,7 +49,7 @@ const solutions = [
       "Menu and availability sync from POS — changes reflect instantly, no manual updates",
       "Cross-location AI insights: which locations are growing, which need attention",
       "Neighborhood Hub presence for every location, sorted by proximity to local customers",
-      "Flat $0.10 per order across every location — no per-location platform fees",
+      "Flat $0.99 per order across every location — no per-location platform fees",
     ],
     outcomes: [
       { label: "Locations managed in one platform", value: "All of them" },
@@ -79,7 +79,7 @@ const solutions = [
     outcomes: [
       { label: "SLA compliance target", value: "95%+" },
       { label: "Who owns logistics risk", value: "N4Cluster" },
-      { label: "Fee per order regardless of delivery complexity", value: "$0.10" },
+      { label: "Fee per order regardless of delivery complexity", value: "$0.99" },
     ],
     color: "#f59e0b",
     bg: "#fffbeb",
@@ -103,7 +103,7 @@ const solutions = [
     ],
     outcomes: [
       { label: "Integration model", value: "API / Webhook" },
-      { label: "Merchant fee model (conflict-free)", value: "$0.10 flat" },
+      { label: "Merchant fee model (conflict-free)", value: "$0.99 flat" },
       { label: "Onboarding approach", value: "Pilot-first" },
     ],
     color: "#2563eb",
@@ -121,8 +121,8 @@ function IndependentVisual() {
       <div className="text-xs font-semibold uppercase tracking-wider mb-4" style={{ color: "#64748b" }}>Monthly order comparison</div>
       {[
         { label: "Your current marketplace take", value: "-$1,200/mo", sub: "On 400 orders avg $10 commission each", bad: true },
-        { label: "N4Cluster total platform cost", value: "-$40/mo", sub: "On 400 orders × $0.10 flat fee", bad: false },
-        { label: "Margin recovered per month", value: "+$1,160", sub: "Stays in your business", good: true },
+        { label: "N4Cluster total platform cost", value: "-$396/mo", sub: "On 400 orders × $0.99 flat fee", bad: false },
+        { label: "Margin recovered per month", value: "+$804", sub: "Stays in your business", good: true },
       ].map((row) => (
         <div key={row.label} className="rounded-xl p-4 mb-3" style={{ background: row.good ? "rgba(20,184,166,0.08)" : "rgba(255,255,255,0.04)", border: `1px solid ${row.good ? "rgba(20,184,166,0.25)" : "rgba(255,255,255,0.07)"}` }}>
           <div className="flex justify-between items-start">
@@ -245,7 +245,7 @@ export default function SolutionsPage() {
     <>
       <HeroCentered
         eyebrow="Solutions"
-        heading="Your restaurant type. Our flat $0.10 per order."
+        heading="Your restaurant type. Our flat $0.99 per order."
         subheading="N4Cluster adapts to how you operate — independent, multi-location, or delivery-first. The pricing model never changes: no commission, ever."
         primaryCta={{ label: "Talk to the Team", href: "/contact" }}
         secondaryCta={{ label: "See Pricing", href: "/pricing" }}
@@ -335,7 +335,7 @@ export default function SolutionsPage() {
               },
               {
                 title: "Optional 1–2 year price lock",
-                body: "Lock in $0.10 per order for up to two years. CPI-capped adjustments only if necessary, with a defined formula and cap.",
+                body: "Lock in $0.99 per order for up to two years. CPI-capped adjustments only if necessary, with a defined formula and cap.",
                 color: "#f59e0b",
               },
             ].map((item) => (
