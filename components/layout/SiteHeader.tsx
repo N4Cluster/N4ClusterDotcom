@@ -74,15 +74,6 @@ export function SiteHeader() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <Link
-              href="/contact"
-              className={cn(
-                "text-sm font-medium transition-colors",
-                scrolled ? "text-slate-600 hover:text-navy-950" : "text-white/80 hover:text-white"
-              )}
-            >
-              Sign In
-            </Link>
             <Button href="/contact" size="sm">
               Request a Demo
             </Button>
