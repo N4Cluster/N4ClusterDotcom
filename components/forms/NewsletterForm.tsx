@@ -26,10 +26,16 @@ export function NewsletterForm({
     setError("");
     setStatus("submitting");
     try {
-      await new Promise((r) => setTimeout(r, 800));
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (!res.ok) throw new Error("server error");
       setStatus("success");
     } catch {
       setStatus("error");
+      setError("Something went wrong. Please try again.");
     }
   };
 
