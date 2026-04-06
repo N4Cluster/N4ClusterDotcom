@@ -54,6 +54,7 @@ export function ContactForm({ variant = "contact", dark = false }: ContactFormPr
     message: "",
     consent: false,
   });
+  const [honeypot, setHoneypot] = useState("");
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
@@ -85,7 +86,7 @@ export function ContactForm({ variant = "contact", dark = false }: ContactFormPr
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, _hp_website: honeypot }),
       });
       if (!res.ok) throw new Error("server error");
       setStatus("success");
@@ -239,6 +240,18 @@ export function ContactForm({ variant = "contact", dark = false }: ContactFormPr
           placeholder="Tell us about your business, goals, or specific questions…"
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+        />
+      </div>
+
+      {/* Honeypot — hidden from real users, bots auto-fill it */}
+      <div aria-hidden="true" className="absolute opacity-0 h-0 w-0 overflow-hidden" tabIndex={-1}>
+        <label htmlFor="hp_website">Website</label>
+        <input
+          id="hp_website"
+          type="text"
+          autoComplete="off"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
         />
       </div>
 

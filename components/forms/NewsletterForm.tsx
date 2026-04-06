@@ -14,6 +14,7 @@ export function NewsletterForm({
   buttonLabel = "Subscribe",
 }: NewsletterFormProps) {
   const [email, setEmail] = useState("");
+  const [honeypot, setHoneypot] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [error, setError] = useState("");
 
@@ -29,7 +30,7 @@ export function NewsletterForm({
       const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, _hp_website: honeypot }),
       });
       if (!res.ok) throw new Error("server error");
       setStatus("success");
@@ -49,6 +50,10 @@ export function NewsletterForm({
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 w-full max-w-md">
+      {/* Honeypot */}
+      <div aria-hidden="true" className="absolute opacity-0 h-0 w-0 overflow-hidden" tabIndex={-1}>
+        <input type="text" autoComplete="off" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} />
+      </div>
       <div className="flex-1">
         <input
           type="email"

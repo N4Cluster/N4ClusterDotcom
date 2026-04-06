@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { google } from "googleapis";
+import { isRateLimited, isHoneypotFilled } from "@/lib/rate-limit";
 
 function createOAuth2Client() {
   const oauth2Client = new google.auth.OAuth2(
@@ -14,7 +15,21 @@ function createOAuth2Client() {
 }
 
 export async function POST(req: NextRequest) {
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0] ?? "unknown";
+
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      { ok: false, error: "Too many requests. Please try again later." },
+      { status: 429 }
+    );
+  }
+
   const body = await req.json();
+
+  if (isHoneypotFilled(body)) {
+    // Silently accept — don't reveal bot detection
+    return NextResponse.json({ ok: true });
+  }
 
   const {
     firstName,

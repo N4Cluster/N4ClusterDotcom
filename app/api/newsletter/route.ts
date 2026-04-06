@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { google } from "googleapis";
+import { isRateLimited, isHoneypotFilled } from "@/lib/rate-limit";
 
 function createOAuth2Client() {
   const oauth2Client = new google.auth.OAuth2(
@@ -14,7 +15,21 @@ function createOAuth2Client() {
 }
 
 export async function POST(req: NextRequest) {
-  const { email } = await req.json();
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0] ?? "unknown";
+
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      { ok: false, error: "Too many requests. Please try again later." },
+      { status: 429 }
+    );
+  }
+
+  const body = await req.json();
+  const { email } = body;
+
+  if (isHoneypotFilled(body)) {
+    return NextResponse.json({ ok: true });
+  }
 
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return NextResponse.json(
@@ -27,7 +42,7 @@ export async function POST(req: NextRequest) {
   const encodedSubject = `=?UTF-8?B?${Buffer.from(subject).toString("base64")}?=`;
   const from = `N4Cluster Website <${process.env.GMAIL_USER}>`;
   const to = "founder@n4cluster.com";
-  const body = `New newsletter subscription:\n\nEmail: ${email}\nDate: ${new Date().toISOString()}`;
+  const emailBody = `New newsletter subscription:\n\nEmail: ${email}\nDate: ${new Date().toISOString()}`;
 
   const raw = Buffer.from(
     [
@@ -36,7 +51,7 @@ export async function POST(req: NextRequest) {
       `Subject: ${encodedSubject}`,
       "Content-Type: text/plain; charset=utf-8",
       "",
-      body,
+      emailBody,
     ].join("\r\n")
   )
     .toString("base64")
