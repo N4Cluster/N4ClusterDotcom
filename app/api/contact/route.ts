@@ -39,7 +39,7 @@ export async function POST(req: NextRequest) {
 
   const subject = `New enquiry from ${firstName} ${lastName} — ${company}`;
   const from = `N4Cluster Website <${process.env.GMAIL_USER}>`;
-  const to = "contact@n4cluster.com";
+  const to = "founder@n4cluster.com";
 
   // RFC 2822 message, base64url-encoded
   const raw = Buffer.from(
