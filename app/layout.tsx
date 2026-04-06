@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { CookieConsent } from "@/components/CookieConsent";
 import { siteConfig } from "@/content/site/settings";
 
 const inter = Inter({
@@ -85,6 +86,7 @@ export default function RootLayout({
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
+        <CookieConsent />
       </body>
     </html>
   );
