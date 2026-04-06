@@ -9,6 +9,7 @@ export interface Resource {
   href: string;
   date?: string;
   readTime?: string;
+  body?: string[];
 }
 
 interface ResourceCardProps {
