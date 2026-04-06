@@ -37,7 +37,8 @@ export async function POST(req: NextRequest) {
     message ? `\nMessage:\n${message}` : null,
   ].filter(Boolean).join("\n");
 
-  const subject = `New enquiry from ${firstName} ${lastName} — ${company}`;
+  const subject = `New enquiry from ${firstName} ${lastName} - ${company}`;
+  const encodedSubject = `=?UTF-8?B?${Buffer.from(subject).toString("base64")}?=`;
   const from = `N4Cluster Website <${process.env.GMAIL_USER}>`;
   const to = "founder@n4cluster.com";
 
@@ -47,7 +48,7 @@ export async function POST(req: NextRequest) {
       `From: ${from}`,
       `To: ${to}`,
       `Reply-To: ${workEmail}`,
-      `Subject: ${subject}`,
+      `Subject: ${encodedSubject}`,
       "Content-Type: text/plain; charset=utf-8",
       "",
       lines,
