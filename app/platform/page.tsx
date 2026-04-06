@@ -8,7 +8,7 @@ import { Check, ArrowRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "Platform — Four Layers. One Monthly Bill.",
   description:
-    "N4Cluster is four things working together: white-label ordering, Neighborhood Hub discovery, AI Growth Autopilot, and merchant-accountable delivery — for $0.10 per order.",
+    "N4Cluster is four things working together: white-label ordering, Neighborhood Hub discovery, AI Growth Autopilot, and merchant-accountable delivery — for $0.99 per order.",
 };
 
 const pillars = [
@@ -28,7 +28,7 @@ const pillars = [
       "Merchant controls all pricing and item visibility",
       "No forced restructuring of your menu or categories",
     ],
-    metric: { value: "$0.10", label: "per order — regardless of ticket size" },
+    metric: { value: "$0.99", label: "per order — regardless of ticket size" },
   },
   {
     id: "hub",
@@ -92,7 +92,7 @@ export default function PlatformPage() {
       <HeroCentered
         eyebrow="The platform"
         heading="One platform. Four things working together."
-        subheading="N4Cluster is white-label ordering, neighborhood discovery, AI-powered growth, and merchant-accountable delivery — connected in a single system for $0.10 per order."
+        subheading="N4Cluster is white-label ordering, neighborhood discovery, AI-powered growth, and merchant-accountable delivery — connected in a single system for $0.99 per order."
         primaryCta={{ label: "Request a Walkthrough", href: "/contact" }}
         secondaryCta={{ label: "See Pricing", href: "/pricing" }}
       />
@@ -180,7 +180,7 @@ export default function PlatformPage() {
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
             {[
-              { title: "No commission. Ever.", body: "Not now. Not later. Not disguised as a service fee. Flat $0.10 per order." },
+              { title: "No commission. Ever.", body: "Not now. Not later. Not disguised as a service fee. Flat $0.99 per order." },
               { title: "No pricing parity required.", body: "You can charge differently on different channels. We have no say in your pricing." },
               { title: "90–180 day change notice.", body: "Any material policy change comes with advance notice and exit rights. In writing." },
               { title: "Your data. Always.", body: "Customer data is yours to access, market to, and take with you if you leave." },

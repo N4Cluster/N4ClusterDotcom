@@ -87,7 +87,7 @@ const phases = [
     headline: "Neighborhood order density compounds.",
     sub: "Every order builds the model. More direct orders. More repeat customers. More margin.",
     tasks: [
-      "$0.10 per order — the same fee regardless of order volume or ticket size",
+      "$0.99 per order — the same fee regardless of order volume or ticket size",
       "Customer loyalty and data accumulates in your account — not the platform's",
       "N4Logic continuously improves campaign timing based on real data",
       "SLA performance tracked and reported transparently every week",
@@ -100,7 +100,7 @@ const phases = [
       { label: "Customer data owned by merchant", status: "done" },
       { label: "Campaign performance improving", status: "done" },
       { label: "SLA compliance: 97%", status: "done" },
-      { label: "$0.10 per order. No change.", status: "done" },
+      { label: "$0.99 per order. No change.", status: "done" },
     ],
   },
 ];
@@ -215,7 +215,7 @@ export default function HowItWorksPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
               { value: "Day 1", label: "Live branded ordering" },
-              { value: "$0.10", label: "Per order, flat — forever" },
+              { value: "$0.99", label: "Per order, flat — forever" },
               { value: "30 min", label: "Delivery SLA, our risk" },
               { value: "0%", label: "Commission. Ever." },
             ].map((stat) => (
