@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { getUtmParams } from "@/lib/utm";
 
 interface FormData {
   firstName: string;
@@ -83,13 +84,7 @@ export function ContactForm({ variant = "contact", dark = false }: ContactFormPr
     setStatus("submitting");
 
     try {
-      // Capture UTM params from current page URL
-      const params = new URLSearchParams(window.location.search);
-      const utm = {
-        utm_source: params.get("utm_source") || undefined,
-        utm_medium: params.get("utm_medium") || undefined,
-        utm_campaign: params.get("utm_campaign") || undefined,
-      };
+      const utm = getUtmParams();
 
       const res = await fetch("/api/contact", {
         method: "POST",

@@ -55,6 +55,9 @@ export async function POST(req: NextRequest) {
           last_name: "Subscriber",
           email,
           source: "website_newsletter",
+          utm_source: body.utm_source || undefined,
+          utm_medium: body.utm_medium || undefined,
+          utm_campaign: body.utm_campaign || undefined,
         }),
       });
     } catch (err) {
