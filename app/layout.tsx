@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { Analytics } from "@/components/Analytics";
 import { CookieConsent } from "@/components/CookieConsent";
+import { UtmCapture } from "@/components/UtmCapture";
 import { siteConfig } from "@/content/site/settings";
 
 const inter = Inter({
@@ -85,6 +86,7 @@ export default function RootLayout({
       </head>
       <body>
         <Analytics />
+        <UtmCapture />
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />

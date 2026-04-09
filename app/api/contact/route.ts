@@ -89,6 +89,8 @@ export async function POST(req: NextRequest) {
     utm_source,
     utm_medium,
     utm_campaign,
+    utm_content,
+    utm_term,
   } = body;
 
   // POST to ICP Finder for lead enrichment

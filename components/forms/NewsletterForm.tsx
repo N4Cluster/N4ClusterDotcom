@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { getUtmParams } from "@/lib/utm";
 
 interface NewsletterFormProps {
   dark?: boolean;
@@ -30,7 +31,7 @@ export function NewsletterForm({
       const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, _hp_website: honeypot }),
+        body: JSON.stringify({ email, ...getUtmParams(), _hp_website: honeypot }),
       });
       if (!res.ok) throw new Error("server error");
       setStatus("success");
