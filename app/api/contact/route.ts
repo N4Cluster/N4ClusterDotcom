@@ -14,6 +14,52 @@ function createOAuth2Client() {
   return oauth2Client;
 }
 
+interface IcpLeadResponse {
+  icp_fit_label?: string;
+  icp_total_score?: number;
+  matched_restaurant_name?: string;
+  is_independent?: boolean;
+  has_delivery?: boolean;
+}
+
+async function postToIcpFinder(
+  body: Record<string, string | undefined>
+): Promise<IcpLeadResponse | null> {
+  const icpUrl = process.env.ICP_FINDER_API_URL;
+  if (!icpUrl) return null;
+
+  try {
+    const res = await fetch(`${icpUrl}/api/v1/leads`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        ...(process.env.ICP_FINDER_API_KEY
+          ? { "X-API-Key": process.env.ICP_FINDER_API_KEY }
+          : {}),
+      },
+      body: JSON.stringify({
+        first_name: body.firstName,
+        last_name: body.lastName,
+        email: body.workEmail,
+        company: body.company,
+        business_type: body.businessType,
+        locations: body.locations,
+        interest: body.interest,
+        message: body.message,
+        source: "website_demo",
+        utm_source: body.utm_source || undefined,
+        utm_medium: body.utm_medium || undefined,
+        utm_campaign: body.utm_campaign || undefined,
+      }),
+    });
+    if (res.ok) return (await res.json()) as IcpLeadResponse;
+    console.error("ICP Finder lead creation failed:", res.status, await res.text());
+  } catch (err) {
+    console.error("ICP Finder unreachable:", err);
+  }
+  return null;
+}
+
 export async function POST(req: NextRequest) {
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0] ?? "unknown";
 
@@ -40,7 +86,24 @@ export async function POST(req: NextRequest) {
     locations,
     interest,
     message,
+    utm_source,
+    utm_medium,
+    utm_campaign,
   } = body;
+
+  // POST to ICP Finder for lead enrichment
+  const icpResult = await postToIcpFinder(body);
+
+  const icpLines = icpResult
+    ? [
+        "\n--- ICP Enrichment ---",
+        icpResult.icp_fit_label ? `Fit: ${icpResult.icp_fit_label}` : null,
+        icpResult.icp_total_score != null ? `Score: ${icpResult.icp_total_score}` : null,
+        icpResult.matched_restaurant_name ? `Matched: ${icpResult.matched_restaurant_name}` : null,
+        icpResult.is_independent != null ? `Independent: ${icpResult.is_independent}` : null,
+        icpResult.has_delivery != null ? `Delivery: ${icpResult.has_delivery}` : null,
+      ].filter(Boolean)
+    : [];
 
   const lines = [
     `Name: ${firstName} ${lastName}`,
@@ -50,6 +113,7 @@ export async function POST(req: NextRequest) {
     locations ? `Locations: ${locations}` : null,
     interest ? `Interest: ${interest}` : null,
     message ? `\nMessage:\n${message}` : null,
+    ...icpLines,
   ].filter(Boolean).join("\n");
 
   const subject = `New enquiry from ${firstName} ${lastName} - ${company}`;
