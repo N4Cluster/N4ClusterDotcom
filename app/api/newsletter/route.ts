@@ -38,6 +38,30 @@ export async function POST(req: NextRequest) {
     );
   }
 
+  // POST to ICP Finder for lead tracking
+  const icpUrl = process.env.ICP_FINDER_API_URL;
+  if (icpUrl) {
+    try {
+      await fetch(`${icpUrl}/api/v1/leads`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          ...(process.env.ICP_FINDER_API_KEY
+            ? { "X-API-Key": process.env.ICP_FINDER_API_KEY }
+            : {}),
+        },
+        body: JSON.stringify({
+          first_name: "Newsletter",
+          last_name: "Subscriber",
+          email,
+          source: "website_newsletter",
+        }),
+      });
+    } catch (err) {
+      console.error("ICP Finder newsletter lead failed:", err);
+    }
+  }
+
   const subject = `New newsletter signup - ${email}`;
   const encodedSubject = `=?UTF-8?B?${Buffer.from(subject).toString("base64")}?=`;
   const from = `N4Cluster Website <${process.env.GMAIL_USER}>`;
