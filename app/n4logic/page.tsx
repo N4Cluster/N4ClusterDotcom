@@ -147,6 +147,42 @@ export default function N4LogicPage() {
         );
       })}
 
+      {/* Technical underpinning */}
+      <section className="bg-slate-50 py-16 md:py-24">
+        <Container size="lg">
+          <SectionIntro
+            eyebrow="Under the hood"
+            heading="AI built for operators, not experiments"
+            subheading="N4Logic is designed to use purpose-built models trained on local commerce signals — not generic AI bolted on after the fact."
+          />
+          <div className="grid lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {[
+              {
+                title: "NLP catalog classification",
+                description: "Automated menu ingestion uses natural language processing to extract items, modifiers, and categories from unstructured POS data.",
+              },
+              {
+                title: "Time-series demand forecasting",
+                description: "Neighborhood-level order prediction using historical patterns, temporal signals, and external variables like weather and local events.",
+              },
+              {
+                title: "Behavioral cohort analysis",
+                description: "Customer segmentation using purchase frequency, recency, and value signals to identify churn risk and re-engagement windows.",
+              },
+              {
+                title: "Anomaly detection",
+                description: "Statistical monitoring for refund spikes, SLA degradation, integration failures, and fraud risk patterns across the order lifecycle.",
+              },
+            ].map((item) => (
+              <div key={item.title} className="bg-white border border-slate-200 rounded-xl p-6">
+                <h3 className="font-bold text-navy-950 mb-2 text-sm">{item.title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       {/* Guardrails */}
       <section className="py-16 md:py-24" style={{ background: "#040d1c" }}>
         <Container>

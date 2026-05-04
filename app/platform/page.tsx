@@ -195,6 +195,50 @@ export default function PlatformPage() {
         </Container>
       </section>
 
+      {/* Infrastructure */}
+      <section className="bg-slate-50 py-16 md:py-24">
+        <Container>
+          <SectionIntro
+            eyebrow="Infrastructure"
+            heading="Built on Google Cloud"
+            subheading="N4Cluster runs on Google Cloud Platform for reliability, global scale, and AI-native infrastructure."
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              {
+                title: "Compute & orchestration",
+                description: "Google Kubernetes Engine and Cloud Run for microservice hosting, auto-scaling, and serverless workloads.",
+              },
+              {
+                title: "Data & analytics",
+                description: "BigQuery for near-real-time merchant analytics, neighborhood demand intelligence, and anonymized insights.",
+              },
+              {
+                title: "AI & machine learning",
+                description: "Vertex AI powering N4Logic’s menu intelligence, demand forecasting, and campaign automation models.",
+              },
+              {
+                title: "Event streaming",
+                description: "Pub/Sub for real-time order lifecycle events, integration webhooks, and cross-service communication.",
+              },
+              {
+                title: "Security & isolation",
+                description: "Cloud IAM, Secret Manager, and VPC Service Controls for tenant isolation and PII boundary enforcement.",
+              },
+              {
+                title: "Observability",
+                description: "Cloud Operations Suite for distributed tracing, metrics, alerting, and SLO tracking across all platform layers.",
+              },
+            ].map((item) => (
+              <div key={item.title} className="bg-white border border-slate-200 rounded-2xl p-6">
+                <h3 className="font-bold text-navy-950 mb-2">{item.title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       <CTASection
         heading="See the platform in your restaurant's context"
         subheading="Request a walkthrough and we'll show you exactly how each layer works for your business model."

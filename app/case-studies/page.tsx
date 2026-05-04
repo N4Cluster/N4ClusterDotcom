@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 const caseStudies = [
   {
-    badge: "Design Partner Scenario",
+    badge: "Design Partner Pilot",
     heading: "Reducing fragmentation and strengthening direct ordering",
     description:
       "How a local operator could reduce operational fragmentation, launch a branded direct channel, and gain visibility into what's driving repeat demand — by replacing multiple disconnected tools with N4Cluster's connected operating layer.",
@@ -27,7 +27,7 @@ const caseStudies = [
     accent: "cobalt",
   },
   {
-    badge: "Multi-location Scenario",
+    badge: "Multi-location Pilot",
     heading: "Shared visibility and orchestration across locations",
     description:
       "How shared visibility and orchestration could improve consistency across locations for a growing local brand — without requiring each location to operate as a separate system.",
@@ -40,7 +40,7 @@ const caseStudies = [
     accent: "teal",
   },
   {
-    badge: "Neighborhood Growth Scenario",
+    badge: "Neighborhood Growth Pilot",
     heading: "Building repeat behavior through merchant-owned engagement",
     description:
       "How merchant-owned customer engagement could improve repeat purchase behavior over time — replacing marketplace-dependent discovery with a compounding local demand model.",
@@ -66,7 +66,7 @@ export default function CaseStudiesPage() {
       <HeroCentered
         eyebrow="Case studies and pilots"
         heading="Pilot stories and emerging proof points"
-        subheading="A closer look at how N4Cluster is designed to improve brand ownership, coordination, and growth outcomes in local commerce."
+        subheading="A closer look at how N4Cluster improves brand ownership, coordination, and growth outcomes in local commerce."
         primaryCta={{ label: "Talk About a Pilot", href: "/contact?interest=pilot" }}
       />
 
