@@ -3,8 +3,8 @@ export const siteConfig = {
   tagline: "Infrastructure for Local Commerce",
   description:
     "N4Cluster helps local businesses own the customer relationship with merchant-first ordering, neighborhood demand growth, orchestration, and AI-assisted operations.",
-  url: "https://n4cluster.com",
-  ogImage: "https://n4cluster.com/og-image.png",
+  url: "https://www.n4cluster.com",
+  ogImage: "https://www.n4cluster.com/og-image.png",
 
   subBrands: {
     n4sync: {

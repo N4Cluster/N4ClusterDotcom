@@ -6,6 +6,7 @@ import { CTASection } from "@/components/sections/CTASection";
 import { Container } from "@/components/ui/Container";
 import { SectionIntro } from "@/components/ui/SectionIntro";
 import { ResourceGrid } from "@/components/sections/ResourceCard";
+import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { resources } from "@/content/pages/resources";
 import {
   Store,
@@ -134,7 +135,7 @@ export default function HomePage() {
         subheading="N4Cluster gives local restaurants a branded direct channel, neighborhood discovery, AI-powered growth automation, and delivery — for a flat $0.99 per order. No commissions. No surprises. Ever."
         primaryCta={{ label: "Request a Demo", href: "/contact" }}
         secondaryCta={{ label: "See How It Works", href: "/how-it-works" }}
-        microcopy="$0.99 per order. No monthly minimum. Optional 1–2 year price lock."
+        microcopy="Now onboarding founding merchants · $0.99 per order · No monthly minimum"
       />
 
       {/* ── Trust strip ── */}
@@ -407,6 +408,18 @@ export default function HomePage() {
         primaryCta={{ label: "Request a Demo", href: "/contact" }}
         secondaryCta={{ label: "See Pricing", href: "/pricing" }}
       />
+
+      {/* ── Newsletter capture ── */}
+      <section className="bg-white py-12 border-t border-slate-200">
+        <Container>
+          <div className="flex flex-col items-center text-center">
+            <p className="text-sm font-medium text-navy-950 mb-3">
+              Stay updated on N4Cluster
+            </p>
+            <NewsletterForm placeholder="Enter your email" buttonLabel="Get Updates" />
+          </div>
+        </Container>
+      </section>
     </>
   );
 }
