@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/integrations",
     "/n4logic",
     "/pricing",
+    "/roi-calculator",
     "/resources",
     "/case-studies",
     "/about",

@@ -34,6 +34,7 @@ export const footerLinks = [
       { label: "Case Studies", href: "/case-studies" },
       { label: "FAQ", href: "/faq" },
       { label: "Pricing", href: "/pricing" },
+      { label: "ROI Calculator", href: "/roi-calculator" },
     ],
   },
   {
