@@ -37,7 +37,7 @@ A rebuild of the N4Cluster marketing website that transitions from hardcoded Typ
 
 ### Who it is for
 
-- **Primary:** Independent restaurant owners evaluating alternatives to marketplace commission models (DoorDash, Uber Eats, Grubhub).
+- **Primary:** Independent restaurant owners evaluating alternatives to marketplace commission models.
 - **Secondary:** Multi-location restaurant brands seeking unified ordering infrastructure.
 - **Tertiary:** Integration/ecosystem partners (POS vendors, delivery networks) evaluating partnership.
 - **Internal:** Marketing team needing to publish content, update pages, and track conversion without deploying code.
@@ -193,7 +193,7 @@ Resources (dropdown)
 8. **Resources teaser** -- 3 most recent articles.
 9. **Final CTA section** -- "Ready to stop paying commissions?" with demo + pricing CTAs.
 
-**SEO intent:** "commission-free restaurant ordering", "alternative to DoorDash for restaurants", "direct ordering platform"
+**SEO intent:** "commission-free restaurant ordering", "marketplace alternative for restaurants", "direct ordering platform"
 
 **Schema markup:** `Organization`, `WebSite`, `FAQPage` (if FAQ section added)
 
@@ -209,7 +209,7 @@ Resources (dropdown)
 **Required sections:**
 
 1. **Hero (centered)** -- "$0.99 per order. No commission. Ever."
-2. **Commission comparison table** -- DoorDash/Uber Eats/Grubhub/N4Cluster across $40/$80/$150 order sizes.
+2. **Commission comparison table** -- Tiered marketplace commission examples (high/mid/lower) vs N4Cluster across $40/$80/$150 order sizes.
 3. **Interactive savings calculator** -- Slider for avg order value + monthly order count. Real-time display of marketplace cost vs N4Cluster cost. Annual savings highlight.
 4. **What is included** -- Single tier, everything included. Feature checklist: white-label site, Neighborhood Hub, N4Logic, N4Sync, POS integration, analytics dashboard.
 5. **Pricing protections** -- 6 cards: No monthly minimums, no commission, no pricing parity, no bundled charges, no hidden renewals, right to exit.
@@ -218,7 +218,7 @@ Resources (dropdown)
 8. **FAQ section** -- Pricing-specific questions (subset of main FAQ).
 9. **Final CTA** -- "The math works. See for yourself."
 
-**SEO intent:** "restaurant ordering platform pricing", "flat fee ordering system", "DoorDash commission alternative"
+**SEO intent:** "restaurant ordering platform pricing", "flat fee ordering system", "marketplace commission alternative"
 
 **Schema markup:** `Product` with `offers`, `FAQPage`
 
@@ -272,7 +272,7 @@ Resources (dropdown)
 5. **Timeline expectations** -- "Day 1: POS connected. Day 3: Storefront live. Week 1: Neighborhood Hub active. Month 1: AI autopilot running."
 6. **Final CTA** -- "Ready to get started?"
 
-**SEO intent:** "how to set up direct ordering", "restaurant ordering setup", "switch from DoorDash"
+**SEO intent:** "how to set up direct ordering", "restaurant ordering setup", "switch from marketplace platforms"
 
 **Schema markup:** `HowTo` with steps
 
@@ -314,14 +314,14 @@ Resources (dropdown)
 **Required sections:**
 
 1. **Hero (split)** -- "Own your orders. Keep your margin." Subhead focused on commission escape.
-2. **Problem quantification** -- "On 200 orders/month at $40 avg, you're paying $2,400/month to DoorDash. With N4Cluster: $198."
+2. **Problem quantification** -- "On 200 orders/month at $40 avg, you're paying $2,400/month to marketplace platforms. With N4Cluster: $198."
 3. **Three pillars for independents** -- Branded ordering, customer ownership, AI growth -- each with independent-specific framing.
 4. **Savings calculator** -- Pre-filled for single-location scenario.
 5. **Social proof / case study teaser** -- Design partner story or anonymized metrics.
-6. **Objection handling** -- "But my customers are already on DoorDash" / "I don't have time to manage another platform" / "What if it doesn't work?"
+6. **Objection handling** -- "But my customers are already on marketplace platforms" / "I don't have time to manage another platform" / "What if it doesn't work?"
 7. **Final CTA** -- "Start your pilot. $0.99 per order."
 
-**SEO intent:** "direct ordering for independent restaurants", "stop paying DoorDash commissions", "restaurant commission-free ordering"
+**SEO intent:** "direct ordering for independent restaurants", "stop paying marketplace commissions", "restaurant commission-free ordering"
 
 ---
 
@@ -1261,7 +1261,7 @@ export default {
       title: "Columns",
       type: "array",
       of: [{ type: "string" }],
-      description: "e.g., ['DoorDash', 'Uber Eats', 'Grubhub', 'N4Cluster']",
+      description: "e.g., ['High-commission marketplace', 'Mid-commission marketplace', 'Lower-commission marketplace', 'N4Cluster']",
     },
     {
       name: "rows",
@@ -1844,7 +1844,7 @@ export const analytics = {
 | Cluster | Hub page | Target keywords |
 |---|---|---|
 | **Restaurant direct ordering** | `/solutions/independent` | "direct ordering for restaurants", "restaurant branded ordering", "own your restaurant orders" |
-| **Marketplace alternatives** | `/pricing` | "DoorDash alternative", "Uber Eats alternative", "commission-free ordering", "restaurant commission comparison" |
+| **Marketplace alternatives** | `/pricing` | "marketplace platform alternative", "commission-free ordering", "restaurant commission comparison" |
 | **POS integration** | `/integrations` | "Square restaurant ordering", "Toast direct ordering", "POS integration platform" |
 | **Restaurant growth** | `/platform/n4logic` | "restaurant AI growth", "restaurant demand automation", "restaurant customer retention" |
 | **Neighborhood commerce** | `/platform` | "local commerce infrastructure", "neighborhood ordering", "local business technology" |
@@ -2002,7 +2002,7 @@ N4Cluster is early-stage. There are no published case studies, customer testimon
 
 - [ ] All pages proofread for spelling and grammar
 - [ ] Pricing numbers consistent across all pages ($0.99, $0.50 customer fee)
-- [ ] Commission comparison percentages consistent (DoorDash 30%, Uber Eats 27%, Grubhub 25%)
+- [ ] Commission comparison percentages consistent (High 30%, Mid 27%, Lower 25%)
 - [ ] All external links open in new tab with `rel="noopener noreferrer"`
 - [ ] Legal pages (privacy, terms, cookies) reviewed by legal counsel
 - [ ] Copyright year is current
