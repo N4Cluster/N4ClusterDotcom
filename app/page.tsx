@@ -153,7 +153,7 @@ export default function HomePage() {
                 You built your restaurant. The marketplace owns your customer.
               </h2>
               <p className="text-lg leading-relaxed mb-6" style={{ color: "#475569" }}>
-                DoorDash, Uber Eats, and Grubhub charge 20–30% per order. On a $40 ticket, that&apos;s up to $12 gone before you see a cent. They own your customer data. They control discovery. They can change terms whenever they like.
+                Marketplace delivery platforms charge 20–30% per order. On a $40 ticket, that&apos;s up to $12 gone before you see a cent. They own your customer data. They control discovery. They can change terms whenever they like.
               </p>
               <p className="text-base leading-relaxed" style={{ color: "#475569" }}>
                 N4Cluster charges <strong style={{ color: "#040d1c" }}>$0.99 flat per order</strong> — infrastructure pricing, not commission extraction. You keep the customer, the data, and the margin.
@@ -167,8 +167,8 @@ export default function HomePage() {
                 </div>
                 <div className="divide-y" style={{ borderColor: "#e2e8f0" }}>
                   {[
-                    { label: "DoorDash / Uber Eats", fee: "Up to $12.00 (30%)", keep: "$28.00", bad: true },
-                    { label: "Grubhub", fee: "Up to $8.00 (20%)", keep: "$32.00", bad: true },
+                    { label: "High-commission marketplaces", fee: "Up to $12.00 (30%)", keep: "$28.00", bad: true },
+                    { label: "Lower-commission marketplace", fee: "Up to $8.00 (20%)", keep: "$32.00", bad: true },
                     { label: "N4Cluster", fee: "$0.99 flat", keep: "$39.01", bad: false },
                   ].map((row) => (
                     <div key={row.label} className="flex items-center justify-between px-5 py-4">

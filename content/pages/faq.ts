@@ -7,7 +7,7 @@ export const faqItems: FAQItem[] = [
       "N4Cluster is commission-free restaurant commerce infrastructure. It gives restaurants a white-label branded ordering site, a presence in the Neighborhood Hub, AI-powered growth tools (N4Logic), and merchant-owned delivery coordination (N4Sync) — all for $0.99 per order, with no commission on revenue.",
   },
   {
-    question: "How is N4Cluster different from DoorDash, Uber Eats, or Grubhub?",
+    question: "How is N4Cluster different from marketplace delivery platforms?",
     answer:
       "Those are marketplace platforms that take 25–30% commission on every order, own the customer relationship, and use your restaurant to drive traffic to their app. N4Cluster is the opposite: you have a fully branded site under your domain, you own the customer data, orders go directly into your POS, and you pay $0.99 per order flat — not a percentage of revenue.",
   },

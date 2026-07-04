@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 };
 
 const commissionComparison = [
-  { platform: "DoorDash", rate: "30%", on40: "$12.00", on80: "$24.00", on150: "$45.00", color: "#ef4444" },
-  { platform: "Uber Eats", rate: "27%", on40: "$10.80", on80: "$21.60", on150: "$40.50", color: "#f97316" },
-  { platform: "Grubhub", rate: "25%", on40: "$10.00", on80: "$20.00", on150: "$37.50", color: "#eab308" },
+  { platform: "High-commission marketplace", rate: "30%", on40: "$12.00", on80: "$24.00", on150: "$45.00", color: "#ef4444" },
+  { platform: "Mid-commission marketplace", rate: "27%", on40: "$10.80", on80: "$21.60", on150: "$40.50", color: "#f97316" },
+  { platform: "Lower-commission marketplace", rate: "25%", on40: "$10.00", on80: "$20.00", on150: "$37.50", color: "#eab308" },
   { platform: "N4Cluster", rate: "0%", on40: "$0.99", on80: "$0.99", on150: "$0.99", color: "#14b8a6", bold: true },
 ];
 
@@ -163,7 +163,7 @@ export default function PricingPage() {
                 </div>
                 <div className="px-5 py-3.5" style={{ background: "#f0fdfb", borderTop: "1px solid #14b8a620" }}>
                   <div className="text-xs" style={{ color: "#64748b" }}>
-                    DoorDash and Uber Eats fees shown are <em>platform commission only</em> — additional payment processing, listing, and promotional fees often apply separately.
+                    Marketplace fees shown are <em>platform commission only</em> — additional payment processing, listing, and promotional fees often apply separately.
                   </div>
                 </div>
               </div>
