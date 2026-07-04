@@ -76,6 +76,11 @@ export const navItems: NavItem[] = [
         description: "Insights on local commerce",
       },
       {
+        label: "ROI Calculator",
+        href: "/roi-calculator",
+        description: "See your commission savings instantly",
+      },
+      {
         label: "Case Studies",
         href: "/case-studies",
         description: "Pilot stories and proof points",
