@@ -5,26 +5,26 @@ import { Container } from "@/components/ui/Container";
 import { Check } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Pricing — $0.99 Per Order. No Commission. Ever.",
+  title: "Pricing — $99/Month + $0.50 Per Order. No Commission. Ever.",
   description:
-    "N4Cluster charges $0.99 flat per order to the restaurant. No commission. No monthly minimum. No percentage of revenue. The math is simple by design.",
+    "N4Cluster charges the restaurant a flat $99/month platform fee plus $0.50 per order. No commission. No percentage of revenue. The math is simple by design.",
 };
 
 const commissionComparison = [
   { platform: "High-commission marketplace", rate: "30%", on40: "$12.00", on80: "$24.00", on150: "$45.00", color: "#ef4444" },
   { platform: "Mid-commission marketplace", rate: "27%", on40: "$10.80", on80: "$21.60", on150: "$40.50", color: "#f97316" },
   { platform: "Lower-commission marketplace", rate: "25%", on40: "$10.00", on80: "$20.00", on150: "$37.50", color: "#eab308" },
-  { platform: "N4Cluster", rate: "0%", on40: "$0.99", on80: "$0.99", on150: "$0.99", color: "#14b8a6", bold: true },
+  { platform: "N4Cluster", rate: "0%", on40: "$0.50", on80: "$0.50", on150: "$0.50", color: "#14b8a6", bold: true },
 ];
 
 const protections = [
   {
-    title: "No monthly minimums",
-    body: "You pay $0.99 per order processed. If no orders come through, you pay nothing. There is no base fee, no activation charge, no idle platform fee.",
+    title: "One flat fee — fully disclosed",
+    body: "The $99/month platform fee is quoted up front and never hidden. No add-on modules, no usage-based minimums, no surprise line items on your invoice.",
   },
   {
     title: "No commission on revenue",
-    body: "Every dollar of revenue on a $200 order stays with you — minus $0.99. The fee is fixed to the transaction, not to the ticket size.",
+    body: "Every dollar of revenue on a $200 order stays with you — minus $0.50. The fee is fixed to the transaction, not to the ticket size.",
   },
   {
     title: "No pricing parity clauses",
@@ -54,8 +54,8 @@ const customerFeeDetails = [
 ];
 
 const priceLockDetails = [
-  { term: "1-year lock", body: "Merchant fee fixed at $0.99/order for 12 months. No adjustments regardless of volume or platform changes." },
-  { term: "2-year lock", body: "Merchant fee fixed at $0.99/order for 24 months. Provides longer-horizon cost certainty for planning and negotiations." },
+  { term: "1-year lock", body: "Merchant fee fixed at $0.50/order and $99/month platform fee for 12 months. No adjustments regardless of volume or platform changes." },
+  { term: "2-year lock", body: "Merchant fee fixed at $0.50/order and $99/month platform fee for 24 months. Provides longer-horizon cost certainty for planning and negotiations." },
   { term: "Annual review", body: "After the lock period, pricing adjustments are permitted annually — but only up to the CPI cap formula, with full advance notice." },
 ];
 
@@ -72,7 +72,7 @@ export default function PricingPage() {
     <>
       <HeroCentered
         eyebrow="Pricing"
-        heading="$0.99 per order. No commission. Ever."
+        heading="$99/month + $0.50 per order. No commission. Ever."
         subheading="We built the fee structure around one principle: the platform should earn by making direct ordering work, not by taking a cut of your revenue. The math is simple by design."
         primaryCta={{ label: "Request a Demo", href: "/contact" }}
         secondaryCta={{ label: "See How It Works", href: "/how-it-works" }}
@@ -87,17 +87,21 @@ export default function PricingPage() {
                 Merchant fee
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold mb-5 leading-tight" style={{ color: "#040d1c" }}>
-                One flat fee.<br />Every order. No exceptions.
+                Two flat fees.<br />No commission. Ever.
               </h2>
               <p className="text-base leading-relaxed mb-6" style={{ color: "#475569" }}>
-                You pay <strong style={{ color: "#040d1c" }}>$0.99 per order</strong> processed through N4Cluster — your branded ordering site, the Neighborhood Hub, or any integrated channel. The fee is the same whether the order is $15 or $150. It does not scale with your revenue. It does not fluctuate with volume.
+                You pay a flat <strong style={{ color: "#040d1c" }}>$99 per month</strong> platform fee plus <strong style={{ color: "#040d1c" }}>$0.50 per order</strong> processed through N4Cluster — your branded ordering site, the Neighborhood Hub, or any integrated channel. Neither fee scales with your revenue. Neither fluctuates with ticket size.
               </p>
               <p className="text-base leading-relaxed mb-8" style={{ color: "#475569" }}>
-                No monthly platform fee. No setup charge. No percentage skimmed from every ticket. What you take from the customer is what you keep — minus ninety-nine cents.
+                No setup charge. No percentage skimmed from every ticket. What you take from the customer is what you keep — minus fifty cents per order, plus one flat $99 platform fee each month.
               </p>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 flex-wrap">
                 <div className="rounded-2xl px-8 py-6 text-center" style={{ background: "#f0fdfb", border: "1.5px solid #14b8a620" }}>
-                  <div className="text-4xl font-bold mb-1" style={{ color: "#040d1c" }}>$0.99</div>
+                  <div className="text-4xl font-bold mb-1" style={{ color: "#040d1c" }}>$99<span className="text-lg">/mo</span></div>
+                  <div className="text-xs font-semibold" style={{ color: "#14b8a6" }}>Platform fee — merchant</div>
+                </div>
+                <div className="rounded-2xl px-8 py-6 text-center" style={{ background: "#f0fdfb", border: "1.5px solid #14b8a620" }}>
+                  <div className="text-4xl font-bold mb-1" style={{ color: "#040d1c" }}>$0.50</div>
                   <div className="text-xs font-semibold" style={{ color: "#14b8a6" }}>Per order — merchant fee</div>
                 </div>
                 <div className="text-sm leading-relaxed" style={{ color: "#64748b" }}>
@@ -111,7 +115,7 @@ export default function PricingPage() {
               <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid #e2e8f0" }}>
                 <div className="px-5 py-4" style={{ background: "#f8fafc", borderBottom: "1px solid #e2e8f0" }}>
                   <div className="text-sm font-bold" style={{ color: "#040d1c" }}>What you keep on a $40 / $80 / $150 order</div>
-                  <div className="text-xs mt-0.5" style={{ color: "#64748b" }}>After platform fees. Commission rates are typical published rates.</div>
+                  <div className="text-xs mt-0.5" style={{ color: "#64748b" }}>After per-order fees (excludes N4Cluster's flat $99/month platform fee). Commission rates are typical published rates.</div>
                 </div>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
@@ -181,10 +185,10 @@ export default function PricingPage() {
                 Customer fee
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 leading-tight" style={{ color: "#040d1c" }}>
-                The $0.50 neighborhood fee is ours — not yours.
+                The $0.99 neighborhood fee is ours — not yours.
               </h2>
               <p className="text-base leading-relaxed mb-5" style={{ color: "#475569" }}>
-                Customers who order through N4Cluster channels see a <strong style={{ color: "#040d1c" }}>$0.50 N4Cluster Neighborhood Fee</strong> at checkout. This is a platform infrastructure fee collected by N4Cluster — it is <em>not</em> a surcharge added by your restaurant.
+                Customers who order through N4Cluster channels see a <strong style={{ color: "#040d1c" }}>$0.99 N4Cluster Neighborhood Fee</strong> at checkout. This is a platform infrastructure fee collected by N4Cluster — it is <em>not</em> a surcharge added by your restaurant.
               </p>
               <p className="text-base leading-relaxed mb-6" style={{ color: "#475569" }}>
                 You never see this money. You never handle customer questions about it. We make the fee attribution clear so customers know it goes to the neighborhood platform — not into restaurant margin.
@@ -224,18 +228,18 @@ export default function PricingPage() {
                       <span className="text-xs" style={{ color: "#94a3b8" }}>N4Cluster Neighborhood Fee</span>
                       <div className="text-xs mt-0.5" style={{ color: "#64748b" }}>Platform infrastructure — not a restaurant surcharge</div>
                     </div>
-                    <span className="text-xs font-semibold" style={{ color: "#f59e0b" }}>$0.50</span>
+                    <span className="text-xs font-semibold" style={{ color: "#f59e0b" }}>$0.99</span>
                   </div>
                   <div className="flex justify-between py-3 mt-1">
                     <span className="text-sm font-bold text-white">Total</span>
-                    <span className="text-sm font-bold text-white">$43.00</span>
+                    <span className="text-sm font-bold text-white">$43.49</span>
                   </div>
                 </div>
                 <div className="rounded-xl p-4" style={{ background: "rgba(20,184,166,0.08)", border: "1px solid rgba(20,184,166,0.2)" }}>
                   <div className="text-xs font-semibold mb-1" style={{ color: "#14b8a6" }}>What the restaurant keeps</div>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-2xl font-bold text-white">$41.51</span>
-                    <span className="text-xs" style={{ color: "#64748b" }}>($42.50 minus $0.99 merchant fee)</span>
+                    <span className="text-2xl font-bold text-white">$42.00</span>
+                    <span className="text-xs" style={{ color: "#64748b" }}>($42.50 minus $0.50 merchant fee; $99/mo platform fee billed separately)</span>
                   </div>
                 </div>
               </div>
@@ -255,7 +259,7 @@ export default function PricingPage() {
               The entire platform. No tiers. No upgrades.
             </h2>
             <p className="text-base" style={{ color: "#475569" }}>
-              $0.99 per order is not a stripped-down entry price with upsells behind it. It covers the full platform — everything N4Cluster runs.
+              $99/month plus $0.50 per order is not a stripped-down entry price with upsells behind it. It covers the full platform — everything N4Cluster runs.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
@@ -316,10 +320,10 @@ export default function PricingPage() {
                 Price lock — optional
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 leading-tight" style={{ color: "#040d1c" }}>
-                Lock in $0.99 for 1 or 2 years.
+                Lock in your rate for 1 or 2 years.
               </h2>
               <p className="text-base leading-relaxed mb-5" style={{ color: "#475569" }}>
-                By default, pricing is reviewed annually. If you want cost certainty for planning or multi-year commitments, you can lock the merchant fee at $0.99 for 1 or 2 years. No discounts for locking — the price is already flat. This is a predictability tool.
+                By default, pricing is reviewed annually. If you want cost certainty for planning or multi-year commitments, you can lock the merchant fee ($0.50/order and the $99/month platform fee) for 1 or 2 years. No discounts for locking — the price is already flat. This is a predictability tool.
               </p>
               <div className="space-y-3 mb-8">
                 {priceLockDetails.map((item) => (
@@ -373,20 +377,20 @@ export default function PricingPage() {
           <div className="space-y-4">
             {[
               {
-                q: "Is there a setup fee or monthly minimum?",
-                a: "No. There is no setup charge, no monthly platform fee, and no order minimum. You pay $0.99 per order processed. If you have a slow month and orders drop, your cost drops proportionally.",
+                q: "Is there a setup fee?",
+                a: "No setup charge. You pay a flat $99/month platform fee plus $0.50 per order processed. The $99/month is fixed regardless of volume; if you have a slow month and orders drop, only your per-order cost drops proportionally.",
               },
               {
                 q: "Does the fee change if my order volume increases?",
-                a: "No. $0.99 is flat per order regardless of volume. There are no volume tiers, no threshold penalties, and no performance-based rate adjustments. Higher volume means a higher absolute fee — but never a higher per-order rate.",
+                a: "No. $0.50 per order and $99/month are both flat regardless of volume. There are no volume tiers, no threshold penalties, and no performance-based rate adjustments. Higher volume means a higher absolute per-order total — but never a higher per-order rate or a higher monthly fee.",
               },
               {
                 q: "What if I want to offer delivery — does that cost extra?",
                 a: "N4Sync delivery coordination is included. Driver management, dispatch, and SLA tracking are covered. Third-party driver costs (actual courier compensation) are a separate logistics cost — but the coordination layer is part of the platform at no additional fee.",
               },
               {
-                q: "Is the $0.50 customer fee mandatory?",
-                a: "By default, the $0.50 Neighborhood Fee is added at checkout and handled entirely by N4Cluster. Restaurants who prefer to absorb it or build it into menu pricing can opt out of customer-facing display — this is a merchant configuration option.",
+                q: "Is the $0.99 customer fee mandatory?",
+                a: "By default, the $0.99 Neighborhood Fee is added at checkout and handled entirely by N4Cluster. Restaurants who prefer to absorb it or build it into menu pricing can opt out of customer-facing display — this is a merchant configuration option.",
               },
               {
                 q: "How does the price lock work if I want to cancel?",
@@ -394,7 +398,7 @@ export default function PricingPage() {
               },
               {
                 q: "What counts as a material change that triggers the 180-day notice and exit right?",
-                a: "Changes to the core pricing structure — moving to commission, adding a monthly minimum, changing the fee basis from per-order to revenue-based, or adjusting the customer fee attribution — would all qualify. Adjustments within the CPI formula with 90-day notice do not.",
+                a: "Changes to the core pricing structure — moving to commission, changing the fee basis from per-order/flat to revenue-based, increasing the $99/month platform fee outside the CPI formula, or adjusting the customer fee attribution — would all qualify. Adjustments within the CPI formula with 90-day notice do not.",
               },
             ].map((faq) => (
               <div key={faq.q} className="rounded-2xl p-6" style={{ background: "#f8fafc", border: "1px solid #e2e8f0" }}>
@@ -411,10 +415,10 @@ export default function PricingPage() {
         <Container>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { value: "$0.99", label: "Per order — merchant fee" },
-              { value: "$0.50", label: "Neighborhood fee — customer-facing, N4Cluster's" },
+              { value: "$99/mo", label: "Flat platform fee — merchant" },
+              { value: "$0.50", label: "Per order — merchant fee" },
+              { value: "$0.99", label: "Neighborhood fee — customer-facing, N4Cluster's" },
               { value: "0%", label: "Commission on revenue. Ever." },
-              { value: "90d+", label: "Notice required for any increase" },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
