@@ -5,7 +5,8 @@ import { ArrowRight, TrendingDown } from "lucide-react";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 
-const PLATFORM_FEE = 0.99;
+const PER_ORDER_FEE = 0.5;
+const MONTHLY_FEE = 99;
 const PROCESSING_RATE = 0.029;
 const PROCESSING_FLAT = 0.3;
 
@@ -91,9 +92,9 @@ export function ROICalculator() {
   const results = useMemo(() => {
     const marketplaceCost = orders * avgTicket * (commission / 100);
 
-    const platformFee = orders * PLATFORM_FEE;
+    const perOrderFee = orders * PER_ORDER_FEE;
     const processing = orders * (avgTicket * PROCESSING_RATE + PROCESSING_FLAT);
-    const n4Cost = platformFee + processing;
+    const n4Cost = perOrderFee + MONTHLY_FEE + processing;
 
     const monthlySavings = marketplaceCost - n4Cost;
     const annualSavings = monthlySavings * 12;
@@ -102,7 +103,8 @@ export function ROICalculator() {
 
     return {
       marketplaceCost,
-      platformFee,
+      perOrderFee,
+      monthlyFee: MONTHLY_FEE,
       processing,
       n4Cost,
       monthlySavings,
@@ -202,7 +204,7 @@ export function ROICalculator() {
                     N4Cluster cost
                   </span>
                   <span className="text-xs font-bold px-2 py-1 rounded-full" style={{ background: "#dcfce7", color: "#16a34a" }}>
-                    $0.99 flat / order
+                    $99/mo + $0.50/order
                   </span>
                 </div>
                 <div className="text-3xl font-bold tabular-nums" style={{ color: "#16a34a" }}>
@@ -212,7 +214,7 @@ export function ROICalculator() {
                   </span>
                 </div>
                 <div className="text-xs mt-2" style={{ color: "#15803d" }}>
-                  Flat platform fee plus standard payment processing — no percentage of revenue
+                  Flat monthly platform fee plus per-order fee and standard payment processing — no percentage of revenue
                 </div>
               </div>
 
@@ -226,10 +228,18 @@ export function ROICalculator() {
                 <div className="divide-y" style={{ borderColor: "#f1f5f9" }}>
                   <div className="flex items-center justify-between px-5 py-3.5">
                     <span className="text-sm" style={{ color: "#475569" }}>
-                      Platform fee ($0.99 × {orders.toLocaleString("en-US")} orders)
+                      Platform subscription (flat, per month)
                     </span>
                     <span className="text-sm font-semibold tabular-nums" style={{ color: "#040d1c" }}>
-                      {usd(results.platformFee)}
+                      {usd(results.monthlyFee)}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between px-5 py-3.5" style={{ borderTop: "1px solid #f1f5f9" }}>
+                    <span className="text-sm" style={{ color: "#475569" }}>
+                      Per-order fee ($0.50 × {orders.toLocaleString("en-US")} orders)
+                    </span>
+                    <span className="text-sm font-semibold tabular-nums" style={{ color: "#040d1c" }}>
+                      {usd(results.perOrderFee)}
                     </span>
                   </div>
                   <div className="flex items-center justify-between px-5 py-3.5" style={{ borderTop: "1px solid #f1f5f9" }}>
@@ -313,8 +323,8 @@ export function ROICalculator() {
             Ready to stop paying commissions?
           </h2>
           <p className="mt-4 text-lg max-w-2xl mx-auto" style={{ color: "#475569" }}>
-            These are your real numbers. Let&apos;s walk through what switching to a flat $0.99 per order would mean
-            for your restaurant — with no percentage skimmed off every ticket.
+            These are your real numbers. Let&apos;s walk through what switching to a flat $99/month plus $0.50 per
+            order would mean for your restaurant — with no percentage skimmed off every ticket.
           </p>
           <div className="mt-8 flex justify-center">
             <Link

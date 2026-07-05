@@ -44,7 +44,7 @@ A rebuild of the N4Cluster marketing website that transitions from hardcoded Typ
 
 ### Business problem
 
-The current site has strong messaging and a clear value proposition ($0.99 flat per order, no commissions) but suffers from three structural limitations:
+The current site has strong messaging and a clear value proposition ($99/month flat platform fee plus $0.50 per order, no commissions) but suffers from three structural limitations:
 
 1. **Content bottleneck.** Every text change requires a developer commit and deploy. This blocks marketing velocity.
 2. **No conversion instrumentation.** GA4 is wired but has no measurement ID. There is zero visibility into which pages, CTAs, or content drive demo requests.
@@ -69,7 +69,7 @@ The current site has strong messaging and a clear value proposition ($0.99 flat 
 
 | Audience | Pain point | What they need to see | Primary CTA |
 |---|---|---|---|
-| **Independent restaurant owner** | Losing 25-30% margin to marketplaces, no customer data ownership | Savings calculator, $0.99 pricing, branded storefront demo, comparison table | Request a Demo |
+| **Independent restaurant owner** | Losing 25-30% margin to marketplaces, no customer data ownership | Savings calculator, $99/mo + $0.50/order pricing, branded storefront demo, comparison table | Request a Demo |
 | **Multi-location operator** | Fragmented tech stack, inconsistent brand across locations, no centralized visibility | Unified dashboard pitch, location-level analytics, N4Sync orchestration | Request a Demo |
 | **Delivery-first brand** | Commission dependency for core business model, SLA accountability gaps | Neighborhood Hub demand engine, N4Sync 30-min SLA, logistics ownership | Request a Demo |
 | **Integration partner** | Looking for merchant-aligned platform to integrate with, revenue alignment | API/integration architecture, partner economics, pilot-first model | Partner Inquiry |
@@ -86,7 +86,7 @@ The current site has strong messaging and a clear value proposition ($0.99 flat 
 Every page follows this cascade:
 
 1. **Problem acknowledgment** -- "You built your restaurant. The marketplace owns your customer."
-2. **Mechanism** -- "Infrastructure, not extraction. $0.99 flat per order."
+2. **Mechanism** -- "Infrastructure, not extraction. $99/month flat plus $0.50 per order."
 3. **Proof** -- Calculator, comparison table, case study reference, partner mention
 4. **CTA** -- "Request a Demo" (primary), "See Pricing" or "See How It Works" (secondary)
 
@@ -183,8 +183,8 @@ Resources (dropdown)
 
 **Required sections (in order):**
 
-1. **Hero (split layout)** -- Eyebrow: "Commission-free commerce infrastructure". Headline: "Keep more of every order. Grow your neighborhood." Subhead: value prop paragraph. Primary + secondary CTA. Microcopy: "$0.99 per order. No monthly minimum."
-2. **Trust strip** -- 5 proof points: "$0.99 flat fee", "Your brand. Your customers.", "Merchant-owned loyalty", "30-min delivery SLA", "AI Growth Autopilot included"
+1. **Hero (split layout)** -- Eyebrow: "Commission-free commerce infrastructure". Headline: "Keep more of every order. Grow your neighborhood." Subhead: value prop paragraph. Primary + secondary CTA. Microcopy: "$99/mo + $0.50 per order."
+2. **Trust strip** -- 5 proof points: "$99/mo + $0.50 per order", "Your brand. Your customers.", "Merchant-owned loyalty", "30-min delivery SLA", "AI Growth Autopilot included"
 3. **Problem section** -- "You built your restaurant. The marketplace owns your customer." Side-by-side with commission comparison calculator ($40 order example).
 4. **Platform pillars** -- 4-card grid: White-label ordering, Neighborhood Hub, AI Growth Autopilot, Delivery.
 5. **How it works timeline** -- Day 1, Week 1, Month 1, Ongoing. Vertical timeline with numbered steps.
@@ -208,13 +208,13 @@ Resources (dropdown)
 
 **Required sections:**
 
-1. **Hero (centered)** -- "$0.99 per order. No commission. Ever."
+1. **Hero (centered)** -- "$99/month + $0.50 per order. No commission. Ever."
 2. **Commission comparison table** -- Tiered marketplace commission examples (high/mid/lower) vs N4Cluster across $40/$80/$150 order sizes.
-3. **Interactive savings calculator** -- Slider for avg order value + monthly order count. Real-time display of marketplace cost vs N4Cluster cost. Annual savings highlight.
+3. **Interactive savings calculator** -- Slider for avg order value + monthly order count. Real-time display of marketplace cost vs N4Cluster cost (includes the $99/mo platform fee). Annual savings highlight.
 4. **What is included** -- Single tier, everything included. Feature checklist: white-label site, Neighborhood Hub, N4Logic, N4Sync, POS integration, analytics dashboard.
-5. **Pricing protections** -- 6 cards: No monthly minimums, no commission, no pricing parity, no bundled charges, no hidden renewals, right to exit.
-6. **Customer fee explanation** -- $0.50 Neighborhood Fee details, opt-out info.
-7. **Price lock options** -- 1-year and 2-year lock terms, CPI adjustment formula.
+5. **Pricing protections** -- 6 cards: One flat fee (fully disclosed), no commission, no pricing parity, no bundled charges, no hidden renewals, right to exit.
+6. **Customer fee explanation** -- $0.99 Neighborhood Fee details, opt-out info.
+7. **Price lock options** -- 1-year and 2-year lock terms (locks both the per-order fee and the $99/month platform fee), CPI adjustment formula.
 8. **FAQ section** -- Pricing-specific questions (subset of main FAQ).
 9. **Final CTA** -- "The math works. See for yourself."
 
@@ -314,12 +314,12 @@ Resources (dropdown)
 **Required sections:**
 
 1. **Hero (split)** -- "Own your orders. Keep your margin." Subhead focused on commission escape.
-2. **Problem quantification** -- "On 200 orders/month at $40 avg, you're paying $2,400/month to marketplace platforms. With N4Cluster: $198."
+2. **Problem quantification** -- "On 200 orders/month at $40 avg, you're paying $2,400/month to marketplace platforms. With N4Cluster: $199 ($99/mo + $0.50/order)."
 3. **Three pillars for independents** -- Branded ordering, customer ownership, AI growth -- each with independent-specific framing.
 4. **Savings calculator** -- Pre-filled for single-location scenario.
 5. **Social proof / case study teaser** -- Design partner story or anonymized metrics.
 6. **Objection handling** -- "But my customers are already on marketplace platforms" / "I don't have time to manage another platform" / "What if it doesn't work?"
-7. **Final CTA** -- "Start your pilot. $0.99 per order."
+7. **Final CTA** -- "Start your pilot. $99/mo + $0.50 per order."
 
 **SEO intent:** "direct ordering for independent restaurants", "stop paying marketplace commissions", "restaurant commission-free ordering"
 
@@ -366,7 +366,7 @@ Resources (dropdown)
    - Consent checkbox (required)
 3. **Right column content:**
    - "What happens next" -- 3 steps: We review your submission, schedule a 30-min walkthrough, build a pilot plan.
-   - Trust signals: "$0.99/order", "No commitment required", "Live in days"
+   - Trust signals: "$99/mo + $0.50/order", "No commitment required", "Live in days"
    - Optional: testimonial quote
 4. **Success state** -- Confirmation message, expected response time, link to resources.
 
@@ -618,7 +618,7 @@ All buttons: `text-sm`, `transition-colors`, `focus-visible:outline-2 focus-visi
 Interactive client component:
 
 - **Inputs:** Average order value (slider, $20-$200, default $40), Monthly order count (slider, 50-2000, default 200)
-- **Outputs:** Monthly marketplace cost (at 25%), Monthly N4Cluster cost (orders x $0.99), Monthly savings, Annual savings
+- **Outputs:** Monthly marketplace cost (at 25%), Monthly N4Cluster cost (orders x $0.50 + $99/mo platform fee), Monthly savings, Annual savings
 - **Visual:** Side-by-side bar chart or large number comparison
 - **CTA:** "See full pricing" button below calculator
 
@@ -1129,7 +1129,8 @@ export default {
     { name: "defaultOrderValue", title: "Default Avg Order ($)", type: "number", initialValue: 40 },
     { name: "defaultMonthlyOrders", title: "Default Monthly Orders", type: "number", initialValue: 200 },
     { name: "marketplaceRate", title: "Marketplace Rate (%)", type: "number", initialValue: 25 },
-    { name: "n4clusterFee", title: "N4Cluster Fee ($)", type: "number", initialValue: 0.99 },
+    { name: "n4clusterPerOrderFee", title: "N4Cluster Per-Order Fee ($)", type: "number", initialValue: 0.5 },
+    { name: "n4clusterMonthlyFee", title: "N4Cluster Monthly Platform Fee ($)", type: "number", initialValue: 99 },
     { name: "cta", title: "CTA", type: "ctaObject" },
   ],
 };
@@ -1200,7 +1201,7 @@ export default {
         {
           type: "object",
           fields: [
-            { name: "value", title: "Value", type: "string", description: "e.g., '$0.99', '30 min', '100%'" },
+            { name: "value", title: "Value", type: "string", description: "e.g., '$0.50', '30 min', '100%'" },
             { name: "label", title: "Label", type: "string" },
             { name: "description", title: "Description (optional)", type: "string" },
           ],
@@ -2001,7 +2002,7 @@ N4Cluster is early-stage. There are no published case studies, customer testimon
 ### K8. Content QA
 
 - [ ] All pages proofread for spelling and grammar
-- [ ] Pricing numbers consistent across all pages ($0.99, $0.50 customer fee)
+- [ ] Pricing numbers consistent across all pages ($99/month platform fee, $0.50 merchant per-order fee, $0.99 customer fee)
 - [ ] Commission comparison percentages consistent (High 30%, Mid 27%, Lower 25%)
 - [ ] All external links open in new tab with `rel="noopener noreferrer"`
 - [ ] Legal pages (privacy, terms, cookies) reviewed by legal counsel
@@ -3272,11 +3273,11 @@ export function buildProductSchema() {
     brand: { "@type": "Brand", name: "N4Cluster" },
     offers: {
       "@type": "Offer",
-      price: "0.99",
+      price: "0.50",
       priceCurrency: "USD",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
-        price: "0.99",
+        price: "0.50",
         priceCurrency: "USD",
         referenceQuantity: {
           "@type": "QuantitativeValue",
