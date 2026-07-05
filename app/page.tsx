@@ -167,8 +167,9 @@ export default function HomePage() {
                 </div>
                 <div className="divide-y" style={{ borderColor: "#e2e8f0" }}>
                   {[
-                    { label: "High-commission marketplaces", fee: "Up to $12.00 (30%)", keep: "$28.00", bad: true },
-                    { label: "Lower-commission marketplace", fee: "Up to $8.00 (20%)", keep: "$32.00", bad: true },
+                    { label: "High-commission marketplace", fee: "Up to $12.00 (30%)", keep: "$28.00", bad: true },
+                    { label: "Mid-commission marketplace", fee: "Up to $10.80 (27%)", keep: "$29.20", bad: true },
+                    { label: "Lower-commission marketplace", fee: "Up to $10.00 (25%)", keep: "$30.00", bad: true },
                     { label: "N4Cluster", fee: "$0.99 flat", keep: "$39.01", bad: false },
                   ].map((row) => (
                     <div key={row.label} className="flex items-center justify-between px-5 py-4">

@@ -120,9 +120,9 @@ function IndependentVisual() {
     <div className="rounded-2xl p-6" style={{ background: "#0a1628", border: "1px solid #1e3a70" }}>
       <div className="text-xs font-semibold uppercase tracking-wider mb-4" style={{ color: "#64748b" }}>Monthly order comparison</div>
       {[
-        { label: "Your current marketplace take", value: "-$1,200/mo", sub: "On 400 orders avg $10 commission each", bad: true },
+        { label: "Your current marketplace take", value: "-$4,000/mo", sub: "On 400 orders avg $10 commission each", bad: true },
         { label: "N4Cluster total platform cost", value: "-$396/mo", sub: "On 400 orders × $0.99 flat fee", bad: false },
-        { label: "Margin recovered per month", value: "+$804", sub: "Stays in your business", good: true },
+        { label: "Margin recovered per month", value: "+$3,604", sub: "Stays in your business", good: true },
       ].map((row) => (
         <div key={row.label} className="rounded-xl p-4 mb-3" style={{ background: row.good ? "rgba(20,184,166,0.08)" : "rgba(255,255,255,0.04)", border: `1px solid ${row.good ? "rgba(20,184,166,0.25)" : "rgba(255,255,255,0.07)"}` }}>
           <div className="flex justify-between items-start">
