@@ -19,27 +19,27 @@ const commissionComparison = [
 
 const protections = [
   {
-    title: "One flat fee — fully disclosed",
+    title: "One fee. Zero surprises.",
     body: "The $99/month platform fee is quoted up front and never hidden. No add-on modules, no usage-based minimums, no surprise line items on your invoice.",
   },
   {
-    title: "No commission on revenue",
+    title: "Your revenue stays yours",
     body: "Every dollar of revenue on a $200 order stays with you — minus $0.50. The fee is fixed to the transaction, not to the ticket size.",
   },
   {
-    title: "No pricing parity clauses",
+    title: "Your prices, your call",
     body: "We will never require you to match or mirror pricing from third-party platforms. Your direct channel prices are yours to set.",
   },
   {
-    title: "No bundled service charges",
+    title: "Nothing's locked behind a paywall",
     body: "N4Sync, N4Logic, and the Neighborhood Hub are included. There are no add-on modules, tiered feature unlocks, or upgrade tiers.",
   },
   {
-    title: "No hidden renewal increases",
+    title: "We can't ambush you with a price hike",
     body: "Pricing cannot change without 90–180 days of written advance notice. Increases are capped by formula — not at discretion.",
   },
   {
-    title: "Right to exit",
+    title: "Protected Exit Right",
     body: "If we ever materially change the pricing model, you have the right to exit your engagement under pre-defined terms without penalty.",
   },
 ];
@@ -73,7 +73,7 @@ export default function PricingPage() {
       <HeroCentered
         eyebrow="Pricing"
         heading="$99/month + $0.50 per order. No commission. Ever."
-        subheading="We built the fee structure around one principle: the platform should earn by making direct ordering work, not by taking a cut of your revenue. The math is simple by design."
+        subheading="We only make money when your direct ordering actually works — never by skimming your ticket. No revenue share, no fine print, no math you have to double-check at 11pm."
         primaryCta={{ label: "Request a Demo", href: "/contact" }}
         secondaryCta={{ label: "See How It Works", href: "/how-it-works" }}
       />
@@ -185,13 +185,13 @@ export default function PricingPage() {
                 Customer fee
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 leading-tight" style={{ color: "#040d1c" }}>
-                The $0.99 neighborhood fee is ours — not yours.
+                That $0.99 checkout fee? Ours to own, not yours to defend.
               </h2>
               <p className="text-base leading-relaxed mb-5" style={{ color: "#475569" }}>
-                Customers who order through N4Cluster channels see a <strong style={{ color: "#040d1c" }}>$0.99 N4Cluster Neighborhood Fee</strong> at checkout. This is a platform infrastructure fee collected by N4Cluster — it is <em>not</em> a surcharge added by your restaurant.
+                Every customer ordering through an N4Cluster channel sees a <strong style={{ color: "#040d1c" }}>$0.99 N4Cluster Neighborhood Fee</strong> at checkout. That's on us — a platform fee we collect, <em>not</em> a surcharge you tacked onto their ticket.
               </p>
               <p className="text-base leading-relaxed mb-6" style={{ color: "#475569" }}>
-                You never see this money. You never handle customer questions about it. We make the fee attribution clear so customers know it goes to the neighborhood platform — not into restaurant margin.
+                You never touch that money, and you never field a single question about it. Customers see exactly where it goes — into the platform, not your margin.
               </p>
               <ul className="space-y-3">
                 {customerFeeDetails.map((detail) => (
@@ -320,10 +320,10 @@ export default function PricingPage() {
                 Price lock — optional
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 leading-tight" style={{ color: "#040d1c" }}>
-                Lock in your rate for 1 or 2 years.
+                Lock your rate. Sleep better for 1 or 2 years.
               </h2>
               <p className="text-base leading-relaxed mb-5" style={{ color: "#475569" }}>
-                By default, pricing is reviewed annually. If you want cost certainty for planning or multi-year commitments, you can lock the merchant fee ($0.50/order and the $99/month platform fee) for 1 or 2 years. No discounts for locking — the price is already flat. This is a predictability tool.
+                Pricing gets reviewed once a year by default. Want more certainty for your own planning? Lock the merchant fee — $0.50/order and the $99/month platform fee — for 1 or 2 years. You won't get a discount for locking in; the price is already as flat as it gets. This just buys you predictability.
               </p>
               <div className="space-y-3 mb-8">
                 {priceLockDetails.map((item) => (
@@ -341,10 +341,10 @@ export default function PricingPage() {
                 Adjustment formula
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 leading-tight" style={{ color: "#040d1c" }}>
-                If pricing ever adjusts, here is the exact formula.
+                If we ever adjust pricing, here's the exact math.
               </h2>
               <p className="text-base leading-relaxed mb-6" style={{ color: "#475569" }}>
-                After any lock period, annual adjustments are permitted — but only within a defined formula. There is no discretionary increase. The cap is mathematical.
+                Once any lock period ends, we can adjust annually — but only inside a formula we don't get to bend. No discretionary increase. The cap is mathematical, not a mood.
               </p>
               <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid #e2e8f0" }}>
                 {adjustmentFormula.map((row, i) => (
@@ -378,27 +378,27 @@ export default function PricingPage() {
             {[
               {
                 q: "Is there a setup fee?",
-                a: "No setup charge. You pay a flat $99/month platform fee plus $0.50 per order processed. The $99/month is fixed regardless of volume; if you have a slow month and orders drop, only your per-order cost drops proportionally.",
+                a: "None. You pay a flat $99/month platform fee plus $0.50 per order — that's it. The $99/month never moves. Have a slow month? Your order volume drops, so your per-order cost drops with it — but the platform fee stays put.",
               },
               {
                 q: "Does the fee change if my order volume increases?",
-                a: "No. $0.50 per order and $99/month are both flat regardless of volume. There are no volume tiers, no threshold penalties, and no performance-based rate adjustments. Higher volume means a higher absolute per-order total — but never a higher per-order rate or a higher monthly fee.",
+                a: "No. $0.50 per order and $99/month stay flat no matter how busy you get. No volume tiers, no threshold penalties, no rate creep as you grow. Sell more, and your total cost goes up because you're doing more orders — never because the rate did.",
               },
               {
                 q: "What if I want to offer delivery — does that cost extra?",
-                a: "N4Sync delivery coordination is included. Driver management, dispatch, and SLA tracking are covered. Third-party driver costs (actual courier compensation) are a separate logistics cost — but the coordination layer is part of the platform at no additional fee.",
+                a: "N4Sync delivery coordination is already included. Driver management, dispatch, and SLA tracking — covered. Paying the actual courier is a separate logistics cost, same as it would be anywhere, but the coordination behind it costs you nothing extra.",
               },
               {
                 q: "Is the $0.99 customer fee mandatory?",
-                a: "By default, the $0.99 Neighborhood Fee is added at checkout and handled entirely by N4Cluster. Restaurants who prefer to absorb it or build it into menu pricing can opt out of customer-facing display — this is a merchant configuration option.",
+                a: "By default, yes — the $0.99 Neighborhood Fee shows up at checkout, and we handle it end to end. If you'd rather absorb it or fold it into your menu pricing, you can opt out of the customer-facing display. Your call.",
               },
               {
                 q: "How does the price lock work if I want to cancel?",
-                a: "The price lock fixes the merchant fee rate during the lock period — it does not lock you into a minimum contract term unless you have a separate engagement agreement. If you exit during a lock period, the terms depend on your specific agreement. We'll discuss this transparently before you lock.",
+                a: "The price lock only fixes your rate — it doesn't chain you to a minimum term unless a separate agreement says otherwise. Want out during a lock period? The terms depend on your specific agreement, and we'll walk you through them honestly before you ever lock in.",
               },
               {
                 q: "What counts as a material change that triggers the 180-day notice and exit right?",
-                a: "Changes to the core pricing structure — moving to commission, changing the fee basis from per-order/flat to revenue-based, increasing the $99/month platform fee outside the CPI formula, or adjusting the customer fee attribution — would all qualify. Adjustments within the CPI formula with 90-day notice do not.",
+                a: "Anything that touches the core structure: moving to commission, switching the fee basis from flat/per-order to revenue-based, raising the $99/month platform fee outside the CPI formula, or changing who the customer fee is attributed to. Adjustments inside the CPI formula with 90-day notice don't count — those are business as usual.",
               },
             ].map((faq) => (
               <div key={faq.q} className="rounded-2xl p-6" style={{ background: "#f8fafc", border: "1px solid #e2e8f0" }}>
