@@ -6,6 +6,7 @@ interface CTASectionProps {
   subheading?: string;
   primaryCta: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
+  microcopy?: string;
   dark?: boolean;
 }
 
@@ -14,6 +15,7 @@ export function CTASection({
   subheading,
   primaryCta,
   secondaryCta,
+  microcopy,
   dark = true,
 }: CTASectionProps) {
   return (
@@ -54,6 +56,11 @@ export function CTASection({
             </Button>
           )}
         </div>
+        {microcopy && (
+          <p className={`mt-4 text-sm ${dark ? "text-slate-400" : "text-slate-600"}`}>
+            {microcopy}
+          </p>
+        )}
       </Container>
     </section>
   );

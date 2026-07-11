@@ -46,7 +46,7 @@ export function SiteFooter() {
 
             {/* Sub-brands */}
             <div className="mt-8 space-y-2">
-              <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Platform layers</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">Platform layers</p>
               <div className="flex gap-3 flex-wrap">
                 <Link href="/platform#n4sync" className="text-xs text-cobalt-400 hover:text-cobalt-300 transition-colors font-medium">
                   N4Sync
@@ -62,9 +62,9 @@ export function SiteFooter() {
           {/* Links */}
           {footerLinks.map((group) => (
             <div key={group.heading}>
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-4">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4">
                 {group.heading}
-              </h4>
+              </h3>
               <ul className="space-y-2.5">
                 {group.links.map((link) => (
                   <li key={link.href}>

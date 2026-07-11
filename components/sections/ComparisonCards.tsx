@@ -26,7 +26,7 @@ export function ComparisonCards({ eyebrow, heading, subheading, before, after }:
           {/* Before */}
           <div className="bg-white border border-slate-200 rounded-2xl p-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-100 rounded-full mb-5">
-              <X size={12} className="text-slate-500" strokeWidth={2.5} />
+              <X size={12} className="text-slate-600" strokeWidth={2.5} />
               <span className="text-xs font-semibold text-slate-600 uppercase tracking-wide">
                 {before.label}
               </span>

@@ -11,6 +11,7 @@ colors:
   signal-teal-light: "#2dd4bf"
   caution-amber: "#f59e0b"
   caution-amber-light: "#fbbf24"
+  negative-red: "#b91c1c"
   ink-navy: "#040d1c"
   navy-deep: "#0a1628"
   navy-mid: "#0f2040"
@@ -126,6 +127,7 @@ The palette is functional, not decorative: navy for depth and dark surfaces, one
 
 ### Tertiary
 - **Caution Amber** (#f59e0b): reserved for attention/highlight moments — a third accent in a 3-item comparison or pillar grid, a "notice this" marker. Used sparingly; if more than one element on a screen is amber, it has stopped meaning "pay attention here."
+- **Negative Red** (#b91c1c): the "confirmed bad" counterpart to Signal Teal — the marketplace/competitor side of every cost comparison, X icons, negative delta indicators. Darkened from a standard red-500 to clear 4.5:1 against white; never used at a lighter step for text.
 
 ### Neutral
 - **Ink Navy** (#040d1c): heading text color on light surfaces, and the base of the dark hero gradient. The darkest tone in the system; reserved for maximum-contrast text and the deepest dark-mode surfaces.
