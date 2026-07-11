@@ -14,7 +14,7 @@ export default function ROICalculatorPage() {
       <HeroCentered
         eyebrow="ROI Calculator"
         heading="See what commissions are really costing you."
-        subheading="Third-party marketplaces take a cut of every order. N4Cluster charges a flat $99/month plus $0.50 per order. Move the sliders to match your restaurant and watch the difference add up — monthly and yearly."
+        subheading="Third-party marketplaces grab a percentage from every order. N4Cluster charges flat: $99/month plus $0.50 per order. Move the sliders to match your restaurant and watch what you'll actually keep — monthly and yearly."
       />
       <ROICalculator />
     </>
