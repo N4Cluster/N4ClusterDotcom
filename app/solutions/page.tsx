@@ -15,21 +15,21 @@ const solutions = [
   {
     id: "independent",
     tag: "For independent restaurants",
-    headline: "Stop handing 20–30% of every order to a marketplace.",
+    headline: "You're losing $12 of every $40 ticket to a marketplace that doesn't cook your food.",
     subheadline:
-      "You built the food. You built the following. N4Cluster gives you the ordering channel to match — under your brand, with your customers, for a flat $99/month plus $0.50 per order.",
+      "You built the menu, the regulars, the reputation. A marketplace app didn't build any of that — it just collects rent on it. N4Cluster gives you a branded ordering channel that's actually yours, for a flat $99/month plus $0.50 per order.",
     bullets: [
-      "Branded direct ordering under your own website — no marketplace branding",
-      "Customer data, contact info, and loyalty fully owned by you",
-      "AI Growth Autopilot handles the marketing so you can focus on the kitchen",
-      "Neighborhood Hub puts you in front of local customers discovering places nearby",
-      "Delivery managed by N4Cluster — 30-minute SLA from pickup, logistics risk on us",
-      "$99/month flat plus $0.50 per order. No commission. Optional price lock.",
+      "Your name on the ordering page, not a marketplace logo — customers order from you, not through a middleman",
+      "Every phone number, email, and order history is yours — not rented from a platform that can cut you off tomorrow",
+      "AI Growth Autopilot runs the marketing in the background while you run the line",
+      "Neighborhood Hub puts your kitchen in front of neighbors deciding where to order from tonight",
+      "We run delivery — 30-minute SLA from pickup, and a late driver is our problem, not a call you have to take",
+      "$99/month flat plus $0.50 per order. No commission, ever. Lock the rate for up to two years if you want it in writing.",
     ],
     outcomes: [
-      { label: "Commission saved per $40 order vs 30% marketplace", value: "$11.50" },
-      { label: "Customers who order direct vs through 3rd party stay", value: "Yours" },
-      { label: "Time to go live with branded ordering", value: "Days" },
+      { label: "What stays in your pocket per $40 order vs. a 30% marketplace", value: "$11.50" },
+      { label: "Who owns the customer when they order direct", value: "Yours" },
+      { label: "Time from signup to live branded ordering", value: "Days" },
     ],
     color: "#2563eb",
     bg: "#f0f6ff",
@@ -40,21 +40,21 @@ const solutions = [
   {
     id: "multi-location",
     tag: "For multi-location brands",
-    headline: "Consistent experience across every location. One view of all of it.",
+    headline: "Downtown's slammed and the Airport location can't crack 60 orders a day — and you're finding out from four different logins.",
     subheadline:
-      "Managing multiple locations shouldn't mean managing multiple disconnected systems. N4Cluster gives you unified ordering, centralized visibility, and location-level performance — in one platform.",
+      "Every disconnected system you run is another place a problem can hide until payroll tells you about it. N4Cluster puts every location's orders, revenue, and customer data in one dashboard — unified ordering, one flat fee, no guessing which store needs you this week.",
     bullets: [
-      "Unified branded ordering across all locations — same experience everywhere",
-      "Centralized dashboard with location-level detail for orders, revenue, and customer data",
-      "Menu and availability sync from POS — changes reflect instantly, no manual updates",
-      "Cross-location AI insights: which locations are growing, which need attention",
-      "Neighborhood Hub presence for every location, sorted by proximity to local customers",
-      "Flat $99/month plus $0.50 per order across every location — no per-location platform fees",
+      "One branded ordering site for every location — customers get the same experience whether they're Downtown or at the Airport counter",
+      "One dashboard, every location broken out by orders, revenue, and customer data — not buried across four separate logins",
+      "86 an item at one location and it's off the menu everywhere it should be — synced straight from your POS, no manual updates at 11pm",
+      "AI flags which locations are pulling their weight and which ones need you to show up this week",
+      "Every location shows up in Neighborhood Hub for the neighbors actually close enough to order from it",
+      "Flat $99/month plus $0.50 per order across every location — no per-location platform fee stacking up as you grow",
     ],
     outcomes: [
-      { label: "Locations managed in one platform", value: "All of them" },
-      { label: "Commission model", value: "None. Ever." },
-      { label: "Menu update lag from POS to ordering site", value: "Real-time" },
+      { label: "Locations you can see from one login", value: "All of them" },
+      { label: "What we take in commission", value: "None. Ever." },
+      { label: "How long a POS menu change takes to show up online", value: "Real-time" },
     ],
     color: "#14b8a6",
     bg: "#f0fdfb",
@@ -65,21 +65,21 @@ const solutions = [
   {
     id: "delivery",
     tag: "For delivery-first operators",
-    headline: "Delivery is your business model. We built the infrastructure for it.",
+    headline: "When delivery is the business, one late driver isn't an inconvenience — it's a refund, a one-star review, and a customer who doesn't come back.",
     subheadline:
-      "N4Cluster owns the logistics layer — driver coordination, SLA monitoring, and delivery accountability. You focus on order volume. We make sure the experience holds.",
+      "You can't control a driver stuck in traffic. You can control who's on the hook when it happens. N4Cluster runs driver coordination, tracks every order against a 30-minute SLA, and owns the failures — so a late delivery is our accountability, not a conversation you have to have with a customer holding cold food.",
     bullets: [
-      "N4Cluster manages delivery — 30-minute SLA from pickup, tracked by timestamp",
-      "Driver delays and logistics failures are our accountability, not yours",
-      "Neighborhood Hub drives local demand without you running ads manually",
-      "AI Autopilot detects demand windows, suggests zone adjustments, re-engages lapsed customers",
-      "Real-time availability and inventory sync — no overselling, no manual updates",
-      "Clear SLA reporting: every missed delivery tracked with root-cause classification",
+      "We run delivery — every order tracked against a 30-minute SLA from pickup, timestamped",
+      "Driver delays and logistics failures are on us — not a call you have to make to an angry customer",
+      "Neighborhood Hub keeps local orders coming in without you babysitting an ad account between rushes",
+      "AI Autopilot spots your next rush before it hits, flags zones worth adjusting, and brings back customers who've gone quiet",
+      "Availability syncs in real time — you're never taking an order for something the kitchen already ran out of",
+      "Every missed delivery gets tracked and root-caused — you see exactly what happened, not just a bad rating",
     ],
     outcomes: [
-      { label: "SLA compliance target", value: "95%+" },
-      { label: "Who owns logistics risk", value: "N4Cluster" },
-      { label: "Fee per order regardless of delivery complexity", value: "$0.50" },
+      { label: "How often deliveries hit the 30-minute window", value: "95%+" },
+      { label: "Who eats it when a driver runs late", value: "N4Cluster" },
+      { label: "What you pay per order, easy or complicated", value: "$0.50" },
     ],
     color: "#f59e0b",
     bg: "#fffbeb",
@@ -90,21 +90,21 @@ const solutions = [
   {
     id: "partners",
     tag: "For ecosystem and integration partners",
-    headline: "Build on infrastructure that's aligned with merchant success.",
+    headline: "Plug into a platform that doesn't profit from squeezing the merchants you both serve.",
     subheadline:
-      "N4Cluster is designed for the partner ecosystem — POS providers, delivery networks, payment platforms, and commerce technology — to connect into a flat-fee infrastructure that grows alongside the merchants it serves.",
+      "POS providers, delivery networks, payment platforms — if you serve restaurants, you know what a commission-hungry partner does to trust. N4Cluster runs on a flat fee, not a cut of the merchant's ticket, so your integration doesn't inherit that conflict.",
     bullets: [
-      "Integration-first architecture: webhook and event-driven patterns, extensible by design",
-      "Pilot-first onboarding: connect in a focused scope, validate, then expand",
-      "Partner economics aligned with merchant growth — not commission extraction",
-      "Clear data governance: aggregated insights only, no competitor intelligence leakage",
-      "Transparent ranking and discovery rules — no black-box suppression",
-      "Merchant Advisory Council model at scale — partner voice in governance",
+      "Connect with webhooks and event triggers — built to plug in without a six-month integration project",
+      "Start with a focused pilot, prove it works, then expand — no big-bang rollout required",
+      "We make money on a flat fee, same as you'd want from us — not by skimming the merchants you both serve",
+      "You get aggregated insights, never a look at a merchant's competitor data — it stays where it belongs",
+      "No black-box ranking — merchants know why they show up where they show up, and so do you",
+      "Merchant Advisory Council gives partners an actual seat at the table, not a suggestion box",
     ],
     outcomes: [
-      { label: "Integration model", value: "API / Webhook" },
-      { label: "Merchant fee model (conflict-free)", value: "$0.50/order + $99/mo" },
-      { label: "Onboarding approach", value: "Pilot-first" },
+      { label: "How you connect", value: "API / Webhook" },
+      { label: "What merchants pay — nothing to align a commission against", value: "$0.50/order + $99/mo" },
+      { label: "How onboarding starts", value: "Pilot-first" },
     ],
     color: "#2563eb",
     bg: "#f0f6ff",
@@ -245,8 +245,8 @@ export default function SolutionsPage() {
     <>
       <HeroCentered
         eyebrow="Solutions"
-        heading="Your restaurant type. Our flat $99/month + $0.50 per order."
-        subheading="N4Cluster adapts to how you operate — independent, multi-location, or delivery-first. The pricing model never changes: no commission, ever."
+        heading="Independent, multi-location, delivery-first — the price never changes: $99/month + $0.50 per order."
+        subheading="However you run your kitchen, the marketplace tax doesn't apply here. No commission, ever — just one flat fee, whether you're running one location or four."
         primaryCta={{ label: "Talk to the Team", href: "/contact" }}
         secondaryCta={{ label: "See Pricing", href: "/pricing" }}
       />
@@ -324,18 +324,18 @@ export default function SolutionsPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                title: "Merchant Bill of Rights",
-                body: "Non-commission commitment in writing. Right to exit if pricing changes. 90–180 day advance notice for any material change.",
+                title: "No commission. In writing.",
+                body: "The no-commission commitment is in writing, not a handshake. If pricing ever changes materially, you get 90–180 days' advance notice and the right to exit.",
                 color: "#2563eb",
               },
               {
-                title: "No pricing parity required",
-                body: "N4Cluster does not require you to match pricing across channels or participate in discounts. Your pricing. Your call.",
+                title: "Your prices, your call",
+                body: "We'll never make you match pricing across channels or run someone else's discounts. What you charge on your own site is entirely up to you.",
                 color: "#14b8a6",
               },
               {
-                title: "Optional 1–2 year price lock",
-                body: "Lock in $0.50 per order and the $99/month platform fee for up to two years. CPI-capped adjustments only if necessary, with a defined formula and cap.",
+                title: "Lock your rate, if you want it",
+                body: "Lock in $0.50 per order and the $99/month platform fee for up to two years. Any adjustment after that is capped by a defined CPI formula — never at our discretion.",
                 color: "#f59e0b",
               },
             ].map((item) => (

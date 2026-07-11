@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { HeroSplit } from "@/components/sections/HeroSplit";
 import { TrustStrip } from "@/components/sections/TrustStrip";
 import { CTASection } from "@/components/sections/CTASection";
+import { StepTimeline } from "@/components/sections/StepTimeline";
+import { ComparisonCards } from "@/components/sections/ComparisonCards";
 import { Container } from "@/components/ui/Container";
 import { SectionIntro } from "@/components/ui/SectionIntro";
 import { ResourceGrid } from "@/components/sections/ResourceCard";
@@ -13,6 +15,7 @@ import {
   MapPin,
   Sparkles,
   Truck,
+  Search,
   ArrowRight,
   Check,
   X,
@@ -28,9 +31,9 @@ export const metadata: Metadata = {
 const trustItems = [
   "$99/mo + $0.50 per order",
   "Your brand. Your customers.",
-  "Merchant-owned loyalty",
-  "30-min delivery SLA",
-  "AI Growth Autopilot included",
+  "You own your customer data",
+  "30-minute delivery, on us",
+  "Your menu, live in 24 hours",
 ];
 
 // ─── Platform pillars ────────────────────────────────────────────────────────
@@ -38,58 +41,69 @@ const pillars = [
   {
     icon: Store,
     color: "#2563eb",
-    title: "White-label ordering",
+    title: "Ordering under your own name",
     description:
-      "Your customers order directly through your own branded website. No marketplace in the middle — you keep the relationship, the data, and the margin.",
+      "Customers order straight from your branded site — not an app that buries your name three taps deep. You keep the relationship, the contact info, and every dollar of margin.",
   },
   {
     icon: MapPin,
     color: "#14b8a6",
-    title: "Neighborhood Hub",
+    title: "Neighbors find you first",
     description:
-      "Your restaurant appears on a local discovery feed, sorted by distance and preference — not by who pays the highest commission. Neighborhood demand, built together.",
+      "Your restaurant shows up in local discovery sorted by distance and preference — not by who paid the biggest ad bill. Built for the regulars five minutes away.",
   },
   {
     icon: Sparkles,
     color: "#f59e0b",
-    title: "AI Growth Autopilot",
+    title: "Growth on autopilot, approved by you",
     description:
-      "We auto-import your menu, clean your catalog, activate neighborhood campaigns, and surface growth signals — all with your approval. You decide. We execute.",
+      "We import your menu, spot your slow nights, and suggest a campaign to fill them — a Tuesday push, a win-back offer for customers who've gone quiet. Nothing goes out without your OK.",
   },
   {
     icon: Truck,
     color: "#2563eb",
-    title: "Delivery we own",
+    title: "Delivery that's not your problem",
     description:
-      "N4Cluster owns the logistics layer. 30-minute SLA from pickup. Driver delays are our problem — not yours. You focus on the food. We handle the rest.",
+      "N4Cluster runs the drivers. 30-minute pickup-to-door SLA. When a route goes sideways, that's on us — you stay on the line, not on the phone with a dispatcher.",
+  },
+  {
+    icon: Search,
+    color: "#14b8a6",
+    title: "Show up when neighbors search",
+    description:
+      "Built to help your dishes show up when neighbors search on Google, and designed to keep your Google Business listing accurate as your menu changes.",
   },
 ];
 
 // ─── How it works ────────────────────────────────────────────────────────────
 const timeline = [
   {
-    tag: "Day 1",
-    title: "Go live with your branded storefront",
-    desc: "We auto-import your menu from your POS, clean the catalog, and launch your ordering site under your own brand. Nothing goes live without your sign-off.",
-    color: "#2563eb",
+    number: "24 Hrs",
+    title: "Your branded site goes live",
+    description:
+      "We pull your menu straight from your POS, clean it up, and launch your ordering site under your own name — live within 24 hours. Nothing goes live without your sign-off.",
+    accent: "cobalt" as const,
   },
   {
-    tag: "Week 1",
-    title: "Join the Neighborhood Hub",
-    desc: "Your restaurant appears in local discovery, sorted by distance and preference. Customers in your area find you — on your terms, not an algorithm's.",
-    color: "#14b8a6",
+    number: "Week 1",
+    title: "Neighbors start finding you",
+    description:
+      "Your restaurant shows up in local discovery, sorted by distance and preference. The customers five minutes away start finding you — on your terms.",
+    accent: "teal" as const,
   },
   {
-    tag: "Month 1",
-    title: "AI Autopilot activates",
-    desc: "N4Cluster identifies your peak demand windows, suggests campaigns, re-engages inactive customers, and monitors delivery performance. You review and approve.",
-    color: "#f59e0b",
+    number: "Month 1",
+    title: "Growth runs on autopilot",
+    description:
+      "N4Cluster spots your slow nights, suggests a campaign, and reaches out to customers who've gone quiet. You approve. We execute.",
+    accent: "amber" as const,
   },
   {
-    tag: "Ongoing",
-    title: "Order density compounds",
-    desc: "More neighborhood orders at $0.50 each. More repeat customers you own. More margin per order. The model gets stronger the more it runs.",
-    color: "#2563eb",
+    number: "Ongoing",
+    title: "Every order compounds your margin",
+    description:
+      "More neighborhood orders at $0.50 each. More repeat customers you own outright. The model gets stronger the longer it runs.",
+    accent: "cobalt" as const,
   },
 ];
 
@@ -98,28 +112,28 @@ const segments = [
   {
     title: "Independent restaurants",
     desc: "Stop paying 20–30% commissions. Own your customer, keep your margin, and build direct demand — for $99/month plus $0.50 per order.",
-    outcomes: ["Direct branded ordering under your domain", "Customer data and loyalty you own", "AI-assisted growth without the overhead"],
+    outcomes: ["Direct branded ordering under your own domain", "Customer data and loyalty you keep", "Growth campaigns that run themselves, with your OK"],
     href: "/solutions#independent",
     color: "#2563eb",
   },
   {
     title: "Multi-location brands",
-    desc: "Unified ordering, centralized visibility, and consistent growth signals across every location — without adding operational complexity.",
-    outcomes: ["One dashboard across all locations", "Consistent brand experience everywhere", "Location-level performance, centralized view"],
+    desc: "One system across every location — the same branded experience, one dashboard, no extra headcount to run it.",
+    outcomes: ["One dashboard across every location", "Consistent brand experience storefront to storefront", "See every location's numbers in one place"],
     href: "/solutions#multi-location",
     color: "#14b8a6",
   },
   {
     title: "Delivery-first operators",
-    desc: "Built for businesses where delivery is the core model. Neighborhood Hub drives demand while N4Cluster handles the logistics.",
-    outcomes: ["Neighborhood demand engine", "30-min SLA managed by N4Cluster", "Fulfillment visibility without the ops weight"],
+    desc: "Built for businesses where delivery is the core model. The Neighborhood Hub keeps orders coming in while N4Cluster runs the drivers.",
+    outcomes: ["A steady stream of local orders", "30-minute delivery SLA managed by N4Cluster", "Track every delivery without hiring a dispatcher"],
     href: "/solutions#delivery",
     color: "#f59e0b",
   },
   {
     title: "Ecosystem partners",
-    desc: "POS providers, delivery networks, and commerce platforms — connect into a flat-fee infrastructure that aligns your growth with merchant success.",
-    outcomes: ["Integration-first architecture", "Partner-aligned economics", "Pilot-first connection model"],
+    desc: "POS providers and delivery networks — plug into pricing that rewards merchant success instead of taking a cut of it.",
+    outcomes: ["Straightforward integration, not a rebuild", "Pricing that scales with your merchants, not against them", "Start with a pilot before you commit"],
     href: "/partners",
     color: "#2563eb",
   },
@@ -130,12 +144,12 @@ export default function HomePage() {
     <>
       {/* ── Hero ── */}
       <HeroSplit
-        eyebrow="Commission-free commerce infrastructure"
-        heading="Keep more of every order. Grow your neighborhood."
-        subheading="N4Cluster gives local restaurants a branded direct channel, neighborhood discovery, AI-powered growth automation, and delivery — for a flat $99/month plus $0.50 per order. No commissions. No surprises. Ever."
-        primaryCta={{ label: "Request a Demo", href: "/contact" }}
-        secondaryCta={{ label: "See How It Works", href: "/how-it-works" }}
-        microcopy="Now onboarding founding merchants · $99/mo + $0.50 per order"
+        eyebrow="Built for restaurant owners, not marketplaces"
+        heading="Your Own Branded Ordering & Delivery. Zero Commissions. Period."
+        subheading="Marketplace apps take 20–30% off every order. Flat-fee ordering SaaS platforms bill you $300–500 a month whether you sell ten orders or a thousand. N4Cluster is $99/month plus $0.50 per order — no commission, ever. Customers pay a separate $0.99 fee at checkout; it never comes out of your ticket."
+        primaryCta={{ label: "Get Started in 24 Hours", href: "/contact" }}
+        secondaryCta={{ label: "Calculate Your Savings", href: "/roi-calculator" }}
+        microcopy="Now onboarding founding merchants · Live in 24 hours · $99/mo + $0.50 per order"
       />
 
       {/* ── Trust strip ── */}
@@ -150,13 +164,13 @@ export default function HomePage() {
                 The problem
               </p>
               <h2 className="text-3xl sm:text-4xl font-bold mb-5" style={{ color: "#040d1c", lineHeight: 1.2 }}>
-                You built your restaurant. The marketplace owns your customer.
+                Marketplaces take a cut. Flat-fee SaaS takes a flat bite. N4Cluster takes neither.
               </h2>
               <p className="text-lg leading-relaxed mb-6" style={{ color: "#475569" }}>
-                Marketplace delivery platforms charge 20–30% per order. On a $40 ticket, that&apos;s up to $12 gone before you see a cent. They own your customer data. They control discovery. They can change terms whenever they like.
+                Marketplace delivery apps charge 20–30% per order — on a $40 ticket, that&apos;s up to $12 gone before you see a cent, and the cut grows right along with your sales. Flat-fee ordering SaaS platforms typically charge $300–500 a month regardless of order volume — brutal on a slow week, and still not free once you&apos;re busy.
               </p>
               <p className="text-base leading-relaxed" style={{ color: "#475569" }}>
-                N4Cluster charges a flat <strong style={{ color: "#040d1c" }}>$99/month plus $0.50 per order</strong> — infrastructure pricing, not commission extraction. You keep the customer, the data, and the margin.
+                N4Cluster charges a flat <strong style={{ color: "#040d1c" }}>$99/month plus $0.50 per order</strong> — utility pricing, not commission extraction. Your bill tracks your usage. It doesn&apos;t punish a slow week, and it never caps your upside.
               </p>
             </div>
             <div className="space-y-4">
@@ -170,6 +184,7 @@ export default function HomePage() {
                     { label: "High-commission marketplace", fee: "Up to $12.00 (30%)", keep: "$28.00", bad: true },
                     { label: "Mid-commission marketplace", fee: "Up to $10.80 (27%)", keep: "$29.20", bad: true },
                     { label: "Lower-commission marketplace", fee: "Up to $10.00 (25%)", keep: "$30.00", bad: true },
+                    { label: "Flat-fee ordering SaaS", fee: "$300–500/mo flat, any order count", keep: "$40.00 — then a flat bill on top", bad: true },
                     { label: "N4Cluster", fee: "$0.50 flat", keep: "$39.50", bad: false },
                   ].map((row) => (
                     <div key={row.label} className="flex items-center justify-between px-5 py-4">
@@ -193,7 +208,7 @@ export default function HomePage() {
                 </div>
               </div>
               <p className="text-xs pl-2" style={{ color: "#94a3b8" }}>
-                * Commission rates vary. Comparison illustrates typical marketplace fee ranges vs N4Cluster&apos;s flat $0.50/order infrastructure fee (plus a separate flat $99/month platform fee, not shown per-order).
+                * Commission rates and SaaS pricing vary by provider. Comparison illustrates typical marketplace fee ranges and typical flat-fee SaaS pricing vs N4Cluster&apos;s flat $0.50/order fee (plus a separate flat $99/month platform fee, not shown per-order).
               </p>
             </div>
           </div>
@@ -205,8 +220,8 @@ export default function HomePage() {
         <Container>
           <SectionIntro
             eyebrow="The platform"
-            heading="Four things working together, so you don't have to manage them separately"
-            subheading="N4Cluster isn't a tool. It's the operating layer underneath your brand — ordering, discovery, AI, and delivery in one connected system."
+            heading="Five things working together, so you don't have to manage them separately"
+            subheading="N4Cluster isn't another app to babysit. It's the ordering, discovery, growth, delivery, and local search running quietly behind your brand."
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {pillars.map((p) => {
@@ -233,52 +248,21 @@ export default function HomePage() {
       </section>
 
       {/* ── How it works ── */}
-      <section className="bg-white py-16 md:py-24">
-        <Container>
-          <SectionIntro
-            eyebrow="How it works"
-            heading="From sign-up to neighborhood growth — a clear path"
-            subheading="No complex implementation. No long runway. Your restaurant is live in days, growing in weeks."
-          />
-          <div className="relative max-w-4xl mx-auto">
-            {/* Vertical line */}
-            <div className="absolute left-6 top-0 bottom-0 w-px hidden md:block" style={{ background: "#e2e8f0" }} />
-            <div className="space-y-8">
-              {timeline.map((step, i) => (
-                <div key={step.tag} className="flex gap-6 md:gap-10 items-start">
-                  <div className="flex-shrink-0 relative">
-                    <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center text-xs font-bold text-white relative z-10"
-                      style={{ background: step.color, boxShadow: `0 0 0 4px ${step.color}25` }}
-                    >
-                      {i + 1}
-                    </div>
-                  </div>
-                  <div className="flex-1 pb-2">
-                    <span
-                      className="inline-block text-xs font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full mb-2"
-                      style={{ background: step.color + "15", color: step.color }}
-                    >
-                      {step.tag}
-                    </span>
-                    <h3 className="text-lg font-bold mb-2" style={{ color: "#040d1c" }}>{step.title}</h3>
-                    <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>{step.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="text-center mt-12">
-            <a
-              href="/how-it-works"
-              className="inline-flex items-center gap-2 text-sm font-semibold"
-              style={{ color: "#2563eb" }}
-            >
-              See the full walkthrough <ArrowRight size={14} />
-            </a>
-          </div>
-        </Container>
-      </section>
+      <StepTimeline
+        eyebrow="How it works"
+        heading="From sign-up to neighborhood growth — a clear path"
+        subheading="No long onboarding. No setup-time fear. Your restaurant is live in 24 hours, growing within weeks."
+        steps={timeline}
+      />
+      <div className="bg-white text-center pb-16 md:pb-24">
+        <a
+          href="/how-it-works"
+          className="inline-flex items-center gap-2 text-sm font-semibold"
+          style={{ color: "#2563eb" }}
+        >
+          See the full walkthrough <ArrowRight size={14} />
+        </a>
+      </div>
 
       {/* ── Solutions by segment ── */}
       <section className="py-16 md:py-24" style={{ background: "#f8fafc" }}>
@@ -320,75 +304,37 @@ export default function HomePage() {
       </section>
 
       {/* ── Comparison: Their model vs N4Cluster ── */}
-      <section className="bg-white py-16 md:py-24">
-        <Container>
-          <SectionIntro
-            eyebrow="Why N4Cluster"
-            heading="Infrastructure, not extraction"
-            subheading="Marketplace platforms grow by taking more from each order. N4Cluster grows when you do — by increasing neighborhood order volume, not margin compression."
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {/* Marketplace side */}
-            <div className="rounded-2xl p-8 bg-white" style={{ border: "1px solid #e2e8f0" }}>
-              <div className="flex items-center gap-2 mb-5">
-                <div className="w-5 h-5 rounded-full flex items-center justify-center" style={{ background: "#fef2f2" }}>
-                  <X size={10} style={{ color: "#ef4444" }} strokeWidth={2.5} />
-                </div>
-                <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: "#64748b" }}>Marketplace model</span>
-              </div>
-              <h3 className="text-lg font-bold mb-5" style={{ color: "#0f172a" }}>The platform profits from your success — not with you.</h3>
-              <ul className="space-y-4">
-                {[
-                  "20–30% commission per order, no cap",
-                  "Customer data owned by the platform",
-                  "Your brand hidden behind their UI",
-                  "Pricing parity requirements limit your options",
-                  "Ranking controlled by ad spend and algorithm",
-                  "Terms can change with little notice",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: "#fef2f2" }}>
-                      <X size={9} style={{ color: "#ef4444" }} strokeWidth={2.5} />
-                    </div>
-                    <span className="text-sm" style={{ color: "#475569" }}>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* N4Cluster side */}
-            <div className="rounded-2xl p-8 relative overflow-hidden" style={{ background: "#040d1c", border: "1px solid #1e3a70" }}>
-              <div className="absolute top-0 right-0 w-40 h-40 rounded-full blur-2xl" style={{ background: "rgba(37,99,235,0.12)", transform: "translate(50%, -50%)" }} />
-              <div className="relative z-10">
-                <div className="flex items-center gap-2 mb-5">
-                  <div className="w-5 h-5 rounded-full flex items-center justify-center" style={{ background: "rgba(20,184,166,0.2)" }}>
-                    <Check size={10} style={{ color: "#14b8a6" }} strokeWidth={2.5} />
-                  </div>
-                  <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: "#64748b" }}>N4Cluster model</span>
-                </div>
-                <h3 className="text-lg font-bold mb-5 text-white">We grow when neighborhood order volume grows — not by taking more per order.</h3>
-                <ul className="space-y-4">
-                  {[
-                    "$99/month flat + $0.50 per order. No commission. No % of revenue.",
-                    "Your customer data. Your loyalty program.",
-                    "Branded ordering under your own domain and identity",
-                    "No pricing parity requirements — ever",
-                    "Discovery sorted by distance and preference, not spend",
-                    "90–180 day advance notice for any policy changes. Exit rights protected.",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: "rgba(20,184,166,0.15)" }}>
-                        <Check size={9} style={{ color: "#14b8a6" }} strokeWidth={2.5} />
-                      </div>
-                      <span className="text-sm" style={{ color: "#cbd5e1" }}>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <ComparisonCards
+        eyebrow="Why N4Cluster"
+        heading="Two ways to run online ordering — only one keeps you whole"
+        subheading="Marketplace platforms grow by taking a bigger cut of every order. N4Cluster grows when your neighborhood orders grow — not by squeezing your margin."
+        before={{
+          type: "before",
+          label: "Marketplace model",
+          headline: "They win when they take a bigger cut of your ticket.",
+          points: [
+            "They take up to $12 of every $40 ticket before you see a cent",
+            "Your customer data belongs to them, not you",
+            "Your name buried behind their app and their branding",
+            "Price-parity rules can block you from charging less elsewhere",
+            "Where you rank depends on ad spend, not who's closest or best",
+            "They can change the rules with little warning",
+          ],
+        }}
+        after={{
+          type: "after",
+          label: "N4Cluster model",
+          headline: "We grow when your neighborhood orders grow — not by taking more per order.",
+          points: [
+            "$99/month flat plus $0.50 per order. No commission. No percentage of your revenue.",
+            "You keep the customer data and the loyalty program",
+            "Ordering lives on your own site, under your own name",
+            "No price-parity rules — charge whatever you want, wherever you sell",
+            "Discovery ranked by distance and preference, not who's paying the most",
+            "90–180 days' notice before any policy changes, with the right to walk away",
+          ],
+        }}
+      />
 
       {/* ── Resources teaser ── */}
       <section className="py-16 md:py-24" style={{ background: "#f8fafc" }}>
@@ -405,7 +351,7 @@ export default function HomePage() {
       {/* ── Final CTA ── */}
       <CTASection
         heading="Ready to stop paying commissions?"
-        subheading="See how N4Cluster can launch your branded direct channel, activate neighborhood demand, and grow your restaurant — for $99/month plus $0.50 per order."
+        subheading="No commission. No $300–500/month SaaS bill, either. Just $99/month plus $0.50 per order — see how much margin comes back to your restaurant."
         primaryCta={{ label: "Request a Demo", href: "/contact" }}
         secondaryCta={{ label: "See Pricing", href: "/pricing" }}
       />

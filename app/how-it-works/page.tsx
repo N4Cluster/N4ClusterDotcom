@@ -15,8 +15,8 @@ const phases = [
     tag: "Day 1",
     color: "#2563eb",
     bg: "#f0f6ff",
-    headline: "Connect. Import. Preview.",
-    sub: "You connect your POS. We handle everything else.",
+    headline: "Plug in. We build. You approve.",
+    sub: "Connect your POS and step back — your ordering site, cleaned-up menu, and delivery radius get built the same day. Nothing launches until you say go.",
     tasks: [
       "POS connected — menu data automatically imported",
       "AI structures your catalog: categories, descriptions, missing items flagged",
@@ -38,8 +38,8 @@ const phases = [
     tag: "Days 2–5",
     color: "#14b8a6",
     bg: "#f0fdfb",
-    headline: "Go live. Join the Hub. Start accepting orders.",
-    sub: "Once you approve, your branded ordering site goes live. You appear in the Neighborhood Hub.",
+    headline: "One approval. You're live.",
+    sub: "No developers, no waiting on someone else's launch calendar. Your branded ordering site goes live under your name, and you're already showing up in the Neighborhood Hub.",
     tasks: [
       "Branded ordering site live under your domain",
       "Your restaurant appears in Neighborhood Hub — sorted by distance, not commission",
@@ -61,8 +61,8 @@ const phases = [
     tag: "Week 2–4",
     color: "#f59e0b",
     bg: "#fffbeb",
-    headline: "Autopilot activates. Growth compounds.",
-    sub: "N4Logic starts identifying your demand patterns and activating growth opportunities — all with your approval.",
+    headline: "The autopilot kicks in. You stay in control.",
+    sub: "N4Logic starts spotting your demand patterns and queuing up ways to bring regulars back — nothing runs without your sign-off first.",
     tasks: [
       "AI identifies your peak demand windows and suggests timing adjustments",
       "First neighborhood campaign triggered — sent only with your opt-in",
@@ -84,8 +84,8 @@ const phases = [
     tag: "Ongoing",
     color: "#2563eb",
     bg: "#f0f6ff",
-    headline: "Neighborhood order density compounds.",
-    sub: "Every order builds the model. More direct orders. More repeat customers. More margin.",
+    headline: "Setup's done. The order flow compounds.",
+    sub: "More direct orders. More repeat customers. More margin that stays yours — at the same flat price, whether it's a slow Tuesday or a sold-out Friday.",
     tasks: [
       "$99/month flat plus $0.50 per order — the same fee regardless of order volume or ticket size",
       "Customer loyalty and data accumulates in your account — not the platform's",
@@ -111,7 +111,7 @@ export default function HowItWorksPage() {
       <HeroCentered
         eyebrow="How it works"
         heading="Day 1 to live ordering. Week 1 to neighborhood growth."
-        subheading="N4Cluster is designed to get you from POS connection to branded ordering to AI-powered growth in a matter of days — not a multi-month implementation."
+        subheading="POS connected today. Branded ordering site live this week. Not the multi-month rollout your last vendor quoted you — and you approve every step before it goes live."
         primaryCta={{ label: "See It in Action", href: "/contact" }}
         secondaryCta={{ label: "View the Platform", href: "/platform" }}
       />
@@ -214,10 +214,10 @@ export default function HowItWorksPage() {
         <Container>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { value: "Day 1", label: "Live branded ordering" },
-              { value: "$99/mo + $0.50", label: "Platform + per order, flat — forever" },
-              { value: "30 min", label: "Delivery SLA, our risk" },
-              { value: "0%", label: "Commission. Ever." },
+              { value: "Day 1", label: "Your ordering site goes live" },
+              { value: "$99/mo + $0.50", label: "Flat. Every order, every month — no surprises." },
+              { value: "30 min", label: "Delivery SLA. Our risk, not yours." },
+              { value: "0%", label: "Commission. Never." },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>

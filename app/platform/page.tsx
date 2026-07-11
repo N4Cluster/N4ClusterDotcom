@@ -3,12 +3,12 @@ import { HeroCentered } from "@/components/sections/HeroCentered";
 import { CTASection } from "@/components/sections/CTASection";
 import { Container } from "@/components/ui/Container";
 import { SectionIntro } from "@/components/ui/SectionIntro";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, Search } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Platform — Four Layers. One Monthly Bill.",
+  title: "Platform — Five Layers. One Monthly Bill.",
   description:
-    "N4Cluster is four things working together: white-label ordering, Neighborhood Hub discovery, AI Growth Autopilot, and merchant-accountable delivery — for a flat $99/month plus $0.50 per order.",
+    "N4Cluster is five things working together: white-label ordering, Neighborhood Hub discovery, AI Growth Autopilot, merchant-accountable delivery, and local Google search & Maps presence — for a flat $99/month plus $0.50 per order.",
 };
 
 const pillars = [
@@ -19,7 +19,7 @@ const pillars = [
     bg: "#f0f6ff",
     tag: "White-label ordering",
     headline: "Your brand. Your domain. Your ordering experience.",
-    body: "N4Cluster launches a fully branded ordering site under your restaurant's own domain. Customers order from you — not from a marketplace with your logo as an afterthought. The relationship is yours.",
+    body: "Your ordering site runs on your own domain, branded top to bottom — not tucked inside someone else's app with your logo as an afterthought. Customers order from you, and the relationship stays yours.",
     features: [
       "Auto-imported from your POS — menu, categories, pricing, availability",
       "Runs under your website domain, not ours",
@@ -37,7 +37,7 @@ const pillars = [
     bg: "#f0fdfb",
     tag: "Neighborhood Hub",
     headline: "Local discovery that works for independent restaurants, not against them.",
-    body: "The Neighborhood Hub is a local discovery feed where your restaurant appears alongside other neighborhood businesses — sorted by distance and customer preference, not by who paid the highest commission or ad fee. No price-based default ranking. No sponsored suppression. Neutral, transparent visibility.",
+    body: "The Neighborhood Hub shows your restaurant alongside other local spots — sorted by distance and what customers actually want, not by who paid the biggest commission or ad fee. You don't have to outbid the guy down the street to show up first. What neighbors see is what's actually near them.",
     features: [
       "Distance and preference-based ranking — not commission-driven",
       "Appears on local discovery feed alongside neighborhood restaurants",
@@ -55,7 +55,7 @@ const pillars = [
     bg: "#fffbeb",
     tag: "AI Growth Autopilot",
     headline: "We build. You review. The platform grows.",
-    body: "AI Growth Autopilot handles the time-consuming parts of running a digital commerce operation — setup, optimization, marketing, monitoring — so you can spend your time on the food. Every action requires your review. Nothing runs without your approval.",
+    body: "AI Growth Autopilot handles the busywork — menu setup, marketing pushes, keeping an eye on things — so you can spend your time on the food, not the software. Every action lands in your review queue first. Nothing goes out the door without your say-so.",
     features: [
       "Auto-imports and structures your menu from POS — you review and approve",
       "Detects peak demand windows, suggests prep time adjustments",
@@ -73,7 +73,7 @@ const pillars = [
     bg: "#f0f6ff",
     tag: "Delivery orchestration (N4Sync)",
     headline: "Delivery risk belongs to us, not you.",
-    body: "N4Cluster owns the logistics layer. We coordinate drivers, monitor pickup timestamps, track delivery completion, and take accountability for delays. Food quality is yours. Everything else is ours. That clear line removes the biggest operational headache from your plate.",
+    body: "N4Cluster owns delivery, full stop. We coordinate drivers, track every pickup and drop-off, and answer for the delays. Food quality is yours. Everything else is ours. One less thing keeping you up at night.",
     features: [
       "30-minute SLA from pickup — internal operational target of 95%+ compliance",
       "Merchant chooses preferred delivery partner — we coordinate the rest",
@@ -84,6 +84,24 @@ const pillars = [
     ],
     metric: { value: "30 min SLA", label: "logistics risk on us, not you" },
   },
+  {
+    id: "search",
+    number: "05",
+    color: "#14b8a6",
+    bg: "#f0fdfb",
+    tag: "Local search & Google presence",
+    headline: "Neighbors search Google before they open any app.",
+    body: "Built to help your dishes show up when neighbors search on Google, not just inside our platform. Designed to keep your Google Business listing accurate as your menu changes, so a dish you 86'd last night doesn't show up as available this morning. This is part of the platform we're building out — one more channel working for you, not a ranking guarantee.",
+    features: [
+      "Built to help your dishes show up when neighbors search on Google — not just inside the N4Cluster app",
+      "Designed to keep your Google Business listing accurate as your menu changes",
+      "Menu updates and 86'd items are designed to flow toward your public Google listing too",
+      "One listing to keep current instead of juggling five different apps by hand",
+      "Built to help you collect more reviews after every delivery",
+      "Part of the platform we're rolling out — not a bolt-on SEO tool you manage yourself",
+    ],
+    metric: { value: "One listing", label: "designed to stay current, not five apps to babysit" },
+  },
 ];
 
 export default function PlatformPage() {
@@ -91,8 +109,8 @@ export default function PlatformPage() {
     <>
       <HeroCentered
         eyebrow="The platform"
-        heading="One platform. Four things working together."
-        subheading="N4Cluster is white-label ordering, neighborhood discovery, AI-powered growth, and merchant-accountable delivery — connected in a single system for a flat $99/month plus $0.50 per order."
+        heading="One platform. Five things working together."
+        subheading="N4Cluster runs your branded ordering site, neighborhood discovery, AI-assisted growth, accountable delivery, and local search — one system, for a flat $99/month plus $0.50 per order."
         primaryCta={{ label: "Request a Walkthrough", href: "/contact" }}
         secondaryCta={{ label: "See Pricing", href: "/pricing" }}
       />
@@ -100,7 +118,7 @@ export default function PlatformPage() {
       {/* Overview strip */}
       <div className="py-6" style={{ background: "#040d1c", borderTop: "1px solid #1e3a70", borderBottom: "1px solid #1e3a70" }}>
         <Container>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
             {pillars.map((p) => (
               <div key={p.id} className="flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: p.color }} />
@@ -174,8 +192,8 @@ export default function PlatformPage() {
         <Container size="lg">
           <SectionIntro
             eyebrow="Merchant protections"
-            heading="The operating principles don't change."
-            subheading="N4Cluster is designed on a flat-fee infrastructure model. These are not marketing claims — they are built into our governance framework."
+            heading="The rules don't change on you."
+            subheading="Flat fee, in writing, every month. Not a promotional rate that quietly turns into a commission six months in."
             dark
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
@@ -359,6 +377,30 @@ function PillarVisual({ pillar }: { pillar: (typeof pillars)[number] }) {
           </div>
         ))}
         <div className="text-xs text-center mt-2" style={{ color: "#475569" }}>Nothing activates without your approval.</div>
+      </div>
+    );
+  }
+
+  if (pillar.id === "search") {
+    return (
+      <div className="rounded-2xl p-6" style={{ background: "#f8fafc", border: "1px solid #e2e8f0" }}>
+        <div className="flex items-center gap-2 rounded-full px-4 py-2.5 mb-5" style={{ background: "#ffffff", border: "1px solid #e2e8f0" }}>
+          <Search size={14} style={{ color: "#94a3b8" }} />
+          <span className="text-xs" style={{ color: "#64748b" }}>best tacos near me</span>
+        </div>
+        <div className="rounded-xl p-4 mb-3" style={{ background: "#f0fdfb", border: "1px solid rgba(20,184,166,0.25)" }}>
+          <div className="text-xs font-semibold mb-1" style={{ color: "#0d9488" }}>Your Restaurant</div>
+          <div className="text-xs" style={{ color: "#64748b" }}>Open now · 4.6 ★ · 0.4 mi</div>
+        </div>
+        <div className="rounded-xl p-4" style={{ background: "#ffffff", border: "1px solid #e2e8f0" }}>
+          <div className="flex items-start gap-3">
+            <Check size={14} className="flex-shrink-0 mt-0.5" style={{ color: "#14b8a6" }} />
+            <div>
+              <div className="text-xs font-semibold mb-0.5" style={{ color: "#040d1c" }}>Google Business listing</div>
+              <div className="text-xs" style={{ color: "#64748b" }}>Designed to stay in sync as your menu changes.</div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
