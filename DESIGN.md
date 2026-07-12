@@ -8,8 +8,10 @@ colors:
   trust-cobalt-pale: "#93c5fd"
   signal-teal: "#14b8a6"
   signal-teal-deep: "#0d9488"
+  signal-teal-darker: "#0a5f56"
   signal-teal-light: "#2dd4bf"
   caution-amber: "#f59e0b"
+  caution-amber-darker: "#7c4a08"
   caution-amber-light: "#fbbf24"
   negative-red: "#b91c1c"
   ink-navy: "#040d1c"
@@ -123,7 +125,8 @@ The palette is functional, not decorative: navy for depth and dark surfaces, one
 - **Trust Cobalt** (#2563eb): the brand's one committed color. Primary buttons, links, focus rings, active nav states, the primary badge variant. Used functionally — if it's cobalt, it's actionable or it's the brand asserting itself, never a decorative accent.
 
 ### Secondary
-- **Signal Teal** (#14b8a6): the "confirmed good" color. The N4Cluster side of every marketplace-vs-N4Cluster comparison, checkmarks, positive delta indicators, completed timeline steps. Never used for a neutral or negative state.
+- **Signal Teal** (#14b8a6): the "confirmed good" color. The N4Cluster side of every marketplace-vs-N4Cluster comparison, checkmarks, positive delta indicators, completed timeline steps. Never used for a neutral or negative state. Reserve the base #14b8a6 and #0d9488 (Deep) steps for large icons, thin accents, and tinted backgrounds — measured contrast for both falls under 4.5:1 for body-size text on white or for white text on the color. Use **Signal Teal Darker** (#0a5f56) for any actual text or white-on-color badge that needs to pass WCAG AA.
+- **Caution Amber Darker** (#7c4a08): same rule as Signal Teal Darker — the base #f59e0b amber only clears large-text/graphical contrast, not small text or white-on-amber badges; use this step whenever amber carries readable text.
 
 ### Tertiary
 - **Caution Amber** (#f59e0b): reserved for attention/highlight moments — a third accent in a 3-item comparison or pillar grid, a "notice this" marker. Used sparingly; if more than one element on a screen is amber, it has stopped meaning "pay attention here."

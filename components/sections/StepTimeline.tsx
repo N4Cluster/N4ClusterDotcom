@@ -16,11 +16,12 @@ interface StepTimelineProps {
   dark?: boolean;
 }
 
-// Deep variants so white text clears WCAG AA (4.5:1); bg-amber-500/teal-500 fail with white text.
+// Deep variants so white text clears WCAG AA (4.5:1). #0d9488/#b8710c measured at
+// 3.7:1/3.9:1 with white text — not dark enough; using DESIGN.md's tonalRamp[1] steps instead.
 const accentBg = {
   cobalt: "#1a4fd6",
-  teal: "#0d9488",
-  amber: "#b8710c",
+  teal: "#0a5f56",
+  amber: "#7c4a08",
 };
 
 export function StepTimeline({ eyebrow, heading, subheading, steps, dark = false }: StepTimelineProps) {

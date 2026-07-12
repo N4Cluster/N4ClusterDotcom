@@ -192,13 +192,13 @@ export default function HomePage() {
                         >
                           {row.bad
                             ? <X size={10} style={{ color: "#b91c1c" }} strokeWidth={2.5} />
-                            : <Check size={10} style={{ color: "#0d9488" }} strokeWidth={2.5} />}
+                            : <Check size={10} style={{ color: "#0a5f56" }} strokeWidth={2.5} />}
                         </div>
                         <span className="text-sm font-medium" style={{ color: "#0f172a" }}>{row.label}</span>
                       </div>
                       <div className="text-right">
-                        <div className="text-sm font-semibold mb-0.5" style={{ color: row.bad ? "#b91c1c" : "#0d9488" }}>{row.fee}</div>
-                        <div className={row.bad ? "text-lg font-bold" : "text-xl font-bold"} style={{ color: row.bad ? "#0f172a" : "#0d9488" }}>
+                        <div className="text-sm font-semibold mb-0.5" style={{ color: row.bad ? "#b91c1c" : "#0a5f56" }}>{row.fee}</div>
+                        <div className={row.bad ? "text-lg font-bold" : "text-xl font-bold"} style={{ color: row.bad ? "#0f172a" : "#0a5f56" }}>
                           You keep {row.keep}
                         </div>
                       </div>
@@ -206,7 +206,7 @@ export default function HomePage() {
                   ))}
                 </div>
               </div>
-              <p className="text-xs pl-2" style={{ color: "#94a3b8" }}>
+              <p className="text-xs pl-2" style={{ color: "#475569" }}>
                 * Commission rates and SaaS pricing vary by provider. Comparison illustrates typical marketplace fee ranges and typical flat-fee SaaS pricing vs N4Cluster&apos;s flat $0.50/order fee (plus a separate flat $99/month platform fee, not shown per-order).
               </p>
             </div>
