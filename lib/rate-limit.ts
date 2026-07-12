@@ -25,7 +25,7 @@ export function isRateLimited(ip: string): boolean {
 }
 
 export function isHoneypotFilled(body: Record<string, unknown>): boolean {
-  // The honeypot field is named "website_url" — a field bots love to fill.
+  // The honeypot field is named "_hp_website" — a field bots love to fill.
   // Real users never see it (hidden via CSS).
   const honeypot = body._hp_website ?? body.hp_website ?? "";
   return typeof honeypot === "string" && honeypot.length > 0;
