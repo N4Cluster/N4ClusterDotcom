@@ -124,7 +124,7 @@ function PlatformDiagram() {
 
       {/* --- Cards (absolute positioned) --- */}
 
-      {/* Merchant Storefront — top center */}
+      {/* Customer order — top center */}
       <div
         className="absolute"
         style={{
@@ -138,21 +138,21 @@ function PlatformDiagram() {
           className="rounded-xl px-4 py-3 text-center"
           style={{ background: "#2563eb", boxShadow: "0 8px 24px rgba(37,99,235,0.45)" }}
         >
-          <div className="text-xs font-semibold uppercase tracking-wider mb-0.5" style={{ color: "rgba(255,255,255,0.7)" }}>Merchant</div>
-          <div className="text-sm font-bold text-white">Branded Storefront</div>
+          <div className="text-xs font-semibold uppercase tracking-wider mb-0.5" style={{ color: "rgba(255,255,255,0.7)" }}>Customer orders</div>
+          <div className="text-sm font-bold text-white">On your branded site</div>
         </div>
       </div>
 
-      {/* N4Sync — middle left */}
+      {/* Kitchen ticket — middle left */}
       <div className="absolute" style={{ top: 176, left: 28, width: 156 }}>
         <div
           className="rounded-xl px-4 py-3"
           style={{ background: "#0f2a3a", border: "1.5px solid #14b8a6", boxShadow: "0 4px 16px rgba(20,184,166,0.25)" }}
         >
-          <div className="text-xs font-semibold mb-0.5" style={{ color: "#14b8a6" }}>N4Sync</div>
-          <div className="text-sm font-bold text-white">Orchestration</div>
+          <div className="text-xs font-semibold mb-0.5" style={{ color: "#14b8a6" }}>Kitchen</div>
+          <div className="text-sm font-bold text-white">Ticket prints instantly</div>
           <div className="flex flex-wrap gap-1 mt-2">
-            {["Orders", "Status", "Sync"].map((tag) => (
+            {["New order", "Confirmed", "Ready"].map((tag) => (
               <span
                 key={tag}
                 className="text-xs px-1.5 py-0.5 rounded"
@@ -165,16 +165,16 @@ function PlatformDiagram() {
         </div>
       </div>
 
-      {/* N4Logic — middle right */}
+      {/* Owner's numbers — middle right */}
       <div className="absolute" style={{ top: 176, right: 28, width: 156 }}>
         <div
           className="rounded-xl px-4 py-3"
           style={{ background: "#1c1400", border: "1.5px solid #f59e0b", boxShadow: "0 4px 16px rgba(245,158,11,0.25)" }}
         >
-          <div className="text-xs font-semibold mb-0.5" style={{ color: "#f59e0b" }}>N4Logic</div>
-          <div className="text-sm font-bold text-white">AI Intelligence</div>
+          <div className="text-xs font-semibold mb-0.5" style={{ color: "#f59e0b" }}>Your numbers</div>
+          <div className="text-sm font-bold text-white">Slow-night alerts</div>
           <div className="flex flex-wrap gap-1 mt-2">
-            {["Demand", "Growth", "Ops"].map((tag) => (
+            {["Today's sales", "Repeat guests", "Slow night"].map((tag) => (
               <span
                 key={tag}
                 className="text-xs px-1.5 py-0.5 rounded"
@@ -187,7 +187,7 @@ function PlatformDiagram() {
         </div>
       </div>
 
-      {/* Fulfillment — bottom center */}
+      {/* Delivery — bottom center */}
       <div
         className="absolute"
         style={{ top: 302, left: "50%", transform: "translateX(-50%)", width: 148 }}
@@ -196,8 +196,8 @@ function PlatformDiagram() {
           className="rounded-xl px-4 py-3 text-center"
           style={{ background: "#0f172a", border: "1px solid #334155" }}
         >
-          <div className="text-xs mb-0.5" style={{ color: "#94a3b8" }}>Connected</div>
-          <div className="text-sm font-bold text-white">Fulfillment Layer</div>
+          <div className="text-xs mb-0.5" style={{ color: "#94a3b8" }}>Driver dispatched</div>
+          <div className="text-sm font-bold text-white">30-min delivery SLA</div>
         </div>
       </div>
 

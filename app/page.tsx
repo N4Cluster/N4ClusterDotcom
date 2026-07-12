@@ -79,23 +79,23 @@ const pillars = [
 const timeline = [
   {
     number: "24 Hrs",
-    title: "Your branded site goes live",
+    title: "Live in a day, not a quarter",
     description:
-      "We pull your menu straight from your POS, clean it up, and launch your ordering site under your own name — live within 24 hours. Nothing goes live without your sign-off.",
+      "Connect your POS in the morning, review your branded site by dinner service. No project timeline, no dev team, no waiting on someone else's calendar.",
     accent: "cobalt" as const,
   },
   {
     number: "Week 1",
-    title: "Neighbors start finding you",
+    title: "Discovery switches on without you touching a setting",
     description:
-      "Your restaurant shows up in local discovery, sorted by distance and preference. The customers five minutes away start finding you — on your terms.",
+      "Local discovery activates the day you're live — no campaign to build, no ad account to configure. You just start showing up.",
     accent: "teal" as const,
   },
   {
     number: "Month 1",
-    title: "Growth runs on autopilot",
+    title: "Thirty seconds a week, not a second job",
     description:
-      "N4Cluster spots your slow nights, suggests a campaign, and reaches out to customers who've gone quiet. You approve. We execute.",
+      "Campaigns get suggested, not built by you. Approve or skip in the time it takes to read a text.",
     accent: "amber" as const,
   },
   {
@@ -181,7 +181,7 @@ export default function HomePage() {
                     { label: "High-commission marketplace", fee: "Up to $12.00 (30%)", keep: "$28.00", bad: true },
                     { label: "Mid-commission marketplace", fee: "Up to $10.80 (27%)", keep: "$29.20", bad: true },
                     { label: "Lower-commission marketplace", fee: "Up to $10.00 (25%)", keep: "$30.00", bad: true },
-                    { label: "Flat-fee ordering SaaS", fee: "$300–500/mo flat, any order count", keep: "$40.00 — then a flat bill on top", bad: true },
+                    { label: "Flat-fee ordering SaaS", fee: "$300–500/mo flat, regardless of volume", keep: "$40.00", bad: true },
                     { label: "N4Cluster", fee: "$0.50 flat", keep: "$39.50", bad: false },
                   ].map((row) => (
                     <div key={row.label} className="flex items-center justify-between px-5 py-4">
