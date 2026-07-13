@@ -101,13 +101,6 @@
     background: linear-gradient(135deg, #0a1628 0%, #162d58 100%);
   }
 
-  .text-gradient {
-    background: linear-gradient(135deg, #2563eb 0%, #14b8a6 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
   .card-hover {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }

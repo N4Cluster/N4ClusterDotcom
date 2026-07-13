@@ -39,7 +39,7 @@ export function SiteHeader() {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
           ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200"
-          : "bg-transparent"
+          : "bg-navy-950/30 backdrop-blur-sm"
       )}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
