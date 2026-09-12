@@ -44,7 +44,7 @@ const ownIt = [
   },
   {
     title: "Flat fee, no commission",
-    body: "$0.50 per order, published and fixed, plus your usual card processing — $1.97 on a $40.00 order. No revenue share, ever.",
+    body: "$0.50 per order, published and fixed, plus your usual card processing — $1.96 on a $40.00 order. No revenue share, ever.",
   },
   {
     title: "Your data stays yours",
@@ -165,7 +165,7 @@ export default function HomePage() {
         subheading="Marketplace apps take 20–30% off every order. Flat-fee ordering SaaS platforms bill you $300–500 a month whether you sell ten orders or a thousand. N4Cluster is $99/month plus $0.50 per order — no commission, ever. Customers pay a separate $0.99 fee at checkout; it never comes out of your ticket."
         primaryCta={{ label: "Request Your Demo Storefront", href: "/contact" }}
         secondaryCta={{ label: "Calculate Your Savings", href: "/roi-calculator" }}
-        microcopy="Try it free — no fee while you try it · Live in days · $99/mo + $0.50 per order · Cancel anytime"
+        microcopy="Try it free for 30 days · Live in days · $99/mo + $0.50 per order · Cancel anytime"
       />
 
       {/* ── Trust strip ── */}
@@ -226,7 +226,7 @@ export default function HomePage() {
                     { label: "Mid-commission marketplace", fee: "Up to $10.80 (27%)", keep: "$29.20", bad: true },
                     { label: "Lower-commission marketplace", fee: "Up to $10.00 (25%)", keep: "$30.00", bad: true },
                     { label: "Flat-fee ordering SaaS", fee: "$300–500/mo flat, any order count", keep: "$40.00 — then a flat bill on top", bad: true },
-                    { label: "N4Cluster", fee: "$1.97 ($0.50 flat + $1.47 card processing)", keep: "$38.03", bad: false },
+                    { label: "N4Cluster", fee: "$1.96 ($0.50 flat + $1.46 card processing)", keep: "$38.04", bad: false },
                   ].map((row) => (
                     <div key={row.label} className="flex items-center justify-between px-5 py-4">
                       <div className="flex items-center gap-3">
@@ -249,7 +249,7 @@ export default function HomePage() {
                 </div>
               </div>
               <p className="text-xs pl-2" style={{ color: "#94a3b8" }}>
-                * Commissions run 20–30% and SaaS pricing varies by provider; assumes the same $40 subtotal on every channel, though app menu prices sometimes run higher to offset commission. Your N4Cluster cost: $0.50 flat + card processing ($1.47 on $40), plus a separate flat $99/month platform fee not shown per-order. The diner&apos;s separate $0.99 fee isn&apos;t part of your total.
+                * Commissions run 20–30% and SaaS pricing varies by provider; assumes the same $40 subtotal on every channel, though app menu prices sometimes run higher to offset commission. Your N4Cluster cost: $0.50 flat + card processing (2.9% + $0.30, so $1.46 on $40), plus a separate flat $99/month platform fee not shown per-order. The diner&apos;s separate $0.99 fee isn&apos;t part of your total.
               </p>
             </div>
           </div>

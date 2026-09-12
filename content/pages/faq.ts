@@ -49,7 +49,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "Can I try it free?",
     answer:
-      "Yes. No fee while you try it — no $99/month and no per-order fee during your trial. We build a working demo storefront with your real menu and walk you through it, so you can see it before you decide anything.",
+      "Yes — 30 days free. No fee while you try it: no $99/month and no per-order fee during your trial. We build a working demo storefront with your real menu and walk you through it, so you can see it before you decide anything.",
   },
   {
     question: "Am I locked in?",

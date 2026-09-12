@@ -27,7 +27,7 @@ const solutions = [
       "$99/month flat plus $0.50 per order. No commission, ever. Cancel anytime, or lock the rate for up to two years if you want it in writing.",
     ],
     outcomes: [
-      { label: "What stays in your pocket per $40 order vs. a 30% marketplace, after card processing", value: "$10.03" },
+      { label: "What stays in your pocket per $40 order vs. a 30% marketplace, after card processing", value: "$10.04" },
       { label: "Who owns the customer when they order direct", value: "Yours" },
       { label: "Time from signup to live branded ordering", value: "Days" },
     ],
@@ -121,8 +121,8 @@ function IndependentVisual() {
       <div className="text-xs font-semibold uppercase tracking-wider mb-4" style={{ color: "#64748b" }}>Monthly order comparison</div>
       {[
         { label: "Your current marketplace take", value: "-$4,000/mo", sub: "400 orders × $40 avg ticket at 25% commission", bad: true },
-        { label: "N4Cluster total cost", value: "-$887/mo", sub: "400 orders × ($0.50 + $1.47 card processing) + $99/mo platform fee", bad: false },
-        { label: "Margin recovered per month", value: "+$3,113", sub: "Stays in your business", good: true },
+        { label: "N4Cluster total cost", value: "-$883/mo", sub: "400 orders × ($0.50 + $1.46 card processing) + $99/mo platform fee", bad: false },
+        { label: "Margin recovered per month", value: "+$3,117", sub: "Stays in your business", good: true },
       ].map((row) => (
         <div key={row.label} className="rounded-xl p-4 mb-3" style={{ background: row.good ? "rgba(20,184,166,0.08)" : "rgba(255,255,255,0.04)", border: `1px solid ${row.good ? "rgba(20,184,166,0.25)" : "rgba(255,255,255,0.07)"}` }}>
           <div className="flex justify-between items-start">

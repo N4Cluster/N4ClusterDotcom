@@ -73,7 +73,7 @@ export default function PricingPage() {
       <HeroCentered
         eyebrow="Pricing"
         heading="$99/month + $0.50 per order. No commission. Ever."
-        subheading="We only make money when your direct ordering actually works — never by skimming your ticket. No revenue share, no fine print, no math you have to double-check at 11pm. Try it free — no fee while you try it. Cancel anytime."
+        subheading="We only make money when your direct ordering actually works — never by skimming your ticket. No revenue share, no fine print, no math you have to double-check at 11pm. Try it free for 30 days. Cancel anytime."
         primaryCta={{ label: "Request a Demo", href: "/contact" }}
         secondaryCta={{ label: "See How It Works", href: "/how-it-works" }}
       />
@@ -238,8 +238,8 @@ export default function PricingPage() {
                 <div className="rounded-xl p-4" style={{ background: "rgba(20,184,166,0.08)", border: "1px solid rgba(20,184,166,0.2)" }}>
                   <div className="text-xs font-semibold mb-1" style={{ color: "#14b8a6" }}>What the restaurant keeps</div>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-2xl font-bold text-white">$38.03</span>
-                    <span className="text-xs" style={{ color: "#64748b" }}>($40.00 minus $0.50 merchant fee and $1.47 card processing; $99/mo platform fee billed separately)</span>
+                    <span className="text-2xl font-bold text-white">$38.04</span>
+                    <span className="text-xs" style={{ color: "#64748b" }}>($40.00 minus $0.50 merchant fee and $1.46 card processing; $99/mo platform fee billed separately)</span>
                   </div>
                 </div>
               </div>
@@ -378,7 +378,7 @@ export default function PricingPage() {
             {[
               {
                 q: "Can I try it free?",
-                a: "Yes. No fee while you try it — no $99/month and no per-order fee during your trial. We build a working demo storefront with your real menu and walk you through it before you decide anything.",
+                a: "Yes — 30 days free. No fee while you try it: no $99/month and no per-order fee during your trial. We build a working demo storefront with your real menu and walk you through it before you decide anything.",
               },
               {
                 q: "Is there a setup fee?",
