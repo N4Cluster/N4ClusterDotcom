@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { footerLinks } from "@/content/site/footer";
+import { siteConfig } from "@/content/site/settings";
 import { Linkedin, Twitter, Github } from "lucide-react";
 
 export function SiteFooter() {
@@ -19,6 +20,12 @@ export function SiteFooter() {
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed max-w-xs">
               Merchant-first infrastructure for local commerce. Branded ordering, orchestration, and AI-assisted growth in one connected platform.
+            </p>
+            <p className="mt-4 text-sm text-slate-400">
+              Text {siteConfig.contact.smsKeyword} to{" "}
+              <a href={siteConfig.contact.phoneHref} className="font-semibold text-white hover:text-cobalt-300 transition-colors">
+                {siteConfig.contact.phone}
+              </a>
             </p>
             <div className="mt-6 flex items-center gap-3">
               <a

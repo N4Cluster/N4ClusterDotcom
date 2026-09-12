@@ -9,7 +9,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "How is N4Cluster different from marketplace delivery platforms?",
     answer:
-      "Those are marketplace platforms that take 25–30% commission on every order, own the customer relationship, and use your restaurant to drive traffic to their app. N4Cluster is the opposite: you have a fully branded site under your domain, you own the customer data, orders go directly into your POS, and you pay a flat $99/month plus $0.50 per order — not a percentage of revenue.",
+      "Those are marketplace platforms that take 20–30% commission on every order, own the customer relationship, and use your restaurant to drive traffic to their app. N4Cluster is the opposite: you have a fully branded site under your domain, you own the customer data and can export it anytime, orders go directly into your POS, and you pay a flat $99/month plus $0.50 per order — not a percentage of revenue.",
   },
   {
     question: "What does the $99/month plus $0.50 per order actually cover?",
@@ -44,7 +44,17 @@ export const faqItems: FAQItem[] = [
   {
     question: "How quickly can I go live?",
     answer:
-      "Day 1. When you connect your POS, N4Logic automatically imports your menu, structures the catalog, and builds your ordering site for review. Once you approve it, your branded site goes live and you appear in the Neighborhood Hub. No lengthy implementation. No multi-month onboarding.",
+      "In days. When you connect your POS, N4Logic automatically imports your menu, structures the catalog, and builds your ordering site for review. Once you approve it, your branded site goes live and you appear in the Neighborhood Hub. No lengthy implementation. No multi-month onboarding.",
+  },
+  {
+    question: "Can I try it free?",
+    answer:
+      "Yes. No fee while you try it — no $99/month and no per-order fee during your trial. We build a working demo storefront with your real menu and walk you through it, so you can see it before you decide anything.",
+  },
+  {
+    question: "Am I locked in?",
+    answer:
+      "No. Cancel anytime. Your orders and customer list belong to you, and you can export them anytime — before, during, or after you leave.",
   },
   {
     question: "What POS systems does N4Cluster integrate with?",

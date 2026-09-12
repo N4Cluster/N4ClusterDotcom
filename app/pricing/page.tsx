@@ -73,7 +73,7 @@ export default function PricingPage() {
       <HeroCentered
         eyebrow="Pricing"
         heading="$99/month + $0.50 per order. No commission. Ever."
-        subheading="We only make money when your direct ordering actually works — never by skimming your ticket. No revenue share, no fine print, no math you have to double-check at 11pm."
+        subheading="We only make money when your direct ordering actually works — never by skimming your ticket. No revenue share, no fine print, no math you have to double-check at 11pm. Try it free — no fee while you try it. Cancel anytime."
         primaryCta={{ label: "Request a Demo", href: "/contact" }}
         secondaryCta={{ label: "See How It Works", href: "/how-it-works" }}
       />
@@ -114,8 +114,8 @@ export default function PricingPage() {
             <div>
               <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid #e2e8f0" }}>
                 <div className="px-5 py-4" style={{ background: "#f8fafc", borderBottom: "1px solid #e2e8f0" }}>
-                  <div className="text-sm font-bold" style={{ color: "#040d1c" }}>What you keep on a $40 / $80 / $150 order</div>
-                  <div className="text-xs mt-0.5" style={{ color: "#64748b" }}>After per-order fees (excludes N4Cluster's flat $99/month platform fee). Commission rates are typical published rates.</div>
+                  <div className="text-sm font-bold" style={{ color: "#040d1c" }}>Platform fee taken on a $40 / $80 / $150 order</div>
+                  <div className="text-xs mt-0.5" style={{ color: "#64748b" }}>Per-order platform fees only — card processing excluded on both sides, as is N4Cluster's flat $99/month platform fee. Commission rates are typical published rates.</div>
                 </div>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
@@ -210,7 +210,7 @@ export default function PricingPage() {
                 <div className="rounded-xl p-5 mb-4" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}>
                   <div className="text-xs font-semibold text-white mb-4">Order from Rosario&apos;s Kitchen</div>
                   {[
-                    { label: "Truffle Fries", price: "$11.50" },
+                    { label: "Truffle Fries", price: "$9.00" },
                     { label: "Chicken Milanese", price: "$22.00" },
                     { label: "House Salad", price: "$9.00" },
                   ].map((item) => (
@@ -221,7 +221,7 @@ export default function PricingPage() {
                   ))}
                   <div className="flex justify-between py-2 mt-1" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
                     <span className="text-xs" style={{ color: "#94a3b8" }}>Subtotal</span>
-                    <span className="text-xs font-semibold text-white">$42.50</span>
+                    <span className="text-xs font-semibold text-white">$40.00</span>
                   </div>
                   <div className="flex justify-between py-2" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
                     <div>
@@ -232,14 +232,14 @@ export default function PricingPage() {
                   </div>
                   <div className="flex justify-between py-3 mt-1">
                     <span className="text-sm font-bold text-white">Total</span>
-                    <span className="text-sm font-bold text-white">$43.49</span>
+                    <span className="text-sm font-bold text-white">$40.99</span>
                   </div>
                 </div>
                 <div className="rounded-xl p-4" style={{ background: "rgba(20,184,166,0.08)", border: "1px solid rgba(20,184,166,0.2)" }}>
                   <div className="text-xs font-semibold mb-1" style={{ color: "#14b8a6" }}>What the restaurant keeps</div>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-2xl font-bold text-white">$42.00</span>
-                    <span className="text-xs" style={{ color: "#64748b" }}>($42.50 minus $0.50 merchant fee; $99/mo platform fee billed separately)</span>
+                    <span className="text-2xl font-bold text-white">$38.03</span>
+                    <span className="text-xs" style={{ color: "#64748b" }}>($40.00 minus $0.50 merchant fee and $1.47 card processing; $99/mo platform fee billed separately)</span>
                   </div>
                 </div>
               </div>
@@ -323,7 +323,7 @@ export default function PricingPage() {
                 Lock your rate. Sleep better for 1 or 2 years.
               </h2>
               <p className="text-base leading-relaxed mb-5" style={{ color: "#475569" }}>
-                Pricing gets reviewed once a year by default. Want more certainty for your own planning? Lock the merchant fee — $0.50/order and the $99/month platform fee — for 1 or 2 years. You won't get a discount for locking in; the price is already as flat as it gets. This just buys you predictability.
+                Pricing gets reviewed once a year by default. Want more certainty for your own planning? Lock the merchant fee — $0.50/order and the $99/month platform fee — for 1 or 2 years. You won't get a discount for locking in; the price is already as flat as it gets. This just buys you predictability — a lock fixes the rate, not you. You can still cancel anytime.
               </p>
               <div className="space-y-3 mb-8">
                 {priceLockDetails.map((item) => (
@@ -377,6 +377,10 @@ export default function PricingPage() {
           <div className="space-y-4">
             {[
               {
+                q: "Can I try it free?",
+                a: "Yes. No fee while you try it — no $99/month and no per-order fee during your trial. We build a working demo storefront with your real menu and walk you through it before you decide anything.",
+              },
+              {
                 q: "Is there a setup fee?",
                 a: "None. You pay a flat $99/month platform fee plus $0.50 per order — that's it. The $99/month never moves. Have a slow month? Your order volume drops, so your per-order cost drops with it — but the platform fee stays put.",
               },
@@ -393,8 +397,8 @@ export default function PricingPage() {
                 a: "By default, yes — the $0.99 Neighborhood Fee shows up at checkout, and we handle it end to end. If you'd rather absorb it or fold it into your menu pricing, you can opt out of the customer-facing display. Your call.",
               },
               {
-                q: "How does the price lock work if I want to cancel?",
-                a: "The price lock only fixes your rate — it doesn't chain you to a minimum term unless a separate agreement says otherwise. Want out during a lock period? The terms depend on your specific agreement, and we'll walk you through them honestly before you ever lock in.",
+                q: "Can I cancel anytime — even during a price lock?",
+                a: "Yes. No lock-in and no minimum term. The price lock only fixes your rate; it never chains you to us. Your orders and customer list are yours, and you can export them anytime.",
               },
               {
                 q: "What counts as a material change that triggers the 180-day notice and exit right?",

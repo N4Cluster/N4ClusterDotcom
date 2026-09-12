@@ -31,9 +31,25 @@ export const metadata: Metadata = {
 const trustItems = [
   "$99/mo + $0.50 per order",
   "Your brand. Your customers.",
-  "You own your customer data",
+  "Your data stays yours — export anytime",
   "30-minute delivery, on us",
-  "Your menu, live in 24 hours",
+  "Your menu, live in days",
+];
+
+// ─── Own it (mirrors the printed flyer) ─────────────────────────────────────
+const ownIt = [
+  {
+    title: "Your branded site",
+    body: "Looks like your restaurant — not another listing in somebody's app. Live in days.",
+  },
+  {
+    title: "Flat fee, no commission",
+    body: "$0.50 per order, published and fixed, plus your usual card processing — $1.97 on a $40.00 order. No revenue share, ever.",
+  },
+  {
+    title: "Your data stays yours",
+    body: "Orders and regulars belong to you. Export anytime. No lock-in.",
+  },
 ];
 
 // ─── Platform pillars ────────────────────────────────────────────────────────
@@ -78,10 +94,10 @@ const pillars = [
 // ─── How it works ────────────────────────────────────────────────────────────
 const timeline = [
   {
-    number: "24 Hrs",
+    number: "Days",
     title: "Your branded site goes live",
     description:
-      "We pull your menu straight from your POS, clean it up, and launch your ordering site under your own name — live within 24 hours. Nothing goes live without your sign-off.",
+      "We pull your menu straight from your POS, clean it up, and launch your ordering site under your own name — live in days. Nothing goes live without your sign-off.",
     accent: "cobalt" as const,
   },
   {
@@ -147,13 +163,38 @@ export default function HomePage() {
         eyebrow="Built for restaurant owners, not marketplaces"
         heading="Your Own Branded Ordering & Delivery. Zero Commissions. Period."
         subheading="Marketplace apps take 20–30% off every order. Flat-fee ordering SaaS platforms bill you $300–500 a month whether you sell ten orders or a thousand. N4Cluster is $99/month plus $0.50 per order — no commission, ever. Customers pay a separate $0.99 fee at checkout; it never comes out of your ticket."
-        primaryCta={{ label: "Get Started in 24 Hours", href: "/contact" }}
+        primaryCta={{ label: "Request Your Demo Storefront", href: "/contact" }}
         secondaryCta={{ label: "Calculate Your Savings", href: "/roi-calculator" }}
-        microcopy="Now onboarding founding merchants · Live in 24 hours · $99/mo + $0.50 per order"
+        microcopy="Try it free — no fee while you try it · Live in days · $99/mo + $0.50 per order · Cancel anytime"
       />
 
       {/* ── Trust strip ── */}
       <TrustStrip items={trustItems} />
+
+      {/* ── Own it ── */}
+      <section className="py-16 md:py-24" style={{ background: "#f8fafc" }}>
+        <Container size="lg">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-10" style={{ color: "#040d1c", lineHeight: 1.2 }}>
+            Own your storefront. Own your data.{" "}
+            <span style={{ color: "#2563eb" }}>Own your growth.</span>
+          </h2>
+          <ol className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {ownIt.map((item, i) => (
+              <li key={item.title} className="rounded-2xl bg-white p-7" style={{ border: "1px solid #e2e8f0" }}>
+                <div
+                  className="w-9 h-9 rounded-full flex items-center justify-center mb-5 text-sm font-bold"
+                  style={{ border: "2px solid #2563eb", color: "#2563eb" }}
+                  aria-hidden="true"
+                >
+                  {i + 1}
+                </div>
+                <h3 className="text-lg font-bold mb-2" style={{ color: "#040d1c" }}>{item.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>{item.body}</p>
+              </li>
+            ))}
+          </ol>
+        </Container>
+      </section>
 
       {/* ── Problem: The commission math ── */}
       <section className="bg-white py-16 md:py-24">
@@ -185,7 +226,7 @@ export default function HomePage() {
                     { label: "Mid-commission marketplace", fee: "Up to $10.80 (27%)", keep: "$29.20", bad: true },
                     { label: "Lower-commission marketplace", fee: "Up to $10.00 (25%)", keep: "$30.00", bad: true },
                     { label: "Flat-fee ordering SaaS", fee: "$300–500/mo flat, any order count", keep: "$40.00 — then a flat bill on top", bad: true },
-                    { label: "N4Cluster", fee: "$0.50 flat", keep: "$39.50", bad: false },
+                    { label: "N4Cluster", fee: "$1.97 ($0.50 flat + $1.47 card processing)", keep: "$38.03", bad: false },
                   ].map((row) => (
                     <div key={row.label} className="flex items-center justify-between px-5 py-4">
                       <div className="flex items-center gap-3">
@@ -208,7 +249,7 @@ export default function HomePage() {
                 </div>
               </div>
               <p className="text-xs pl-2" style={{ color: "#94a3b8" }}>
-                * Commission rates and SaaS pricing vary by provider. Comparison illustrates typical marketplace fee ranges and typical flat-fee SaaS pricing vs N4Cluster&apos;s flat $0.50/order fee (plus a separate flat $99/month platform fee, not shown per-order).
+                * Commissions run 20–30% and SaaS pricing varies by provider; assumes the same $40 subtotal on every channel, though app menu prices sometimes run higher to offset commission. Your N4Cluster cost: $0.50 flat + card processing ($1.47 on $40), plus a separate flat $99/month platform fee not shown per-order. The diner&apos;s separate $0.99 fee isn&apos;t part of your total.
               </p>
             </div>
           </div>
@@ -251,7 +292,7 @@ export default function HomePage() {
       <StepTimeline
         eyebrow="How it works"
         heading="From sign-up to neighborhood growth — a clear path"
-        subheading="No long onboarding. No setup-time fear. Your restaurant is live in 24 hours, growing within weeks."
+        subheading="No long onboarding. No setup-time fear. Your restaurant is live in days, growing within weeks."
         steps={timeline}
       />
       <div className="bg-white text-center pb-16 md:pb-24">
@@ -327,7 +368,7 @@ export default function HomePage() {
           headline: "We grow when your neighborhood orders grow — not by taking more per order.",
           points: [
             "$99/month flat plus $0.50 per order. No commission. No percentage of your revenue.",
-            "You keep the customer data and the loyalty program",
+            "You keep the customer data and the loyalty program — export anytime, cancel anytime",
             "Ordering lives on your own site, under your own name",
             "No price-parity rules — charge whatever you want, wherever you sell",
             "Discovery ranked by distance and preference, not who's paying the most",
