@@ -4,6 +4,7 @@ import { ContactForm } from "@/components/forms/ContactForm";
 import { Badge } from "@/components/ui/Badge";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
 import { faqItems } from "@/content/pages/faq";
+import { siteConfig } from "@/content/site/settings";
 
 export const metadata: Metadata = {
   title: "Contact and Request a Demo",
@@ -32,8 +33,8 @@ export default function ContactPage() {
               <div className="space-y-5">
                 {[
                   {
-                    title: "Request a demo",
-                    description: "See the platform walkthrough tailored to your business model.",
+                    title: "Request your demo storefront",
+                    description: "We'll build a working demo with your real menu, then walk you through it. Free, and yours to look at before you decide anything.",
                   },
                   {
                     title: "Discuss a pilot",
@@ -53,6 +54,13 @@ export default function ContactPage() {
                   </div>
                 ))}
               </div>
+
+              <p className="mt-8 text-sm text-slate-300">
+                Rather text? Send <strong className="text-white">{siteConfig.contact.smsKeyword}</strong> to{" "}
+                <a href={siteConfig.contact.phoneHref} className="font-semibold text-white underline underline-offset-2 hover:text-cobalt-300">
+                  {siteConfig.contact.phone}
+                </a>
+              </p>
             </div>
 
             {/* Right: form */}

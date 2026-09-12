@@ -110,7 +110,7 @@ export default function HowItWorksPage() {
     <>
       <HeroCentered
         eyebrow="How it works"
-        heading="Day 1 to live ordering. Week 1 to neighborhood growth."
+        heading="Live ordering in days. Neighborhood growth in weeks."
         subheading="POS connected today. Branded ordering site live this week. Not the multi-month rollout your last vendor quoted you — and you approve every step before it goes live."
         primaryCta={{ label: "See It in Action", href: "/contact" }}
         secondaryCta={{ label: "View the Platform", href: "/platform" }}
@@ -214,7 +214,7 @@ export default function HowItWorksPage() {
         <Container>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { value: "Day 1", label: "Your ordering site goes live" },
+              { value: "Days", label: "Your ordering site goes live" },
               { value: "$99/mo + $0.50", label: "Flat. Every order, every month — no surprises." },
               { value: "30 min", label: "Delivery SLA. Our risk, not yours." },
               { value: "0%", label: "Commission. Never." },

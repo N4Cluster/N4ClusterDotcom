@@ -20,14 +20,14 @@ const solutions = [
       "You built the menu, the regulars, the reputation. A marketplace app didn't build any of that — it just collects rent on it. N4Cluster gives you a branded ordering channel that's actually yours, for a flat $99/month plus $0.50 per order.",
     bullets: [
       "Your name on the ordering page, not a marketplace logo — customers order from you, not through a middleman",
-      "Every phone number, email, and order history is yours — not rented from a platform that can cut you off tomorrow",
+      "Every phone number, email, and order history is yours — export it anytime, not rented from a platform that can cut you off tomorrow",
       "AI Growth Autopilot runs the marketing in the background while you run the line",
       "Neighborhood Hub puts your kitchen in front of neighbors deciding where to order from tonight",
       "We run delivery — 30-minute SLA from pickup, and a late driver is our problem, not a call you have to take",
-      "$99/month flat plus $0.50 per order. No commission, ever. Lock the rate for up to two years if you want it in writing.",
+      "$99/month flat plus $0.50 per order. No commission, ever. Cancel anytime, or lock the rate for up to two years if you want it in writing.",
     ],
     outcomes: [
-      { label: "What stays in your pocket per $40 order vs. a 30% marketplace", value: "$11.50" },
+      { label: "What stays in your pocket per $40 order vs. a 30% marketplace, after card processing", value: "$10.04" },
       { label: "Who owns the customer when they order direct", value: "Yours" },
       { label: "Time from signup to live branded ordering", value: "Days" },
     ],
@@ -120,9 +120,9 @@ function IndependentVisual() {
     <div className="rounded-2xl p-6" style={{ background: "#0a1628", border: "1px solid #1e3a70" }}>
       <div className="text-xs font-semibold uppercase tracking-wider mb-4" style={{ color: "#64748b" }}>Monthly order comparison</div>
       {[
-        { label: "Your current marketplace take", value: "-$4,000/mo", sub: "On 400 orders avg $10 commission each", bad: true },
-        { label: "N4Cluster total platform cost", value: "-$299/mo", sub: "On 400 orders × $0.50/order + $99/mo platform fee", bad: false },
-        { label: "Margin recovered per month", value: "+$3,701", sub: "Stays in your business", good: true },
+        { label: "Your current marketplace take", value: "-$4,000/mo", sub: "400 orders × $40 avg ticket at 25% commission", bad: true },
+        { label: "N4Cluster total cost", value: "-$883/mo", sub: "400 orders × ($0.50 + $1.46 card processing) + $99/mo platform fee", bad: false },
+        { label: "Margin recovered per month", value: "+$3,117", sub: "Stays in your business", good: true },
       ].map((row) => (
         <div key={row.label} className="rounded-xl p-4 mb-3" style={{ background: row.good ? "rgba(20,184,166,0.08)" : "rgba(255,255,255,0.04)", border: `1px solid ${row.good ? "rgba(20,184,166,0.25)" : "rgba(255,255,255,0.07)"}` }}>
           <div className="flex justify-between items-start">
