@@ -16,10 +16,12 @@ interface StepTimelineProps {
   dark?: boolean;
 }
 
-const accentBgClass = {
-  cobalt: "bg-cobalt-500 text-white",
-  teal: "bg-teal-500 text-white",
-  amber: "bg-amber-500 text-white",
+// Darker steps so white badge text clears WCAG AA (4.5:1): white on teal-500 and
+// amber-500 measures 2.5:1 and 2.2:1. See the "Darker" tokens in DESIGN.md.
+const accentBg = {
+  cobalt: "#1a4fd6",
+  teal: "#0a5f56",
+  amber: "#7c4a08",
 };
 
 export function StepTimeline({ eyebrow, heading, subheading, steps, dark = false }: StepTimelineProps) {
@@ -38,7 +40,8 @@ export function StepTimeline({ eyebrow, heading, subheading, steps, dark = false
                 <div key={step.title} className="relative">
                   <div className="flex flex-col items-start md:items-center md:text-center">
                     <div
-                      className={`w-16 h-16 rounded-2xl flex items-center justify-center font-bold text-xl mb-5 flex-shrink-0 ${accentBgClass[accent]} shadow-md`}
+                      className="min-w-16 h-16 px-3 rounded-2xl flex items-center justify-center font-bold text-sm text-white mb-5 flex-shrink-0 whitespace-nowrap shadow-md"
+                      style={{ background: accentBg[accent] }}
                     >
                       {step.number}
                     </div>

@@ -69,7 +69,7 @@ export function HeroSplit({
               )}
             </div>
             {microcopy && (
-              <p className="mt-4 text-sm" style={{ color: "#64748b" }}>
+              <p className="mt-4 text-sm" style={{ color: "#94a3b8" }}>
                 {microcopy}
               </p>
             )}
@@ -196,7 +196,7 @@ function PlatformDiagram() {
           className="rounded-xl px-4 py-3 text-center"
           style={{ background: "#0f172a", border: "1px solid #334155" }}
         >
-          <div className="text-xs mb-0.5" style={{ color: "#64748b" }}>Connected</div>
+          <div className="text-xs mb-0.5" style={{ color: "#94a3b8" }}>Connected</div>
           <div className="text-sm font-bold text-white">Fulfillment Layer</div>
         </div>
       </div>
@@ -227,21 +227,6 @@ function PlatformDiagram() {
           </div>
         </div>
       ))}
-
-      {/* Floating metric badge */}
-      <div
-        className="absolute"
-        style={{ top: 120, right: 4 }}
-      >
-        <div
-          className="rounded-xl px-3 py-2 text-xs"
-          style={{ background: "rgba(10,22,40,0.92)", border: "1px solid #1e3a70", backdropFilter: "blur(8px)" }}
-        >
-          <div style={{ color: "#64748b" }}>Direct revenue</div>
-          <div className="font-bold text-base" style={{ color: "#ffffff" }}>94%</div>
-          <div style={{ color: "#14b8a6" }}>merchant-owned</div>
-        </div>
-      </div>
     </div>
   );
 }
