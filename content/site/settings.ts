@@ -22,6 +22,9 @@ export const siteConfig = {
   contact: {
     demoEmail: "demo@n4cluster.com",
     pressEmail: "press@n4cluster.com",
+    phone: "(629) 290-1191",
+    phoneHref: "tel:+16292901191",
+    smsKeyword: "DEMO",
   },
 
   social: {

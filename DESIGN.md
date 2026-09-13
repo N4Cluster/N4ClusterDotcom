@@ -8,9 +8,14 @@ colors:
   trust-cobalt-pale: "#93c5fd"
   signal-teal: "#14b8a6"
   signal-teal-deep: "#0d9488"
+  signal-teal-darker: "#0a5f56"
   signal-teal-light: "#2dd4bf"
+  signal-teal-panel: "#0f2a3a"
   caution-amber: "#f59e0b"
+  caution-amber-darker: "#7c4a08"
   caution-amber-light: "#fbbf24"
+  caution-amber-panel: "#1c1400"
+  negative-red: "#b91c1c"
   ink-navy: "#040d1c"
   navy-deep: "#0a1628"
   navy-mid: "#0f2040"
@@ -122,10 +127,14 @@ The palette is functional, not decorative: navy for depth and dark surfaces, one
 - **Trust Cobalt** (#2563eb): the brand's one committed color. Primary buttons, links, focus rings, active nav states, the primary badge variant. Used functionally — if it's cobalt, it's actionable or it's the brand asserting itself, never a decorative accent.
 
 ### Secondary
-- **Signal Teal** (#14b8a6): the "confirmed good" color. The N4Cluster side of every marketplace-vs-N4Cluster comparison, checkmarks, positive delta indicators, completed timeline steps. Never used for a neutral or negative state.
+- **Signal Teal** (#14b8a6): the "confirmed good" color. The N4Cluster side of every marketplace-vs-N4Cluster comparison, checkmarks, positive delta indicators, completed timeline steps. Never used for a neutral or negative state. Reserve the base #14b8a6 and Deep #0d9488 steps for large icons, thin accents, and tinted backgrounds — on white, or with white text on top, both measure under 4.5:1 at body size. Use **Signal Teal Darker** (#0a5f56, 7.5:1) for any readable text or white-on-color badge.
+- **Signal Teal Panel** (#0f2a3a): near-black teal-tinted card fill behind a teal-bordered card on the dark hero gradient (the hero diagram's N4Sync node). Always paired with a 1.5px Signal Teal border, never a standalone fill.
 
 ### Tertiary
 - **Caution Amber** (#f59e0b): reserved for attention/highlight moments — a third accent in a 3-item comparison or pillar grid, a "notice this" marker. Used sparingly; if more than one element on a screen is amber, it has stopped meaning "pay attention here."
+- **Caution Amber Darker** (#7c4a08): same rule as Signal Teal Darker — base amber only clears large-text/graphical contrast (white on #f59e0b is 2.2:1), so use this step whenever amber carries readable text or sits behind white text.
+- **Caution Amber Panel** (#1c1400): the amber counterpart to Signal Teal Panel, behind the hero diagram's amber-bordered N4Logic node.
+- **Negative Red** (#b91c1c): the "confirmed bad" counterpart to Signal Teal — the marketplace/competitor side of a cost comparison, X icons, negative deltas. Darkened from red-500 (3.8:1 on white) to 6.5:1; never used at a lighter step for text.
 
 ### Neutral
 - **Ink Navy** (#040d1c): heading text color on light surfaces, and the base of the dark hero gradient. The darkest tone in the system; reserved for maximum-contrast text and the deepest dark-mode surfaces.
