@@ -201,9 +201,6 @@ export default function HomePage() {
         <Container size="lg">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider mb-3" style={{ color: "#2563eb" }}>
-                The problem
-              </p>
               <h2 className="text-3xl sm:text-4xl font-bold mb-5" style={{ color: "#040d1c", lineHeight: 1.2 }}>
                 Marketplaces take a cut. Flat-fee SaaS takes a flat bite. N4Cluster takes neither.
               </h2>
@@ -218,7 +215,7 @@ export default function HomePage() {
               {/* Comparison calc */}
               <div className="rounded-2xl overflow-hidden border" style={{ borderColor: "#e2e8f0" }}>
                 <div className="px-5 py-3" style={{ background: "#f8fafc", borderBottom: "1px solid #e2e8f0" }}>
-                  <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: "#64748b" }}>On a $40 order</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: "#475569" }}>On a $40 order</p>
                 </div>
                 <div className="divide-y" style={{ borderColor: "#e2e8f0" }}>
                   {[
@@ -235,20 +232,22 @@ export default function HomePage() {
                           style={{ background: row.bad ? "rgba(239,68,68,0.1)" : "rgba(20,184,166,0.12)" }}
                         >
                           {row.bad
-                            ? <X size={10} style={{ color: "#ef4444" }} strokeWidth={2.5} />
-                            : <Check size={10} style={{ color: "#14b8a6" }} strokeWidth={2.5} />}
+                            ? <X size={10} style={{ color: "#b91c1c" }} strokeWidth={2.5} />
+                            : <Check size={10} style={{ color: "#0a5f56" }} strokeWidth={2.5} />}
                         </div>
                         <span className="text-sm font-medium" style={{ color: "#0f172a" }}>{row.label}</span>
                       </div>
                       <div className="text-right">
-                        <div className="text-xs mb-0.5" style={{ color: row.bad ? "#ef4444" : "#14b8a6" }}>{row.fee}</div>
-                        <div className="text-sm font-bold" style={{ color: "#0f172a" }}>You keep {row.keep}</div>
+                        <div className="text-sm font-semibold mb-0.5" style={{ color: row.bad ? "#b91c1c" : "#0a5f56" }}>{row.fee}</div>
+                        <div className={row.bad ? "text-lg font-bold" : "text-xl font-bold"} style={{ color: row.bad ? "#0f172a" : "#0a5f56" }}>
+                          You keep {row.keep}
+                        </div>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
-              <p className="text-xs pl-2" style={{ color: "#94a3b8" }}>
+              <p className="text-xs pl-2" style={{ color: "#475569" }}>
                 * Commissions run 20–30% and SaaS pricing varies by provider; assumes the same $40 subtotal on every channel, though app menu prices sometimes run higher to offset commission. Your N4Cluster cost: $0.50 flat + card processing (2.9% + $0.30, so $1.46 on $40), plus a separate flat $99/month platform fee not shown per-order. The diner&apos;s separate $0.99 fee isn&apos;t part of your total.
               </p>
             </div>
@@ -260,37 +259,35 @@ export default function HomePage() {
       <section className="py-16 md:py-24" style={{ background: "#f8fafc" }}>
         <Container>
           <SectionIntro
-            eyebrow="The platform"
             heading="Five things working together, so you don't have to manage them separately"
             subheading="N4Cluster isn't another app to babysit. It's the ordering, discovery, growth, delivery, and local search running quietly behind your brand."
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {pillars.map((p) => {
-              const Icon = p.icon;
-              return (
-                <div
-                  key={p.title}
-                  className="rounded-2xl p-7 bg-white"
-                  style={{ border: "1px solid #e2e8f0" }}
-                >
-                  <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
-                    style={{ background: p.color + "15" }}
-                  >
-                    <Icon size={20} style={{ color: p.color }} />
+          <div className="rounded-2xl overflow-hidden border bg-white max-w-3xl mx-auto" style={{ borderColor: "#e2e8f0" }}>
+            <div className="divide-y" style={{ borderColor: "#e2e8f0" }}>
+              {pillars.map((p) => {
+                const Icon = p.icon;
+                return (
+                  <div key={p.title} className="flex items-start gap-4 px-6 py-5">
+                    <div
+                      className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{ background: p.color + "15" }}
+                    >
+                      <Icon size={20} style={{ color: p.color }} />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-bold mb-1" style={{ color: "#040d1c" }}>{p.title}</h3>
+                      <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>{p.description}</p>
+                    </div>
                   </div>
-                  <h3 className="text-lg font-bold mb-2" style={{ color: "#040d1c" }}>{p.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>{p.description}</p>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </Container>
       </section>
 
       {/* ── How it works ── */}
       <StepTimeline
-        eyebrow="How it works"
         heading="From sign-up to neighborhood growth — a clear path"
         subheading="No long onboarding. No setup-time fear. Your restaurant is live in days, growing within weeks."
         steps={timeline}
@@ -309,7 +306,6 @@ export default function HomePage() {
       <section className="py-16 md:py-24" style={{ background: "#f8fafc" }}>
         <Container>
           <SectionIntro
-            eyebrow="Who it's for"
             heading="Built for every local restaurant model"
             subheading="Whether you're a single-location independent or a growing regional brand, N4Cluster adapts — the pricing model stays the same."
           />
@@ -346,7 +342,6 @@ export default function HomePage() {
 
       {/* ── Comparison: Their model vs N4Cluster ── */}
       <ComparisonCards
-        eyebrow="Why N4Cluster"
         heading="Two ways to run online ordering — only one keeps you whole"
         subheading="Marketplace platforms grow by taking a bigger cut of every order. N4Cluster grows when your neighborhood orders grow — not by squeezing your margin."
         before={{
@@ -381,7 +376,6 @@ export default function HomePage() {
       <section className="py-16 md:py-24" style={{ background: "#f8fafc" }}>
         <Container>
           <SectionIntro
-            eyebrow="Resources"
             heading="Ideas on building a better local commerce model"
             subheading="Practical thinking on commission-free ordering, neighborhood demand, and AI-assisted growth."
           />
