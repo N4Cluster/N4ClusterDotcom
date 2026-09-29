@@ -32,6 +32,16 @@ const businessTypes = [
   "Other",
 ];
 
+/**
+ * The submit label follows the variant, so the partners and careers pages stop
+ * showing the same generic button as the demo request form.
+ */
+const submitLabels: Record<"contact" | "demo" | "partner", string> = {
+  contact: "Send Message",
+  demo: "Request a Demo",
+  partner: "Start the Conversation",
+};
+
 const interestAreas = [
   "Branded Direct Ordering",
   "Orchestration (N4Sync)",
@@ -89,7 +99,13 @@ export function ContactForm({ variant = "contact", dark = false }: ContactFormPr
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, ...utm, _hp_website: honeypot }),
+        body: JSON.stringify({
+          ...formData,
+          ...utm,
+          // Tells the notification which page the enquiry came from.
+          formVariant: variant,
+          _hp_website: honeypot,
+        }),
       });
       if (!res.ok) throw new Error("server error");
       setStatus("success");
@@ -284,7 +300,7 @@ export function ContactForm({ variant = "contact", dark = false }: ContactFormPr
         disabled={status === "submitting"}
         className="w-full bg-cobalt-500 hover:bg-cobalt-600 disabled:opacity-60 text-white font-semibold py-3 px-6 rounded-lg transition-colors text-sm"
       >
-        {status === "submitting" ? "Submitting…" : "Submit Request"}
+        {status === "submitting" ? "Submitting…" : submitLabels[variant]}
       </button>
     </form>
   );

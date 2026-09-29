@@ -1,17 +1,41 @@
 import { NextRequest, NextResponse } from "next/server";
-import { google } from "googleapis";
 import { isRateLimited, isHoneypotFilled } from "@/lib/rate-limit";
+import { notificationRecipient, notificationSender, sendMail } from "@/lib/mail";
+import {
+  parseNewsletterSubmission,
+  type NewsletterSubmission,
+} from "@/lib/validation";
 
-function createOAuth2Client() {
-  const oauth2Client = new google.auth.OAuth2(
-    process.env.GMAIL_CLIENT_ID,
-    process.env.GMAIL_CLIENT_SECRET,
-    "https://developers.google.com/oauthplayground"
-  );
-  oauth2Client.setCredentials({
-    refresh_token: process.env.GMAIL_REFRESH_TOKEN,
-  });
-  return oauth2Client;
+/** Same reasoning as the contact route: enrichment must not delay the signup. */
+const ICP_TIMEOUT_MS = 5_000;
+
+async function postToIcpFinder(submission: NewsletterSubmission): Promise<void> {
+  const icpUrl = process.env.ICP_FINDER_API_URL;
+  if (!icpUrl) return;
+
+  try {
+    await fetch(`${icpUrl}/api/v1/leads`, {
+      method: "POST",
+      signal: AbortSignal.timeout(ICP_TIMEOUT_MS),
+      headers: {
+        "Content-Type": "application/json",
+        ...(process.env.ICP_FINDER_API_KEY
+          ? { "X-API-Key": process.env.ICP_FINDER_API_KEY }
+          : {}),
+      },
+      body: JSON.stringify({
+        first_name: "Newsletter",
+        last_name: "Subscriber",
+        email: submission.email,
+        source: "website_newsletter",
+        utm_source: submission.utm_source || undefined,
+        utm_medium: submission.utm_medium || undefined,
+        utm_campaign: submission.utm_campaign || undefined,
+      }),
+    });
+  } catch (err) {
+    console.error("ICP Finder newsletter lead failed:", err);
+  }
 }
 
 export async function POST(req: NextRequest) {
@@ -24,74 +48,51 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const body = await req.json();
-  const { email } = body;
+  let body: unknown;
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json(
+      { ok: false, error: "Invalid request body." },
+      { status: 400 }
+    );
+  }
 
   if (isHoneypotFilled(body)) {
     return NextResponse.json({ ok: true });
   }
 
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return NextResponse.json(
-      { ok: false, error: "Valid email is required" },
-      { status: 400 }
-    );
+  const parsed = parseNewsletterSubmission(body);
+  if (!parsed.ok) {
+    return NextResponse.json({ ok: false, error: parsed.error }, { status: 400 });
   }
+  const submission = parsed.data;
 
   // POST to ICP Finder for lead tracking
-  const icpUrl = process.env.ICP_FINDER_API_URL;
-  if (icpUrl) {
-    try {
-      await fetch(`${icpUrl}/api/v1/leads`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          ...(process.env.ICP_FINDER_API_KEY
-            ? { "X-API-Key": process.env.ICP_FINDER_API_KEY }
-            : {}),
-        },
-        body: JSON.stringify({
-          first_name: "Newsletter",
-          last_name: "Subscriber",
-          email,
-          source: "website_newsletter",
-          utm_source: body.utm_source || undefined,
-          utm_medium: body.utm_medium || undefined,
-          utm_campaign: body.utm_campaign || undefined,
-        }),
-      });
-    } catch (err) {
-      console.error("ICP Finder newsletter lead failed:", err);
-    }
-  }
+  await postToIcpFinder(submission);
 
-  const subject = `New newsletter signup - ${email}`;
-  const encodedSubject = `=?UTF-8?B?${Buffer.from(subject).toString("base64")}?=`;
-  const from = `N4Cluster Website <${process.env.GMAIL_USER}>`;
-  const to = process.env.CONTACT_RECIPIENT || "contact@n4cluster.com";
-  const emailBody = `New newsletter subscription:\n\nEmail: ${email}\nDate: ${new Date().toISOString()}`;
-
-  const raw = Buffer.from(
-    [
-      `From: ${from}`,
-      `To: ${to}`,
-      `Subject: ${encodedSubject}`,
-      "Content-Type: text/plain; charset=utf-8",
-      "",
-      emailBody,
-    ].join("\r\n")
-  )
-    .toString("base64")
-    .replace(/\+/g, "-")
-    .replace(/\//g, "_")
-    .replace(/=+$/, "");
+  const emailBody = [
+    "New newsletter subscription:",
+    "",
+    `Email: ${submission.email}`,
+    `Date: ${new Date().toISOString()}`,
+    ...(submission.utm_source
+      ? [
+          "",
+          "--- Attribution ---",
+          `Source: ${submission.utm_source}`,
+          submission.utm_medium ? `Medium: ${submission.utm_medium}` : null,
+          submission.utm_campaign ? `Campaign: ${submission.utm_campaign}` : null,
+        ].filter((line): line is string => line !== null)
+      : []),
+  ].join("\n");
 
   try {
-    const oauth2Client = createOAuth2Client();
-    const gmail = google.gmail({ version: "v1", auth: oauth2Client });
-    await gmail.users.messages.send({
-      userId: "me",
-      requestBody: { raw },
+    await sendMail({
+      to: notificationRecipient(),
+      from: notificationSender(),
+      subject: `New newsletter signup - ${submission.email}`,
+      body: emailBody,
     });
 
     return NextResponse.json({ ok: true });
