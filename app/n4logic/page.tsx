@@ -246,7 +246,7 @@ function AutopilotCard({ pillar }: { pillar: (typeof pillars)[number] }) {
           </div>
         ))}
         <div className="rounded-xl p-4 mt-4" style={{ background: "#f0f6ff", border: "1px solid rgba(37,99,235,0.2)" }}>
-          <div className="text-xs font-semibold mb-1" style={{ color: "#2563eb" }}>We built it. Now it's your call.</div>
+          <div className="text-xs font-semibold mb-1" style={{ color: "#2563eb" }}>We built it. Now it&apos;s your call.</div>
           <div className="text-xs" style={{ color: "#64748b" }}>Review your ordering site preview and approve to go live. Nothing publishes without your sign-off.</div>
         </div>
       </div>
@@ -262,7 +262,7 @@ function AutopilotCard({ pillar }: { pillar: (typeof pillars)[number] }) {
     ];
     return (
       <div className="rounded-2xl p-6" style={{ background: "#0a1628", border: "1px solid #1e3a70" }}>
-        <div className="font-bold text-white mb-5">This week's demand signals</div>
+        <div className="font-bold text-white mb-5">This week&apos;s demand signals</div>
         {signals.map((s) => (
           <div key={s.label} className="mb-4">
             <div className="flex items-center justify-between mb-1.5">
@@ -276,7 +276,7 @@ function AutopilotCard({ pillar }: { pillar: (typeof pillars)[number] }) {
         ))}
         <div className="rounded-xl p-3.5 mt-2" style={{ background: "rgba(245,158,11,0.08)", border: "1px solid rgba(245,158,11,0.2)" }}>
           <div className="text-xs font-semibold mb-1" style={{ color: "#f59e0b" }}>Suggestion: Re-engage the 67</div>
-          <div className="text-xs" style={{ color: "#94a3b8" }}>Send a "We miss you" campaign to customers inactive 18+ days. Est. 22 reorders based on historical pattern.</div>
+          <div className="text-xs" style={{ color: "#94a3b8" }}>Send a &ldquo;We miss you&rdquo; campaign to customers inactive 18+ days. Est. 22 reorders based on historical pattern.</div>
         </div>
       </div>
     );
@@ -321,7 +321,7 @@ function AutopilotCard({ pillar }: { pillar: (typeof pillars)[number] }) {
           <div className="text-xs leading-relaxed" style={{ color: "#475569" }}>{alert.desc}</div>
         </div>
       ))}
-      <div className="text-xs text-center mt-2" style={{ color: "#94a3b8" }}>N4Logic monitors in the background so you don't have to.</div>
+      <div className="text-xs text-center mt-2" style={{ color: "#94a3b8" }}>N4Logic monitors in the background so you don&apos;t have to.</div>
     </div>
   );
 }

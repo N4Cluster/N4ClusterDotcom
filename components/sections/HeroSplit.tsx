@@ -22,10 +22,7 @@ export function HeroSplit({
   visual,
 }: HeroSplitProps) {
   return (
-    <section
-      className="min-h-screen flex items-center relative overflow-hidden pt-16"
-      style={{ background: "linear-gradient(135deg, #040d1c 0%, #0f2040 40%, #162d58 100%)" }}
-    >
+    <section className="gradient-hero min-h-screen flex items-center relative overflow-hidden pt-16">
       {/* Background glows */}
       <div
         className="absolute inset-0 overflow-hidden pointer-events-none"

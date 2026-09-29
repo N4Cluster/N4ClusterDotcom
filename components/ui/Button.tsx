@@ -54,7 +54,7 @@ export function Button(props: ButtonProps) {
   const classes = cn(base, variantClasses[variant], sizeClasses[size], className);
 
   if ("href" in props && props.href !== undefined) {
-    const { href, target, rel, ...rest } = props;
+    const { href, target, rel } = props;
     return (
       <Link href={href} target={target} rel={rel} className={classes}>
         {children}

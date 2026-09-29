@@ -13,7 +13,7 @@ export default function PrivacyPage() {
       <Container size="md">
         <div className="prose prose-slate max-w-none">
           <h1>Privacy Policy</h1>
-          <p className="text-slate-500 text-sm">Last updated: July 18, 2026</p>
+          <p className="text-slate-600 text-sm">Last updated: September 28, 2026</p>
 
           <p>
             This Privacy Policy explains how N4Cluster Inc (“N4Cluster,” “we,”
@@ -482,15 +482,21 @@ export default function PrivacyPage() {
             operation.
           </p>
           <p>
-            At the time of this Policy, N4Cluster does not use third-party
-            behavioral advertising pixels or cross-site advertising trackers. We
-            may introduce product analytics, performance monitoring, or
-            event-measurement technologies in the future to understand feature
-            usage, improve the Services, and support analytics and AI-enabled
-            capabilities. Before deploying technologies that materially change our
-            data practices, we will assess applicable legal requirements, update
-            this Policy as appropriate, and provide consent or opt-out controls
-            where required.
+            N4Cluster does not use third-party behavioral advertising pixels or
+            cross-site advertising trackers. The n4cluster.com website does use
+            Google Analytics 4 to measure aggregate site usage. Google Analytics
+            loads only after a visitor accepts analytics cookies in the consent
+            banner; if a visitor declines, the script is not loaded and no analytics
+            cookies are set. A visitor may change that choice at any time using the
+            &ldquo;Cookie preferences&rdquo; control in the site footer.
+          </p>
+          <p>
+            We may introduce further product analytics, performance monitoring, or
+            event-measurement technologies to understand feature usage, improve the
+            Services, and support AI-enabled capabilities. Before deploying
+            technologies that materially change our data practices, we will assess
+            applicable legal requirements, update this Policy as appropriate, and
+            provide consent or opt-out controls where required.
           </p>
           <p>
             You can control certain cookies through your browser settings.

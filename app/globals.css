@@ -134,3 +134,29 @@
     }
   }
 }
+
+@layer components {
+  /*
+   * Skip link: offscreen until focused, then pinned to the top-left above the
+   * fixed header so a keyboard user can bypass the navigation.
+   */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+  }
+
+  .skip-link:focus-visible {
+    left: 0.75rem;
+    top: 0.75rem;
+    position: fixed;
+    background-color: #ffffff;
+    color: #040d1c;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px -8px rgba(4, 13, 28, 0.35);
+  }
+}

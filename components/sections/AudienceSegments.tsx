@@ -1,6 +1,5 @@
 import { Container } from "@/components/ui/Container";
 import { SectionIntro } from "@/components/ui/SectionIntro";
-import { Button } from "@/components/ui/Button";
 import { ArrowRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 

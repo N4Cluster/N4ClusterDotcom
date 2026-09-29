@@ -154,7 +154,6 @@ function MultiVisual() {
         {locs.map((loc, i) => {
           const orders = [142, 89, 210, 63][i];
           const rev = [5680, 3560, 8400, 2520][i];
-          const pct = [orders / 210 * 100][0];
           return (
             <div key={loc} className="rounded-xl p-3.5" style={{ background: "#ffffff", border: "1px solid #e2e8f0" }}>
               <div className="flex items-center justify-between mb-2">

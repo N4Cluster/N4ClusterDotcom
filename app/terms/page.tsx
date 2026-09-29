@@ -12,7 +12,7 @@ export default function TermsPage() {
       <Container size="md">
         <div className="prose prose-slate max-w-none">
           <h1>Terms of Service</h1>
-          <p className="text-slate-500 text-sm">Last updated: March 2025</p>
+          <p className="text-slate-600 text-sm">Last updated: March 2025</p>
 
           <p>
             These Terms of Service (&quot;Terms&quot;) govern your access to and use of the N4Cluster website located at n4cluster.com (the &quot;Site&quot;). By using the Site, you agree to these Terms.
