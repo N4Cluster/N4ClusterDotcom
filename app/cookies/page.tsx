@@ -12,10 +12,10 @@ export default function CookiesPage() {
       <Container size="md">
         <div className="prose prose-slate max-w-none">
           <h1>Cookie Notice</h1>
-          <p className="text-slate-500 text-sm">Last updated: March 2025</p>
+          <p className="text-slate-600 text-sm">Last updated: September 2026</p>
 
           <p>
-            This Cookie Notice explains how N4Cluster uses cookies and similar technologies on the n4cluster.com website. By continuing to browse the site, you consent to the use of cookies as described here.
+            This Cookie Notice explains how N4Cluster uses cookies and similar technologies on the n4cluster.com website. Analytics cookies are not set unless you accept them in the consent banner shown on your first visit — browsing the site is not treated as consent.
           </p>
 
           <h2>What Are Cookies</h2>
@@ -30,24 +30,40 @@ export default function CookiesPage() {
             These cookies are required for the site to function properly. They enable basic features like page navigation and form submission. You cannot opt out of these cookies while using the site.
           </p>
 
-          <h3>Analytics cookies</h3>
+          <h3>Analytics cookies — only with your consent</h3>
           <p>
-            We use analytics tools to understand how visitors interact with the site — including which pages are visited, how long visitors stay, and how they arrived. This data is used in aggregate to improve site content and performance. Analytics cookies may be set by first-party tools or trusted third-party analytics providers.
+            We use Google Analytics 4 to understand how visitors interact with the site — which pages are visited, how long visitors stay, and how they arrived. This data is used in aggregate to improve site content and performance.
+          </p>
+          <p>
+            These cookies, and the Google Analytics script itself, load only after you select <strong>Accept</strong> in the consent banner. If you select <strong>Decline</strong>, the script is never loaded and no analytics cookies are set. If you accept and later change your mind, analytics collection stops as soon as your choice changes.
           </p>
 
-          <h3>Preference cookies</h3>
+          <h3>Preference storage</h3>
           <p>
-            These cookies remember choices you make (such as language or display preferences) to provide a more personalized experience. They are not used for advertising purposes.
+            Your answer to the consent banner is stored in your browser&apos;s local storage (under the key <code>n4cluster-cookie-consent</code>) so you are not asked again on every page. It is a single value recording your choice, it stays on your device, and it is not sent to us or to any third party. It is not used for advertising.
           </p>
 
           <h2>Third-Party Cookies</h2>
           <p>
-            Some features of the site may use third-party services (such as analytics platforms or embedded content) that set their own cookies. We do not control these third-party cookies. Please review the privacy policies of those services for more information.
+            Where you have accepted analytics, Google Analytics 4 sets its own cookies and receives usage data as a third party. We do not control how Google processes that data — see{" "}
+            <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">
+              Google&apos;s Privacy Policy
+            </a>{" "}
+            and{" "}
+            <a href="https://policies.google.com/technologies/cookies" rel="noopener noreferrer" target="_blank">
+              Google&apos;s cookie documentation
+            </a>
+            . We do not use advertising or cross-site tracking pixels.
           </p>
 
-          <h2>Managing Cookies</h2>
+          <h2>Changing Your Choice</h2>
           <p>
-            You can control and manage cookies through your browser settings. Most browsers allow you to:
+            Select <strong>Cookie preferences</strong> in the site footer at any time. That clears your stored answer and shows the consent banner again, so you can accept or decline afresh. Declining after having accepted stops analytics collection immediately.
+          </p>
+
+          <h2>Managing Cookies in Your Browser</h2>
+          <p>
+            You can also control and manage cookies through your browser settings. Most browsers allow you to:
           </p>
           <ul>
             <li>View cookies stored on your device</li>
@@ -55,7 +71,7 @@ export default function CookiesPage() {
             <li>Block cookies from specific sites or all sites</li>
           </ul>
           <p>
-            Note that blocking or deleting cookies may affect site functionality. Instructions for managing cookies vary by browser — consult your browser's help documentation for guidance.
+            Note that blocking or deleting cookies may affect site functionality. Instructions for managing cookies vary by browser — consult your browser&apos;s help documentation for guidance.
           </p>
 
           <h2>Future-Readiness</h2>
