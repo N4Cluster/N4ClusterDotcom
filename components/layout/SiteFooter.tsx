@@ -94,7 +94,7 @@ export function SiteFooter() {
           <p className="text-xs text-slate-400">
             &copy; {new Date().getFullYear()} N4Cluster. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             <Link href="/privacy" className="text-xs text-slate-400 hover:text-slate-300 transition-colors">
               Privacy
             </Link>
