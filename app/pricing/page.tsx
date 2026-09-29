@@ -20,11 +20,11 @@ const commissionComparison = [
 const protections = [
   {
     title: "One fee. Zero surprises.",
-    body: "The $99/month platform fee is quoted up front and never hidden. No add-on modules, no usage-based minimums, no surprise line items on your invoice.",
+    body: "The $99/month platform fee is quoted up front and never hidden. No add-on modules, no usage-based minimums, no surprise line items. It applies after the trial in every month, including a slow one.",
   },
   {
     title: "Your revenue stays yours",
-    body: "Every dollar of revenue on a $200 order stays with you — minus $0.50. The fee is fixed to the transaction, not to the ticket size.",
+    body: "N4Cluster takes $0.50 from a $200 order, not a percentage of it — the fee is fixed to the transaction, not the ticket size. Card processing is charged separately by your processor.",
   },
   {
     title: "Your prices, your call",
@@ -191,7 +191,7 @@ export default function PricingPage() {
                 Every customer ordering through an N4Cluster channel sees a <strong style={{ color: "#040d1c" }}>$0.99 N4Cluster Neighborhood Fee</strong> at checkout. That&apos;s on us — a platform fee we collect, <em>not</em> a surcharge you tacked onto their ticket.
               </p>
               <p className="text-base leading-relaxed mb-6" style={{ color: "#475569" }}>
-                You never touch that money, and you never field a single question about it. Customers see exactly where it goes — into the platform, not your margin.
+                You never touch that money, and it is labelled as our fee rather than a surcharge on your menu prices. If a customer does ask you about it, our support team can help you answer.
               </p>
               <ul className="space-y-3">
                 {customerFeeDetails.map((detail) => (
@@ -344,7 +344,7 @@ export default function PricingPage() {
                 If we ever adjust pricing, here&apos;s the exact math.
               </h2>
               <p className="text-base leading-relaxed mb-6" style={{ color: "#475569" }}>
-                Once any lock period ends, we can adjust annually — but only inside a formula we don&apos;t get to bend. No discretionary increase. The cap is mathematical, not a mood.
+                Once any lock period ends, pricing can be adjusted annually within the capped formula set out in your merchant agreement rather than at our discretion. The agreement is what governs it — ask us for the current terms before you sign.
               </p>
               <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid #e2e8f0" }}>
                 {adjustmentFormula.map((row, i) => (

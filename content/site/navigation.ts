@@ -102,7 +102,7 @@ export const navItems: NavItem[] = [
         description: "Why N4Cluster exists",
       },
       {
-        label: "Mission and Values",
+        label: "Mission & Values",
         href: "/mission",
         description: "What we commit to, and what it rules out",
       },

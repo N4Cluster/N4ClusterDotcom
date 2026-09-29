@@ -244,7 +244,7 @@ export default function SolutionsPage() {
     <>
       <HeroCentered
         eyebrow="Solutions"
-        heading="Independent, multi-location, delivery-first — the price never changes: $99/month + $0.50 per order."
+        heading="Independent, multi-location, delivery-first — the same published fees: $99/month + $0.50 per order."
         subheading="However you run your kitchen, the marketplace tax doesn't apply here. No commission, ever — just one flat fee, whether you're running one location or four."
         primaryCta={{ label: "Talk to the Team", href: "/contact" }}
         secondaryCta={{ label: "See Pricing", href: "/pricing" }}

@@ -22,7 +22,7 @@ export const footerLinks = [
     heading: "Company",
     links: [
       { label: "About", href: "/about" },
-      { label: "Mission and Values", href: "/mission" },
+      { label: "Mission & Values", href: "/mission" },
       { label: "Partners", href: "/partners" },
       { label: "Careers", href: "/careers" },
       { label: "Contact", href: "/contact" },

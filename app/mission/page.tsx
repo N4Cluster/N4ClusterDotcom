@@ -1,93 +1,132 @@
 import type { Metadata } from "next";
-import { HeroCentered } from "@/components/sections/HeroCentered";
-import { CTASection } from "@/components/sections/CTASection";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { SectionIntro } from "@/components/ui/SectionIntro";
+import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
+import { siteConfig } from "@/content/site/settings";
+import { priceDisplay } from "@/content/site/pricing";
 import {
-  missionCommitments,
-  missionStatement,
-  missionSupport,
-  missionValues,
-} from "@/content/pages/mission";
+  complementaryChannels,
+  demoCta,
+  founderQuote,
+  merchantJourney,
+  mission,
+  values,
+} from "@/content/company";
 
 export const metadata: Metadata = {
-  title: "Mission and Values",
+  title: "Mission & Values",
   description:
-    "N4Cluster exists so local operators keep the customer relationship, the data, and the margin — on infrastructure priced at a flat $99/month plus $0.50 per order. Our values, and what each one rules out.",
+    "N4Cluster helps neighborhood restaurants grow profitably through direct ordering, lasting customer relationships, fair fees, and merchant control.",
 };
 
 export default function MissionPage() {
   return (
     <>
-      <HeroCentered
-        eyebrow="Mission and values"
-        heading="Keep the customer. Keep the data. Keep the margin."
-        subheading="What N4Cluster is for, the values we operate by, and — because a value that forbids nothing is not a commitment — what each one rules out."
-        primaryCta={{ label: "Request a Demo", href: "/contact" }}
-        secondaryCta={{ label: "Calculate Your Savings", href: "/roi-calculator" }}
-      />
-
-      {/* Mission */}
-      <section className="bg-white py-16 md:py-24">
-        <Container size="lg">
-          <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
-            <div className="lg:col-span-3">
-              <SectionIntro
-                eyebrow="Mission"
-                heading={missionStatement}
-                align="left"
-                className="mb-8"
-                headingClassName="text-2xl sm:text-3xl"
-              />
-              {missionSupport.map((paragraph) => (
-                <p
-                  key={paragraph.slice(0, 40)}
-                  className="text-slate-600 text-base leading-relaxed mt-4"
-                >
-                  {paragraph}
-                </p>
-              ))}
+      {/*
+        A. Hero. One dominant action, no price comparison, no carousel. The H1 is
+        the brand's ownership headline and breaks across three lines naturally.
+      */}
+      <section className="gradient-hero pt-32 pb-20 md:pt-40 md:pb-24 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] max-w-full bg-cobalt-600/10 rounded-full blur-3xl" />
+        </div>
+        <Container size="lg" className="relative z-10">
+          <div className="max-w-3xl">
+            <div className="mb-5">
+              <Badge variant="dark">Our promise to neighborhood restaurants</Badge>
             </div>
-
-            {/*
-              The price is the claim, so it gets the loudest treatment on the page
-              per DESIGN.md — numbers first, prose second.
-            */}
-            <div className="lg:col-span-2 rounded-2xl border border-slate-200 bg-slate-50 p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.05em] text-slate-600">
-                What it costs
-              </p>
-              <p className="mt-4 text-4xl sm:text-5xl font-bold tracking-tight text-navy-950">
-                $99
-                <span className="text-lg font-semibold text-slate-600">/month</span>
-              </p>
-              <p className="mt-2 text-2xl font-bold tracking-tight text-navy-950">
-                + $0.50
-                <span className="text-base font-semibold text-slate-600"> per order</span>
-              </p>
-              <hr className="my-6 border-slate-200" />
-              <p className="text-3xl font-bold tracking-tight text-teal-700">0%</p>
-              <p className="mt-1 text-sm text-slate-600">
-                commission — at any volume, on any plan.
-              </p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-white">
+              Own your storefront.
+              <br />
+              Own your data.
+              <br />
+              {/* The one accent on this page, so it still means "look here". */}
+              <span className="text-amber-400">Own your growth.</span>
+            </h1>
+            <p className="mt-6 text-lg sm:text-xl leading-relaxed text-slate-300 max-w-2xl">
+              Give customers who already know you a direct way to order from your
+              restaurant. {complementaryChannels}
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button href={demoCta.href} size="lg">
+                {demoCta.label}
+              </Button>
+              <Button href="/pricing" size="lg" variant="outline">
+                See pricing
+              </Button>
             </div>
+            <p className="mt-5 text-sm text-slate-300">
+              A working demo with your real menu, before you decide.
+            </p>
           </div>
         </Container>
       </section>
 
-      {/* Values ledger */}
+      {/* B. Mission and reason for being */}
+      <section className="bg-white py-16 md:py-24">
+        <Container size="md">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-navy-950 text-balance">
+            A stronger future for neighborhood restaurants.
+          </h2>
+          <p className="mt-6 text-lg sm:text-xl leading-relaxed text-navy-950 font-semibold">
+            {mission}
+          </p>
+          <p className="mt-5 text-base leading-relaxed text-slate-600">
+            A neighborhood restaurant is built one good meal and one returning
+            customer at a time. N4Cluster exists to make those relationships easier
+            to build online—with ordering under your name, straightforward fees, and
+            practical tools for repeat business. You should be able to grow direct
+            orders while continuing to use the channels that work for you.
+          </p>
+        </Container>
+      </section>
+
+      {/* C. The merchant experience — stacks on small screens, never scrolls sideways */}
       <section className="bg-slate-50 py-16 md:py-24">
         <Container size="md">
-          <SectionIntro
-            eyebrow="Values"
-            heading="Five commitments, and what each one rules out"
-            subheading="Stated so they can be checked. If we break one, it should be obvious from the outside."
-          />
-
-          <ol className="border-t border-slate-200">
-            {missionValues.map((value) => (
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-navy-950 text-balance">
+            From an order to a lasting relationship.
+          </h2>
+          <p className="mt-5 text-base leading-relaxed text-slate-600 max-w-2xl">
+            A direct order does more than avoid a commission. It tells you who
+            ordered, what they ordered, and when they last came back — which is
+            what makes a second visit something you can actually encourage.
+          </p>
+          <ol className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+            {merchantJourney.map((step, i) => (
               <li
-                key={value.index}
+                key={step.label}
+                className="rounded-2xl border border-slate-200 bg-white p-6"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.05em] text-cobalt-600">
+                  <span className="tabular-nums">{i + 1}.</span> {step.label}
+                </p>
+                <p className="mt-3 text-base leading-relaxed text-slate-600">
+                  {step.body}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </Container>
+      </section>
+
+      {/* D. Values — readable vertical sequence, not five cramped columns */}
+      <section className="bg-white py-16 md:py-24">
+        <Container size="md">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-navy-950 text-balance">
+            Five commitments to your restaurant.
+          </h2>
+          <p className="mt-4 text-lg leading-relaxed text-slate-600">
+            These commitments guide how we build, price, and support N4Cluster.
+          </p>
+
+          <ol className="mt-10 border-t border-slate-200">
+            {values.map((value, i) => (
+              <li
+                key={value.id}
+                id={value.id}
                 className="border-b border-slate-200 py-8 sm:py-10"
               >
                 <div className="flex gap-5 sm:gap-8">
@@ -95,7 +134,7 @@ export default function MissionPage() {
                     aria-hidden="true"
                     className="text-sm font-semibold tabular-nums text-slate-500 pt-1 shrink-0"
                   >
-                    {value.index}
+                    {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
                     <h3 className="text-xl font-bold tracking-tight text-navy-950">
@@ -104,73 +143,120 @@ export default function MissionPage() {
                     <p className="mt-3 text-base leading-relaxed text-slate-600">
                       {value.body}
                     </p>
-                    <p className="mt-4 text-sm leading-relaxed text-slate-700">
-                      <span className="font-semibold text-navy-950">
-                        Rules out:{" "}
-                      </span>
-                      {value.rulesOut}
-                    </p>
                   </div>
                 </div>
               </li>
             ))}
           </ol>
+
+          <div className="mt-10">
+            <Link
+              href="/how-it-works"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-cobalt-600 hover:text-cobalt-500 transition-colors"
+            >
+              See how N4Cluster works
+              <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+          </div>
         </Container>
       </section>
 
-      {/* Checkable commitments */}
-      <section className="bg-white py-16 md:py-24">
-        <Container size="lg">
-          <SectionIntro
-            eyebrow="Hold us to it"
-            heading="The four things you can verify before you talk to us"
-            subheading="Each one is published, not promised on a call."
-          />
-          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {missionCommitments.map((commitment) => (
-              <div
-                key={commitment.label}
-                className="rounded-2xl border border-slate-200 p-6"
-              >
-                <dt className="text-base font-bold tracking-tight text-navy-950">
-                  {commitment.label}
-                </dt>
-                <dd className="mt-2 text-sm leading-relaxed text-slate-600">
-                  {commitment.detail}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </Container>
-      </section>
-
-      {/* Where we are today — stated plainly, per PRODUCT.md: no implied proof. */}
+      {/*
+        E. Human context. A founder positioning statement, reproduced exactly —
+        not a merchant testimonial and not evidence of measured results. No
+        portrait is used because no approved photograph exists in the repository.
+      */}
       <section className="bg-slate-50 py-16 md:py-24">
         <Container size="sm">
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-navy-950">
-            Where we are today
-          </h2>
-          <p className="mt-5 text-base leading-relaxed text-slate-600">
-            N4Cluster is an early-stage company building in the open. We are
-            working with design partners on focused pilots rather than pointing at
-            a customer list we have not earned yet. If you are evaluating us, the
-            useful questions are what the platform does today, what it costs, and
-            how quickly you could leave — and we would rather answer those than
-            show you a logo wall.
-          </p>
-          <p className="mt-4 text-base leading-relaxed text-slate-600">
-            The pricing is published. The math is on the ROI calculator. The exit
-            is a data export you can request on any day.
-          </p>
+          <figure>
+            <blockquote className="text-xl sm:text-2xl leading-relaxed font-semibold text-navy-950 text-balance">
+              &ldquo;{founderQuote.quote}&rdquo;
+            </blockquote>
+            <figcaption className="mt-5 text-sm text-slate-600">
+              — {founderQuote.name}, {founderQuote.role}
+            </figcaption>
+          </figure>
         </Container>
       </section>
 
-      <CTASection
-        heading="Run the numbers on your own orders"
-        subheading="See what a flat $99 per month plus $0.50 per order looks like against what you pay now — then decide whether a conversation is worth your time."
-        primaryCta={{ label: "Calculate Your Savings", href: "/roi-calculator" }}
-        secondaryCta={{ label: "Request a Demo", href: "/contact" }}
-      />
+      {/* F. A concrete way to evaluate */}
+      <section className="bg-white py-16 md:py-24">
+        <Container size="md">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-navy-950 text-balance">
+            See what this means for your restaurant.
+          </h2>
+          <p className="mt-5 text-base leading-relaxed text-slate-600">
+            Start with your own menu. We&rsquo;ll walk you through the ordering
+            experience, the fees, and what setup would involve for your restaurant.
+          </p>
+
+          <ul className="mt-8 space-y-3">
+            {[
+              "Your menu and branding in a working demo.",
+              "A cost breakdown using your expected direct-order volume.",
+              "The capabilities, setup steps, and support available for your restaurant.",
+            ].map((point) => (
+              <li key={point} className="flex items-start gap-3">
+                <span
+                  aria-hidden="true"
+                  className="mt-2 h-1.5 w-1.5 rounded-full bg-cobalt-500 shrink-0"
+                />
+                <span className="text-base leading-relaxed text-slate-700">
+                  {point}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          {/*
+            Fee summary sits with the offer, at body size — not in footer small
+            print. Every qualifier a merchant needs is visible without interaction.
+          */}
+          <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
+            <h3 className="text-base font-bold text-navy-950">
+              What it costs
+            </h3>
+            <p className="mt-3 text-base leading-relaxed text-navy-950">
+              After the {priceDisplay.trial}: {priceDisplay.merchantFees} in
+              N4Cluster merchant fees. Zero N4Cluster sales commission.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-slate-700">
+              Card processing and any courier charges are separate. Diners normally
+              pay a {priceDisplay.dinerFee} N4Cluster fee unless the restaurant
+              chooses to absorb it.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-slate-700">
+              The trial waives N4Cluster merchant platform and per-order fees.{" "}
+              <Link href="/pricing" className="font-semibold text-cobalt-600 hover:underline">
+                See the full pricing details
+              </Link>{" "}
+              for other charges and terms.
+            </p>
+          </div>
+
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <Button href={demoCta.href} size="lg">
+              {demoCta.label}
+            </Button>
+          </div>
+          <p className="mt-6 text-sm leading-relaxed text-slate-600">
+            Sending the form reaches our team — it does not open an account, start
+            a trial, or charge anything. We reply to agree a time, and you decide
+            what happens next.
+          </p>
+          <p className="mt-5 text-sm text-slate-600">
+            Prefer to text? Send{" "}
+            <strong className="text-navy-950">{siteConfig.contact.smsKeyword}</strong> to{" "}
+            <a
+              href={siteConfig.contact.phoneHref}
+              className="font-semibold text-cobalt-600 hover:underline"
+            >
+              {siteConfig.contact.phone}
+            </a>
+            .
+          </p>
+        </Container>
+      </section>
     </>
   );
 }

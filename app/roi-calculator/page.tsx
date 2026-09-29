@@ -3,18 +3,18 @@ import { HeroCentered } from "@/components/sections/HeroCentered";
 import { ROICalculator } from "./ROICalculator";
 
 export const metadata: Metadata = {
-  title: "ROI Calculator | N4Cluster",
+  title: "Fee Comparison Calculator | N4Cluster",
   description:
-    "See how much your restaurant would save by switching from marketplace aggregator commissions to N4Cluster's flat $99/month plus $0.50 per order fee. Adjust your order volume, ticket size, and commission rate to run the numbers instantly.",
+    "Estimate the fee difference between marketplace commission and N4Cluster's published $99/month plus $0.50 per order, using your own direct-order volume, ticket size, and commission rate. A fee comparison, not a profit projection.",
 };
 
 export default function ROICalculatorPage() {
   return (
     <>
       <HeroCentered
-        eyebrow="ROI Calculator"
-        heading="See what commissions are really costing you."
-        subheading="Third-party marketplaces grab a percentage from every order. N4Cluster charges flat: $99/month plus $0.50 per order. Move the sliders to match your restaurant and watch what you'll actually keep — monthly and yearly."
+        eyebrow="Fee comparison"
+        heading="Compare the fees on your own numbers."
+        subheading="Marketplaces charge a percentage of every order. N4Cluster charges published fees: $99/month plus $0.50 per order, with zero N4Cluster sales commission. Set the sliders to your restaurant to see the estimated fee difference — and the assumptions behind it."
       />
       <ROICalculator />
     </>
