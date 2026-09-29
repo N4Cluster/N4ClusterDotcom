@@ -3,7 +3,7 @@ import { HeroCentered } from "@/components/sections/HeroCentered";
 import { CTASection } from "@/components/sections/CTASection";
 import { Container } from "@/components/ui/Container";
 import { SectionIntro } from "@/components/ui/SectionIntro";
-import { Check, ArrowRight, Search } from "lucide-react";
+import { Check, Search } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Platform — Five Layers. One Monthly Bill.",
@@ -354,7 +354,7 @@ function PillarVisual({ pillar }: { pillar: (typeof pillars)[number] }) {
         <div className="flex items-center justify-between mb-5">
           <div>
             <div className="text-xs font-semibold uppercase tracking-wider mb-0.5" style={{ color: "#64748b" }}>AI Growth Autopilot</div>
-            <div className="font-bold text-white">This week's suggestions</div>
+            <div className="font-bold text-white">This week&apos;s suggestions</div>
           </div>
           <div className="text-xs px-2.5 py-1 rounded-full font-semibold" style={{ background: "rgba(245,158,11,0.15)", color: "#f59e0b" }}>3 pending review</div>
         </div>

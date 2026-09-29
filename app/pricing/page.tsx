@@ -115,7 +115,7 @@ export default function PricingPage() {
               <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid #e2e8f0" }}>
                 <div className="px-5 py-4" style={{ background: "#f8fafc", borderBottom: "1px solid #e2e8f0" }}>
                   <div className="text-sm font-bold" style={{ color: "#040d1c" }}>Platform fee taken on a $40 / $80 / $150 order</div>
-                  <div className="text-xs mt-0.5" style={{ color: "#64748b" }}>Per-order platform fees only — card processing excluded on both sides, as is N4Cluster's flat $99/month platform fee. Commission rates are typical published rates.</div>
+                  <div className="text-xs mt-0.5" style={{ color: "#64748b" }}>Per-order platform fees only — card processing excluded on both sides, as is N4Cluster&apos;s flat $99/month platform fee. Commission rates are typical published rates.</div>
                 </div>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
@@ -188,7 +188,7 @@ export default function PricingPage() {
                 That $0.99 checkout fee? Ours to own, not yours to defend.
               </h2>
               <p className="text-base leading-relaxed mb-5" style={{ color: "#475569" }}>
-                Every customer ordering through an N4Cluster channel sees a <strong style={{ color: "#040d1c" }}>$0.99 N4Cluster Neighborhood Fee</strong> at checkout. That's on us — a platform fee we collect, <em>not</em> a surcharge you tacked onto their ticket.
+                Every customer ordering through an N4Cluster channel sees a <strong style={{ color: "#040d1c" }}>$0.99 N4Cluster Neighborhood Fee</strong> at checkout. That&apos;s on us — a platform fee we collect, <em>not</em> a surcharge you tacked onto their ticket.
               </p>
               <p className="text-base leading-relaxed mb-6" style={{ color: "#475569" }}>
                 You never touch that money, and you never field a single question about it. Customers see exactly where it goes — into the platform, not your margin.
@@ -323,7 +323,7 @@ export default function PricingPage() {
                 Lock your rate. Sleep better for 1 or 2 years.
               </h2>
               <p className="text-base leading-relaxed mb-5" style={{ color: "#475569" }}>
-                Pricing gets reviewed once a year by default. Want more certainty for your own planning? Lock the merchant fee — $0.50/order and the $99/month platform fee — for 1 or 2 years. You won't get a discount for locking in; the price is already as flat as it gets. This just buys you predictability — a lock fixes the rate, not you. You can still cancel anytime.
+                Pricing gets reviewed once a year by default. Want more certainty for your own planning? Lock the merchant fee — $0.50/order and the $99/month platform fee — for 1 or 2 years. You won&apos;t get a discount for locking in; the price is already as flat as it gets. This just buys you predictability — a lock fixes the rate, not you. You can still cancel anytime.
               </p>
               <div className="space-y-3 mb-8">
                 {priceLockDetails.map((item) => (
@@ -341,10 +341,10 @@ export default function PricingPage() {
                 Adjustment formula
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 leading-tight" style={{ color: "#040d1c" }}>
-                If we ever adjust pricing, here's the exact math.
+                If we ever adjust pricing, here&apos;s the exact math.
               </h2>
               <p className="text-base leading-relaxed mb-6" style={{ color: "#475569" }}>
-                Once any lock period ends, we can adjust annually — but only inside a formula we don't get to bend. No discretionary increase. The cap is mathematical, not a mood.
+                Once any lock period ends, we can adjust annually — but only inside a formula we don&apos;t get to bend. No discretionary increase. The cap is mathematical, not a mood.
               </p>
               <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid #e2e8f0" }}>
                 {adjustmentFormula.map((row, i) => (

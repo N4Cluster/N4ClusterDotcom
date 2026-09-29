@@ -36,3 +36,6 @@ graphify-out/
 # Claude Code skills/tooling (local, per-developer install)
 .claude/
 .impeccable/
+
+# Vercel CLI
+.vercel
