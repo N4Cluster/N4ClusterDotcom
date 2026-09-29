@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { footerLinks } from "@/content/site/footer";
 import { siteConfig } from "@/content/site/settings";
+import { CookiePreferencesButton } from "@/components/CookiePreferencesButton";
 import { Linkedin, Twitter, Github } from "lucide-react";
 
 export function SiteFooter() {
@@ -103,6 +104,7 @@ export function SiteFooter() {
             <Link href="/cookies" className="text-xs text-slate-400 hover:text-slate-300 transition-colors">
               Cookies
             </Link>
+            <CookiePreferencesButton className="text-xs text-slate-400 hover:text-slate-300 transition-colors" />
           </div>
         </div>
       </Container>
