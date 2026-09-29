@@ -85,10 +85,14 @@ export default function RootLayout({
         />
       </head>
       <body>
+        {/* Keyboard users can jump past the nav; visible only while focused. */}
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
         <Analytics />
         <UtmCapture />
         <SiteHeader />
-        <main>{children}</main>
+        <main id="main">{children}</main>
         <SiteFooter />
         <CookieConsent />
       </body>
