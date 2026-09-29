@@ -256,7 +256,11 @@ export function ContactForm({ variant = "contact", dark = false }: ContactFormPr
           id="message"
           rows={4}
           className={inputClass(false)}
-          placeholder="Tell us about your business, goals, or specific questions…"
+          placeholder={
+            variant === "demo"
+              ? "Tell us about your restaurant — and if you have a menu or website link, paste it here so we can build your demo storefront."
+              : "Tell us about your business, goals, or specific questions…"
+          }
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
         />

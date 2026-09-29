@@ -20,26 +20,28 @@ import {
   X,
 } from "lucide-react";
 
+import { demoCta } from "@/content/company";
+
 export const metadata: Metadata = {
-  title: "N4Cluster | Commission-Free Commerce for Local Restaurants",
+  title: "N4Cluster | Commission-Free Online Ordering for Neighborhood Restaurants",
   description:
-    "N4Cluster gives restaurants a branded direct ordering channel, neighborhood discovery, AI-powered growth, and delivery — for a flat $99/month plus $0.50 per order. No commissions. Ever.",
+    "Give customers who already know your restaurant a direct way to order, under your own brand. Flat $99/month plus $0.50 per order, zero N4Cluster sales commission. Keep your delivery apps for discovery.",
 };
 
 // ─── Trust strip ────────────────────────────────────────────────────────────
 const trustItems = [
   "$99/mo + $0.50 per order",
+  "Zero N4Cluster sales commission",
   "Your brand. Your customers.",
-  "Your data stays yours — export anytime",
-  "30-minute delivery, on us",
-  "Your menu, live in days",
+  "Your order data, available to you",
+  "Keep your delivery apps for discovery",
 ];
 
 // ─── Own it (mirrors the printed flyer) ─────────────────────────────────────
 const ownIt = [
   {
     title: "Your branded site",
-    body: "Looks like your restaurant — not another listing in somebody's app. Live in days.",
+    body: "Looks like your restaurant — not another listing in somebody's app. We'll confirm setup steps and timing for your restaurant.",
   },
   {
     title: "Flat fee, no commission",
@@ -47,7 +49,7 @@ const ownIt = [
   },
   {
     title: "Your data stays yours",
-    body: "Orders and regulars belong to you. Export anytime. No lock-in.",
+    body: "Order and customer information from your direct orders is available to you, and we explain how to get a copy of it.",
   },
 ];
 
@@ -58,7 +60,7 @@ const pillars = [
     color: "#2563eb",
     title: "Ordering under your own name",
     description:
-      "Customers order straight from your branded site — not an app that buries your name three taps deep. You keep the relationship, the contact info, and every dollar of margin.",
+      "Customers order straight from your branded site — not an app that buries your name three taps deep. You keep the relationship, the customer information, and the margin a commission would have taken.",
   },
   {
     icon: MapPin,
@@ -79,7 +81,7 @@ const pillars = [
     color: "#2563eb",
     title: "Delivery that's not your problem",
     description:
-      "N4Cluster runs the drivers. 30-minute pickup-to-door SLA. When a route goes sideways, that's on us — you stay on the line, not on the phone with a dispatcher.",
+      "N4Cluster coordinates the drivers and tracks every order against a delivery target, so a route going sideways is ours to chase rather than yours. Courier charges are separate from N4Cluster's fees, and coverage and timing depend on your address — we'll confirm what applies to you.",
   },
   {
     icon: Search,
@@ -96,7 +98,7 @@ const timeline = [
     number: "Days",
     title: "Your branded site goes live",
     description:
-      "We pull your menu straight from your POS, clean it up, and launch your ordering site under your own name — live in days. Nothing goes live without your sign-off.",
+      "We pull your menu straight from your POS, clean it up, and build your ordering site under your own name. Nothing goes live without your sign-off, and we'll confirm setup steps and timing for your restaurant.",
     accent: "cobalt" as const,
   },
   {
@@ -126,7 +128,7 @@ const timeline = [
 const segments = [
   {
     title: "Independent restaurants",
-    desc: "Stop paying 20–30% commissions. Own your customer, keep your margin, and build direct demand — for $99/month plus $0.50 per order.",
+    desc: "Move repeat orders off a 20–30% commission and onto published fees: $99/month plus $0.50 per order, with zero N4Cluster sales commission. Card processing is separate.",
     outcomes: ["Direct branded ordering under your own domain", "Customer data and loyalty you keep", "Growth campaigns that run themselves, with your OK"],
     href: "/solutions#independent",
     color: "#2563eb",
@@ -141,7 +143,7 @@ const segments = [
   {
     title: "Delivery-first operators",
     desc: "Built for businesses where delivery is the core model. The Neighborhood Hub keeps orders coming in while N4Cluster runs the drivers.",
-    outcomes: ["A steady stream of local orders", "30-minute delivery SLA managed by N4Cluster", "Track every delivery without hiring a dispatcher"],
+    outcomes: ["A direct channel for your regulars", "Delivery coordinated and tracked by N4Cluster", "Track every delivery without hiring a dispatcher"],
     href: "/solutions#delivery",
     color: "#f59e0b",
   },
@@ -159,12 +161,12 @@ export default function HomePage() {
     <>
       {/* ── Hero ── */}
       <HeroSplit
-        eyebrow="Built for restaurant owners, not marketplaces"
-        heading="Your Own Branded Ordering & Delivery. Zero Commissions. Period."
-        subheading="Marketplace apps take 20–30% off every order. Flat-fee ordering SaaS platforms bill you $300–500 a month whether you sell ten orders or a thousand. N4Cluster is $99/month plus $0.50 per order — no commission, ever. Customers pay a separate $0.99 fee at checkout; it never comes out of your ticket."
-        primaryCta={{ label: "Request Your Demo Storefront", href: "/contact" }}
+        eyebrow="Commission-free online ordering for neighborhood restaurants"
+        heading="Give your regulars a direct way to order from you."
+        subheading="Marketplace apps take 20–30% off every order. N4Cluster is $99/month plus $0.50 per order with zero N4Cluster sales commission — so customers who already know you can order under your own brand. Keep your delivery apps for discovery. Card processing is separate, and diners normally pay a $0.99 N4Cluster fee at checkout."
+        primaryCta={{ label: demoCta.label, href: demoCta.href }}
         secondaryCta={{ label: "Calculate Your Savings", href: "/roi-calculator" }}
-        microcopy="Try it free for 30 days · Live in days · $99/mo + $0.50 per order · Cancel anytime"
+        microcopy="30-day trial · $99/mo + $0.50 per order · Zero N4Cluster sales commission · Cancel per your agreement"
       />
 
       {/* ── Trust strip ── */}
@@ -288,7 +290,7 @@ export default function HomePage() {
       {/* ── How it works ── */}
       <StepTimeline
         heading="From sign-up to neighborhood growth — a clear path"
-        subheading="No long onboarding. No setup-time fear. Your restaurant is live in days, growing within weeks."
+        subheading="No long onboarding, and no multi-quarter implementation. We'll scope the setup steps and timing for your restaurant before you commit."
         steps={timeline}
       />
       <div className="bg-white text-center pb-16 md:pb-24">
