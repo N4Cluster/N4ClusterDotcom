@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
+import { smsAnchor, smsPrivacyStatement } from "@/content/legal/sms";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -13,7 +14,7 @@ export default function PrivacyPage() {
       <Container size="md">
         <div className="prose prose-slate max-w-none">
           <h1>Privacy Policy</h1>
-          <p className="text-slate-600 text-sm">Last updated: September 28, 2026</p>
+          <p className="text-slate-600 text-sm">Last updated: October 13, 2026</p>
 
           <p>
             This Privacy Policy explains how N4Cluster Inc (“N4Cluster,” “we,”
@@ -420,13 +421,15 @@ export default function PrivacyPage() {
             security notices, or administer your account. Message and data rates
             may apply to SMS communications, and message frequency may vary.
           </p>
+          <h3 id={smsAnchor} className="scroll-mt-24">
+            Text messaging (SMS)
+          </h3>
           <p>
-            We do not share mobile opt-in data or SMS consent records with third
-            parties or affiliates for their own marketing or promotional purposes.
-            We may share such information with service providers that support
-            messaging, consent management, customer support, security, or other
-            operational functions, subject to appropriate restrictions.
+            Diners who opt in at checkout receive order-related texts from
+            N4Cluster, as described in our{" "}
+            <a href="/terms#sms">Text Messaging (SMS) Terms</a>.
           </p>
+          <p>{smsPrivacyStatement}</p>
 
           <h2 id="ai">
             9. Artificial Intelligence and Automated Technologies
