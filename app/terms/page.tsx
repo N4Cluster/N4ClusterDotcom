@@ -5,6 +5,9 @@ import {
   smsTermsHeading,
   smsTermsIntro,
   smsTermsItems,
+  smsVerificationIntro,
+  smsVerificationItems,
+  smsVerificationLabel,
 } from "@/content/legal/sms";
 
 export const metadata: Metadata = {
@@ -38,7 +41,7 @@ export default function TermsPage() {
       <Container size="md">
         <div className="prose prose-slate max-w-none">
           <h1>Terms of Service</h1>
-          <p className="text-slate-600 text-sm">Last updated: October 13, 2026</p>
+          <p className="text-slate-600 text-sm">Last updated: October 19, 2026</p>
 
           <p>
             These Terms of Service (&quot;Terms&quot;) govern your access to and use of the N4Cluster website located at n4cluster.com (the &quot;Site&quot;). By using the Site, you agree to these Terms.
@@ -88,6 +91,14 @@ export default function TermsPage() {
               <li key={item}>
                 <LinkedText text={item} />
               </li>
+            ))}
+          </ul>
+          <p>
+            <strong>{smsVerificationLabel}</strong> {smsVerificationIntro}
+          </p>
+          <ul>
+            {smsVerificationItems.map((item) => (
+              <li key={item}>{item}</li>
             ))}
           </ul>
 

@@ -1,6 +1,7 @@
 /**
- * SMS program wording registered with our Telnyx 10DLC campaign (brand
- * "N4Cluster", TCR ID BN2CZLB, use case Low Volume Mixed).
+ * SMS program wording registered with our Telnyx 10DLC campaigns (brand
+ * "N4Cluster", TCR ID BN2CZLB): the Low Volume Mixed campaign for order texts,
+ * and the 2FA campaign for verification codes.
  *
  * Carrier vetting compares these pages against the campaign form, so the text
  * here is verbatim and must not be reworded. A change to any string means the
@@ -16,7 +17,7 @@ export const smsTermsIntro =
   'N4Cluster Inc ("N4Cluster") offers an order notification text message program for diners who order from restaurants using N4Cluster-powered storefronts.';
 
 export const smsTermsItems = [
-  "What you'll receive: order-related texts only. These include order confirmations, ready-for-pickup alerts, delivery status updates with tracking links, and replies to your order support questions. We do not send marketing messages through this program.",
+  "What you'll receive: order-related texts only. These include order confirmations, ready-for-pickup alerts with pickup codes, delivery status updates with tracking links, and replies to your order support questions. We do not send marketing messages through this program.",
   'How to join: check the "Text me updates about this order from N4Cluster" box at checkout. Consent is not a condition of purchase.',
   "Message frequency varies by order.",
   "Message and data rates may apply.",
@@ -25,6 +26,25 @@ export const smsTermsItems = [
   "Carriers are not liable for delayed or undelivered messages.",
   "Your mobile information is handled under our Privacy Policy (https://www.n4cluster.com/privacy). Mobile numbers and SMS opt-in data are never sold or shared with third parties for marketing or promotional purposes.",
 ] as const;
+
+/** The 2FA campaign's subsection, shown after the order-notification items. */
+export const smsVerificationLabel = "Verification codes.";
+
+export const smsVerificationIntro =
+  "N4Cluster also sends one-time passcodes by text when you sign up, verify your phone number, or log in on an N4Cluster-powered storefront. A code is sent only when you request one, and these messages contain no marketing.";
+
+export const smsVerificationItems = [
+  'How to join: enter your mobile number and tap "Send code" on the sign-up or login screen.',
+  "Message frequency: one message per code you request.",
+  "Message and data rates may apply. Reply STOP to opt out, or HELP for help.",
+] as const;
+
+/**
+ * Opening sentence of the Privacy Policy's SMS section. The trailing name is
+ * rendered as a link to /terms#sms.
+ */
+export const smsPrivacyIntro =
+  "Diners who opt in at checkout receive order-related texts from N4Cluster, and customers who request a verification code receive one-time passcodes for sign-up, phone verification and login, as described in our Text Messaging (SMS) Terms.";
 
 /** The sentence carrier reviewers look for in the Privacy Policy. */
 export const smsPrivacyStatement =

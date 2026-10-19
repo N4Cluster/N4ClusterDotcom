@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
-import { smsAnchor, smsPrivacyStatement } from "@/content/legal/sms";
+import {
+  smsAnchor,
+  smsPrivacyIntro,
+  smsPrivacyStatement,
+  smsTermsHeading,
+} from "@/content/legal/sms";
+
+/** The intro split around the Terms name, so the name can be a link. */
+const [smsIntroBefore, smsIntroAfter] = smsPrivacyIntro.split(smsTermsHeading);
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -14,7 +22,7 @@ export default function PrivacyPage() {
       <Container size="md">
         <div className="prose prose-slate max-w-none">
           <h1>Privacy Policy</h1>
-          <p className="text-slate-600 text-sm">Last updated: October 13, 2026</p>
+          <p className="text-slate-600 text-sm">Last updated: October 19, 2026</p>
 
           <p>
             This Privacy Policy explains how N4Cluster Inc (“N4Cluster,” “we,”
@@ -425,9 +433,9 @@ export default function PrivacyPage() {
             Text messaging (SMS)
           </h3>
           <p>
-            Diners who opt in at checkout receive order-related texts from
-            N4Cluster, as described in our{" "}
-            <a href="/terms#sms">Text Messaging (SMS) Terms</a>.
+            {smsIntroBefore}
+            <a href="/terms#sms">{smsTermsHeading}</a>
+            {smsIntroAfter}
           </p>
           <p>{smsPrivacyStatement}</p>
 

@@ -2,10 +2,14 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import {
   smsAnchor,
+  smsPrivacyIntro,
   smsPrivacyStatement,
   smsTermsHeading,
   smsTermsIntro,
   smsTermsItems,
+  smsVerificationIntro,
+  smsVerificationItems,
+  smsVerificationLabel,
 } from "@/content/legal/sms";
 
 const read = (path: string) => readFileSync(path, "utf8");
@@ -45,15 +49,57 @@ describe("SMS terms wording", () => {
     expect(smsTermsItems).toHaveLength(8);
   });
 
+  it("says ready-for-pickup alerts carry pickup codes", () => {
+    expect(smsTermsItems[0]).toContain("ready-for-pickup alerts with pickup codes,");
+  });
+
   it("is rendered by the Terms page under the #sms anchor, with a current date", () => {
     const page = read("app/terms/page.tsx");
     expect(page).toContain("id={smsAnchor}");
     expect(page).toContain("smsTermsItems.map");
     expect(page).not.toContain("Last updated: March 2025");
+    expect(page).toContain("Last updated: October 19, 2026");
+  });
+});
+
+// The 2FA campaign registration quotes this subsection, so it is pinned verbatim.
+describe("SMS verification-code wording", () => {
+  it("describes one-time passcodes as requested, non-marketing messages", () => {
+    expect(smsVerificationLabel).toBe("Verification codes.");
+    expect(smsVerificationIntro).toBe(
+      "N4Cluster also sends one-time passcodes by text when you sign up, verify your phone number, or log in on an N4Cluster-powered storefront. A code is sent only when you request one, and these messages contain no marketing."
+    );
+  });
+
+  it("states how to join, the frequency, rates, STOP and HELP", () => {
+    expect(smsVerificationItems).toEqual([
+      'How to join: enter your mobile number and tap "Send code" on the sign-up or login screen.',
+      "Message frequency: one message per code you request.",
+      "Message and data rates may apply. Reply STOP to opt out, or HELP for help.",
+    ]);
+  });
+
+  it("is rendered on the Terms page after the order-notification items", () => {
+    const page = read("app/terms/page.tsx");
+    const orderItems = page.indexOf("smsTermsItems.map");
+    const verification = page.indexOf("smsVerificationItems.map");
+    expect(verification).toBeGreaterThan(orderItems);
+    expect(page).toContain("{smsVerificationLabel}");
+    expect(page).toContain("{smsVerificationIntro}");
   });
 });
 
 describe("SMS privacy wording", () => {
+  it("opens by covering both order texts and verification codes", () => {
+    expect(smsPrivacyIntro).toBe(
+      "Diners who opt in at checkout receive order-related texts from N4Cluster, and customers who request a verification code receive one-time passcodes for sign-up, phone verification and login, as described in our Text Messaging (SMS) Terms."
+    );
+  });
+
+  it("is dated October 19, 2026", () => {
+    expect(read("app/privacy/page.tsx")).toContain("Last updated: October 19, 2026");
+  });
+
   it("is the exact sentence reviewers look for", () => {
     expect(smsPrivacyStatement).toBe(
       "Mobile numbers and SMS opt-in data will not be sold or shared with third parties for marketing or promotional purposes. Text messaging originator opt-in data and consent will not be shared with any third parties, except service providers that help us deliver messages (such as our SMS provider)."
