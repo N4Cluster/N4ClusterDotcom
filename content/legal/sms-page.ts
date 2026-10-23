@@ -29,19 +29,15 @@ export const smsOrderDisclosure =
   "Text me updates about this order from N4Cluster. By checking this box, you agree to receive order-related text messages from N4Cluster at the number provided. Msg frequency varies by order. Msg & data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase.";
 
 export const orderSampleNote =
-  "Values in braces vary by order. The examples below use made-up values: order #1042, Pasta and Pita Grill, 6:45 PM.";
+  "Order number, restaurant name and ready time vary by order; these examples use made-up values.";
 
 export const orderSamples = [
   {
     event: "Order confirmed",
-    template:
-      "N4Cluster: Your order #{orderNo} from {merchantName} is confirmed. Estimated ready time {readyTime}. Reply STOP to opt out.",
     body: "N4Cluster: Your order #1042 from Pasta and Pita Grill is confirmed. Estimated ready time 6:45 PM. Reply STOP to opt out.",
   },
   {
     event: "Order ready for pickup",
-    template:
-      "N4Cluster: Your order #{orderNo} from {merchantName} is ready for pickup. Reply STOP to opt out.",
     body: "N4Cluster: Your order #1042 from Pasta and Pita Grill is ready for pickup. Reply STOP to opt out.",
   },
 ] as const;

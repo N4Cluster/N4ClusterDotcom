@@ -61,12 +61,12 @@ export default function SmsPage() {
           </p>
           <Image
             src="/sms/storefront-send-code.png"
-            width={780}
-            height={1688}
-            alt="Storefront phone verification screen with the Send code button and the verification text message disclosure visible beside it"
+            width={768}
+            height={942}
+            alt="Storefront sign-in card with the Send code button and the verification text message disclosure visible beneath it"
             className="mx-auto h-auto w-full max-w-sm rounded-lg border border-slate-200"
           />
-          <h3>Disclosure shown beside Send code</h3>
+          <h3>Disclosure shown beneath Send code</h3>
           <p>
             {sms2faDisclosureParts.map((part, i) =>
               part.type === "link" ? (

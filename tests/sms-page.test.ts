@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import {
+  orderSampleNote,
   orderSamples,
   otpSamples,
   sms2faDisclosure,
@@ -45,6 +46,12 @@ describe("sms page samples", () => {
       "N4Cluster: Your order #1042 from Pasta and Pita Grill is confirmed. Estimated ready time 6:45 PM. Reply STOP to opt out.",
       "N4Cluster: Your order #1042 from Pasta and Pita Grill is ready for pickup. Reply STOP to opt out.",
     ]);
+    // Only real bodies: a second, template copy of each would drift from them unseen.
+    expect(orderSamples.every((s) => Object.keys(s).sort().join() === "body,event")).toBe(true);
+    expect(orderSampleNote).not.toMatch(/brace/i);
+    for (const value of ["#1042", "Pasta and Pita Grill", "6:45 PM"]) {
+      expect(orderSamples.some((s) => s.body.includes(value))).toBe(true);
+    }
     expect(otpSamples.map((s) => s.body)).toEqual([
       "N4Cluster: Your verification code is 123456. It expires in 10 minutes. Do not share this code.",
       "N4Cluster: Use code 123456 to log in to your account. Valid for 10 minutes. Reply STOP to opt out.",
@@ -70,13 +77,24 @@ describe("sms page", () => {
     expect(page).not.toMatch(/merchant dashboard/i);
   });
 
-  it("screenshotsExistAt2x", () => {
+  // At least 2x a phone-width card (300 CSS px), and the <Image> size is the file's real size.
+  it("screenshotsExistAt2xAndMatchTheirImageSize", () => {
     for (const f of ["storefront-send-code.png", "checkout-optin.png"]) {
       const buf = readFileSync(`public/sms/${f}`);
       expect(buf.subarray(1, 4).toString()).toBe("PNG");
-      expect(buf.readUInt32BE(16)).toBeGreaterThanOrEqual(780);
-      expect(buf.readUInt32BE(20)).toBe(1688);
+      const width = buf.readUInt32BE(16);
+      const height = buf.readUInt32BE(20);
+      expect(width).toBeGreaterThanOrEqual(600);
+      expect(page).toMatch(
+        new RegExp(`src="/sms/${f.replace(".", "\\.")}"\\s+width=\\{${width}\\}\\s+height=\\{${height}\\}`),
+      );
     }
+  });
+
+  it("describesTheVerificationDisclosureAsBeneathSendCode", () => {
+    expect(page).toContain("Disclosure shown beneath Send code");
+    expect(page).toMatch(/alt="[^"]*Send code button[^"]*beneath it"/);
+    expect(page).not.toMatch(/beside/i);
   });
 
   it("pageIsIndexable", () => {
