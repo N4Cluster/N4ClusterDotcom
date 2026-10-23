@@ -21,6 +21,7 @@ const staticRoutes = [
   "/careers",
   "/privacy",
   "/terms",
+  "/sms",
   "/cookies",
 ];
 
