@@ -101,6 +101,9 @@ export function SiteFooter() {
             <Link href="/terms" className="text-xs text-slate-400 hover:text-slate-300 transition-colors">
               Terms
             </Link>
+            <Link href="/terms#sms" className="text-xs text-slate-400 hover:text-slate-300 transition-colors">
+              SMS Terms
+            </Link>
             <Link href="/cookies" className="text-xs text-slate-400 hover:text-slate-300 transition-colors">
               Cookies
             </Link>

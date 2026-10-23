@@ -1,36 +1,20 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
+import { LinkedText } from "@/components/legal/LinkedText";
 import {
   smsAnchor,
+  smsPrograms,
+  smsSharedItems,
+  smsSharedTitle,
   smsTermsHeading,
   smsTermsIntro,
-  smsTermsItems,
 } from "@/content/legal/sms";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "N4Cluster terms of service covering acceptable use, IP ownership, liability, and the order notification text message program.",
+    "N4Cluster terms of service covering acceptable use, IP ownership, liability, and the order notification and verification code text message programs.",
 };
-
-/** Matches the URLs and the support address inside the registered SMS wording. */
-const linkPattern = /(https:\/\/[^\s)]+|[\w.+-]+@n4cluster\.com)/;
-
-/**
- * Renders registered wording verbatim, turning its URLs and email address into
- * links without changing a character of the visible text.
- */
-function LinkedText({ text }: { text: string }) {
-  return text.split(linkPattern).map((part, i) => {
-    if (i % 2 === 0) return part;
-    const href = part.startsWith("https://") ? part : `mailto:${part}`;
-    return (
-      <a key={i} href={href}>
-        {part}
-      </a>
-    );
-  });
-}
 
 export default function TermsPage() {
   return (
@@ -38,7 +22,7 @@ export default function TermsPage() {
       <Container size="md">
         <div className="prose prose-slate max-w-none">
           <h1>Terms of Service</h1>
-          <p className="text-slate-600 text-sm">Last updated: October 13, 2026</p>
+          <p className="text-slate-600 text-sm">Last updated: October 22, 2026</p>
 
           <p>
             These Terms of Service (&quot;Terms&quot;) govern your access to and use of the N4Cluster website located at n4cluster.com (the &quot;Site&quot;). By using the Site, you agree to these Terms.
@@ -83,8 +67,19 @@ export default function TermsPage() {
             {smsTermsHeading}
           </h2>
           <p>{smsTermsIntro}</p>
+          {smsPrograms.map((program) => (
+            <div key={program.title}>
+              <h3>{program.title}</h3>
+              <ul>
+                {program.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          <h3>{smsSharedTitle}</h3>
           <ul>
-            {smsTermsItems.map((item) => (
+            {smsSharedItems.map((item) => (
               <li key={item}>
                 <LinkedText text={item} />
               </li>
