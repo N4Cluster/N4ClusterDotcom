@@ -5,7 +5,6 @@ import {
   smsAnchor,
   smsPrograms,
   smsSharedItems,
-  smsSharedTitle,
   smsTermsHeading,
   smsTermsIntro,
 } from "@/content/legal/sms";
@@ -22,7 +21,7 @@ export default function TermsPage() {
       <Container size="md">
         <div className="prose prose-slate max-w-none">
           <h1>Terms of Service</h1>
-          <p className="text-slate-600 text-sm">Last updated: October 22, 2026</p>
+          <p className="text-slate-600 text-sm">Last updated: October 31, 2026</p>
 
           <p>
             These Terms of Service (&quot;Terms&quot;) govern your access to and use of the N4Cluster website located at n4cluster.com (the &quot;Site&quot;). By using the Site, you agree to these Terms.
@@ -74,17 +73,14 @@ export default function TermsPage() {
                 {program.items.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
+                {smsSharedItems.map((item) => (
+                  <li key={item}>
+                    <LinkedText text={item} />
+                  </li>
+                ))}
               </ul>
             </div>
           ))}
-          <h3>{smsSharedTitle}</h3>
-          <ul>
-            {smsSharedItems.map((item) => (
-              <li key={item}>
-                <LinkedText text={item} />
-              </li>
-            ))}
-          </ul>
 
           <h2>Changes to These Terms</h2>
           <p>

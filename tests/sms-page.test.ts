@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   orderSampleNote,
   orderSamples,
+  otpOptInSteps,
   otpSamples,
   sms2faDisclosure,
   smsOrderDisclosure,
@@ -41,7 +42,7 @@ describe("sms page disclosures", () => {
 });
 
 describe("sms page samples", () => {
-  it("has the registered order texts and three OTP texts", () => {
+  it("has the registered order texts and one OTP text per Send code event", () => {
     expect(orderSamples.map((s) => s.body)).toEqual([
       "N4Cluster: Your order #1042 from Pasta and Pita Grill is confirmed. Estimated ready time 6:45 PM. Reply STOP to opt out.",
       "N4Cluster: Your order #1042 from Pasta and Pita Grill is ready for pickup. Reply STOP to opt out.",
@@ -52,10 +53,12 @@ describe("sms page samples", () => {
     for (const value of ["#1042", "Pasta and Pita Grill", "6:45 PM"]) {
       expect(orderSamples.some((s) => s.body.includes(value))).toBe(true);
     }
-    expect(otpSamples.map((s) => s.body)).toEqual([
-      "N4Cluster: Your verification code is 123456. It expires in 10 minutes. Do not share this code.",
-      "N4Cluster: Use code 123456 to log in to your account. Valid for 10 minutes. Reply STOP to opt out.",
-      "N4Cluster: Your account recovery code is 123456. It expires in 10 minutes. If you did not request this, ignore this message.",
+    // Phone change sends the sign-up body (notification-service OtpTemplates), so it repeats here.
+    expect(otpSamples).toEqual([
+      { event: "Sign-up", body: "N4Cluster: Your verification code is 123456. It expires in 10 minutes. Do not share this code." },
+      { event: "Login", body: "N4Cluster: Use code 123456 to log in to your account. Valid for 10 minutes. Reply STOP to opt out." },
+      { event: "Phone number change", body: "N4Cluster: Your verification code is 123456. It expires in 10 minutes. Do not share this code." },
+      { event: "Account recovery", body: "N4Cluster: Your account recovery code is 123456. It expires in 10 minutes. If you did not request this, ignore this message." },
     ]);
   });
 });
@@ -89,6 +92,17 @@ describe("sms page", () => {
         new RegExp(`src="/sms/${f.replace(".", "\\.")}"\\s+width=\\{${width}\\}\\s+height=\\{${height}\\}`),
       );
     }
+  });
+
+  it("listsTheVerificationOptInStepsAboveTheScreenshot", () => {
+    expect(otpOptInSteps).toEqual([
+      "On any N4Cluster-powered storefront, open sign up, log in, account recovery or change phone number.",
+      "Enter your mobile number.",
+      'Read the disclosure below the button and tap "Send code".',
+    ]);
+    expect(page).toContain("How to opt in");
+    expect(page.indexOf("otpOptInSteps.map")).toBeGreaterThan(-1);
+    expect(page.indexOf("otpOptInSteps.map")).toBeLessThan(page.indexOf("/sms/storefront-send-code.png"));
   });
 
   it("describesTheVerificationDisclosureAsBeneathSendCode", () => {

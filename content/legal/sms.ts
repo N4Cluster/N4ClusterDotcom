@@ -14,7 +14,7 @@ export const smsAnchor = "sms";
 export const smsTermsHeading = "Text Messaging (SMS) Terms";
 
 export const smsTermsIntro =
-  'N4Cluster Inc ("N4Cluster") operates two text message programs. Both are sent from N4Cluster and never include marketing.';
+  'N4Cluster Inc ("N4Cluster") operates two text message programs, each with its own opt-in. Neither includes marketing.';
 
 export const smsPrograms = [
   {
@@ -29,16 +29,17 @@ export const smsPrograms = [
   {
     title: "2. Verification codes",
     items: [
+      "Program: N4Cluster Verification Codes.",
       "Who: diners using N4Cluster-powered storefronts.",
       'How to join: enter your mobile number and tap "Send code" when signing up, logging in, recovering your account, or changing your phone number.',
       "What you'll receive: a one-time passcode that expires in 10 minutes. No links, no marketing.",
-      "Frequency: one message per request.",
+      "Frequency: 1 message per request.",
+      "Consent is not a condition of purchase.",
     ],
   },
 ] as const;
 
-export const smsSharedTitle = "For both programs";
-
+/** Rendered under every program, so each program block stands alone when quoted. */
 export const smsSharedItems = [
   "Message and data rates may apply.",
   "To stop: reply STOP (or UNSUBSCRIBE, CANCEL, END, QUIT) at any time. You'll receive one confirmation and no further texts. Reply START to resubscribe.",

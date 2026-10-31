@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container";
 import {
   orderSampleNote,
   orderSamples,
+  otpOptInSteps,
   otpSampleNote,
   otpSamples,
   sms2faDisclosureParts,
@@ -59,6 +60,12 @@ export default function SmsPage() {
           <p>
             Storefront diners request a one-time code by text to sign up, log in, recover their account or change their phone number.
           </p>
+          <h3>How to opt in</h3>
+          <ol>
+            {otpOptInSteps.map((step) => (
+              <li key={step}>{step}</li>
+            ))}
+          </ol>
           <Image
             src="/sms/storefront-send-code.png"
             width={768}

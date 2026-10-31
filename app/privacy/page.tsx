@@ -20,7 +20,7 @@ export default function PrivacyPage() {
       <Container size="md">
         <div className="prose prose-slate max-w-none">
           <h1>Privacy Policy</h1>
-          <p className="text-slate-600 text-sm">Last updated: October 22, 2026</p>
+          <p className="text-slate-600 text-sm">Last updated: October 31, 2026</p>
 
           <p>
             This Privacy Policy explains how N4Cluster Inc (“N4Cluster,” “we,”
@@ -349,6 +349,12 @@ export default function PrivacyPage() {
             </li>
           </ul>
           <p>
+            None of the categories above includes text messaging originator
+            opt-in data or consent. We share those only with the service
+            providers that deliver our text messages. See{" "}
+            <a href="#sms">Text messaging (SMS)</a>.
+          </p>
+          <p>
             We do not sell personal information for money. We do not currently
             share personal information for cross-context behavioral advertising.
             If our practices change, we will update this Policy and provide
@@ -394,8 +400,7 @@ export default function PrivacyPage() {
           </p>
           <h3>Transactional communications</h3>
           <p>
-            We and participating restaurants may send communications necessary to
-            provide the Services, such as account verification, order
+            N4Cluster sends communications necessary to provide the Services, such as account verification, order
             confirmations, order status, pickup notifications, delivery updates,
             security notices, and support responses. These communications are not
             promotional in nature and may continue where necessary to complete an
@@ -410,7 +415,8 @@ export default function PrivacyPage() {
             by applicable law. Depending on the campaign, N4Cluster may act on a
             restaurant’s instructions or may determine the content and audience
             for N4Cluster communications, in each case subject to applicable
-            consent and preference requirements.
+            consent and preference requirements. N4Cluster does not currently
+            send marketing text messages.
           </p>
           <p>
             Customer information associated with one restaurant will not be
@@ -419,8 +425,7 @@ export default function PrivacyPage() {
           </p>
           <p>
             You may opt out of promotional email using the unsubscribe mechanism
-            in the message. You may opt out of promotional SMS by replying STOP or
-            following the instructions provided in the message. Where required by
+            in the message. Where required by
             law, consent to marketing messages is obtained separately and is not a
             condition of purchase. Opting out of marketing does not prevent
             service-related communications necessary to complete an order, provide
