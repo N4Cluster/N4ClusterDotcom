@@ -6,7 +6,8 @@
  * Every string is verbatim from the product and the Telnyx registrations:
  * the disclosures from the storefront BFF (lib/sms-otp-consent.ts and
  * lib/sms-consent.ts), the order samples from notification-service migration
- * V012, the OTP samples from the 2FA campaign. Change them only together
+ * V012, the OTP samples from notification-service OtpTemplates and the 2FA
+ * campaign. Change them only together
  * with those sources (tests/sms-page.test.ts compares against the BFF).
  */
 
@@ -45,14 +46,25 @@ export const orderSamples = [
 export const otpSampleNote =
   "The code varies with each request. The examples below show 123456.";
 
+export const otpOptInSteps = [
+  "On any N4Cluster-powered storefront, open sign up, log in, account recovery or change phone number.",
+  "Enter your mobile number.",
+  'Read the disclosure below the button and tap "Send code".',
+] as const;
+
+/** One sample per Send code event; phone change sends the sign-up body. */
 export const otpSamples = [
   {
-    event: "Sign-up or phone change",
+    event: "Sign-up",
     body: "N4Cluster: Your verification code is 123456. It expires in 10 minutes. Do not share this code.",
   },
   {
     event: "Login",
     body: "N4Cluster: Use code 123456 to log in to your account. Valid for 10 minutes. Reply STOP to opt out.",
+  },
+  {
+    event: "Phone number change",
+    body: "N4Cluster: Your verification code is 123456. It expires in 10 minutes. Do not share this code.",
   },
   {
     event: "Account recovery",

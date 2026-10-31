@@ -4,7 +4,6 @@ import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-import { siteConfig } from "@/content/site/settings";
 import { priceDisplay } from "@/content/site/pricing";
 import {
   complementaryChannels,
@@ -243,17 +242,6 @@ export default function MissionPage() {
             Sending the form reaches our team — it does not open an account, start
             a trial, or charge anything. We reply to agree a time, and you decide
             what happens next.
-          </p>
-          <p className="mt-5 text-sm text-slate-600">
-            Prefer to text? Send{" "}
-            <strong className="text-navy-950">{siteConfig.contact.smsKeyword}</strong> to{" "}
-            <a
-              href={siteConfig.contact.phoneHref}
-              className="font-semibold text-cobalt-600 hover:underline"
-            >
-              {siteConfig.contact.phone}
-            </a>
-            .
           </p>
         </Container>
       </section>

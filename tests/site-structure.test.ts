@@ -1,3 +1,5 @@
+import { readFileSync, readdirSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import sitemap from "@/app/sitemap";
 import { hasDarkHero } from "@/content/site/theme";
@@ -119,5 +121,25 @@ describe("navigation", () => {
 
     const footerCompany = footerLinks.find((group) => group.heading === "Company");
     expect(footerCompany?.links.some((link) => link.href === "/mission")).toBe(true);
+  });
+});
+
+describe("text-in keyword", () => {
+  // No campaign covers an inbound "Text DEMO" keyword, so carrier review flags it.
+  function sourceFiles(dir: string): string[] {
+    return readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
+      const path = join(dir, e.name);
+      if (e.isDirectory()) return sourceFiles(path);
+      return /\.tsx?$/.test(e.name) ? [path] : [];
+    });
+  }
+
+  it("is not offered anywhere on the site", () => {
+    for (const file of [...sourceFiles("app"), ...sourceFiles("components")]) {
+      const text = readFileSync(file, "utf8");
+      expect(text, file).not.toContain("smsKeyword");
+      expect(text, file).not.toContain("Text DEMO");
+    }
+    expect("smsKeyword" in siteConfig.contact).toBe(false);
   });
 });
