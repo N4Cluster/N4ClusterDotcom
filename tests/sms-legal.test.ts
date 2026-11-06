@@ -14,7 +14,7 @@ import {
 const read = (path: string) => readFileSync(path, "utf8");
 
 // The Telnyx campaign forms (order notifications C7Q0BFG, verification codes
-// C9LCZ0T) quote these strings. Carrier vetting rejects a campaign whose
+// C9LCZ0T, and the N4Cluster Deals marketing campaign) quote these strings. Carrier vetting rejects a campaign whose
 // website wording drifts from the registration, so these tests pin the exact
 // text rather than its gist.
 describe("SMS terms wording", () => {
@@ -23,10 +23,15 @@ describe("SMS terms wording", () => {
     expect(smsTermsHeading).toBe("Text Messaging (SMS) Terms");
   });
 
-  it("introduces both programs", () => {
+  it("introduces all three programs", () => {
     expect(smsTermsIntro).toBe(
-      'N4Cluster Inc ("N4Cluster") operates two text message programs, each with its own opt-in. Neither includes marketing.'
+      'N4Cluster Inc ("N4Cluster") operates three text message programs, each with its own opt-in. Order notifications and verification codes never include marketing. N4Cluster Deals is our marketing program and is sent only to diners who opt in to it separately.'
     );
+    expect(smsPrograms.map((p) => p.title)).toEqual([
+      "1. Order notifications",
+      "2. Verification codes",
+      "3. N4Cluster Deals",
+    ]);
   });
 
   it("describes order notifications: who, how to join, what, how often", () => {
@@ -58,7 +63,27 @@ describe("SMS terms wording", () => {
     expect(JSON.stringify(smsPrograms)).not.toMatch(/merchant/i);
   });
 
-  it("carries rates, STOP, HELP, carrier and privacy terms for both programs", () => {
+  it("describes N4Cluster Deals: program, who, what, how often, consent", () => {
+    expect(smsPrograms[2]).toEqual({
+      title: "3. N4Cluster Deals",
+      items: [
+        "Program: N4Cluster Deals, recurring automated marketing texts sent by N4Cluster.",
+        "Who: diners who check the optional N4Cluster Deals box at checkout or in account settings. The box is never pre-checked.",
+        "What you'll receive: offers, new menu items and reminders to order again from restaurants you have ordered from on N4Cluster. Restaurants do not send these texts and never receive your SMS consent.",
+        "Frequency: message frequency varies.",
+        "Consent is not a condition of purchase.",
+      ],
+    });
+  });
+
+  it("keeps marketing out of order notifications and verification codes", () => {
+    // "Never include marketing" covers programs 1 and 2 only; Deals is the marketing program.
+    const nonMarketing = JSON.stringify(smsPrograms.slice(0, 2));
+    expect(nonMarketing).not.toMatch(/marketing texts|offers|Deals/);
+    expect(JSON.stringify(smsPrograms[2])).toContain("marketing texts");
+  });
+
+  it("carries rates, STOP, HELP, carrier and privacy terms for every program", () => {
     expect(smsSharedItems).toEqual([
       "Message and data rates may apply.",
       "To stop: reply STOP (or UNSUBSCRIBE, CANCEL, END, QUIT) at any time. You'll receive one confirmation and no further texts. Reply START to resubscribe.",
@@ -75,15 +100,15 @@ describe("SMS terms wording", () => {
     // The 2FA campaign quotes one program block, so each block carries the shared lines.
     expect(page).toMatch(/smsPrograms\.map\([\s\S]*program\.items\.map[\s\S]*smsSharedItems\.map[\s\S]*\)\)\}/);
     expect(page).not.toContain("smsSharedTitle");
-    expect(page).toContain("Last updated: October 31, 2026");
+    expect(page).toContain("Last updated: November 5, 2026");
   });
 });
 
 describe("SMS privacy wording", () => {
-  it("describes both kinds of text", () => {
+  it("describes all three programs", () => {
     expect(smsPrivacyHeading).toBe("Text messaging (SMS)");
     expect(smsPrivacyIntro).toBe(
-      'N4Cluster sends two kinds of texts, described in our Text Messaging (SMS) Terms (https://www.n4cluster.com/terms#sms): (1) order-related texts to diners who opt in at checkout, and (2) one-time verification codes to diners who request one by tapping "Send code". Message frequency varies; message and data rates may apply. Reply STOP to opt out or HELP for help.'
+      "N4Cluster sends three text message programs, each with its own opt-in, described in our SMS Terms (https://www.n4cluster.com/terms#sms): order notifications, verification codes, and N4Cluster Deals. N4Cluster Deals sends recurring marketing texts about restaurants you have ordered from, only if you check the separate, optional marketing box. Consent to marketing texts is not a condition of purchase. Message frequency varies. Replying STOP to an N4Cluster text ends texts from that program. Message and data rates may apply."
     );
   });
 
@@ -99,7 +124,7 @@ describe("SMS privacy wording", () => {
     expect(page).toContain("{smsPrivacyHeading}");
     expect(page).toContain("<LinkedText text={smsPrivacyIntro} />");
     expect(page).toContain("{smsPrivacyStatement}");
-    expect(page).toContain("Last updated: October 31, 2026");
+    expect(page).toContain("Last updated: November 5, 2026");
   });
 
   it("is not contradicted by a broader sharing clause elsewhere in the policy", () => {
@@ -107,10 +132,21 @@ describe("SMS privacy wording", () => {
     // allowing consent-management or support vendors would conflict with it.
     const page = read("app/privacy/page.tsx");
     expect(page).not.toContain("consent management, customer support");
-    // Restaurants never send texts, and there is no promotional SMS to opt out of.
+    // Restaurants never send texts; the only marketing SMS is N4Cluster Deals.
     expect(page).not.toContain("participating restaurants may send");
     expect(page).not.toContain("opt out of promotional SMS");
-    expect(page.replace(/\s+/g, " ")).toContain("N4Cluster does not currently send marketing text messages.");
+    const flat = page.replace(/\s+/g, " ");
+    expect(flat).not.toContain("does not currently send marketing text");
+    expect(flat).toContain(
+      "N4Cluster sends marketing text messages only through N4Cluster Deals, to diners who opt in separately. Restaurants do not send marketing texts through N4Cluster and never receive SMS consent records."
+    );
+  });
+
+  it("tells diners how to stop N4Cluster Deals in the Section 8 opt-out paragraph", () => {
+    const page = read("app/privacy/page.tsx");
+    const flat = page.replace(/\s+/g, " ");
+    const optOut = /You may opt out of promotional email[^<]*/.exec(flat)![0];
+    expect(optOut).toContain("You may stop N4Cluster Deals texts at any time by replying STOP.");
   });
 
   it("excludes SMS opt-in data from every disclosure category in Section 5", () => {
