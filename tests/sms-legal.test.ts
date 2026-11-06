@@ -140,6 +140,10 @@ describe("SMS privacy wording", () => {
     expect(flat).toContain(
       "N4Cluster sends marketing text messages only through N4Cluster Deals, to diners who opt in separately. Restaurants do not send marketing texts through N4Cluster and never receive SMS consent records."
     );
+    // Restaurant promotions reach customers by email only, so they can't read as restaurant texts.
+    expect(flat).toContain(
+      "Participating restaurants may use N4Cluster tools to create promotions or Flash Sales and communicate them to eligible customers by email."
+    );
   });
 
   it("tells diners how to stop N4Cluster Deals in the Section 8 opt-out paragraph", () => {

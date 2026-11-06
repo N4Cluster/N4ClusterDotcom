@@ -409,7 +409,7 @@ export default function PrivacyPage() {
           <h3>Promotional communications and Flash Sales</h3>
           <p>
             Participating restaurants may use N4Cluster tools to create promotions
-            or Flash Sales and communicate them to eligible customers. N4Cluster
+            or Flash Sales and communicate them to eligible customers by email. N4Cluster
             may also send N4Cluster-level or restaurant-related promotional
             communications where the recipient has provided the consent required
             by applicable law. Depending on the campaign, N4Cluster may act on a
