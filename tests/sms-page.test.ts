@@ -45,7 +45,15 @@ describe("sms page disclosures", () => {
       expect(otp).toContain("text: 'SMS Terms'");
       expect(otp).toContain("text: 'Privacy Policy'");
       expect(sms2faDisclosure.endsWith("SMS Terms and Privacy Policy.")).toBe(true);
-      const statement = /SMS_CONSENT_STATEMENT =\s*'([^']*)'/.exec(order)![1];
+      // The BFF either spells the statement out, or joins a label (the clickable part) and details.
+      const literal = /SMS_CONSENT_STATEMENT =\s*'([^']*)'/.exec(order);
+      const label = /SMS_CONSENT_LABEL =\s*'([^']*)'/.exec(order);
+      const details = /SMS_CONSENT_DETAILS =\s*'([^']*)'/.exec(order);
+      const statement = literal
+        ? literal[1]
+        : order.includes("SMS_CONSENT_STATEMENT = `${SMS_CONSENT_LABEL} ${SMS_CONSENT_DETAILS}`")
+          ? `${label![1]} ${details![1]}`
+          : undefined;
       expect(smsOrderDisclosure).toBe(statement);
     },
   );
