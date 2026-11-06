@@ -1,11 +1,18 @@
 import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import {
+  dealsOptInSteps,
+  dealsSampleNote,
+  dealsSamples,
+  dealsScreenshotAlt,
   orderSampleNote,
   orderSamples,
   otpOptInSteps,
   otpSamples,
   sms2faDisclosure,
+  smsDealsCheckboxLabel,
+  smsDealsDisclosure,
+  smsDealsDisclosureParts,
   smsOrderDisclosure,
 } from "@/content/legal/sms-page";
 
@@ -15,6 +22,9 @@ const OTP_LITERAL =
   "By tapping Send code, you agree to receive a one-time verification text from N4Cluster at this number. 1 msg per request. Msg & data rates may apply. Reply HELP for help, STOP to opt out. See our SMS Terms and Privacy Policy.";
 const ORDER_LITERAL =
   "Text me updates about this order from N4Cluster. By checking this box, you agree to receive order-related text messages from N4Cluster at the number provided. Msg frequency varies by order. Msg & data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase.";
+const DEALS_LABEL_LITERAL = "Text me N4Cluster Deals: offers about restaurants I've ordered from.";
+const DEALS_LITERAL =
+  "By checking this box, you agree to receive recurring automated marketing texts from N4Cluster Deals at the number provided, including offers, new menu items and reminders to order from restaurants you've ordered from on N4Cluster. Consent is not a condition of purchase. Msg frequency varies. Msg & data rates may apply. Reply HELP for help, STOP to opt out. See our SMS Terms and Privacy Policy.";
 
 const bffLib = "../n4-storefront-bff/apps/storefront-bff/lib";
 
@@ -39,6 +49,49 @@ describe("sms page disclosures", () => {
       expect(smsOrderDisclosure).toBe(statement);
     },
   );
+
+  it("pins the Deals label and disclosure literally", () => {
+    expect(smsDealsCheckboxLabel).toBe(DEALS_LABEL_LITERAL);
+    expect(smsDealsDisclosure).toBe(DEALS_LITERAL);
+    expect(smsDealsDisclosureParts.filter((p) => p.type === "link")).toEqual([
+      { type: "link", text: "SMS Terms", href: "/terms#sms" },
+      { type: "link", text: "Privacy Policy", href: "/privacy" },
+    ]);
+  });
+
+  // Skipped where the sibling BFF checkout is absent (this repo's CI). The BFF
+  // double-quotes strings that contain an apostrophe, so both quote styles are read.
+  it.skipIf(!existsSync(`${bffLib}/sms-marketing-consent.ts`))(
+    "dealsDisclosureMatchesTheBff",
+    () => {
+      const deals = read(`${bffLib}/sms-marketing-consent.ts`);
+      const quoted = `(?:"([^"]*)"|'([^']*)')`;
+      const label = new RegExp(`SMS_DEALS_CHECKBOX_LABEL =\\s*${quoted}`).exec(deals)!;
+      expect(smsDealsCheckboxLabel).toBe(label[1] ?? label[2]);
+
+      const block = /SMS_DEALS_DISCLOSURE_PARTS[^=]*=\s*\[([\s\S]*?)\];/.exec(deals)![1];
+      const partPattern = new RegExp(`type:\\s*'(text|link)',\\s*text:\\s*${quoted}(?:,\\s*href:\\s*(\\w+))?`, "g");
+      const parts = [...block.matchAll(partPattern)].map((m) => ({
+        type: m[1],
+        text: m[2] ?? m[3],
+        hrefConst: m[4],
+      }));
+      expect(parts.map((p) => p.type)).toEqual(smsDealsDisclosureParts.map((p) => p.type));
+      expect(parts.map((p) => p.text)).toEqual(smsDealsDisclosureParts.map((p) => p.text));
+
+      // The BFF links absolute n4cluster.com URLs; this page links the same paths.
+      const consts = [read(`${bffLib}/sms-consent.ts`), read(`${bffLib}/sms-otp-consent.ts`)].join("\n");
+      const urlOf = (name: string) => new RegExp(`${name} = '([^']*)'`).exec(consts)![1];
+      const ours = smsDealsDisclosureParts.filter((p) => p.type === "link");
+      const theirs = parts.filter((p) => p.type === "link");
+      expect(theirs.map((p) => p.hrefConst)).toEqual(["SMS_TERMS_URL", "SMS_OTP_PRIVACY_URL"]);
+      theirs.forEach((p, i) => {
+        const url = new URL(urlOf(p.hrefConst!));
+        expect(url.origin).toBe("https://www.n4cluster.com");
+        expect(url.pathname + url.hash).toBe(ours[i].href);
+      });
+    },
+  );
 });
 
 describe("sms page samples", () => {
@@ -60,6 +113,23 @@ describe("sms page samples", () => {
       { event: "Phone number change", body: "N4Cluster: Your verification code is 123456. It expires in 10 minutes. Do not share this code." },
       { event: "Account recovery", body: "N4Cluster: Your account recovery code is 123456. It expires in 10 minutes. If you did not request this, ignore this message." },
     ]);
+  });
+
+  it("has the four Deals samples, each a compliant N4Cluster Deals body", () => {
+    expect(dealsSamples).toEqual([
+      { event: "Limited-time offer", body: "N4Cluster Deals: $5 off orders of $25+ at Pasta and Pita Grill, today only. Order: https://www.n4cluster.com/r/ppg Reply STOP to opt out." },
+      { event: "Featured dish", body: "N4Cluster Deals: Try the Chicken or Mixed Gyro Plate at Pasta and Pita Grill this week. Order: https://www.n4cluster.com/r/ppg Reply STOP to opt out." },
+      { event: "Order again", body: "N4Cluster Deals: It's been a while! Reorder from Pasta and Pita Grill: https://www.n4cluster.com/r/ppg Reply STOP to opt out." },
+      { event: "Weekend offer", body: "N4Cluster Deals: Free baklava with any Pasta and Pita Grill order over $30 this weekend. Order: https://www.n4cluster.com/r/ppg Reply STOP to opt out." },
+    ]);
+    expect(dealsSampleNote).toBe("Offers, restaurants and dishes vary; these examples use one restaurant.");
+    for (const { body } of dealsSamples) {
+      expect(body.startsWith("N4Cluster Deals: ")).toBe(true);
+      expect(body.endsWith(" Reply STOP to opt out.")).toBe(true);
+      for (const url of body.match(/https?:\/\/\S+/g) ?? []) {
+        expect(url.startsWith("https://www.n4cluster.com/")).toBe(true);
+      }
+    }
   });
 });
 
@@ -92,6 +162,42 @@ describe("sms page", () => {
         new RegExp(`src="/sms/${f.replace(".", "\\.")}"\\s+width=\\{${width}\\}\\s+height=\\{${height}\\}`),
       );
     }
+  });
+
+  // The Deals box is not live yet, so its screenshots don't exist; see the TODO in app/sms/page.tsx.
+  it.todo("checkout-deals-optin.png and account-deals-optin.png exist at 2x and match their Image size");
+
+  it("rendersTheDealsSectionAfterVerificationCodes", () => {
+    const deals = page.indexOf("<h2>N4Cluster Deals</h2>");
+    const more = page.indexOf("<h2>More information</h2>");
+    expect(deals).toBeGreaterThan(page.indexOf("<h2>Verification codes</h2>"));
+    expect(deals).toBeLessThan(more);
+    expect(page).toContain(
+      "N4Cluster sends three kinds of text messages, each with its own opt-in. Only N4Cluster Deals contains marketing, and it needs its own checkbox.",
+    );
+    expect(page).not.toContain("Neither includes marketing");
+    const section = page.slice(deals, more);
+    expect(section).toContain("How to opt in");
+    expect(section).toContain("dealsOptInSteps.map");
+    expect(section).toContain("Disclosure shown beneath the checkbox");
+    expect(section).toContain("{smsDealsCheckboxLabel}");
+    expect(section).toContain("smsDealsDisclosureParts.map");
+    expect(section).toContain("dealsSamples.map");
+    expect(section).toContain("TODO(sms-deals-screenshots)");
+    expect(dealsOptInSteps).toEqual([
+      "At checkout on any N4Cluster-powered storefront, or in your account settings, find the N4Cluster Deals box. It is unchecked.",
+      "Read the disclosure beneath it.",
+      "Check the box only if you want deals texts. Your order goes through either way.",
+    ]);
+  });
+
+  it("hasDealsScreenshotAltTextReady", () => {
+    expect(dealsScreenshotAlt.checkout).toBe(
+      "Storefront checkout with the N4Cluster Deals checkbox unchecked by default and its marketing disclosure beneath it",
+    );
+    expect(dealsScreenshotAlt.account).toBe(
+      "Storefront account settings page with the N4Cluster Deals checkbox unchecked by default and its marketing disclosure beneath it",
+    );
   });
 
   it("listsTheVerificationOptInStepsAboveTheScreenshot", () => {

@@ -3,19 +3,24 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import {
+  dealsOptInSteps,
+  dealsSampleNote,
+  dealsSamples,
   orderSampleNote,
   orderSamples,
   otpOptInSteps,
   otpSampleNote,
   otpSamples,
   sms2faDisclosureParts,
+  smsDealsCheckboxLabel,
+  smsDealsDisclosureParts,
   smsOrderDisclosure,
 } from "@/content/legal/sms-page";
 
 export const metadata: Metadata = {
   title: "N4Cluster Text Messaging",
   description:
-    "How N4Cluster text messaging works: the opt-in screen and exact disclosure for order notifications and verification codes, with sample messages.",
+    "How N4Cluster text messaging works: the opt-in screen and exact disclosure for order notifications, verification codes and N4Cluster Deals, with sample messages.",
 };
 
 export default function SmsPage() {
@@ -25,7 +30,7 @@ export default function SmsPage() {
         <div className="prose prose-slate max-w-none">
           <h1>N4Cluster Text Messaging</h1>
           <p>
-            N4Cluster sends two kinds of text messages, each with its own opt-in. Neither includes marketing. This page shows each opt-in screen, the exact disclosure shown with it, and sample messages.
+            N4Cluster sends three kinds of text messages, each with its own opt-in. Only N4Cluster Deals contains marketing, and it needs its own checkbox. This page shows each opt-in screen, the exact disclosure shown with it, and sample messages.
           </p>
 
           <h2>Order notifications</h2>
@@ -89,6 +94,51 @@ export default function SmsPage() {
           <p className="text-slate-600 text-sm">{otpSampleNote}</p>
           <ul>
             {otpSamples.map((s) => (
+              <li key={s.event}>
+                <strong>{s.event}</strong>
+                <br />
+                {s.body}
+              </li>
+            ))}
+          </ul>
+
+          <h2>N4Cluster Deals</h2>
+          <p>
+            Diners who check the optional N4Cluster Deals box receive recurring marketing texts about restaurants they have ordered from. The box is separate from the order-texts box and is never pre-checked.
+          </p>
+          <h3>How to opt in</h3>
+          <ol>
+            {dealsOptInSteps.map((step) => (
+              <li key={step}>{step}</li>
+            ))}
+          </ol>
+          {/*
+            TODO(sms-deals-screenshots): add two <Image> elements here once the Deals box is live
+            on the storefront: src="/sms/checkout-deals-optin.png" (checkout) and
+            src="/sms/account-deals-optin.png" (/account/settings), alt from dealsScreenshotAlt in
+            content/legal/sms-page.ts. Capture at 2x, at least 600px wide, box unchecked, showing the
+            Deals name and logo and the separate order-texts box; set width/height to the files'
+            real pixel size. Then turn the it.todo in tests/sms-page.test.ts into a real check.
+          */}
+          <h3>Disclosure shown beneath the checkbox</h3>
+          <p>
+            <strong>{smsDealsCheckboxLabel}</strong>
+          </p>
+          <p>
+            {smsDealsDisclosureParts.map((part, i) =>
+              part.type === "link" ? (
+                <Link key={i} href={part.href}>
+                  {part.text}
+                </Link>
+              ) : (
+                part.text
+              ),
+            )}
+          </p>
+          <h3>Sample messages</h3>
+          <p className="text-slate-600 text-sm">{dealsSampleNote}</p>
+          <ul>
+            {dealsSamples.map((s) => (
               <li key={s.event}>
                 <strong>{s.event}</strong>
                 <br />
