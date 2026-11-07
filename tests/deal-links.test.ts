@@ -11,7 +11,7 @@ describe("/r/[slug] deal links", () => {
     const res = await get("ppg");
     expect(res.status).toBe(302);
     expect(res.headers.get("location")).toBe(
-      "https://pastaandpitagrill.com/en/menu/shawarma-gyro/chicken-or-mixed-gyro-plate",
+      "https://pastaandpitagrill.com/en/menu/entrees/beef-chicken-or-mixed-gyro-plate",
     );
   });
 

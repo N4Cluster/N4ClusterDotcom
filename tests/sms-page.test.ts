@@ -126,7 +126,7 @@ describe("sms page samples", () => {
   it("has the four Deals samples, each a compliant N4Cluster Deals body", () => {
     expect(dealsSamples).toEqual([
       { event: "Limited-time offer", body: "N4Cluster Deals: $5 off orders of $25+ at Pasta and Pita Grill, today only. Order: https://www.n4cluster.com/r/ppg Reply STOP to opt out." },
-      { event: "Featured dish", body: "N4Cluster Deals: Try the Chicken or Mixed Gyro Plate at Pasta and Pita Grill this week. Order: https://www.n4cluster.com/r/ppg Reply STOP to opt out." },
+      { event: "Featured dish", body: "N4Cluster Deals: Try the Beef, Chicken or Mixed Gyro Plate at Pasta and Pita Grill this week. Order: https://www.n4cluster.com/r/ppg Reply STOP to opt out." },
       { event: "Order again", body: "N4Cluster Deals: It's been a while! Reorder from Pasta and Pita Grill: https://www.n4cluster.com/r/ppg Reply STOP to opt out." },
       { event: "Weekend offer", body: "N4Cluster Deals: Free baklava with any Pasta and Pita Grill order over $30 this weekend. Order: https://www.n4cluster.com/r/ppg Reply STOP to opt out." },
     ]);

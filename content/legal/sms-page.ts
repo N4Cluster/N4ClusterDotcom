@@ -119,7 +119,7 @@ export const dealsSamples = [
   },
   {
     event: "Featured dish",
-    body: "N4Cluster Deals: Try the Chicken or Mixed Gyro Plate at Pasta and Pita Grill this week. Order: https://www.n4cluster.com/r/ppg Reply STOP to opt out.",
+    body: "N4Cluster Deals: Try the Beef, Chicken or Mixed Gyro Plate at Pasta and Pita Grill this week. Order: https://www.n4cluster.com/r/ppg Reply STOP to opt out.",
   },
   {
     event: "Order again",
