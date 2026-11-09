@@ -4,8 +4,8 @@
  * creating an account.
  *
  * Every string is verbatim from the product and the Telnyx registrations:
- * the disclosures from the storefront BFF (lib/sms-otp-consent.ts and
- * lib/sms-consent.ts), the order samples from notification-service migration
+ * the disclosures from the storefront BFF (lib/sms-otp-consent.ts,
+ * lib/sms-consent.ts and lib/sms-marketing-consent.ts), the order samples from notification-service migration
  * V012, the OTP samples from notification-service OtpTemplates and the 2FA
  * campaign. Change them only together
  * with those sources (tests/sms-page.test.ts compares against the BFF).
@@ -69,5 +69,64 @@ export const otpSamples = [
   {
     event: "Account recovery",
     body: "N4Cluster: Your account recovery code is 123456. It expires in 10 minutes. If you did not request this, ignore this message.",
+  },
+] as const;
+
+/** Deals checkbox label, verbatim from the BFF's SMS_DEALS_CHECKBOX_LABEL. */
+export const smsDealsCheckboxLabel = "Text me N4Cluster Deals: offers about restaurants I've ordered from.";
+
+/**
+ * Parts of the Deals disclosure shown beneath the checkbox, verbatim from the
+ * BFF's SMS_DEALS_DISCLOSURE_PARTS; link parts render as anchors.
+ */
+export const smsDealsDisclosureParts = [
+  {
+    type: "text",
+    text: "By checking this box, you agree to receive recurring automated marketing texts from N4Cluster Deals at the number provided, including offers, new menu items and reminders to order from restaurants you've ordered from on N4Cluster. Consent is not a condition of purchase. Msg frequency varies. Msg & data rates may apply. Reply HELP for help, STOP to opt out. See our ",
+  },
+  { type: "link", text: "SMS Terms", href: "/terms#sms" },
+  { type: "text", text: " and " },
+  { type: "link", text: "Privacy Policy", href: "/privacy" },
+  { type: "text", text: "." },
+] as const;
+
+export const smsDealsDisclosure = smsDealsDisclosureParts.map((p) => p.text).join("");
+
+export const dealsOptInSteps = [
+  "At checkout on any N4Cluster-powered storefront, or in your account settings, find the N4Cluster Deals box. It is unchecked.",
+  "Read the disclosure beneath it.",
+  "Check the box only if you want deals texts. Your order goes through either way.",
+] as const;
+
+/**
+ * Alt text for the Deals screenshots in public/sms (checkout-deals-optin.png and
+ * account-deals-optin.png, the latter from /account/settings), captured at 2x from
+ * the storefront with the box unchecked.
+ */
+export const dealsScreenshotAlt = {
+  checkout:
+    "Storefront checkout with the N4Cluster Deals checkbox unchecked by default and its marketing disclosure beneath it",
+  account:
+    "Storefront account settings page with the N4Cluster Deals checkbox unchecked by default and its marketing disclosure beneath it",
+} as const;
+
+export const dealsSampleNote = "Offers, restaurants and dishes vary; these examples use one restaurant.";
+
+export const dealsSamples = [
+  {
+    event: "Limited-time offer",
+    body: "N4Cluster Deals: $5 off orders of $25+ at Pasta and Pita Grill, today only. Order: https://www.n4cluster.com/r/ppg Reply STOP to opt out.",
+  },
+  {
+    event: "Featured dish",
+    body: "N4Cluster Deals: Try the Beef, Chicken or Mixed Gyro Plate at Pasta and Pita Grill this week. Order: https://www.n4cluster.com/r/ppg Reply STOP to opt out.",
+  },
+  {
+    event: "Order again",
+    body: "N4Cluster Deals: It's been a while! Reorder from Pasta and Pita Grill: https://www.n4cluster.com/r/ppg Reply STOP to opt out.",
+  },
+  {
+    event: "Weekend offer",
+    body: "N4Cluster Deals: Free baklava with any Pasta and Pita Grill order over $30 this weekend. Order: https://www.n4cluster.com/r/ppg Reply STOP to opt out.",
   },
 ] as const;
