@@ -6,6 +6,7 @@ import {
   dealsOptInSteps,
   dealsSampleNote,
   dealsSamples,
+  dealsScreenshotAlt,
   orderSampleNote,
   orderSamples,
   otpOptInSteps,
@@ -112,14 +113,20 @@ export default function SmsPage() {
               <li key={step}>{step}</li>
             ))}
           </ol>
-          {/*
-            TODO(sms-deals-screenshots): add two <Image> elements here once the Deals box is live
-            on the storefront: src="/sms/checkout-deals-optin.png" (checkout) and
-            src="/sms/account-deals-optin.png" (/account/settings), alt from dealsScreenshotAlt in
-            content/legal/sms-page.ts. Capture at 2x, at least 600px wide, box unchecked, showing the
-            Deals name and logo and the separate order-texts box; set width/height to the files'
-            real pixel size. Then turn the it.todo in tests/sms-page.test.ts into a real check.
-          */}
+          <Image
+            src="/sms/checkout-deals-optin.png"
+            width={1400}
+            height={760}
+            alt={dealsScreenshotAlt.checkout}
+            className="mx-auto h-auto w-full max-w-xl rounded-lg border border-slate-200"
+          />
+          <Image
+            src="/sms/account-deals-optin.png"
+            width={1020}
+            height={704}
+            alt={dealsScreenshotAlt.account}
+            className="mx-auto mt-4 h-auto w-full max-w-md rounded-lg border border-slate-200"
+          />
           <h3>Disclosure shown beneath the checkbox</h3>
           <p>
             <strong>{smsDealsCheckboxLabel}</strong>

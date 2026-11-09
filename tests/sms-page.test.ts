@@ -160,7 +160,7 @@ describe("sms page", () => {
 
   // At least 2x a phone-width card (300 CSS px), and the <Image> size is the file's real size.
   it("screenshotsExistAt2xAndMatchTheirImageSize", () => {
-    for (const f of ["storefront-send-code.png", "checkout-optin.png"]) {
+    for (const f of ["storefront-send-code.png", "checkout-optin.png", "checkout-deals-optin.png", "account-deals-optin.png"]) {
       const buf = readFileSync(`public/sms/${f}`);
       expect(buf.subarray(1, 4).toString()).toBe("PNG");
       const width = buf.readUInt32BE(16);
@@ -171,9 +171,6 @@ describe("sms page", () => {
       );
     }
   });
-
-  // The Deals box is not live yet, so its screenshots don't exist; see the TODO in app/sms/page.tsx.
-  it.todo("checkout-deals-optin.png and account-deals-optin.png exist at 2x and match their Image size");
 
   it("rendersTheDealsSectionAfterVerificationCodes", () => {
     const deals = page.indexOf("<h2>N4Cluster Deals</h2>");
@@ -191,7 +188,9 @@ describe("sms page", () => {
     expect(section).toContain("{smsDealsCheckboxLabel}");
     expect(section).toContain("smsDealsDisclosureParts.map");
     expect(section).toContain("dealsSamples.map");
-    expect(section).toContain("TODO(sms-deals-screenshots)");
+    expect(section).not.toContain("TODO(sms-deals-screenshots)");
+    expect(section).toContain("alt={dealsScreenshotAlt.checkout}");
+    expect(section).toContain("alt={dealsScreenshotAlt.account}");
     expect(dealsOptInSteps).toEqual([
       "At checkout on any N4Cluster-powered storefront, or in your account settings, find the N4Cluster Deals box. It is unchecked.",
       "Read the disclosure beneath it.",

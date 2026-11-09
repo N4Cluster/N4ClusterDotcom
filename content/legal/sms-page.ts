@@ -99,9 +99,9 @@ export const dealsOptInSteps = [
 ] as const;
 
 /**
- * Alt text for the Deals screenshots, ready for when they are captured from the
- * live storefront (public/sms/checkout-deals-optin.png and
- * public/sms/account-deals-optin.png). The account one shows /account/settings.
+ * Alt text for the Deals screenshots in public/sms (checkout-deals-optin.png and
+ * account-deals-optin.png, the latter from /account/settings), captured at 2x from
+ * the storefront with the box unchecked.
  */
 export const dealsScreenshotAlt = {
   checkout:
