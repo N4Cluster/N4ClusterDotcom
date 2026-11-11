@@ -130,3 +130,22 @@ export const dealsSamples = [
     body: "N4Cluster Deals: Free baklava with any Pasta and Pita Grill order over $30 this weekend. Order: https://www.n4cluster.com/r/ppg Reply STOP to opt out.",
   },
 ] as const;
+
+/**
+ * The program's own texts, verbatim from notification-service DealsTemplates (CONFIRMATION, HELP, STOP)
+ * and the Telnyx Deals campaign (confirmation = sample 5, HELP and opt-out messages).
+ */
+export const dealsReplies = [
+  {
+    event: "After you opt in",
+    body: "N4Cluster Deals: You're signed up for offers about restaurants you've ordered from on N4Cluster. Msg frequency varies. Msg&data rates may apply. Reply HELP for help, STOP to opt out.",
+  },
+  {
+    event: "If you reply HELP",
+    body: "N4Cluster Deals: For help, email contact@n4cluster.com. Msg frequency varies. Msg&data rates may apply. Reply STOP to opt out.",
+  },
+  {
+    event: "If you reply STOP",
+    body: "N4Cluster Deals: You are unsubscribed and will receive no further marketing texts. Reply START to resubscribe.",
+  },
+] as const;
