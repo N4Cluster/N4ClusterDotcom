@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import {
   dealsOptInSteps,
+  dealsReplies,
   dealsSampleNote,
   dealsSamples,
   dealsScreenshotAlt,
@@ -146,6 +147,16 @@ export default function SmsPage() {
           <p className="text-slate-600 text-sm">{dealsSampleNote}</p>
           <ul>
             {dealsSamples.map((s) => (
+              <li key={s.event}>
+                <strong>{s.event}</strong>
+                <br />
+                {s.body}
+              </li>
+            ))}
+          </ul>
+          <h3>Confirmation, help and opt-out messages</h3>
+          <ul>
+            {dealsReplies.map((s) => (
               <li key={s.event}>
                 <strong>{s.event}</strong>
                 <br />

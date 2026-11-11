@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import {
   dealsOptInSteps,
+  dealsReplies,
   dealsSampleNote,
   dealsSamples,
   dealsScreenshotAlt,
@@ -188,6 +189,14 @@ describe("sms page", () => {
     expect(section).toContain("{smsDealsCheckboxLabel}");
     expect(section).toContain("smsDealsDisclosureParts.map");
     expect(section).toContain("dealsSamples.map");
+    expect(section).toContain("Confirmation, help and opt-out messages");
+    expect(section).toContain("dealsReplies.map");
+    // Verbatim from notification-service DealsTemplates and the Telnyx Deals campaign.
+    expect(dealsReplies).toEqual([
+      { event: "After you opt in", body: "N4Cluster Deals: You're signed up for offers about restaurants you've ordered from on N4Cluster. Msg frequency varies. Msg&data rates may apply. Reply HELP for help, STOP to opt out." },
+      { event: "If you reply HELP", body: "N4Cluster Deals: For help, email contact@n4cluster.com. Msg frequency varies. Msg&data rates may apply. Reply STOP to opt out." },
+      { event: "If you reply STOP", body: "N4Cluster Deals: You are unsubscribed and will receive no further marketing texts. Reply START to resubscribe." },
+    ]);
     expect(section).not.toContain("TODO(sms-deals-screenshots)");
     expect(section).toContain("alt={dealsScreenshotAlt.checkout}");
     expect(section).toContain("alt={dealsScreenshotAlt.account}");
