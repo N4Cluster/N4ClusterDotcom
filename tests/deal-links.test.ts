@@ -7,11 +7,11 @@ const get = (slug: string) =>
   GET(new Request("https://www.n4cluster.com/r/x"), { params: Promise.resolve({ slug }) });
 
 describe("/r/[slug] deal links", () => {
-  it("redirects ppg with a 302 to the storefront menu", async () => {
+  it("redirects ppg with a 302 to its storefront dish", async () => {
     const res = await get("ppg");
     expect(res.status).toBe(302);
     expect(res.headers.get("location")).toBe(
-      "https://pastaandpitagrill.com/en/menu",
+      "https://pastaandpitagrill.com/en/menu/entrees/beef-chicken-or-mixed-gyro-plate",
     );
   });
 
@@ -44,7 +44,7 @@ describe("/r/[slug] deal links", () => {
     }
   });
 
-  it("points only at https:// storefront menu or item URLs, never a shortener or this site", () => {
+  it("points only at https:// item-level storefront URLs, never a shortener or this site", () => {
     expect(Object.keys(dealLinks).length).toBeGreaterThan(0);
     for (const [slug, target] of Object.entries(dealLinks)) {
       expect(slug).toMatch(/^[a-z0-9-]{2,48}$/);
@@ -55,8 +55,7 @@ describe("/r/[slug] deal links", () => {
       expect(url.hostname, target).not.toMatch(
         /^(bit\.ly|tinyurl\.com|t\.co|goo\.gl|ow\.ly|is\.gd|buff\.ly|rebrand\.ly|cutt\.ly)$/,
       );
-      // TODO(deals-item-link): back to item-level only once the item page loads in prod.
-      expect(url.pathname, target).toMatch(/^\/[a-z]{2}\/menu(\/[a-z0-9-]+\/[a-z0-9-]+)?$/);
+      expect(url.pathname, target).toMatch(/^\/[a-z]{2}\/menu\/[a-z0-9-]+\/[a-z0-9-]+$/);
       expect(url.search + url.hash, target).toBe("");
     }
   });
