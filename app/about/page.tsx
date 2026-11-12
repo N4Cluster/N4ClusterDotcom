@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 const capabilities = [
   { name: "Orchestration", description: "Your menu, orders, payments and delivery kept in step, so nothing falls between systems." },
-  { name: "Intelligence", description: "Demand forecasting and campaign drafts that wait for your OK." },
+  { name: "Intelligence", description: "Win-back campaign drafts that wait for your OK, plus demand forecasting for busy times." },
 ];
 
 export default function AboutPage() {

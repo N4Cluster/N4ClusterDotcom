@@ -3,7 +3,7 @@ import { HeroCentered } from "@/components/sections/HeroCentered";
 import { CTASection } from "@/components/sections/CTASection";
 import { Container } from "@/components/ui/Container";
 import { Check } from "lucide-react";
-import { priceDisplay } from "@/content/site/pricing";
+import { priceDisplay, protections } from "@/content/site/pricing";
 
 export const metadata: Metadata = {
   title: "Pricing — $99/Month + $0.50 Per Order. No Commission. Ever.",
@@ -16,25 +16,6 @@ const commissionComparison = [
   { platform: "Mid-commission marketplace", rate: "27%", on40: "$10.80", on80: "$21.60", on150: "$40.50", color: "var(--color-red)" },
   { platform: "Lower-commission marketplace", rate: "25%", on40: "$10.00", on80: "$20.00", on150: "$37.50", color: "var(--color-ink-3)" },
   { platform: "N4Cluster", rate: "0%", on40: "$0.50", on80: "$0.50", on150: "$0.50", color: "var(--color-green)", bold: true },
-];
-
-const protections = [
-  {
-    title: "No commission.",
-    body: "We charge a fixed fee per order, never a percentage. A $200 order costs you the same as a $20 one. Card processing is charged separately by your processor.",
-  },
-  {
-    title: "No hidden fees.",
-    body: "One monthly fee, quoted up front. Everything is included: ordering, rewards, growth tools and delivery coordination. There are no add-on modules, upgrade tiers, minimums or surprise line items.",
-  },
-  {
-    title: "No price-matching rules.",
-    body: "You never have to match the prices on delivery apps. What you charge on your own site is your call.",
-  },
-  {
-    title: "No surprise changes.",
-    body: "Any pricing change comes with 90–180 days' written notice, and increases are capped by a formula. If we ever materially change the pricing model, you can leave without penalty.",
-  },
 ];
 
 const customerFeeDetails = [
@@ -258,7 +239,7 @@ export default function PricingPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {[
               { title: "White-label ordering site", sub: "Fully branded under your domain. Menu, categories, imagery, pricing — yours to control." },
-              { title: "AI forecasting and growth campaigns", sub: "Demand forecasting and campaigns to lapsed regulars — sent only with your OK." },
+              { title: "Win-back campaigns and forecasting", sub: "Campaigns that bring lapsed regulars back, sent only with your OK. Plus AI demand forecasting for your busy windows." },
               { title: "Delivery coordination", sub: "Dispatch through DoorDash Drive and Uber Direct, delivery-time tracking, and chasing late orders — with risk protection." },
               { title: "POS integration and sync", sub: "Menu and availability kept in sync with your POS. No manual updates. No extra tablets." },
               { title: "Merchant dashboard", sub: "Order history, customer data, campaign controls and demand signals in one place." },

@@ -194,7 +194,7 @@ describe("fee claims across merchant acquisition copy", () => {
     const page = read("app/mission/page.tsx");
     expect(page).toContain("feeQualifiers.commission");
     expect(feeQualifiers.commission).toContain("No commission, ever.");
-    expect(feeQualifiers.commission).toContain("Card processing and any courier charges are separate");
+    expect(feeQualifiers.commission).toContain("Card processing and any delivery charges are separate");
     expect(page).toContain("waives N4Cluster merchant platform and per-order fees");
     expect(page).not.toMatch(/zero N4Cluster sales commission/i);
   });

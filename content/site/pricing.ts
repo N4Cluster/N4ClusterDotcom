@@ -42,14 +42,14 @@ export const priceDisplay = {
 } as const;
 
 /**
- * The qualifiers that must accompany a fee claim: card processing and courier
+ * The qualifiers that must accompany a fee claim: card processing and delivery
  * costs are always distinguished from N4Cluster's fees.
  */
 export const feeQualifiers = {
   commission:
-    "No commission, ever. Card processing and any courier charges are separate.",
+    "No commission, ever. Card processing and any delivery charges are separate.",
   separateCharges:
-    "Card processing and any courier charges are separate. Diners normally pay a $0.99 Neighbourhood fee unless the restaurant chooses to absorb it.",
+    "Card processing and any delivery charges are separate. Diners normally pay a $0.99 Neighbourhood fee unless the restaurant chooses to absorb it.",
   trialScope:
     "The trial waives N4Cluster merchant platform and per-order fees. See the full pricing details for other charges and terms.",
   monthlyApplies:
@@ -57,3 +57,23 @@ export const feeQualifiers = {
   rateStability:
     "The published per-order rate does not increase merely because an order value or your order volume goes up.",
 } as const;
+
+/** The 4 N's of N4Cluster: shown in full on /pricing, titles only on the homepage. */
+export const protections = [
+  {
+    title: "No commission.",
+    body: "We charge a fixed fee per order, never a percentage. A $200 order costs you the same as a $20 one. Card processing is charged separately by your processor.",
+  },
+  {
+    title: "No hidden fees.",
+    body: "One monthly fee, quoted up front. Everything is included: ordering, rewards, growth tools and delivery coordination. There are no add-on modules, upgrade tiers, minimums or surprise line items.",
+  },
+  {
+    title: "No price-matching rules.",
+    body: "You never have to match the prices on delivery apps. What you charge on your own site is your call.",
+  },
+  {
+    title: "No surprise changes.",
+    body: "Any pricing change comes with 90–180 days' written notice, and increases are capped by a formula. If we ever materially change the pricing model, you can leave without penalty.",
+  },
+];

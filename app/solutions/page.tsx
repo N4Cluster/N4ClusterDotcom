@@ -33,7 +33,7 @@ const solutions: Solution[] = [
     headline: "Stop paying 30% to sell your own food.",
     subheadline: `You built the menu, the regulars, the reputation. A marketplace app didn't build any of that — it just collects rent on it. N4Cluster gives you a branded ordering channel that's actually yours, for one fixed price.`,
     bullets: [
-      "Your name on the ordering page, not a marketplace logo — customers order from you, not through a middleman",
+      "Your name on the ordering page, not a marketplace logo — orders come to you directly, on your own site",
       "Your customer data is yours — we'll send you a copy whenever you ask.",
       "Growth campaigns draft themselves for the regulars who've drifted — nothing goes out without your OK",
       "We dispatch through DoorDash Drive and Uber Direct and chase any order that runs late",
@@ -82,7 +82,7 @@ const solutions: Solution[] = [
         { label: "Rewards", value: "Your own catalog" },
         { label: "Fees", value: "One fixed price" },
       ],
-      note: "Card processing and any courier charges are separate.",
+      note: "Card processing and any delivery charges are separate.",
     },
   },
   {
@@ -112,7 +112,7 @@ const solutions: Solution[] = [
         { label: "Tracking", value: "Every pickup and drop-off" },
         { label: "Late order", value: "We chase it" },
       ],
-      note: "Card processing and any courier charges are separate.",
+      note: "Card processing and any delivery charges are separate.",
     },
   },
   {
@@ -233,7 +233,7 @@ export default function SolutionsPage() {
             {[
               {
                 title: "No commission, ever.",
-                body: "Not now, not later. Card processing and any courier charges are separate.",
+                body: "Not now, not later. Card processing and any delivery charges are separate.",
               },
               {
                 title: "Your prices, your call",

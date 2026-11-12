@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Hero } from "@/components/home/Hero";
 import { StatStrip } from "@/components/home/StatStrip";
+import { FourNs } from "@/components/home/FourNs";
 import { PlatformSections } from "@/components/home/PlatformSections";
 import { SavingsCalculator } from "@/components/home/SavingsCalculator";
 import { PhotoMarquee } from "@/components/home/PhotoMarquee";
@@ -25,6 +26,7 @@ export default function HomePage() {
       <AnnouncementBar />
       <Hero />
       <StatStrip />
+      <FourNs />
       <PlatformSections />
       <SavingsCalculator />
       <PhotoMarquee />

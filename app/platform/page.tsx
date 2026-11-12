@@ -47,11 +47,11 @@ const pillars = [
     id: "growth",
     number: "03",
     tag: "Growth",
-    headline: "We draft. You approve. The platform grows.",
-    body: "AI demand forecasting spots your busy windows, and growth campaigns help you reach the regulars who have drifted. We draft a campaign for the regulars who have drifted — nothing goes out without your OK.",
+    headline: "We help your regulars come back.",
+    body: "When a regular drifts, we draft a win-back campaign for them, and nothing goes out without your OK. Separately, AI demand forecasting shows your busy windows so you can plan prep and staffing.",
     features: [
-      "AI demand forecasting for your peak windows and prep time",
-      "Growth campaigns to lapsed regulars, with your OK before anything is sent",
+      "Win-back campaigns for regulars who have drifted, sent only with your OK",
+      "AI demand forecasting for your busy windows and prep time",
       "High-margin items flagged for a spotlight",
       "Google Business Profile kept in sync with your menu",
       "Multi-location support if you run more than one spot",
@@ -76,8 +76,8 @@ const pillars = [
 ];
 
 const protections = [
-  { title: "No commission, ever.", body: "Not now, not later. One fixed price, with the numbers on our pricing page. Card processing and any courier charges are separate." },
-  { title: "No pricing parity required.", body: "You can charge differently on different channels. We have no say in your pricing." },
+  { title: "No commission, ever.", body: "Not now, not later. One fixed price, with the numbers on our pricing page. Card processing and any delivery charges are separate." },
+  { title: "Charge what you want on your own site.", body: "You can charge differently on different channels. We have no say in your pricing." },
   { title: "Advance notice of changes.", body: "Any material policy change comes with advance notice, in writing." },
   { title: "Your customer data is yours.", body: "We'll send you a copy whenever you ask." },
 ];

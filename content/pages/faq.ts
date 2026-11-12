@@ -7,14 +7,14 @@ import { priceDisplay } from "@/content/site/pricing";
  * a correction here lands everywhere at once.
  *
  * Commercial answers follow the fee-claim rules in content/site/pricing.ts:
- * card processing, courier charges and the Neighbourhood fee are always named as
+ * card processing, delivery charges and the Neighbourhood fee are always named as
  * separate from N4Cluster's fees.
  */
 export const faqItems: FAQItem[] = [
   {
     question: "Is it really commission-free?",
     answer:
-      "Yes. No commission, ever. You pay one fixed price, the same on every order whatever the ticket size, plus standard card processing. On a $40 order, you keep $38.04. The exact figures are on our pricing page. Any courier charges for delivery are separate.",
+      "Yes. No commission, ever. You pay one fixed price, the same on every order whatever the ticket size, plus standard card processing. On a $40 order, you keep $38.04. The exact figures are on our pricing page. Any delivery charges are separate.",
   },
   {
     question: "What does my customer pay?",
@@ -24,12 +24,12 @@ export const faqItems: FAQItem[] = [
   {
     question: "What is N4Cluster?",
     answer:
-      "N4Cluster gives neighborhood restaurants a branded direct-ordering channel, so customers who already know you can order from you under your own name. It includes your own ordering site, rewards, growth tools, and delivery coordination, for one fixed price with no commission, ever. Card processing and any courier charges are separate.",
+      "N4Cluster gives neighborhood restaurants a branded direct-ordering channel, so customers who already know you can order from you under your own name. It includes your own ordering site, rewards, growth tools, and delivery coordination, for one fixed price with no commission, ever. Card processing and any delivery charges are separate.",
   },
   {
     question: "How is N4Cluster different from marketplace delivery platforms?",
     answer:
-      "Marketplaces typically take 20–30% commission on every order and keep the customer relationship. N4Cluster charges one fixed, published price instead of a share of your revenue, with no commission, ever. You take orders under your own brand and domain, and the customer and order information from those orders is available to you. Card processing and any courier charges are separate from N4Cluster's fees.",
+      "Marketplaces typically take 20–30% commission on every order and keep the customer relationship. N4Cluster charges one fixed, published price instead of a share of your revenue, with no commission, ever. You take orders under your own brand and domain, and the customer and order information from those orders is available to you. Card processing and any delivery charges are separate from N4Cluster's fees.",
   },
   {
     question: "Do I have to quit DoorDash or Uber Eats?",
@@ -39,7 +39,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "What does the price cover?",
     answer:
-      "They cover the N4Cluster platform: your branded ordering site, rewards, growth tools, delivery coordination, and POS integration. There are no tiered plans and no add-on modules. Two things are not included: card processing, which your payment processor charges separately, and any courier charges for delivery. Diners normally pay a small N4Cluster fee at checkout unless you choose to absorb it.",
+      "They cover the N4Cluster platform: your branded ordering site, rewards, growth tools, delivery coordination, and POS integration. There are no tiered plans and no add-on modules. Two things are not included: card processing, which your payment processor charges separately, and any delivery charges. Diners normally pay a small N4Cluster fee at checkout unless you choose to absorb it.",
   },
   {
     question: "What is the Neighbourhood fee?",
@@ -54,7 +54,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "How does N4Cluster help me grow?",
     answer:
-      "Once you go live, AI demand forecasting looks at your busy windows and repeat-customer behaviour, flags high-margin items, and drafts growth campaigns for the regulars who have drifted. Nothing goes out without your OK, and none of it changes your pricing. Your Google Business Profile is kept in sync with your menu, and multi-location restaurants are supported.",
+      "Once you go live, we draft win-back campaigns for the regulars who have drifted. Nothing goes out without your OK. Separately, AI demand forecasting shows your busy windows and flags high-margin items. None of it changes your pricing. Your Google Business Profile is kept in sync with your menu, and multi-location restaurants are supported.",
   },
   {
     question: "How does delivery work?",

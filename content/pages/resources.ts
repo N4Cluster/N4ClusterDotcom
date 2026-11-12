@@ -57,7 +57,7 @@ export const resources: Resource[] = [
     body: [
       "The dominant narrative around AI in commerce is automation: remove the human, let the algorithm decide. But for local businesses, fully automated decision-making is often the wrong approach. The operator knows their business, their neighborhood, and their customers better than any model.",
       "The more valuable application of AI is decision support. Instead of replacing the operator's judgment, AI should enhance it. Surface the right data at the right time. Identify patterns that are hard to see manually. Suggest actions, but let the operator decide.",
-      "This is the philosophy behind N4Cluster's demand forecasting and growth campaigns. They analyze order patterns and customer behavior to generate actionable suggestions. But nothing goes out without the merchant's OK. Pricing, promotions, and operations never change autonomously.",
+      "This is the philosophy behind N4Cluster's win-back campaigns and demand forecasting. They analyze order patterns and customer behavior to generate actionable suggestions. But nothing goes out without the merchant's OK. Pricing, promotions, and operations never change autonomously.",
       "The guardrail is simple: nothing goes out without the merchant's OK. And your customer data is yours — we'll send you a copy whenever you ask.",
     ],
   },
