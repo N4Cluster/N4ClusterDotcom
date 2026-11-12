@@ -13,7 +13,7 @@ export function FinalCta() {
           </h2>
           <p className="text-lg text-white/80">See your own demo storefront in one short call.</p>
           <div className="flex flex-wrap gap-3">
-            <Link href={demoCta.href} className="on-light rounded-full bg-gold px-[26px] py-4 text-[17px] font-bold text-ink">
+            <Link href={demoCta.href} className="rounded-full bg-gold px-[26px] py-4 text-[17px] font-bold text-ink">
               {demoCta.label}
             </Link>
             <Link href="/pricing" className="rounded-full border-[1.5px] border-white/40 px-[26px] py-4 text-[17px] font-bold text-white">
