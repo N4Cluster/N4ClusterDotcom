@@ -3,313 +3,124 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/Button";
-import { navItems, type NavItem } from "@/content/site/navigation";
+import { Logo } from "@/components/brand/Logo";
+import { navItems } from "@/content/site/navigation";
+import { siteConfig } from "@/content/site/settings";
+import { demoCta } from "@/content/company";
+
+const ctaClass =
+  "inline-flex items-center justify-center rounded-full bg-gold px-5 py-3 text-[15px] font-semibold text-ink whitespace-nowrap transition-colors hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink";
+const linkClass = "px-3.5 py-2.5 text-[15px] font-medium text-ink rounded-md hover:bg-cream-2";
+
+/** True when `href` addresses the page currently displayed. */
+function isCurrent(href: string, pathname: string | null): boolean {
+  return !!pathname && href.split("#")[0] === pathname;
+}
 
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
-  // Every page opens on cream, so the header is always solid (Task 4 restyles).
-  const solid = true;
-
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setActiveDropdown(null);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  // Escape closes whichever menu is open — expected of any disclosure control.
+  // Escape closes the mobile menu — expected of any disclosure control.
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key !== "Escape") return;
-      setActiveDropdown(null);
-      setMobileOpen(false);
+      if (e.key === "Escape") setMobileOpen(false);
     };
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
   }, []);
 
-  /**
-   * Navigating away should never leave a menu open over the new page. This is
-   * React's "adjust state when a prop changes" pattern rather than an effect, so
-   * the reset happens in the same render as the navigation — no extra paint with
-   * a stale menu, and no state-setting effect.
-   */
+  // Navigating away should never leave the menu open over the new page
+  // ("adjust state when a prop changes": reset in the same render, no effect).
   const [lastPathname, setLastPathname] = useState(pathname);
   if (lastPathname !== pathname) {
     setLastPathname(pathname);
-    setActiveDropdown(null);
     setMobileOpen(false);
   }
 
-  // Lock background scroll while the mobile panel is open.
+  // Lock background scroll and move focus into the panel while it is open.
   useEffect(() => {
     if (!mobileOpen) return;
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    panelRef.current?.querySelector<HTMLElement>("a")?.focus();
     return () => {
       document.body.style.overflow = previous;
     };
   }, [mobileOpen]);
 
-  const toggleDropdown = (label: string) => {
-    setActiveDropdown(activeDropdown === label ? null : label);
-  };
-
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        solid
-          ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200"
-          : "bg-transparent"
-      )}
-    >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group" onClick={() => setMobileOpen(false)}>
-            <div className="w-8 h-8 rounded-lg gradient-cobalt flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
-              <span className="text-white font-bold text-xs tracking-wider">N4</span>
-            </div>
-            <span
-              className={cn(
-                "font-bold text-lg tracking-tight transition-colors",
-                solid ? "text-navy-950" : "text-white"
-              )}
-            >
-              N4Cluster
-            </span>
-          </Link>
+    <header className="sticky top-0 z-50 border-b border-line bg-cream">
+      <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-5 px-4 sm:px-6 lg:px-8">
+        <Link href="/" aria-label="N4Cluster home" onClick={() => setMobileOpen(false)}>
+          <Logo variant="light" size={44} />
+        </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1" ref={dropdownRef} aria-label="Main">
-            {navItems.map((item) => (
-              <DesktopNavItem
-                key={item.label}
-                item={item}
-                solid={solid}
-                pathname={pathname}
-                isOpen={activeDropdown === item.label}
-                onToggle={() => toggleDropdown(item.label)}
-                onNavigate={() => setActiveDropdown(null)}
-              />
-            ))}
-          </nav>
-
-          {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Button href="/contact" size="sm">
-              Request a Demo
-            </Button>
-          </div>
-
-          {/* Mobile menu button */}
-          <button
-            className={cn(
-              "lg:hidden p-2 rounded-md transition-colors",
-              solid ? "text-navy-950 hover:bg-slate-100" : "text-white hover:bg-white/10"
-            )}
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-nav"
-          >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Nav */}
-      {mobileOpen && (
-        <MobileNav
-          items={navItems}
-          pathname={pathname}
-          onClose={() => setMobileOpen(false)}
-        />
-      )}
-    </header>
-  );
-}
-
-/** True when `href` addresses the page currently displayed. */
-function isCurrent(href: string, pathname: string | null): boolean {
-  if (!pathname) return false;
-  // Ignore in-page anchors: "/solutions#restaurants" is still the Solutions page.
-  const path = href.split("#")[0];
-  return path === pathname;
-}
-
-function DesktopNavItem({
-  item,
-  solid,
-  pathname,
-  isOpen,
-  onToggle,
-  onNavigate,
-}: {
-  item: NavItem;
-  solid: boolean;
-  pathname: string | null;
-  isOpen: boolean;
-  onToggle: () => void;
-  onNavigate: () => void;
-}) {
-  const hasChildren = item.children && item.children.length > 0;
-  const textClass = solid
-    ? "text-slate-700 hover:text-navy-950"
-    : "text-white/90 hover:text-white";
-
-  if (!hasChildren) {
-    return (
-      <Link
-        href={item.href}
-        aria-current={isCurrent(item.href, pathname) ? "page" : undefined}
-        className={cn(
-          "px-3 py-2 text-sm font-medium rounded-md transition-colors",
-          textClass,
-          isCurrent(item.href, pathname) && (solid ? "text-cobalt-600" : "text-white")
-        )}
-      >
-        {item.label}
-      </Link>
-    );
-  }
-
-  const menuId = `nav-menu-${item.label.replace(/\s+/g, "-").toLowerCase()}`;
-
-  return (
-    <div className="relative">
-      <button
-        onClick={onToggle}
-        className={cn(
-          "flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-md transition-colors",
-          textClass
-        )}
-        aria-expanded={isOpen}
-        aria-haspopup="true"
-        aria-controls={menuId}
-      >
-        {item.label}
-        <ChevronDown
-          size={14}
-          aria-hidden="true"
-          className={cn("transition-transform duration-200", isOpen && "rotate-180")}
-        />
-      </button>
-      {isOpen && (
-        <div
-          id={menuId}
-          className="absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-xl border border-slate-200 py-2 z-50"
-        >
-          {item.children!.map((child) => (
+        <nav className="hidden flex-1 items-center justify-center gap-0.5 lg:flex" aria-label="Main">
+          {navItems.map((item) => (
             <Link
-              key={child.href}
-              href={child.href}
-              aria-current={isCurrent(child.href, pathname) ? "page" : undefined}
-              className="flex flex-col px-4 py-3 hover:bg-slate-50 transition-colors group"
-              onClick={onNavigate}
+              key={item.href}
+              href={item.href}
+              aria-current={isCurrent(item.href, pathname) ? "page" : undefined}
+              className={cn(linkClass, isCurrent(item.href, pathname) && "underline decoration-gold decoration-2 underline-offset-8")}
             >
-              <span className="text-sm font-semibold text-navy-950 group-hover:text-cobalt-500 transition-colors">
-                {child.label}
-              </span>
-              {child.description && (
-                <span className="text-xs text-slate-600 mt-0.5">{child.description}</span>
-              )}
+              {item.label}
             </Link>
           ))}
+        </nav>
+
+        <div className="hidden items-center gap-2 lg:flex">
+          <a href={siteConfig.loginUrl} className={cn(linkClass, "font-semibold")}>
+            Log in
+          </a>
+          <Link href={demoCta.href} className={ctaClass}>
+            {demoCta.label}
+          </Link>
         </div>
-      )}
-    </div>
-  );
-}
 
-function MobileNav({
-  items,
-  pathname,
-  onClose,
-}: {
-  items: NavItem[];
-  pathname: string | null;
-  onClose: () => void;
-}) {
-  const [expandedItem, setExpandedItem] = useState<string | null>(null);
-  const panelRef = useRef<HTMLDivElement>(null);
+        <button
+          className="rounded-md p-2 text-ink hover:bg-cream-2 lg:hidden"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-nav"
+        >
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </div>
 
-  // Move focus into the panel so a keyboard user lands inside what just opened.
-  useEffect(() => {
-    panelRef.current?.querySelector<HTMLElement>("a, button")?.focus();
-  }, []);
-
-  return (
-    <div
-      id="mobile-nav"
-      ref={panelRef}
-      className="lg:hidden bg-white border-t border-slate-200 shadow-lg max-h-[80vh] overflow-y-auto"
-    >
-      <div className="px-4 py-4 space-y-1">
-        {items.map((item) => (
-          <div key={item.label}>
-            {item.children ? (
-              <>
-                <button
-                  onClick={() => setExpandedItem(expandedItem === item.label ? null : item.label)}
-                  className="flex items-center justify-between w-full px-3 py-2.5 text-sm font-semibold text-navy-950 rounded-lg hover:bg-slate-50"
-                  aria-expanded={expandedItem === item.label}
-                >
-                  {item.label}
-                  <ChevronDown
-                    size={14}
-                    aria-hidden="true"
-                    className={cn(
-                      "text-slate-500 transition-transform duration-200",
-                      expandedItem === item.label && "rotate-180"
-                    )}
-                  />
-                </button>
-                {expandedItem === item.label && (
-                  <div className="ml-3 pl-3 border-l border-slate-200 mt-1 space-y-1">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        aria-current={isCurrent(child.href, pathname) ? "page" : undefined}
-                        className="block px-3 py-2 text-sm text-slate-600 hover:text-navy-950 hover:bg-slate-50 rounded-lg"
-                        onClick={onClose}
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </>
-            ) : (
+      {mobileOpen && (
+        <div
+          id="mobile-nav"
+          ref={panelRef}
+          className="max-h-[80vh] overflow-y-auto border-t border-line bg-cream lg:hidden"
+        >
+          <div className="space-y-1 px-4 py-4">
+            {navItems.map((item) => (
               <Link
+                key={item.href}
                 href={item.href}
                 aria-current={isCurrent(item.href, pathname) ? "page" : undefined}
-                className="block px-3 py-2.5 text-sm font-semibold text-navy-950 rounded-lg hover:bg-slate-50"
-                onClick={onClose}
+                className="block rounded-lg px-3 py-2.5 text-base font-semibold text-ink hover:bg-cream-2"
+                onClick={() => setMobileOpen(false)}
               >
                 {item.label}
               </Link>
-            )}
+            ))}
+            <div className="space-y-2 border-t border-line pt-4">
+              <a href={siteConfig.loginUrl} className={cn(ctaClass, "w-full bg-transparent ring-1 ring-ink")}>
+                Log in
+              </a>
+              <Link href={demoCta.href} className={cn(ctaClass, "w-full")}>
+                {demoCta.label}
+              </Link>
+            </div>
           </div>
-        ))}
-        <div className="pt-4 pb-2 border-t border-slate-200 space-y-2">
-          <Button href="/contact" className="w-full justify-center">
-            Request a Demo
-          </Button>
         </div>
-      </div>
-    </div>
+      )}
+    </header>
   );
 }
