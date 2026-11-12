@@ -6,11 +6,10 @@ import { SectionIntro } from "@/components/ui/SectionIntro";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { Check } from "lucide-react";
-import { priceDisplay } from "@/content/site/pricing";
 
 export const metadata: Metadata = {
   title: "Platform — Ordering, Rewards, Growth, Delivery, Discovery",
-  description: `N4Cluster is five things working together: your own ordering site, a rewards program, growth campaigns, delivery we coordinate, and neighborhood discovery — for ${priceDisplay.merchantFees}.`,
+  description: "N4Cluster is four things working together: your own ordering site, a rewards program, growth campaigns, and delivery we coordinate — for one fixed price.",
 };
 
 const pillars = [
@@ -24,11 +23,11 @@ const pillars = [
       "Menu, categories, pricing and availability imported for you",
       "Runs under your own domain, not ours",
       "Mobile-first, fast checkout",
-      "Specials, 86'd items and hours update as you change them",
+      "Specials, sold-out items and hours update as you change them",
       "You control all pricing and item visibility",
       "Payments through Stripe — your restaurant is the merchant of record",
     ],
-    metric: { value: "$0.50", label: "per order, whatever the ticket size" },
+    metric: { value: "Fixed price", label: "no commission, whatever the ticket size" },
   },
   {
     id: "rewards",
@@ -91,7 +90,7 @@ const pillars = [
 ];
 
 const protections = [
-  { title: "No commission, ever.", body: `Not now, not later. ${priceDisplay.merchantFees}. Card processing and any courier charges are separate.` },
+  { title: "No commission, ever.", body: "Not now, not later. One fixed price, with the numbers on our pricing page. Card processing and any courier charges are separate." },
   { title: "No pricing parity required.", body: "You can charge differently on different channels. We have no say in your pricing." },
   { title: "Advance notice of changes.", body: "Any material policy change comes with advance notice, in writing." },
   { title: "Your customer data is yours.", body: "We'll send you a copy whenever you ask." },
@@ -111,8 +110,8 @@ export default function PlatformPage() {
     <>
       <HeroCentered
         eyebrow="The platform"
-        heading="One platform. Five things working together."
-        subheading={`Your own ordering site, rewards, growth, and delivery we coordinate — one system, for ${priceDisplay.merchantFees}.`}
+        heading="One platform. Four things working together."
+        subheading="Your own ordering site, rewards, growth, and delivery we coordinate — one system, for one fixed price."
         primaryCta={{ label: "Get a free demo", href: "/contact" }}
         secondaryCta={{ label: "See pricing", href: "/pricing" }}
       />

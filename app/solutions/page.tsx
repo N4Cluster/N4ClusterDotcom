@@ -66,7 +66,7 @@ const solutions: Solution[] = [
     bullets: [
       "One branded ordering experience across your locations",
       "Multi-location support built in — no separate setup for each spot",
-      "Menus, specials and 86'd items update as you change them",
+      "Menus, specials and sold-out items update as you change them",
       "Every location can be listed in the neighborhood directory for the neighbors close enough to order",
       `${priceDisplay.merchantFees}. No commission, ever.`,
     ],
