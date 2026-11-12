@@ -112,7 +112,7 @@ export default function PlatformPage() {
       <HeroCentered
         eyebrow="The platform"
         heading="One platform. Five things working together."
-        subheading={`Your own ordering site, rewards, growth, delivery we coordinate, and neighborhood discovery — one system, for ${priceDisplay.merchantFees}.`}
+        subheading={`Your own ordering site, rewards, growth, and delivery we coordinate — one system, for ${priceDisplay.merchantFees}.`}
         primaryCta={{ label: "Get a free demo", href: "/contact" }}
         secondaryCta={{ label: "See pricing", href: "/pricing" }}
       />
