@@ -80,7 +80,7 @@ export function SavingsCalculator() {
             </div>
             <Link href="/contact" className="rounded-full bg-gold px-[22px] py-[15px] text-center font-bold text-ink no-underline">Get my free demo storefront</Link>
             <p className="text-xs leading-normal text-muted">
-              Same menu subtotal on both channels, though apps often push menu prices higher to offset commission. N4Cluster: {monthly}/mo + {cents}/order + card processing ({PROCESSING_RATE * 100}% + {Math.round(PROCESSING_FLAT * 100)}¢). The diner&apos;s separate ${DINER_FEE} fee isn&apos;t part of your cost.
+              Same menu subtotal on both channels, though apps often push menu prices higher to offset commission. N4Cluster: {monthly}/mo + {cents}/order + card processing ({+(PROCESSING_RATE * 100).toFixed(1)}% + {Math.round(PROCESSING_FLAT * 100)}¢). The diner&apos;s separate ${DINER_FEE} fee isn&apos;t part of your cost.
             </p>
           </div>
         </div>
