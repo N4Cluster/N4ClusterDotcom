@@ -60,7 +60,7 @@ export function SavingsCalculator() {
         </div>
 
         <div className="flex min-w-0 flex-[1_1_420px] justify-center">
-          <div className="box-border flex w-full max-w-[440px] flex-col gap-5 rounded-3xl bg-white p-8 text-ink shadow-[0_30px_70px_rgba(0,0,0,0.35)]">
+          <div className="on-light box-border flex w-full max-w-[440px] flex-col gap-5 rounded-3xl bg-white p-8 text-ink shadow-[0_30px_70px_rgba(0,0,0,0.35)]">
             <div className="flex items-center justify-between border-b-2 border-dashed border-line pb-4">
               <span className={`${display} text-xl`}>Your monthly receipt</span>
               <span className="text-xs font-bold text-muted">ESTIMATE</span>

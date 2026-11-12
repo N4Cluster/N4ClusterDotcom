@@ -101,6 +101,12 @@
   .on-dark :focus-visible {
     outline-color: #fff;
   }
+
+  /* Light cards nested inside .on-dark sections: restore the ink outline (must follow .on-dark). */
+  .on-light:focus-visible,
+  .on-light :focus-visible {
+    outline-color: var(--color-ink);
+  }
 }
 
 @layer utilities {
