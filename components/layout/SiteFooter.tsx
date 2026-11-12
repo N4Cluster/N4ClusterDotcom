@@ -9,7 +9,7 @@ export function SiteFooter() {
     <footer className="bg-navy-950 text-slate-300">
       <Container>
         {/* Top section */}
-        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 border-b border-navy-800">
+        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 border-b border-navy-800">
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2.5 group mb-5">
@@ -51,10 +51,6 @@ export function SiteFooter() {
               <div className="flex gap-3 flex-wrap">
                 <Link href="/platform#n4sync" className="text-xs text-cobalt-400 hover:text-cobalt-300 transition-colors font-medium">
                   N4Sync
-                </Link>
-                <span className="text-slate-700">·</span>
-                <Link href="/n4logic" className="text-xs text-teal-400 hover:text-teal-300 transition-colors font-medium">
-                  N4Logic
                 </Link>
               </div>
             </div>

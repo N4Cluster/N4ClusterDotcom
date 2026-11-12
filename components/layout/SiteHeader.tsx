@@ -7,28 +7,15 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { navItems, type NavItem } from "@/content/site/navigation";
-import { hasDarkHero } from "@/content/site/theme";
 
 export function SiteHeader() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
-  /**
-   * The transparent header treatment uses white text, so it is only legible over
-   * a dark hero. Anything else — an unregistered route included — gets the solid
-   * treatment, so a light page can never render white-on-white nav.
-   */
-  const solid = scrolled || mobileOpen || !hasDarkHero(pathname);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll(); // sync on mount: a restored scroll position must not start transparent
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  // Every page opens on cream, so the header is always solid (Task 4 restyles).
+  const solid = true;
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {

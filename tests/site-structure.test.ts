@@ -1,60 +1,11 @@
-import { readFileSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import sitemap from "@/app/sitemap";
-import { hasDarkHero } from "@/content/site/theme";
 import { resources } from "@/content/pages/resources";
 import { navItems } from "@/content/site/navigation";
 import { footerLinks } from "@/content/site/footer";
 import { siteConfig } from "@/content/site/settings";
-
-describe("hasDarkHero", () => {
-  it("is true for the routes that actually render a dark hero", () => {
-    for (const route of [
-      "/",
-      "/about",
-      "/careers",
-      "/case-studies",
-      "/contact",
-      "/faq",
-      "/how-it-works",
-      "/integrations",
-      "/mission",
-      "/n4logic",
-      "/partners",
-      "/platform",
-      "/pricing",
-      "/resources",
-      "/roi-calculator",
-      "/solutions",
-    ]) {
-      expect(hasDarkHero(route), `${route} has a dark hero`).toBe(true);
-    }
-  });
-
-  it("is true for resource articles, which open on a gradient hero", () => {
-    expect(hasDarkHero("/resources/merchant-owned-commerce")).toBe(true);
-  });
-
-  it("is false for the legal pages, which open on white", () => {
-    // These render `bg-white` under the header; the transparent white-text
-    // treatment made the whole nav invisible there until the user scrolled.
-    for (const route of ["/privacy", "/terms", "/cookies"]) {
-      expect(hasDarkHero(route), `${route} opens on a light surface`).toBe(false);
-    }
-  });
-
-  it("defaults to the safe treatment for an unregistered or unknown route", () => {
-    expect(hasDarkHero("/a-page-added-later")).toBe(false);
-    expect(hasDarkHero(null)).toBe(false);
-    expect(hasDarkHero("")).toBe(false);
-  });
-
-  it("normalises a trailing slash", () => {
-    expect(hasDarkHero("/contact/")).toBe(true);
-    expect(hasDarkHero("/")).toBe(true);
-  });
-});
 
 describe("sitemap", () => {
   const entries = sitemap();
@@ -115,14 +66,41 @@ describe("navigation", () => {
     }
   });
 
-  it("surfaces the mission page under Company in both nav and footer", () => {
-    const company = navItems.find((item) => item.label === "Company");
-    expect(company?.children?.some((child) => child.href === "/mission")).toBe(true);
+  it("has no /n4logic or /case-studies route", () => {
+    const paths = sitemap().map((e) => e.url.replace(siteConfig.url, ""));
+    expect(paths).not.toContain("/n4logic");
+    expect(paths).not.toContain("/case-studies");
+    expect(existsSync("app/n4logic")).toBe(false);
+  });
 
-    const footerCompany = footerLinks.find((group) => group.heading === "Company");
-    expect(footerCompany?.links.some((link) => link.href === "/mission")).toBe(true);
+  it("never links to /n4logic or /case-studies outside legal pages", () => {
+    const skip = /^(app\/(privacy|terms|cookies|sms)\/|content\/legal\/|app\/case-studies\/page\.tsx$)/;
+    const files = ["app", "components", "content"].flatMap((d) => allFiles(d));
+    for (const file of files.filter((f) => !skip.test(f))) {
+      const text = readFileSync(file, "utf8");
+      expect(text, file).not.toContain("/n4logic");
+      expect(text, file).not.toContain("/case-studies");
+    }
+  });
+
+  it("uses a flat header nav", () => {
+    expect(navItems.map((i) => i.label)).toEqual(["Product", "Pricing", "How it works", "Savings", "FAQ"]);
+  });
+
+  it("puts the expected links in the footer groups", () => {
+    const hrefs = (h: string) => footerLinks.find((g) => g.heading === h)?.links.map((l) => l.href) ?? [];
+    expect(footerLinks.map((g) => g.heading)).toEqual(["Product", "Resources", "Company"]);
+    expect(hrefs("Company")).toEqual(expect.arrayContaining(["/mission", "/solutions", "/partners", "/careers"]));
+    expect(hrefs("Product")).toContain("/integrations");
   });
 });
+
+function allFiles(dir: string): string[] {
+  return readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
+    const path = join(dir, e.name);
+    return e.isDirectory() ? allFiles(path) : [path];
+  });
+}
 
 describe("text-in keyword", () => {
   // No campaign covers an inbound "Text DEMO" keyword, so carrier review flags it.
