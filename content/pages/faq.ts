@@ -7,7 +7,7 @@ import { priceDisplay } from "@/content/site/pricing";
  * a correction here lands everywhere at once.
  *
  * Commercial answers follow the fee-claim rules in content/site/pricing.ts:
- * card processing, courier charges and the diner fee are always named as
+ * card processing, courier charges and the Neighbourhood fee are always named as
  * separate from N4Cluster's fees.
  */
 export const faqItems: FAQItem[] = [
@@ -19,7 +19,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "What does my customer pay?",
     answer:
-      "Your menu prices, plus a small flat service fee at checkout. That fee is on top of the order, not taken out of your share, unless you choose to absorb it.",
+      "Your menu prices, plus a small flat Neighbourhood fee at checkout. That fee is on top of the order, not taken out of your share, unless you choose to absorb it.",
   },
   {
     question: "What is N4Cluster?",
@@ -42,9 +42,9 @@ export const faqItems: FAQItem[] = [
       "They cover the N4Cluster platform: your branded ordering site, rewards, growth tools, delivery coordination, and POS integration. There are no tiered plans and no add-on modules. Two things are not included: card processing, which your payment processor charges separately, and any courier charges for delivery. Diners normally pay a small N4Cluster fee at checkout unless you choose to absorb it.",
   },
   {
-    question: "What is the customer fee?",
+    question: "What is the Neighbourhood fee?",
     answer:
-      "Diners see a small N4Cluster fee at checkout. It is a platform fee collected by N4Cluster and labelled as N4Cluster's fee, not a surcharge added to your menu prices. If a customer asks you about it, our support team can help you answer. Restaurants who prefer to absorb it or build it into menu pricing can opt out of the customer-facing display.",
+      "Diners see a small Neighbourhood fee at checkout, described as a fee that supports local operations in their neighbourhood. N4Cluster collects it; it is not a surcharge added to your menu prices. If a customer asks you about it, our support team can help you answer. Restaurants who prefer to absorb it or build it into menu pricing can opt out of the customer-facing display.",
   },
   {
     question: "Will my prices ever increase?",

@@ -49,7 +49,7 @@ export const feeQualifiers = {
   commission:
     "No commission, ever. Card processing and any courier charges are separate.",
   separateCharges:
-    "Card processing and any courier charges are separate. Diners normally pay a $0.99 N4Cluster fee unless the restaurant chooses to absorb it.",
+    "Card processing and any courier charges are separate. Diners normally pay a $0.99 Neighbourhood fee unless the restaurant chooses to absorb it.",
   trialScope:
     "The trial waives N4Cluster merchant platform and per-order fees. See the full pricing details for other charges and terms.",
   monthlyApplies:

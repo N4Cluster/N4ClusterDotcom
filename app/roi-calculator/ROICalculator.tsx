@@ -329,7 +329,7 @@ export function ROICalculator() {
                   with direct pickup is not a like-for-like delivery comparison.
                 </li>
                 <li>
-                  The diner fee is not included. Diners
+                  The Neighbourhood fee diners pay is not included. Diners
                   normally pay it; if your restaurant chooses to absorb it, add it
                   to your own costs.
                 </li>
