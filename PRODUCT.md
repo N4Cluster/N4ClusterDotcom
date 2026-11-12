@@ -22,18 +22,18 @@ Flat utility pricing, not a commission or a subscription tax — the cost tracks
 
 ## Conversion & proof
 
-- Primary and secondary CTA: Primary — Request a Demo / Get Started. Secondary — Calculate Your Savings (the ROI calculator), the lower-commitment fallback for a visitor not ready to talk to sales.
-- The line a visitor remembers after 10 seconds: Flat $99/month plus $0.50 per order. No commission. Ever.
+- Primary and secondary CTA: Primary — "Get a free demo" / "Build my demo storefront". Secondary — Calculate Your Savings (the ROI calculator), the lower-commitment fallback for a visitor not ready to talk to sales.
+- The line a visitor remembers after 10 seconds: "No commission, ever." (Flat $99/month plus $0.50 per order.)
 - Belief ladder: (1) I'm losing real margin to a marketplace's commission or a flat-fee SaaS tax that doesn't scale with my volume. (2) N4Cluster's $99 + $0.50 pricing is simple and actually flat — not a teaser rate. (3) Switching won't cost me weeks of setup or a painful migration. (4) Requesting a demo doesn't lock me into anything.
-- Proof on hand: none yet — the site is pre-launch/early-stage. The existing `/case-studies` page is explicitly framed as hypothetical design-partner pilots, not live customer results. Design should not imply social proof that doesn't exist yet (no fabricated logo strips, no testimonial quotes attributed to real-sounding but unverified customers).
+- Proof on hand: Pasta and Pita Grill has been live on N4Cluster since October 2026; its story is pending, so the site names it without inventing quotes or results. The `/case-studies` page is retired (redirects to `/`). Design should not imply further social proof that doesn't exist yet (no fabricated logo strips, no testimonial quotes attributed to unverified customers). A stat strip is an intended pattern, limited to verifiable figures.
 
 ## Brand Personality
 
-Direct, no-nonsense, trustworthy — plainspoken operator-to-operator credibility. The site should read like a peer who has run a kitchen talking straight to another operator, not a SaaS vendor pitching a deck. This matches the authoritative, jargon-free copy voice already shipped across the site's pages.
+Warm, neighborhood, premium — and still direct, no-nonsense, trustworthy: plainspoken operator-to-operator credibility. The site should read like a peer who has run a kitchen talking straight to another operator, not a SaaS vendor pitching a deck. This matches the authoritative, jargon-free copy voice already shipped across the site's pages.
 
 ## Anti-references
 
-- **Generic SaaS template**: purple-to-blue gradients, hero-metric cards, identical icon-tile feature grids, a tiny uppercase tracked eyebrow above every section. The default AI/SaaS look this site should never be mistaken for.
+- **Generic SaaS template**: purple-to-blue gradients, generic SaaS metric tiles (decorative stat cards), identical icon-tile feature grids, a tiny uppercase tracked eyebrow above every section. The default AI/SaaS look this site should never be mistaken for.
 - **Consumer delivery-app aesthetic**: should not look or feel like DoorDash, Uber Eats, or a flashy consumer ordering app. This is a B2B infrastructure pitch to operators, not a consumer product.
 - **Corporate enterprise/consulting site**: no stiff navy-suit stock photography, no dense feature-matrix tables, no jargon-heavy enterprise-software visual tropes.
 

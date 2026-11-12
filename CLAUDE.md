@@ -9,4 +9,4 @@ Current integration target: `release/2026.11`. PR feature branches into it, not 
 Run `/graphify --update` (or `graphify update` if outside Claude Code) on the integration branch so `graphify-out/graph.json` reflects the merged changes.
 
 ## Design Context
-`PRODUCT.md` (register, users, positioning, brand personality, anti-references) and `DESIGN.md` (color/typography/component tokens, North Star "The Utility Ledger") capture this site's strategic and visual identity for the `impeccable` design skill. Read both before any UI/copy work that touches visual design; `.impeccable/design.json` is the machine-readable sidecar DESIGN.md's live-mode tooling reads.
+`PRODUCT.md` (register, users, positioning, brand personality, anti-references) and `DESIGN.md` (color/typography/component tokens, North Star "The Neighborhood Ledger") capture this site's strategic and visual identity for the `impeccable` design skill. Read both before any UI/copy work that touches visual design; `.impeccable/design.json` is the machine-readable sidecar DESIGN.md's live-mode tooling reads.
