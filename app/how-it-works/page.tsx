@@ -43,7 +43,7 @@ const phases = [
   {
     tag: "Week 1",
     headline: "Point your regulars to it.",
-    sub: "Table tents, bag stuffers and your Google listing all send guests to your own site.",
+    sub: "A QR code at your counter and your Google listing send guests to your own site.",
     tasks: [
       "Google Business Profile kept in sync with your menu",
       "AI demand forecasting starts learning your busy windows",

@@ -3,7 +3,7 @@ import Image from "next/image";
 export const liveInDaysSteps = [
   { when: "Day 1", title: "A 20-minute call", body: "We walk through your menu, hours and delivery area and show you your demo storefront." },
   { when: "Within days", title: "We build your site", body: "Menu imported and cleaned up, payments connected, rewards switched on. Nothing goes live without your sign-off." },
-  { when: "Week 1", title: "Point your regulars to it", body: "Table tents, bag stuffers and your Google listing all send guests to your own site." },
+  { when: "Week 1", title: "Point your regulars to it", body: "A QR code at your counter and your Google listing send guests to your own site." },
   { when: "Ongoing", title: "Every order compounds", body: "Each direct order is a guest you own, so the next one costs you nothing to earn." },
 ];
 
