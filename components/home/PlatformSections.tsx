@@ -132,9 +132,9 @@ function Tile({ id, src, alt, n, name, title, body, children }: { id: string; sr
   return (
     <article id={id} className="on-dark relative h-[520px] scroll-mt-24 overflow-hidden rounded-[32px] text-white">
       <Photo src={src} alt={alt} />
-      <div className="absolute inset-0 bg-gradient-to-b from-ink/0 from-35% to-ink/90" />
       <div aria-hidden="true" className="absolute left-6 top-6 flex w-[220px] max-w-[calc(100%-48px)] flex-col gap-2 rounded-2xl bg-white p-3.5 text-ink shadow-[0_16px_36px_rgba(15,26,58,0.3)]">{children}</div>
-      <div className="absolute inset-x-7 bottom-7 flex flex-col gap-2">
+      <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2 bg-ink/90 px-7 pb-7 pt-5">
+        <div aria-hidden="true" className="absolute inset-x-0 -top-12 h-12 bg-gradient-to-b from-ink/0 to-ink/90" />
         <span className="font-display text-base font-extrabold text-gold">{n} · {name}</span>
         <h3 className="font-display text-[32px] font-extrabold leading-[1.05] tracking-[-0.02em]">{title}</h3>
         <p className="text-base text-white/85">{body}</p>
