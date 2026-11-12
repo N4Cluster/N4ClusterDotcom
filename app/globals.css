@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
 
 @theme {
   /* ---- Palette (site redesign: cream / navy / gold) ---- */
@@ -20,35 +21,15 @@
   --color-white: #FFFFFF;
 
   /* ---- Legacy palette (still used by older pages and app/t/**) ---- */
-  --color-navy-950: #040d1c;
   --color-navy-900: #0a1628;
   --color-navy-800: #0f2040;
-  --color-navy-700: #162d58;
-  --color-navy-600: #1e3a70;
 
   --color-cobalt-600: #1a4fd6;
   --color-cobalt-500: #2563eb;
-  --color-cobalt-400: #3b82f6;
-  --color-cobalt-300: #93c5fd;
 
-  --color-teal-600: #0d9488;
-  --color-teal-500: #14b8a6;
-  --color-teal-400: #2dd4bf;
-
-  --color-amber-500: #f59e0b;
-  --color-amber-400: #fbbf24;
-
-  --color-slate-950: #020617;
-  --color-slate-900: #0f172a;
-  --color-slate-800: #1e293b;
-  --color-slate-700: #334155;
   --color-slate-600: #475569;
   --color-slate-500: #64748b;
-  --color-slate-400: #94a3b8;
-  --color-slate-300: #cbd5e1;
-  --color-slate-200: #e2e8f0;
   --color-slate-100: #f1f5f9;
-  --color-slate-50: #f8fafc;
 
   /* ---- Typography ---- */
   --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -114,22 +95,6 @@
     text-wrap: balance;
   }
 
-  .gradient-hero {
-    background: linear-gradient(135deg, #040d1c 0%, #0f2040 40%, #162d58 100%);
-  }
-
-  .gradient-cobalt {
-    background: linear-gradient(135deg, #1a4fd6 0%, #2563eb 100%);
-  }
-
-  .gradient-section {
-    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-  }
-
-  .gradient-dark {
-    background: linear-gradient(135deg, #0a1628 0%, #162d58 100%);
-  }
-
   .card-hover {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
@@ -139,25 +104,7 @@
     box-shadow: 0 20px 40px -12px rgba(4, 13, 28, 0.15);
   }
 
-  .animate-fade-up {
-    animation: fadeUp 0.6s ease forwards;
-  }
-
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(16px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
   @media (prefers-reduced-motion: reduce) {
-    .animate-fade-up {
-      animation: none;
-    }
     .card-hover:hover {
       transform: none;
     }

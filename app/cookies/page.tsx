@@ -8,11 +8,11 @@ export const metadata: Metadata = {
 
 export default function CookiesPage() {
   return (
-    <section className="bg-white pt-32 pb-20">
+    <section className="bg-cream py-16 sm:py-20">
       <Container size="md">
-        <div className="prose prose-slate max-w-none">
+        <div className="prose max-w-none text-ink prose-headings:font-display prose-headings:text-ink prose-p:text-ink-2 prose-li:text-ink-2 prose-strong:text-ink prose-a:text-green-deep prose-a:underline-offset-2 prose-hr:border-line">
           <h1>Cookie Notice</h1>
-          <p className="text-slate-600 text-sm">Last updated: September 2026</p>
+          <p className="text-muted text-sm">Last updated: September 2026</p>
 
           <p>
             This Cookie Notice explains how N4Cluster uses cookies and similar technologies on the n4cluster.com website. Analytics cookies are not set unless you accept them in the consent banner shown on your first visit — browsing the site is not treated as consent.

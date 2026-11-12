@@ -17,11 +17,11 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <section className="bg-white pt-32 pb-20">
+    <section className="bg-cream py-16 sm:py-20">
       <Container size="md">
-        <div className="prose prose-slate max-w-none">
+        <div className="prose max-w-none text-ink prose-headings:font-display prose-headings:text-ink prose-p:text-ink-2 prose-li:text-ink-2 prose-strong:text-ink prose-a:text-green-deep prose-a:underline-offset-2 prose-hr:border-line">
           <h1>Terms of Service</h1>
-          <p className="text-slate-600 text-sm">Last updated: November 5, 2026</p>
+          <p className="text-muted text-sm">Last updated: November 5, 2026</p>
 
           <p>
             These Terms of Service (&quot;Terms&quot;) govern your access to and use of the N4Cluster website located at n4cluster.com (the &quot;Site&quot;). By using the Site, you agree to these Terms.
