@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { proseClasses } from "@/lib/prose";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { resources } from "@/content/pages/resources";
@@ -67,7 +68,7 @@ export default async function ResourceArticlePage({
           {resource.excerpt}
         </p>
 
-        <article className="prose prose-lg max-w-none">
+        <article className={`${proseClasses} prose-lg`}>
           {resource.body.map((paragraph, i) => (
             <p
               key={i}

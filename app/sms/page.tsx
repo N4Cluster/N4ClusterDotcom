@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { proseClasses } from "@/lib/prose";
 import { Container } from "@/components/ui/Container";
 import {
   dealsOptInSteps,
@@ -29,7 +30,7 @@ export default function SmsPage() {
   return (
     <section className="bg-cream py-16 sm:py-20">
       <Container size="md">
-        <div className="prose max-w-none text-ink prose-headings:font-display prose-headings:text-ink prose-p:text-ink-2 prose-li:text-ink-2 prose-strong:text-ink prose-a:text-green-deep prose-a:underline-offset-2 prose-hr:border-line">
+        <div className={proseClasses}>
           <h1>N4Cluster Text Messaging</h1>
           <p>
             N4Cluster sends three kinds of text messages, each with its own opt-in. Only N4Cluster Deals contains marketing, and it needs its own checkbox. This page shows each opt-in screen, the exact disclosure shown with it, and sample messages.

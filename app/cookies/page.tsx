@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { proseClasses } from "@/lib/prose";
 import { Container } from "@/components/ui/Container";
 
 export const metadata: Metadata = {
@@ -10,7 +11,7 @@ export default function CookiesPage() {
   return (
     <section className="bg-cream py-16 sm:py-20">
       <Container size="md">
-        <div className="prose max-w-none text-ink prose-headings:font-display prose-headings:text-ink prose-p:text-ink-2 prose-li:text-ink-2 prose-strong:text-ink prose-a:text-green-deep prose-a:underline-offset-2 prose-hr:border-line">
+        <div className={proseClasses}>
           <h1>Cookie Notice</h1>
           <p className="text-muted text-sm">Last updated: September 2026</p>
 
