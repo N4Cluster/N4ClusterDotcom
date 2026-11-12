@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { mission, values, demoCta, founderQuote } from "@/content/company";
 import { faqItems, homeFaqItems } from "@/content/pages/faq";
+import { pilotRestaurants } from "@/content/pages/pilot";
 import { priceDisplay } from "@/content/site/pricing";
 
 const read = (path: string) => readFileSync(path, "utf8");
@@ -184,5 +185,23 @@ describe("fee claims across merchant acquisition copy", () => {
   it("quotes the fees from the single pricing source", () => {
     expect(priceDisplay.merchantFees).toBe("$99/month + $0.50 per order");
     expect(read("app/mission/page.tsx")).toContain("priceDisplay");
+  });
+});
+
+describe("homepage finish", () => {
+  it("pilot list has Pasta and Pita Grill with no invented quote or results", () => {
+    expect(pilotRestaurants[0].name).toBe("Pasta and Pita Grill");
+    expect(pilotRestaurants[0].quote).toBeNull();
+    expect(pilotRestaurants[0].results).toBeNull();
+  });
+
+  it("homepage uses demoCta.label and not the old city pair", () => {
+    const src = read("app/page.tsx") + read("components/home/FinalCta.tsx");
+    expect(src).toContain("demoCta.label");
+    expect(read("app/page.tsx")).not.toContain("Franklin & Columbia");
+  });
+
+  it("pilot section uses no stock photo", () => {
+    expect(read("components/home/PilotSection.tsx")).not.toContain("/images/stock/");
   });
 });
