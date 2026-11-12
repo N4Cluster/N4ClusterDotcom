@@ -11,7 +11,7 @@ export function Hero() {
           <span className="size-2 rounded-full bg-green" />
           Commission-free online ordering
         </span>
-        <h1 className="font-display text-[clamp(42px,min(6.4vw,7svh),88px)] font-extrabold leading-[0.95] tracking-[-0.04em]">
+        <h1 className="font-display text-[clamp(48px,6.4vw,88px)] md:text-[clamp(42px,min(6.4vw,7svh),88px)] font-extrabold leading-[0.95] tracking-[-0.04em]">
           Stop paying <span className="box-decoration-clone rounded-[14px] bg-gold px-2.5">30%</span> to sell your own food.
         </h1>
         <p className="max-w-[540px] text-xl leading-[1.55] text-ink-2 md:text-[min(20px,2.6svh)]">
