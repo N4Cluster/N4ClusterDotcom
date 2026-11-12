@@ -61,10 +61,10 @@ export function NewsletterForm({
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder={placeholder}
-          className={`w-full rounded-full border px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold/40 ${
+          className={`w-full rounded-full border px-4 py-2.5 text-sm focus:outline-none focus:ring-2 ${
             dark
-              ? "bg-white/10 border-white/30 text-white placeholder-white/50"
-              : "bg-white border-muted text-ink placeholder-muted"
+              ? "bg-white/10 border-white/30 text-white placeholder-white/50 focus:border-gold focus:ring-gold/30"
+              : "bg-white border-muted text-ink placeholder-muted focus:border-ink focus:ring-ink/20"
           } ${error ? "border-red" : ""}`}
         />
         {error && <p className={`mt-1 text-xs ${dark ? "text-[#ffb4a3]" : "text-red"}`}>{error}</p>}
