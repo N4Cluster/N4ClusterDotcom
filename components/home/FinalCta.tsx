@@ -8,8 +8,8 @@ export function FinalCta() {
       <div className="on-dark mx-auto flex max-w-[1280px] flex-wrap overflow-hidden rounded-[36px] bg-ink text-white">
         <div className="flex min-w-0 flex-[1_1_520px] flex-col justify-center gap-[22px] p-[clamp(40px,6vw,80px)]">
           <h2 className="font-display text-[clamp(40px,5.4vw,72px)] font-extrabold leading-[0.98] tracking-[-0.04em]">
-            Keep the customer.<br />
-            <span className="text-gold">Keep the margin.</span>
+            Your guests order straight from you.<br />
+            <span className="text-gold">You keep the customer and the margin.</span>
           </h2>
           <p className="text-lg text-white/80">See your own demo storefront in one short call.</p>
           <div className="flex flex-wrap gap-3">
@@ -22,7 +22,7 @@ export function FinalCta() {
           </div>
         </div>
         <div className="relative min-h-[380px] min-w-0 flex-[1_1_400px]">
-          <Image src="/images/stock/grain-bowl.jpg" alt="" fill sizes="(min-width: 768px) 40vw, 100vw" className="object-cover" />
+          <Image src="/images/stock/french-toast-raspberry.jpg" alt="" fill sizes="(min-width: 768px) 40vw, 100vw" className="object-cover" />
         </div>
       </div>
     </section>

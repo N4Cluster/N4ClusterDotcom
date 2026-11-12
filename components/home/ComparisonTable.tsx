@@ -17,7 +17,7 @@ export function ComparisonTable() {
       <div className="mb-11 max-w-[820px]">
         <div className="mb-3.5 text-sm font-bold uppercase tracking-[0.08em] text-red">Three ways to sell online</div>
         <h2 className="font-display text-[clamp(38px,5vw,64px)] font-extrabold leading-none tracking-[-0.035em]">
-          Marketplaces take a cut. SaaS takes a big flat bite. We take neither.
+          Apps take 20–30% of every order and flat-fee software bills you every month. We take no commission.
         </h2>
       </div>
 

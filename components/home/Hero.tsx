@@ -56,12 +56,12 @@ export function Hero() {
         <StorefrontPhone className="md:absolute md:-bottom-7 md:left-0" />
         <div
           aria-hidden="true"
-          className="flex items-center gap-2.5 rounded-2xl bg-gold py-2.5 pl-2.5 pr-3.5 text-ink shadow-[0_16px_40px_rgba(15,26,58,0.3)] md:absolute md:bottom-9 md:right-6"
+          className="flex items-center gap-2.5 rounded-2xl bg-gold px-3.5 py-2.5 text-ink shadow-[0_16px_40px_rgba(15,26,58,0.3)] md:absolute md:bottom-9 md:right-6"
         >
-          <Image src="/images/stock/portrait-woman.jpg" alt="" width={36} height={36} className="size-9 rounded-full object-cover" />
+          <span className="size-2 flex-none rounded-full bg-ink" />
           <div>
-            <div className="text-[13px] font-bold">Maya just reordered</div>
-            <div className="text-xs">6th order · your guest, not the app&apos;s</div>
+            <div className="text-[13px] font-bold">Repeat order</div>
+            <div className="text-xs">6th visit this month</div>
           </div>
         </div>
       </div>

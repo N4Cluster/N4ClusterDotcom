@@ -2,9 +2,9 @@ import Image from "next/image";
 import { orderTotal } from "./figures";
 
 const items = [
-  { name: "Shrimp linguine", price: "$16.50", src: "shrimp-spaghetti" },
   { name: "Penne arrabbiata", price: "$12.00", src: "pasta-penne" },
   { name: "Crispy chicken", price: "$11.50", src: "fried-chicken" },
+  { name: "Noodle bowl", price: "$14.00", src: "noodle-bowl-egg" },
 ];
 
 export function StorefrontPhone({ className = "" }: { className?: string }) {
@@ -15,7 +15,7 @@ export function StorefrontPhone({ className = "" }: { className?: string }) {
       className={`w-64 overflow-hidden rounded-[38px] border-[9px] border-ink bg-white shadow-[0_30px_60px_rgba(15,26,58,0.35)] ${className}`}
     >
       <div className="relative h-[118px]">
-        <Image src="/images/stock/grain-bowl.jpg" alt="" fill sizes="256px" className="object-cover" />
+        <Image src="/images/stock/shrimp-spaghetti.jpg" alt="" fill sizes="256px" className="object-cover" />
         <div className="absolute inset-0 flex flex-col justify-end bg-ink/45 px-3.5 py-3 text-white">
           <div className="font-display text-[19px] font-extrabold leading-[1.1]">Maple Street Kitchen</div>
           <div className="text-[11px]">Open until 9pm · Franklin, TN</div>

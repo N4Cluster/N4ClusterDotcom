@@ -6,7 +6,6 @@ export const footerLinks = [
       { label: "Rewards", href: "/platform#rewards" },
       { label: "Delivery", href: "/platform#delivery" },
       { label: "Pricing", href: "/pricing" },
-      { label: "Integrations", href: "/integrations" },
     ],
   },
   {
@@ -14,7 +13,6 @@ export const footerLinks = [
     links: [
       { label: "Savings calculator", href: "/roi-calculator" },
       { label: "FAQ", href: "/faq" },
-      { label: "Insights", href: "/resources" },
     ],
   },
   {
@@ -23,8 +21,6 @@ export const footerLinks = [
       { label: "About", href: "/about" },
       { label: "Mission", href: "/mission" },
       { label: "Solutions", href: "/solutions" },
-      { label: "Partners", href: "/partners" },
-      { label: "Careers", href: "/careers" },
       { label: "Contact", href: "/contact" },
     ],
   },

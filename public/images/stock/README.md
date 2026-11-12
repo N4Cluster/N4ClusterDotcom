@@ -15,7 +15,6 @@ Stock, atmosphere only. Not real N4Cluster merchants or customers.
 | salmon-lemon.jpg | 538717c721c0c49777d1a3da6364fa3e.jpg |
 | squash-soup.jpg | 59bb5f18baa4ba22a98d3b34ff9b8368.jpg |
 | pasta-penne.jpg | 62aa634b8c3f3af41cd8a9da439803fb.jpg |
-| portrait-woman.jpg | 807524d5211b1428b23e1a2c72152d1f.jpg |
 | noodle-bowl-egg.jpg | 80816c95da00decb4a99bb2b00e07d16.jpg |
 | shrimp-spaghetti.jpg | de96b63696c146e4bf2f30b4d2e419cf.jpg |
 | croissant-tray.jpg | f32c923d3571cf1c26ffafb2ea6c1b53.jpg |

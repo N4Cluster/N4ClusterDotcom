@@ -14,7 +14,7 @@ export function LiveInDays({ headingLevel: H = "h2" }: { headingLevel?: "h1" | "
         <div className="flex min-w-0 flex-[1_1_380px] flex-col gap-[22px]">
           <div className="text-sm font-bold uppercase tracking-[0.08em] text-red">How it works</div>
           <H id="live-in-days" className="font-display text-[clamp(38px,5vw,64px)] font-extrabold leading-none tracking-[-0.035em]">
-            Live in days. Not quarters.
+            We build your site in days, and you approve it before it goes live.
           </H>
           <p className="text-lg text-ink-2">
             We do the setup. You approve it. We scope the exact steps and timing for your restaurant before you commit.

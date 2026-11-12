@@ -63,7 +63,7 @@
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.02em;
-    color: var(--color-ink);
+    color: inherit; /* body is ink; on-dark sections set text-white */
   }
 
   ::selection {

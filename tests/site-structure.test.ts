@@ -90,8 +90,9 @@ describe("navigation", () => {
   it("puts the expected links in the footer groups", () => {
     const hrefs = (h: string) => footerLinks.find((g) => g.heading === h)?.links.map((l) => l.href) ?? [];
     expect(footerLinks.map((g) => g.heading)).toEqual(["Product", "Resources", "Company"]);
-    expect(hrefs("Company")).toEqual(expect.arrayContaining(["/mission", "/solutions", "/partners", "/careers"]));
-    expect(hrefs("Product")).toContain("/integrations");
+    expect(hrefs("Company")).toEqual(expect.arrayContaining(["/mission", "/solutions"]));
+    const all = footerLinks.flatMap((g) => g.links.map((l) => l.href));
+    for (const gone of ["/resources", "/careers", "/partners", "/integrations"]) expect(all).not.toContain(gone);
   });
 });
 

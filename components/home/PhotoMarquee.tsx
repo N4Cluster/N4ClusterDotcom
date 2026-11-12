@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 const photos: [string, number][] = [
-  ["ramen-shrimp.jpg", 220], ["salmon-lemon.jpg", 300], ["egg-toast.jpg", 220], ["coffee-cups-overhead.jpg", 300],
+  ["grain-bowl.jpg", 220], ["salmon-lemon.jpg", 300], ["egg-toast.jpg", 220], ["coffee-cups-overhead.jpg", 300],
   ["squash-soup.jpg", 220], ["sandwich-carrot.jpg", 300], ["noodle-bowl-egg.jpg", 290], ["french-toast-raspberry.jpg", 300],
 ];
 
