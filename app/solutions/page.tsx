@@ -36,7 +36,6 @@ const solutions: Solution[] = [
       "Your name on the ordering page, not a marketplace logo — customers order from you, not through a middleman",
       "Your customer data is yours — we'll send you a copy whenever you ask.",
       "Growth campaigns draft themselves for the regulars who've drifted — nothing goes out without your OK",
-      "A listing in a neighborhood directory puts your kitchen in front of neighbors deciding where to order tonight",
       "We dispatch through DoorDash Drive and Uber Direct and chase any order that runs late",
       `One fixed price. No commission, ever. ${priceDisplay.cancel}`,
     ],
@@ -67,7 +66,6 @@ const solutions: Solution[] = [
       "One branded ordering experience across your locations",
       "Multi-location support built in — no separate setup for each spot",
       "Menus, specials and sold-out items update as you change them",
-      "Every location can be listed in the neighborhood directory for the neighbors close enough to order",
       "One fixed price. No commission, ever.",
     ],
     outcomes: [

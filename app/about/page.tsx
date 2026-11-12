@@ -18,7 +18,6 @@ export const metadata: Metadata = {
 const capabilities = [
   { name: "Orchestration", description: "Your menu, orders, payments and delivery kept in step, so nothing falls between systems." },
   { name: "Intelligence", description: "Demand forecasting and campaign drafts that wait for your OK." },
-  { name: "Discovery", description: "A listing in a neighborhood directory alongside other local spots." },
 ];
 
 export default function AboutPage() {
@@ -101,10 +100,10 @@ export default function AboutPage() {
           <SectionIntro
             eyebrow="What we run"
             heading="One platform, in plain words"
-            subheading="Ordering on your own domain, rewards, growth campaigns you approve, delivery we coordinate, and a listing in a neighborhood directory."
+            subheading="Ordering on your own domain, rewards, growth campaigns you approve, and delivery we coordinate."
             dark
           />
-          <div className="mx-auto grid max-w-3xl grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="mx-auto grid max-w-3xl grid-cols-1 gap-6 md:grid-cols-2">
             {capabilities.map((c) => (
               <div key={c.name} className="rounded-[22px] border border-ink-2 p-6 text-center">
                 <h3 className="font-display mb-2 text-lg font-bold text-white">{c.name}</h3>

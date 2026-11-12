@@ -33,7 +33,7 @@ const protections = [
   },
   {
     title: "Nothing's locked behind a paywall",
-    body: "Ordering, rewards, growth tools, delivery coordination and your neighborhood directory listing are all included. There are no add-on modules, tiered feature unlocks, or upgrade tiers.",
+    body: "Ordering, rewards, growth tools and delivery coordination are all included. There are no add-on modules, tiered feature unlocks, or upgrade tiers.",
   },
   {
     title: "We can't ambush you with a price hike",
@@ -266,7 +266,6 @@ export default function PricingPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {[
               { title: "White-label ordering site", sub: "Fully branded under your domain. Menu, categories, imagery, pricing — yours to control." },
-              { title: "Neighborhood directory listing", sub: "Your restaurant listed alongside other local spots — sorted by distance, not commission." },
               { title: "AI forecasting and growth campaigns", sub: "Demand forecasting and campaigns to lapsed regulars — sent only with your OK." },
               { title: "Delivery coordination", sub: "Dispatch through DoorDash Drive and Uber Direct, delivery-time tracking, and chasing late orders — with risk protection." },
               { title: "POS integration and sync", sub: "Menu and availability kept in sync with your POS. No manual updates. No extra tablets." },

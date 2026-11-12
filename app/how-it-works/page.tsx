@@ -30,7 +30,7 @@ const phases = [
   {
     tag: "Within days",
     headline: "One approval. You're live.",
-    sub: "Your branded ordering site goes live under your name, and your restaurant is listed in a neighborhood directory alongside other local spots.",
+    sub: "Your branded ordering site goes live under your name, on your own domain.",
     tasks: [
       "Branded ordering site live under your domain",
       "Menu and availability kept in step with your POS",

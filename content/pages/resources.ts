@@ -72,7 +72,6 @@ export const resources: Resource[] = [
       "Marketplace platforms treat every order as a new acquisition event. The customer opens the app, browses options, and the algorithm decides who gets visibility. This model benefits the platform, not the merchant.",
       "Neighborhood demand works differently. When customers order directly from a merchant's own channel, the relationship is between the customer and the business, not the customer and the platform. Repeat behavior is driven by the merchant's brand, quality, and engagement, not by algorithmic placement.",
       "This creates a compounding effect. Each satisfied direct order increases the likelihood of a repeat order. Each repeat order reduces acquisition cost. Over time, the merchant builds a base of loyal customers who come back because they want to, not because an algorithm showed them a coupon.",
-      "A neighborhood directory listing amplifies this effect. When multiple merchants in a neighborhood operate on the same infrastructure, they create shared demand density. A customer who discovers one merchant through the directory is exposed to others nearby. Delivery becomes more efficient because routes are denser. The entire neighborhood benefits.",
       "This is the network effect that marketplaces capture for themselves. With merchant-owned infrastructure, the value stays local. The merchants grow, the neighborhood grows, and the customers get a better experience without the platform tax.",
     ],
   },

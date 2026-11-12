@@ -24,7 +24,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "What is N4Cluster?",
     answer:
-      "N4Cluster gives neighborhood restaurants a branded direct-ordering channel, so customers who already know you can order from you under your own name. It includes your own ordering site, a listing in a neighborhood directory, growth tools, and delivery coordination, for one fixed price with no commission, ever. Card processing and any courier charges are separate.",
+      "N4Cluster gives neighborhood restaurants a branded direct-ordering channel, so customers who already know you can order from you under your own name. It includes your own ordering site, rewards, growth tools, and delivery coordination, for one fixed price with no commission, ever. Card processing and any courier charges are separate.",
   },
   {
     question: "How is N4Cluster different from marketplace delivery platforms?",
@@ -39,7 +39,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "What does the price cover?",
     answer:
-      "They cover the N4Cluster platform: your branded ordering site, your neighborhood directory listing, growth tools, delivery coordination, and POS integration. There are no tiered plans and no add-on modules. Two things are not included: card processing, which your payment processor charges separately, and any courier charges for delivery. Diners normally pay a small N4Cluster fee at checkout unless you choose to absorb it.",
+      "They cover the N4Cluster platform: your branded ordering site, rewards, growth tools, delivery coordination, and POS integration. There are no tiered plans and no add-on modules. Two things are not included: card processing, which your payment processor charges separately, and any courier charges for delivery. Diners normally pay a small N4Cluster fee at checkout unless you choose to absorb it.",
   },
   {
     question: "What is the customer fee?",
@@ -60,11 +60,6 @@ export const faqItems: FAQItem[] = [
     question: "How does delivery work?",
     answer:
       "We dispatch through DoorDash Drive and Uber Direct and chase any order that runs late, with delivery-time tracking on every order, so you are not managing drivers. Delivery charges depend on your address and are separate from N4Cluster's fees. Ask us what applies at your address before you rely on it.",
-  },
-  {
-    question: "Will my restaurant be listed anywhere besides my own site?",
-    answer:
-      "Yes. Your restaurant gets a listing in an N4Cluster neighborhood directory alongside other local spots, sorted by distance rather than by who pays the most. It is part of the platform at no additional cost.",
   },
   {
     question: "How quickly can I go live?",
