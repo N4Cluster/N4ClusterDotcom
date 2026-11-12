@@ -29,7 +29,7 @@ export function Hero() {
             maxLength={120}
             aria-label="Restaurant name"
             placeholder="Your restaurant's name"
-            className="min-w-0 flex-[1_1_220px] bg-transparent px-4 py-3.5 text-[17px] text-ink outline-none focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-ink focus-visible:rounded-xl placeholder:text-muted"
+            className="min-w-0 flex-[1_1_220px] bg-transparent px-4 py-3.5 text-[17px] text-ink focus-visible:outline-solid focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-ink focus-visible:rounded-xl placeholder:text-muted"
           />
           <button
             type="submit"
