@@ -402,7 +402,7 @@ export default function PricingPage() {
               },
               {
                 q: "What counts as a material change that triggers the 180-day notice and exit right?",
-                a: "Anything that touches the core structure: moving to commission, switching the fee basis from flat/per-order to revenue-based, raising the $99/month platform fee outside the CPI formula, or changing who the customer fee is attributed to. Adjustments inside the CPI formula with 90-day notice don't count — those are business as usual.",
+                a: "Anything that touches the core structure: moving to commission, switching the fee basis from flat/per-order to revenue-based, raising the $99/month platform fee outside the CPI formula, or changing who the Neighbourhood fee is attributed to. Adjustments inside the CPI formula with 90-day notice don't count — those are business as usual.",
               },
             ].map((faq) => (
               <div key={faq.q} className="rounded-2xl p-6" style={{ background: "var(--color-cream-2)", border: "1px solid var(--color-line)" }}>

@@ -69,7 +69,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "Can I try it free?",
     answer:
-      "Yes — 30 days. The trial waives N4Cluster's merchant platform fee and per-order fees, so you pay no N4Cluster merchant fees during that period. Card processing still applies to any card payment you take, and the diner fee is a separate charge — ask us how it is handled during your trial. We build a working demo storefront with your real menu and walk you through it before you decide anything.",
+      "Yes — 30 days. The trial waives N4Cluster's merchant platform fee and per-order fees, so you pay no N4Cluster merchant fees during that period. Card processing still applies to any card payment you take, and the Neighbourhood fee is a separate charge — ask us how it is handled during your trial. We build a working demo storefront with your real menu and walk you through it before you decide anything.",
   },
   {
     question: "I don't have a website. Is that a problem?",
