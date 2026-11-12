@@ -83,7 +83,7 @@ export const faqItems: FAQItem[] = [
   },
   {
     question: "What if I want to cancel?",
-    answer: `It's month-to-month. Your first 30 days are free. ${priceDisplay.cancel} Your customer data is yours — we'll send you a copy whenever you ask.`,
+    answer: `30 days free, then month-to-month. Cancel with 30 days' written notice. Your customer data is yours — we'll send you a copy whenever you ask.`,
   },
   {
     question: "Am I locked in?",

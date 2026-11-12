@@ -46,7 +46,7 @@ export function SiteFooter() {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-white/15 py-6 sm:flex-row">
-          <p className="text-[13px] text-white/70">© 2026 N4Cluster Inc. All rights reserved.</p>
+          <p className="text-[13px] text-white/70">© {new Date().getFullYear()} N4Cluster Inc. All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             <Link href="/privacy" className={legalClass}>Privacy</Link>
             <Link href="/terms" className={legalClass}>Terms</Link>

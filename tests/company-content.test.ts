@@ -116,7 +116,7 @@ describe("FAQ commercial accuracy", () => {
       "What if I want to cancel?",
     ]);
     const cancel = homeFaqItems[4].answer;
-    expect(cancel).toContain(priceDisplay.cancel);
+    expect(cancel).toContain("30 days free, then month-to-month. Cancel with 30 days' written notice.");
     expect(cancel).not.toMatch(/cancel anytime|export anytime|exportable/i);
   });
 
@@ -162,6 +162,10 @@ describe("fee claims across merchant acquisition copy", () => {
     "app/mission/page.tsx",
     "app/roi-calculator/ROICalculator.tsx",
   ];
+
+  it("pricing page discloses card processing", () => {
+    expect(read("app/pricing/page.tsx")).toMatch(/card processing/i);
+  });
 
   it("no page promises free or unconditional 30-minute delivery", () => {
     for (const page of pages) {

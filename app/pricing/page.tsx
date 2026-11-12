@@ -82,7 +82,7 @@ export default function PricingPage() {
       {/* Core fee callout */}
       <section className="py-16 md:py-20" style={{ background: "#fff" }}>
         <Container size="lg">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center [&>*]:min-w-0">
             <div>
               <span className="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4" style={{ background: "var(--color-green-tint)", color: "var(--color-green)" }}>
                 Merchant fee
@@ -116,7 +116,7 @@ export default function PricingPage() {
               <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid var(--color-line)" }}>
                 <div className="px-5 py-4" style={{ background: "var(--color-cream-2)", borderBottom: "1px solid var(--color-line)" }}>
                   <div className="text-sm font-bold" style={{ color: "var(--color-ink)" }}>Platform fee taken on a $40 / $80 / $150 order</div>
-                  <div className="text-xs mt-0.5" style={{ color: "var(--color-muted)" }}>Per-order platform fees only — card processing excluded on both sides, as is N4Cluster&apos;s flat $99/month platform fee. Commission rates are typical published rates.</div>
+                  <div className="text-xs mt-0.5" style={{ color: "var(--color-muted)" }}>Per-order platform fees only — card processing excluded on both sides, as is N4Cluster&apos;s flat $99/month platform fee. Commission rates are typical published rates and vary by provider.</div>
                 </div>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
@@ -383,7 +383,7 @@ export default function PricingPage() {
               },
               {
                 q: "Is there a setup fee?",
-                a: "None. You pay a flat $99/month platform fee plus $0.50 per order — that's it. The $99/month never moves. Have a slow month? Your order volume drops, so your per-order cost drops with it — but the platform fee stays put.",
+                a: "None. You pay a flat $99/month platform fee plus $0.50 per order — that's it. The $99/month doesn't change with your volume. Have a slow month? Your order volume drops, so your per-order cost drops with it — but the platform fee stays put.",
               },
               {
                 q: "Does the fee change if my order volume increases?",

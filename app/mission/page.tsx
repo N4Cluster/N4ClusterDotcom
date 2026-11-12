@@ -49,7 +49,7 @@ export default function MissionPage() {
               <Button href={demoCta.href} size="lg">
                 {demoCta.label}
               </Button>
-              <Button href="/pricing" size="lg" variant="outline">
+              <Button href="/pricing" size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-ink">
                 See pricing
               </Button>
             </div>

@@ -15,7 +15,7 @@ export function PilotSection() {
           <p className="text-lg">
             We&apos;re onboarding a small group of pilot restaurants. You get a founder on speed dial and a real say in what we build next.
           </p>
-          <Link href="/contact" className="on-dark mt-auto self-start rounded-full bg-ink px-6 py-[15px] font-bold text-white hover:bg-ink-2">
+          <Link href="/contact" className="mt-auto self-start rounded-full bg-ink px-6 py-[15px] font-bold text-white hover:bg-ink-2">
             Apply for a pilot spot
           </Link>
         </div>

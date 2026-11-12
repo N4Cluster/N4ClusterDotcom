@@ -54,7 +54,7 @@ export function CookieConsent() {
           </button>
           <button
             onClick={() => setConsent("granted")}
-            className="bg-gold hover:brightness-95 text-ink text-sm font-semibold px-5 py-2 rounded-full transition-colors"
+            className="focus-visible:outline-white bg-gold hover:brightness-95 text-ink text-sm font-semibold px-5 py-2 rounded-full transition-colors"
           >
             Accept
           </button>

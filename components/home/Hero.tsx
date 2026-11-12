@@ -29,11 +29,11 @@ export function Hero() {
             maxLength={120}
             aria-label="Restaurant name"
             placeholder="Your restaurant's name"
-            className="min-w-0 flex-[1_1_220px] bg-transparent px-4 py-3.5 text-[17px] text-ink outline-none placeholder:text-muted"
+            className="min-w-0 flex-[1_1_220px] bg-transparent px-4 py-3.5 text-[17px] text-ink outline-none focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-ink focus-visible:rounded-xl placeholder:text-muted"
           />
           <button
             type="submit"
-            className="on-dark min-h-[54px] flex-none rounded-xl bg-ink px-6 text-base font-bold text-white hover:bg-ink-2"
+            className="min-h-[54px] flex-none rounded-xl bg-ink px-6 text-base font-bold text-white hover:bg-ink-2"
           >
             {heroCta.label} →
           </button>
