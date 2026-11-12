@@ -5,16 +5,16 @@ import { StorefrontPhone } from "./StorefrontPhone";
 
 export function Hero() {
   return (
-    <section className="mx-auto flex max-w-[1280px] flex-wrap items-center gap-14 px-6 pb-[72px] pt-16">
-      <div className="flex min-w-0 flex-[1_1_500px] flex-col gap-[26px]">
+    <section className="mx-auto flex max-w-[1280px] flex-wrap items-center gap-14 px-6 pb-[72px] pt-16 md:pb-10 md:pt-8">
+      <div className="flex min-w-0 flex-[1_1_500px] flex-col gap-[26px] md:gap-[min(20px,2.4svh)]">
         <span className="inline-flex items-center gap-2 self-start rounded-full border border-line bg-white px-3.5 py-[7px] text-sm font-semibold text-ink-2">
           <span className="size-2 rounded-full bg-green" />
           Commission-free online ordering
         </span>
-        <h1 className="font-display text-[clamp(48px,6.4vw,88px)] font-extrabold leading-[0.95] tracking-[-0.04em]">
+        <h1 className="font-display text-[clamp(42px,min(6.4vw,7svh),88px)] font-extrabold leading-[0.95] tracking-[-0.04em]">
           Stop paying <span className="box-decoration-clone rounded-[14px] bg-gold px-2.5">30%</span> to sell your own food.
         </h1>
-        <p className="max-w-[540px] text-xl leading-[1.55] text-ink-2">
+        <p className="max-w-[540px] text-xl leading-[1.55] text-ink-2 md:text-[min(20px,2.6svh)]">
           Your own branded ordering site, built-in rewards and delivery we coordinate. No commission, ever.
         </p>
         <form
@@ -42,7 +42,7 @@ export function Hero() {
         </p>
       </div>
 
-      <div className="relative min-w-0 flex-[1_1_540px] max-md:flex max-md:flex-col max-md:items-center max-md:gap-6 md:h-[640px]">
+      <div className="relative min-w-0 flex-[1_1_540px] max-md:flex max-md:flex-col max-md:items-center max-md:gap-6 md:h-[clamp(370px,calc(100svh-320px),640px)]">
         <Image
           src="/images/stock/cafe-counter.jpg"
           alt=""
@@ -53,7 +53,7 @@ export function Hero() {
           className="rounded-[32px] object-cover object-[70%_center] max-md:h-[320px] max-md:w-full md:absolute md:right-0 md:top-0 md:h-full md:w-[calc(100%-64px)]"
         />
         <OrderCard className="md:absolute md:right-6 md:top-7" />
-        <StorefrontPhone className="md:absolute md:-bottom-7 md:left-0" />
+        <StorefrontPhone className="md:absolute md:-bottom-7 md:left-0 md:origin-bottom-left md:scale-[0.8]" />
         <div
           aria-hidden="true"
           className="flex items-center gap-2.5 rounded-2xl bg-gold px-3.5 py-2.5 text-ink shadow-[0_16px_40px_rgba(15,26,58,0.3)] md:absolute md:bottom-9 md:right-6"
