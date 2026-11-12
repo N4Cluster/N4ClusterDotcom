@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Bricolage_Grotesque, Inter } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
@@ -12,6 +12,13 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
+});
+
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["600", "700", "800"],
+  variable: "--font-bricolage",
 });
 
 export const metadata: Metadata = {
@@ -28,8 +35,6 @@ export const metadata: Metadata = {
     "direct ordering platform",
     "local business growth",
     "N4Cluster",
-    "N4Sync",
-    "N4Logic",
   ],
   authors: [{ name: "N4Cluster" }],
   creator: "N4Cluster",
@@ -77,7 +82,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${bricolage.variable}`}>
       <head>
         <script
           type="application/ld+json"
