@@ -257,7 +257,7 @@ export default function PricingPage() {
       </section>
 
       {/* The 4 N's */}
-      <section className="on-dark bg-ink py-16 md:py-24">
+      <section id="four-ns" className="on-dark bg-ink py-16 md:py-24 scroll-mt-20">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4" style={{ background: "rgba(244,179,62,0.2)", color: "var(--color-gold)" }}>
