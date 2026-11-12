@@ -150,8 +150,9 @@ inline script. Its defaults are the mockup's (400 orders, $35, 25%; rate chips 2
 All pages get the new header/footer, cream background, type and components. Content
 stays, with the copy decisions applied. Specifically:
 
-- **Removed:** `/n4logic`. Delete the page, its nav entries, sitemap entry and tests;
-  add a permanent redirect `/n4logic` → `/` in `next.config.ts`.
+- **Removed completely:** `/n4logic`. Delete the page, its nav/footer entries, sitemap
+  entry, `theme.ts` entry and tests. **No redirect** (owner's decision) — the URL 404s.
+  Also remove in-site links pointing to it.
 - **Kept + restyled:** `/platform`, `/pricing`, `/how-it-works`, `/solutions`, `/about`,
   `/mission`, `/contact`, `/faq`, `/roi-calculator`, `/resources`, `/resources/[slug]`,
   `/integrations`, `/partners`, `/careers`, legal pages (style only).
