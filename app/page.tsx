@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { HeroSplit } from "@/components/sections/HeroSplit";
+import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
+import { Hero } from "@/components/home/Hero";
+import { StatStrip } from "@/components/home/StatStrip";
 import { TrustStrip } from "@/components/sections/TrustStrip";
 import { CTASection } from "@/components/sections/CTASection";
 import { StepTimeline } from "@/components/sections/StepTimeline";
@@ -20,7 +22,6 @@ import {
   X,
 } from "lucide-react";
 
-import { demoCta } from "@/content/company";
 
 export const metadata: Metadata = {
   title: "N4Cluster | Commission-Free Online Ordering for Neighborhood Restaurants",
@@ -160,14 +161,9 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ── */}
-      <HeroSplit
-        eyebrow="Commission-free online ordering for neighborhood restaurants"
-        heading="Give your regulars a direct way to order from you."
-        subheading="Marketplace apps take 20–30% off every order. N4Cluster is $99/month plus $0.50 per order with zero N4Cluster sales commission — so customers who already know you can order under your own brand. Keep your delivery apps for discovery. Card processing is separate, and diners normally pay a $0.99 N4Cluster fee at checkout."
-        primaryCta={{ label: demoCta.label, href: demoCta.href }}
-        secondaryCta={{ label: "Calculate Your Savings", href: "/roi-calculator" }}
-        microcopy="30-day trial · $99/mo + $0.50 per order · Zero N4Cluster sales commission · Cancel per your agreement"
-      />
+      <AnnouncementBar />
+      <Hero />
+      <StatStrip />
 
       {/* ── Trust strip ── */}
       <TrustStrip items={trustItems} />

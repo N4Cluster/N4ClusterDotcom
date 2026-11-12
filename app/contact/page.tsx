@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { Badge } from "@/components/ui/Badge";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
+import { restaurantFromParam } from "@/lib/prefill";
 import { faqItems } from "@/content/pages/faq";
 
 export const metadata: Metadata = {
@@ -11,10 +12,15 @@ export const metadata: Metadata = {
     "Request a demo, discuss a pilot, or start a partner conversation with the N4Cluster team.",
 };
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ restaurant?: string | string[] }>;
+}) {
+  const restaurant = restaurantFromParam((await searchParams).restaurant);
   return (
     <>
-      <section className="gradient-hero pt-32 pb-20">
+      <section className="gradient-hero pt-16 pb-20">
         <Container size="lg">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             {/* Left: context */}
@@ -61,7 +67,7 @@ export default function ContactPage() {
               <p className="text-sm text-slate-500 mb-6">
                 Use the form below to request a demo, discuss a pilot, or start a partner conversation.
               </p>
-              <ContactForm variant="demo" />
+              <ContactForm variant="demo" initialCompany={restaurant} />
             </div>
           </div>
         </Container>

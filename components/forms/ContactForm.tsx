@@ -19,6 +19,7 @@ interface FormData {
 interface ContactFormProps {
   variant?: "contact" | "demo" | "partner";
   dark?: boolean;
+  initialCompany?: string;
 }
 
 const businessTypes = [
@@ -53,12 +54,12 @@ const interestAreas = [
   "General Inquiry",
 ];
 
-export function ContactForm({ variant = "contact", dark = false }: ContactFormProps) {
+export function ContactForm({ variant = "contact", dark = false, initialCompany = "" }: ContactFormProps) {
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
     workEmail: "",
-    company: "",
+    company: initialCompany,
     businessType: "",
     locations: "",
     interest: "",

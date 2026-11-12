@@ -55,9 +55,9 @@ describe("shared source is actually shared", () => {
     expect(read("app/about/page.tsx")).not.toContain("const principles");
   });
 
-  it("the demo CTA label is used rather than retyped on the homepage", () => {
+  it("the hero CTA label is used rather than retyped on the homepage", () => {
     expect(demoCta.label).toBe("Get a free demo");
-    expect(read("app/page.tsx")).toContain("demoCta.label");
+    expect(read("components/home/Hero.tsx")).toContain("heroCta.label");
   });
 
   it("the calculator reads its rates from the pricing source", () => {
