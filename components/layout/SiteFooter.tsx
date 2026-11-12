@@ -10,7 +10,7 @@ const legalClass = "text-[13px] text-white/70 hover:text-white transition-colors
 export function SiteFooter() {
   const { phone, phoneHref, email } = siteConfig.contact;
   return (
-    <footer className="bg-ink text-white/75">
+    <footer className="on-dark bg-ink text-white/75">
       <Container>
         <div className="flex flex-wrap justify-between gap-10 py-16">
           <div className="flex max-w-[340px] flex-1 basis-64 flex-col gap-3">

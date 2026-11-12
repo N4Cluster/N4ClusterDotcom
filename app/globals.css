@@ -95,6 +95,12 @@
     outline-offset: 2px;
     border-radius: 4px;
   }
+
+  /* Dark (ink) surfaces: add .on-dark so keyboard focus stays visible. */
+  .on-dark:focus-visible,
+  .on-dark :focus-visible {
+    outline-color: #fff;
+  }
 }
 
 @layer utilities {
