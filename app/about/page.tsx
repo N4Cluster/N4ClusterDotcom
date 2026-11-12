@@ -8,7 +8,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { complementaryChannels, mission, values } from "@/content/company";
 
 export const metadata: Metadata = {
-  title: "About N4Cluster",
+  title: "About",
   description:
     "N4Cluster was created so neighborhood restaurants can build direct customer relationships and stay in control of their brand, their data, and their economics.",
 };

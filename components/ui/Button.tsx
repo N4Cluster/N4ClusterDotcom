@@ -29,15 +29,15 @@ type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "bg-gold text-ink hover:brightness-95 shadow-sm hover:shadow-md focus-visible:ring-ink",
+    "bg-gold text-ink hover:brightness-95 shadow-sm hover:shadow-md",
   secondary:
-    "bg-ink text-white hover:bg-ink-2 shadow-sm focus-visible:ring-ink",
+    "bg-ink text-white hover:bg-ink-2 shadow-sm",
   ghost:
-    "bg-transparent text-ink hover:bg-cream-3 focus-visible:ring-ink",
+    "bg-transparent text-ink hover:bg-cream-3",
   outline:
-    "bg-transparent border-[1.5px] border-ink text-ink hover:bg-ink hover:text-white focus-visible:ring-ink",
+    "bg-transparent border-[1.5px] border-ink text-ink hover:bg-ink hover:text-white",
   danger:
-    "bg-red text-white hover:brightness-90 shadow-sm focus-visible:ring-red",
+    "bg-red text-white hover:brightness-90 shadow-sm",
 };
 
 const sizeClasses: Record<Size, string> = {
@@ -47,7 +47,7 @@ const sizeClasses: Record<Size, string> = {
 };
 
 const base =
-  "inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap";
+  "inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap";
 
 export function Button(props: ButtonProps) {
   const { variant = "primary", size = "md", className, children } = props;

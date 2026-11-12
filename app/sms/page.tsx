@@ -21,7 +21,7 @@ import {
 } from "@/content/legal/sms-page";
 
 export const metadata: Metadata = {
-  title: "N4Cluster Text Messaging",
+  title: "Text Messaging",
   description:
     "How N4Cluster text messaging works: the opt-in screen and exact disclosure for order notifications, verification codes and N4Cluster Deals, with sample messages.",
 };

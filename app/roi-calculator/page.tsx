@@ -3,7 +3,7 @@ import { HeroCentered } from "@/components/sections/HeroCentered";
 import { ROICalculator } from "./ROICalculator";
 
 export const metadata: Metadata = {
-  title: "Fee Comparison Calculator | N4Cluster",
+  title: "Fee Comparison Calculator",
   description:
     "Estimate the fee difference between marketplace commission and N4Cluster's published $99/month plus $0.50 per order, no commission, using your own direct-order volume, ticket size, and commission rate. A fee comparison, not a profit projection.",
 };
