@@ -324,7 +324,7 @@ export function ROICalculator() {
                   apply it to a different amount including taxes, tips or fees.
                 </li>
                 <li>
-                  Courier charges, discounts, advertising and refunds are excluded,
+                  Delivery charges, discounts, advertising and refunds are excluded,
                   and they differ between channels. Comparing marketplace delivery
                   with direct pickup is not a like-for-like delivery comparison.
                 </li>

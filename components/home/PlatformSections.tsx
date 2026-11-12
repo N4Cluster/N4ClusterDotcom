@@ -158,7 +158,7 @@ export function PlatformSections() {
         <Growth />
         <div className="-mt-10 grid grid-cols-[repeat(auto-fit,minmax(min(340px,100%),1fr))] gap-6">
           <Tile id="delivery" src="salmon-lemon.jpg" alt="Roasted salmon with lemon and herbs" n="04" name="Delivery" title="When a guest wants delivery, we send the driver."
-            body="We dispatch through DoorDash Drive and Uber Direct and chase any order that runs late. Courier charges depend on your address.">
+            body="We dispatch through DoorDash Drive and Uber Direct and chase any order that runs late.">
             <div className="flex justify-between text-xs font-bold"><span>Order #1045</span><span className="text-green">On time</span></div>
             <div className="flex gap-1">
               {[1, 1, 1, 0].map((on, i) => <div key={i} className={`h-[5px] flex-1 rounded-full ${on ? "bg-green" : "bg-cream-3"}`} />)}

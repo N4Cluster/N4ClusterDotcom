@@ -391,7 +391,7 @@ export default function PricingPage() {
               },
               {
                 q: "What if I want to offer delivery — does that cost extra?",
-                a: "Delivery coordination is already included: we dispatch through DoorDash Drive and Uber Direct and chase any order that runs late. Courier charges depend on your address and are separate, but the coordination behind them costs you nothing extra.",
+                a: "Delivery coordination is already included: we dispatch through DoorDash Drive and Uber Direct and chase any order that runs late. Delivery charges depend on your address and are separate, but the coordination behind them costs you nothing extra.",
               },
               {
                 q: "Is the $0.99 customer fee mandatory?",

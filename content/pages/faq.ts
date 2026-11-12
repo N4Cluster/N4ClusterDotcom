@@ -59,7 +59,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "How does delivery work?",
     answer:
-      "We dispatch through DoorDash Drive and Uber Direct and chase any order that runs late, with delivery-time tracking on every order, so you are not managing drivers. Courier charges depend on your address and are separate from N4Cluster's fees. Ask us what applies at your address before you rely on it.",
+      "We dispatch through DoorDash Drive and Uber Direct and chase any order that runs late, with delivery-time tracking on every order, so you are not managing drivers. Delivery charges depend on your address and are separate from N4Cluster's fees. Ask us what applies at your address before you rely on it.",
   },
   {
     question: "Will my restaurant be listed anywhere besides my own site?",

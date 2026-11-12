@@ -92,7 +92,7 @@ const solutions: Solution[] = [
     tag: "For delivery-first operators",
     headline: "When delivery is the business, a late driver can't be your problem.",
     subheadline:
-      "You can't control a driver stuck in traffic. You can control who chases it. We dispatch through DoorDash Drive and Uber Direct and chase any order that runs late. Courier charges depend on your address.",
+      "You can't control a driver stuck in traffic. You can control who chases it. We dispatch through DoorDash Drive and Uber Direct and chase any order that runs late. Delivery charges depend on your address.",
     bullets: [
       "Dispatch through DoorDash Drive and Uber Direct",
       "Delivery-time tracking on every order, timestamped from pickup to drop-off",
@@ -102,7 +102,7 @@ const solutions: Solution[] = [
     ],
     outcomes: [
       { label: "Who chases a late order", value: "We do" },
-      { label: "Courier charges", value: "Depend on your address" },
+      { label: "Delivery charges", value: "Depend on your address" },
       { label: "Commission", value: "None" },
     ],
     cta: "Talk about your delivery model",
