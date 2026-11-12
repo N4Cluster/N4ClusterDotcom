@@ -1,45 +1,43 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
 
 @theme {
-  /* ---- Palette ---- */
-  --color-navy-950: #040d1c;
+  /* ---- Palette (site redesign: cream / navy / gold) ---- */
+  --color-cream: #F7F3EA;
+  --color-cream-2: #F2EEE4;
+  --color-cream-3: #E8E1D2;
+  --color-line: #E4DCCB;
+  --color-ink: #0F1A3A;
+  --color-ink-2: #26335E;
+  --color-ink-3: #3A4570;
+  --color-muted: #5A6080;
+  --color-muted-2: #4A5170;
+  --color-gold: #F4B33E;
+  --color-green: #1F7A4D;
+  --color-green-deep: #155A38;
+  --color-green-tint: #EAF5EE;
+  --color-red: #B8371F;
+  --color-white: #FFFFFF;
+
+  /* ---- Legacy palette (still used by older pages and app/t/**) ---- */
   --color-navy-900: #0a1628;
   --color-navy-800: #0f2040;
-  --color-navy-700: #162d58;
-  --color-navy-600: #1e3a70;
 
   --color-cobalt-600: #1a4fd6;
   --color-cobalt-500: #2563eb;
-  --color-cobalt-400: #3b82f6;
-  --color-cobalt-300: #93c5fd;
 
-  --color-teal-600: #0d9488;
-  --color-teal-500: #14b8a6;
-  --color-teal-400: #2dd4bf;
-
-  --color-amber-500: #f59e0b;
-  --color-amber-400: #fbbf24;
-
-  --color-slate-950: #020617;
-  --color-slate-900: #0f172a;
-  --color-slate-800: #1e293b;
-  --color-slate-700: #334155;
   --color-slate-600: #475569;
   --color-slate-500: #64748b;
-  --color-slate-400: #94a3b8;
-  --color-slate-300: #cbd5e1;
-  --color-slate-200: #e2e8f0;
   --color-slate-100: #f1f5f9;
-  --color-slate-50: #f8fafc;
 
   /* ---- Typography ---- */
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-display: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-bricolage), "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
 
   /* ---- Radius ---- */
-  --radius-card: 1rem;
-  --radius-button: 0.5rem;
+  --radius-card: 22px;
+  --radius-button: 9999px;
 }
 
 @layer base {
@@ -55,8 +53,8 @@
 
   body {
     font-family: var(--font-sans);
-    background-color: #ffffff;
-    color: #0f172a;
+    background-color: var(--color-cream);
+    color: var(--color-ink);
     line-height: 1.6;
   }
 
@@ -65,40 +63,36 @@
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.02em;
-    color: #040d1c;
+    color: inherit; /* body is ink; on-dark sections set text-white */
   }
 
   ::selection {
-    background-color: #2563eb33;
-    color: #0f172a;
+    background-color: #F4B33E66;
+    color: var(--color-ink);
   }
 
   :focus-visible {
-    outline: 2px solid #2563eb;
+    outline: 2px solid var(--color-ink);
     outline-offset: 2px;
     border-radius: 4px;
+  }
+
+  /* Dark (ink) surfaces: add .on-dark so keyboard focus stays visible. */
+  .on-dark:focus-visible,
+  .on-dark :focus-visible {
+    outline-color: #fff;
+  }
+
+  /* Light cards nested inside .on-dark sections: restore the ink outline (must follow .on-dark). */
+  .on-light:focus-visible,
+  .on-light :focus-visible {
+    outline-color: var(--color-ink);
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
-  }
-
-  .gradient-hero {
-    background: linear-gradient(135deg, #040d1c 0%, #0f2040 40%, #162d58 100%);
-  }
-
-  .gradient-cobalt {
-    background: linear-gradient(135deg, #1a4fd6 0%, #2563eb 100%);
-  }
-
-  .gradient-section {
-    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-  }
-
-  .gradient-dark {
-    background: linear-gradient(135deg, #0a1628 0%, #162d58 100%);
   }
 
   .card-hover {
@@ -110,25 +104,7 @@
     box-shadow: 0 20px 40px -12px rgba(4, 13, 28, 0.15);
   }
 
-  .animate-fade-up {
-    animation: fadeUp 0.6s ease forwards;
-  }
-
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(16px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
   @media (prefers-reduced-motion: reduce) {
-    .animate-fade-up {
-      animation: none;
-    }
     .card-hover:hover {
       transform: none;
     }
@@ -159,4 +135,14 @@
     border-radius: 0.5rem;
     box-shadow: 0 10px 25px -8px rgba(4, 13, 28, 0.35);
   }
+}
+
+@keyframes n4marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.n4-track { animation: n4marquee 70s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .n4-track { animation: none; }
 }

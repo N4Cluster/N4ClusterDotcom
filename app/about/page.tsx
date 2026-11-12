@@ -8,32 +8,16 @@ import { ArrowRight, Check } from "lucide-react";
 import { complementaryChannels, mission, values } from "@/content/company";
 
 export const metadata: Metadata = {
-  title: "About N4Cluster",
+  title: "About",
   description:
     "N4Cluster was created so neighborhood restaurants can build direct customer relationships and stay in control of their brand, their data, and their economics.",
 };
 
 
 
-const brandLayers = [
-  {
-    name: "N4Cluster",
-    description: "The overall commerce infrastructure platform",
-    color: "#2563eb",
-    role: "Platform",
-  },
-  {
-    name: "N4Sync",
-    description: "The orchestration and integration layer",
-    color: "#14b8a6",
-    role: "Orchestration",
-  },
-  {
-    name: "N4Logic",
-    description: "The intelligence and automation layer",
-    color: "#f59e0b",
-    role: "Intelligence",
-  },
+const capabilities = [
+  { name: "Orchestration", description: "Your menu, orders, payments and delivery kept in step, so nothing falls between systems." },
+  { name: "Intelligence", description: "Win-back campaign drafts that wait for your OK, plus demand forecasting for busy times." },
 ];
 
 export default function AboutPage() {
@@ -50,7 +34,7 @@ export default function AboutPage() {
         Mission — the same canonical sentence /mission renders, from
         content/company.ts. This page previously stated a different mission.
       */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-cream py-16 md:py-24">
         <Container size="lg">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div>
@@ -62,15 +46,15 @@ export default function AboutPage() {
                 headingClassName="text-2xl sm:text-3xl"
               />
             </div>
-            <div className="bg-slate-50 rounded-2xl border border-slate-200 p-8">
-              <p className="text-slate-600 text-base leading-relaxed">
+            <div className="bg-white rounded-[22px] border border-line p-8">
+              <p className="text-ink-3 text-base leading-relaxed">
                 A neighborhood restaurant is built one good meal and one returning
                 customer at a time. Too often the infrastructure underneath that
                 work is misaligned with the operator — taking a share of each order,
                 standing between the restaurant and its customers, and making it
                 harder to grow over time.
               </p>
-              <p className="text-slate-600 text-base leading-relaxed mt-4">
+              <p className="text-ink-3 text-base leading-relaxed mt-4">
                 N4Cluster was built to change that: ordering under your own name,
                 straightforward fees, and practical tools for repeat business.{" "}
                 {complementaryChannels}
@@ -81,7 +65,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values — the same five commitments, from the same source as /mission */}
-      <section className="bg-slate-50 py-16 md:py-24">
+      <section className="bg-cream-2 py-16 md:py-24">
         <Container>
           <SectionIntro
             eyebrow="Values"
@@ -90,19 +74,19 @@ export default function AboutPage() {
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {values.map((value) => (
-              <div key={value.id} className="bg-white border border-slate-200 rounded-2xl p-6">
-                <div className="w-8 h-8 rounded-lg bg-cobalt-500/10 flex items-center justify-center mb-4">
-                  <Check size={14} className="text-cobalt-500" strokeWidth={3} aria-hidden="true" />
+              <div key={value.id} className="bg-white border border-line rounded-[22px] p-6">
+                <div className="w-8 h-8 rounded-lg bg-gold/25 flex items-center justify-center mb-4">
+                  <Check size={14} className="text-ink" strokeWidth={3} aria-hidden="true" />
                 </div>
-                <h3 className="font-bold text-navy-950 mb-2">{value.title}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">{value.body}</p>
+                <h3 className="font-display font-bold text-ink mb-2">{value.title}</h3>
+                <p className="text-sm text-ink-3 leading-relaxed">{value.body}</p>
               </div>
             ))}
           </div>
           <div className="mt-10 text-center">
             <Link
               href="/mission"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-cobalt-600 hover:text-cobalt-500 transition-colors"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink hover:text-ink-2 transition-colors"
             >
               Read our mission and values in full
               <ArrowRight size={16} aria-hidden="true" />
@@ -111,31 +95,19 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Brand architecture */}
-      <section className="gradient-dark py-16 md:py-24">
-        <Container>
+      <section className="on-dark bg-ink py-16 md:py-24">
+        <Container size="lg">
           <SectionIntro
-            eyebrow="Brand architecture"
-            heading="The N4Cluster platform layers"
-            subheading="N4Cluster is the parent platform. N4Sync and N4Logic are the two core layers that power orchestration and intelligence."
+            eyebrow="What we run"
+            heading="One platform, in plain words"
+            subheading="Ordering on your own domain, rewards, growth campaigns you approve, and delivery we coordinate."
             dark
           />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            {brandLayers.map((layer) => (
-              <div
-                key={layer.name}
-                className="bg-navy-800 border border-navy-700 rounded-2xl p-6 text-center hover:border-cobalt-500/40 transition-colors"
-              >
-                <div
-                  className="w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center"
-                  style={{ backgroundColor: layer.color + "20" }}
-                >
-                  <span className="font-bold text-xs" style={{ color: layer.color }}>
-                    {layer.role}
-                  </span>
-                </div>
-                <h3 className="font-bold text-white text-lg mb-2">{layer.name}</h3>
-                <p className="text-xs text-slate-400 leading-relaxed">{layer.description}</p>
+          <div className="mx-auto grid max-w-3xl grid-cols-1 gap-6 md:grid-cols-2">
+            {capabilities.map((c) => (
+              <div key={c.name} className="rounded-[22px] border border-ink-2 p-6 text-center">
+                <h3 className="font-display mb-2 text-lg font-bold text-white">{c.name}</h3>
+                <p className="text-sm leading-relaxed text-white/75">{c.description}</p>
               </div>
             ))}
           </div>

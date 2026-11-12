@@ -32,14 +32,14 @@ export function SectionIntro({
     >
       {eyebrow && (
         <div className="mb-4">
-          <Badge variant={dark ? "dark" : "cobalt"}>{eyebrow}</Badge>
+          <Badge variant={dark ? "dark" : "accent"}>{eyebrow}</Badge>
         </div>
       )}
       <h2
         className={cn(
-          "font-bold tracking-tight text-balance",
+          "font-display font-bold tracking-tight text-balance",
           size === "lg" ? "text-3xl sm:text-4xl md:text-5xl" : "text-2xl sm:text-3xl md:text-4xl",
-          dark ? "text-white" : "text-navy-950",
+          dark ? "text-white" : "text-ink",
           headingClassName
         )}
       >
@@ -49,7 +49,7 @@ export function SectionIntro({
         <p
           className={cn(
             "mt-4 text-lg leading-relaxed",
-            dark ? "text-slate-300" : "text-slate-600",
+            dark ? "text-white/75" : "text-ink-3",
             align === "center" && "mx-auto"
           )}
         >

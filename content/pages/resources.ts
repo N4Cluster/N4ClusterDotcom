@@ -44,7 +44,7 @@ export const resources: Resource[] = [
       "This fragmentation creates invisible costs. Orders get lost between systems. Delivery status is unclear. Customer issues take longer to resolve because information is scattered across multiple dashboards. Staff spend time on manual coordination that should be automated.",
       "Orchestration is the layer that connects everything. It sits between the merchant's storefront and the operational systems that fulfill orders. It routes orders to the right kitchen, assigns delivery to the right partner, tracks status in real time, and surfaces exceptions before they become problems.",
       "The value of orchestration is not just efficiency. It is visibility. When every order flows through a single orchestration layer, the merchant can see exactly what is happening at every stage. They can identify bottlenecks, measure performance, and make decisions based on data instead of intuition.",
-      "N4Sync is built on this principle. It connects POS systems, delivery partners, payment processors, and customer-facing channels into a single operational flow. The result is less friction, fewer errors, and more time for merchants to focus on what they do best.",
+      "N4Cluster is built on this principle. It connects your menu, delivery partners, payments, and customer-facing channels into a single operational flow. The result is less friction, fewer errors, and more time for merchants to focus on what they do best.",
     ],
   },
   {
@@ -57,8 +57,8 @@ export const resources: Resource[] = [
     body: [
       "The dominant narrative around AI in commerce is automation: remove the human, let the algorithm decide. But for local businesses, fully automated decision-making is often the wrong approach. The operator knows their business, their neighborhood, and their customers better than any model.",
       "The more valuable application of AI is decision support. Instead of replacing the operator's judgment, AI should enhance it. Surface the right data at the right time. Identify patterns that are hard to see manually. Suggest actions, but let the operator decide.",
-      "This is the philosophy behind N4Logic. It analyzes order patterns, customer behavior, and market conditions to generate actionable insights. But it never takes action without the merchant's approval. It never changes pricing, launches promotions, or adjusts operations autonomously.",
-      "There are hard guardrails built into the system. N4Logic will never share customer data across merchants. It will never optimize for platform revenue at the merchant's expense. It will never make irreversible decisions without explicit consent. These are not just policies; they are architectural constraints.",
+      "This is the philosophy behind N4Cluster's win-back campaigns and demand forecasting. They analyze order patterns and customer behavior to generate actionable suggestions. But nothing goes out without the merchant's OK. Pricing, promotions, and operations never change autonomously.",
+      "The guardrail is simple: nothing goes out without the merchant's OK. And your customer data is yours — we'll send you a copy whenever you ask.",
     ],
   },
   {
@@ -72,7 +72,6 @@ export const resources: Resource[] = [
       "Marketplace platforms treat every order as a new acquisition event. The customer opens the app, browses options, and the algorithm decides who gets visibility. This model benefits the platform, not the merchant.",
       "Neighborhood demand works differently. When customers order directly from a merchant's own channel, the relationship is between the customer and the business, not the customer and the platform. Repeat behavior is driven by the merchant's brand, quality, and engagement, not by algorithmic placement.",
       "This creates a compounding effect. Each satisfied direct order increases the likelihood of a repeat order. Each repeat order reduces acquisition cost. Over time, the merchant builds a base of loyal customers who come back because they want to, not because an algorithm showed them a coupon.",
-      "The Neighborhood Hub in N4Cluster amplifies this effect. When multiple merchants in a neighborhood operate on the same infrastructure, they create shared demand density. A customer who discovers one merchant through the Hub is exposed to others nearby. Delivery becomes more efficient because routes are denser. The entire neighborhood benefits.",
       "This is the network effect that marketplaces capture for themselves. With merchant-owned infrastructure, the value stays local. The merchants grow, the neighborhood grows, and the customers get a better experience without the platform tax.",
     ],
   },
@@ -89,7 +88,7 @@ export const resources: Resource[] = [
       "The second step is identifying the cost of fragmentation. How much time does staff spend on manual coordination? How often do orders fall through the cracks between systems? How much visibility do you lose because data lives in silos? These costs are often invisible but significant.",
       "The third step is defining what a coherent stack looks like for your business. The goal is not to replace everything at once. It is to identify the critical integration points where a single orchestration layer would eliminate the most friction.",
       "For most operators, the highest-value integration points are: order ingestion (bringing all channels into one flow), delivery assignment (routing to the right partner automatically), and customer communication (sending status updates without manual intervention).",
-      "A platform like N4Cluster is designed to sit at these integration points. It connects your existing POS, delivery partners, and payment systems into a single flow. You keep the tools that work. You replace the manual glue with automated orchestration.",
+      "A platform like N4Cluster is designed to sit at these integration points. It brings ordering, delivery, and payments into a single flow, alongside the tools you already use. You keep the tools that work. You replace the manual glue with automated orchestration.",
       "The final step is measuring improvement. Track order completion rates, average fulfillment time, customer complaint frequency, and staff time spent on coordination. These metrics will tell you whether your stack is getting more coherent or more fragmented over time.",
       "Building a better stack is not a one-time project. It is an ongoing practice of reducing friction, improving visibility, and maintaining control over your operations. The businesses that invest in this practice will operate more efficiently and grow more sustainably than those that don't.",
     ],

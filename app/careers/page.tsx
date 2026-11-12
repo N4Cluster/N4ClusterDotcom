@@ -19,28 +19,24 @@ const reasons = [
     title: "Category creation opportunity",
     description:
       "We are defining what merchant-first local commerce infrastructure means. This is a rare chance to work on a genuinely new category.",
-    accent: "cobalt" as const,
   },
   {
     icon: Wrench,
     title: "Real platform design challenges",
     description:
       "Orchestration, AI integration, merchant experience, and ecosystem coordination — substantive technical and product problems.",
-    accent: "teal" as const,
   },
   {
     icon: Star,
     title: "Mission-aligned work",
     description:
       "Every feature, design decision, and integration we build is oriented toward helping local businesses grow with more control.",
-    accent: "amber" as const,
   },
   {
     icon: Users,
     title: "Small team, high ownership",
     description:
       "Early team members have a real voice in shaping the product, the culture, and the direction of the company.",
-    accent: "cobalt" as const,
   },
 ];
 
@@ -63,7 +59,7 @@ export default function CareersPage() {
       />
 
       {/* Open roles */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-cream py-16 md:py-24">
         <Container>
           <SectionIntro
             heading="Open roles"
@@ -78,15 +74,15 @@ export default function CareersPage() {
             ].map((role) => (
               <div
                 key={role.title}
-                className="flex items-center justify-between bg-slate-50 border border-slate-200 rounded-xl px-6 py-5 hover:border-cobalt-500/30 hover:bg-white transition-all"
+                className="flex items-center justify-between bg-white border border-line rounded-[22px] px-6 py-5 hover:border-ink/30 transition-all"
               >
                 <div>
-                  <h3 className="font-bold text-navy-950">{role.title}</h3>
-                  <p className="text-sm text-slate-500">{role.area} · {role.type}</p>
+                  <h3 className="font-display font-bold text-ink">{role.title}</h3>
+                  <p className="text-sm text-muted">{role.area} · {role.type}</p>
                 </div>
                 <a
                   href="#introduce-yourself"
-                  className="text-sm font-semibold text-cobalt-500 hover:text-cobalt-600 transition-colors"
+                  className="text-sm font-semibold text-ink underline underline-offset-4 hover:text-ink-2 transition-colors"
                 >
                   Apply
                 </a>
@@ -97,7 +93,7 @@ export default function CareersPage() {
       </section>
 
       {/* Introduction form */}
-      <section id="introduce-yourself" className="bg-slate-50 py-16 md:py-24">
+      <section id="introduce-yourself" className="bg-cream-2 py-16 md:py-24">
         <Container size="lg">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
@@ -109,7 +105,7 @@ export default function CareersPage() {
                 className="mb-0"
               />
             </div>
-            <div className="bg-white border border-slate-200 rounded-2xl p-8">
+            <div className="bg-white border border-line rounded-[22px] p-8">
               <ContactForm variant="contact" />
             </div>
           </div>

@@ -65,7 +65,7 @@ function Slider({
   return (
     <div>
       <div className="flex items-baseline justify-between mb-3 gap-4">
-        <label className="text-sm font-semibold" style={{ color: "#040d1c" }}>
+        <label className="text-sm font-semibold" style={{ color: "var(--color-ink)" }}>
           {label}
         </label>
         <span className="text-lg font-bold tabular-nums" style={{ color: accent }}>
@@ -82,13 +82,13 @@ function Slider({
         aria-label={label}
         aria-describedby={describedBy}
         className="w-full h-2 rounded-full cursor-pointer appearance-none"
-        style={{ accentColor: accent, background: "#e2e8f0" }}
+        style={{ accentColor: accent, background: "var(--color-line)" }}
       />
       <div className="flex justify-between mt-1.5">
-        <span className="text-xs" style={{ color: "#64748b" }}>
+        <span className="text-xs" style={{ color: "var(--color-muted)" }}>
           {minLabel}
         </span>
-        <span className="text-xs" style={{ color: "#64748b" }}>
+        <span className="text-xs" style={{ color: "var(--color-muted)" }}>
           {maxLabel}
         </span>
       </div>
@@ -111,18 +111,18 @@ export function ROICalculator() {
   return (
     <>
       {/* Calculator */}
-      <section className="py-16 md:py-24" style={{ background: "#ffffff" }}>
+      <section className="py-8 md:py-10" style={{ background: "#fff" }}>
         <Container size="lg">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-10">
             {/* Inputs */}
-            <div className="rounded-2xl p-6 md:p-8" style={{ background: "#f8fafc", border: "1px solid #e2e8f0" }}>
+            <div className="rounded-2xl p-6 md:p-7 flex flex-col" style={{ background: "var(--color-cream-2)", border: "1px solid var(--color-line)" }}>
               <span
-                className="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-6"
-                style={{ background: "#f0f6ff", color: "#1d4ed8" }}
+                className="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-5 self-start"
+                style={{ background: "var(--color-green-tint)", color: "var(--color-green)" }}
               >
                 Your numbers
               </span>
-              <div className="space-y-8">
+              <div className="space-y-6">
                 <div>
                   <Slider
                     label="Orders you expect to receive directly per month"
@@ -130,14 +130,14 @@ export function ROICalculator() {
                     min={0}
                     max={2000}
                     step={10}
-                    accent="#2563eb"
+                    accent="var(--color-ink)"
                     format={(v) => v.toLocaleString("en-US")}
                     minLabel="0"
                     maxLabel="2,000"
                     onChange={setOrders}
                     describedBy="orders-help"
                   />
-                  <p id="orders-help" className="text-xs mt-2" style={{ color: "#475569" }}>
+                  <p id="orders-help" className="text-xs mt-2" style={{ color: "var(--color-ink-3)" }}>
                     Direct orders through your own branded site — not your total
                     marketplace volume. Only orders you expect to arrive through
                     the direct channel belong here.
@@ -149,7 +149,7 @@ export function ROICalculator() {
                   min={10}
                   max={60}
                   step={1}
-                  accent="#2563eb"
+                  accent="var(--color-ink)"
                   format={(v) => usd0(v)}
                   minLabel="$10"
                   maxLabel="$60"
@@ -161,103 +161,95 @@ export function ROICalculator() {
                   min={0}
                   max={35}
                   step={1}
-                  accent="#b91c1c"
+                  accent="var(--color-red)"
                   format={(v) => `${v}%`}
                   minLabel="0%"
                   maxLabel="35%"
                   onChange={setCommission}
                 />
               </div>
-              <p className="text-xs leading-relaxed mt-8" style={{ color: "#475569" }}>
+              <p className="text-xs leading-relaxed mt-auto pt-6" style={{ color: "var(--color-ink-3)" }}>
                 Use your own commission rate rather than an assumed market figure.
-                Everything below updates instantly — no sign-up, no email required.
+                Everything updates instantly — no sign-up, no email required.
               </p>
             </div>
 
             {/* Results */}
-            <div className="space-y-5">
+            <div className="flex flex-col gap-4">
               {/* Comparison cost */}
-              <div className="rounded-2xl p-6" style={{ background: "#fef2f2", border: "1px solid #fecaca" }}>
-                <div className="flex flex-wrap items-center justify-between mb-2 gap-2">
-                  <span className="text-sm font-semibold" style={{ color: "#991b1b" }}>
+              <div className="rounded-2xl px-6 py-5" style={{ background: "rgba(184,55,31,0.06)", border: "1px solid rgba(184,55,31,0.25)" }}>
+                <div className="flex flex-wrap items-center justify-between mb-1 gap-2">
+                  <span className="text-sm font-semibold" style={{ color: "var(--color-red)" }}>
                     Marketplace commission, at your rate
                   </span>
-                  <span className="text-xs font-bold px-2 py-1 rounded-full whitespace-nowrap" style={{ background: "#fee2e2", color: "#b91c1c" }}>
+                  <span className="text-xs font-bold px-2 py-1 rounded-full whitespace-nowrap" style={{ background: "rgba(184,55,31,0.12)", color: "var(--color-red)" }}>
                     {commission}% commission
                   </span>
                 </div>
-                <div className="text-3xl font-bold tabular-nums" style={{ color: "#b91c1c" }}>
+                <div className="text-3xl font-bold tabular-nums" style={{ color: "var(--color-red)" }}>
                   {usd(results.comparisonMonthlyFees)}
                   <span className="text-sm font-medium ml-1">/ mo</span>
                 </div>
-                <div className="text-xs mt-2" style={{ color: "#991b1b" }}>
+                <div className="text-xs mt-1" style={{ color: "var(--color-red)" }}>
                   {orders.toLocaleString("en-US")} orders × {usd0(avgTicket)} subtotal × {commission}%
                 </div>
               </div>
 
-              {/* N4Cluster fees */}
-              <div className="rounded-2xl p-6" style={{ background: "#f0fdf4", border: "1px solid #bbf7d0" }}>
-                <div className="flex flex-wrap items-center justify-between mb-2 gap-2">
-                  <span className="text-sm font-semibold" style={{ color: "#166534" }}>
+              {/* N4Cluster fees, with the breakdown folded in */}
+              <div className="rounded-2xl px-6 py-5" style={{ background: "var(--color-green-tint)", border: "1px solid var(--color-line)" }}>
+                <div className="flex flex-wrap items-center justify-between mb-1 gap-2">
+                  <span className="text-sm font-semibold" style={{ color: "var(--color-green-deep)" }}>
                     N4Cluster fees, same volume
                   </span>
-                  <span className="text-xs font-bold px-2 py-1 rounded-full whitespace-nowrap" style={{ background: "#dcfce7", color: "#15803d" }}>
-                    {priceDisplay.merchantFees}
+                  <span className="text-xs font-bold px-2 py-1 rounded-full whitespace-nowrap" style={{ color: "var(--color-green)" }}>
+                    Fixed price, no commission
                   </span>
                 </div>
-                <div className="text-3xl font-bold tabular-nums" style={{ color: "#15803d" }}>
+                <div className="text-3xl font-bold tabular-nums" style={{ color: "var(--color-green)" }}>
                   {usd(results.n4MonthlyFees)}
                   <span className="text-sm font-medium ml-1">/ mo</span>
                 </div>
-                <div className="text-xs mt-2" style={{ color: "#166534" }}>
-                  Flat monthly fee, a fixed fee per order, and an assumed card
-                  processing charge — zero N4Cluster sales commission.
-                </div>
+                <dl className="mt-3 text-sm" style={{ color: "var(--color-green-deep)" }}>
+                  {[
+                    ["Fixed fees (monthly + per order)", usd(results.monthlyFee + results.perOrderFees)],
+                    [`Assumed card processing (${processingAssumption})`, usd(results.processingFees)],
+                    ["Fees per order", results.feePerOrder === null ? "—" : usd(results.feePerOrder)],
+                  ].map(([k, v]) => (
+                    <div key={k} className="flex justify-between gap-3 py-1.5" style={{ borderTop: "1px solid var(--color-line)" }}>
+                      <dt>{k}</dt>
+                      <dd className="font-semibold tabular-nums">{v}</dd>
+                    </div>
+                  ))}
+                </dl>
               </div>
 
-              {/* Fee breakdown */}
-              <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid #e2e8f0" }}>
-                <div className="px-5 py-3" style={{ background: "#f8fafc", borderBottom: "1px solid #e2e8f0" }}>
-                  <span className="text-xs font-bold uppercase tracking-wider" style={{ color: "#475569" }}>
-                    N4Cluster fee breakdown
+              {/* Estimated difference: in the same view as the sliders */}
+              <div className="on-dark bg-ink rounded-2xl px-6 py-5 flex-1 flex flex-col justify-center">
+                <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--color-gold)" }}>
+                  Estimated monthly fee difference
+                </p>
+                <div className="flex flex-wrap items-baseline gap-x-3 mt-1">
+                  <span
+                    className="text-5xl font-bold tabular-nums leading-tight"
+                    style={{ color: lower ? "var(--color-gold)" : "#ffffff" }}
+                  >
+                    {signedUsd0(results.monthlyFeeDifference)}
+                  </span>
+                  <span className="text-sm text-white">
+                    {lower ? "lower in fees per month" : "higher in fees per month"}
                   </span>
                 </div>
-                <div>
-                  <div className="flex items-center justify-between px-5 py-3.5 gap-3">
-                    <span className="text-sm" style={{ color: "#475569" }}>
-                      Platform fee (flat, per month)
-                    </span>
-                    <span className="text-sm font-semibold tabular-nums" style={{ color: "#040d1c" }}>
-                      {usd(results.monthlyFee)}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between px-5 py-3.5 gap-3" style={{ borderTop: "1px solid #f1f5f9" }}>
-                    <span className="text-sm" style={{ color: "#475569" }}>
-                      Per-order fee ({priceDisplay.perOrder} × {orders.toLocaleString("en-US")})
-                    </span>
-                    <span className="text-sm font-semibold tabular-nums" style={{ color: "#040d1c" }}>
-                      {usd(results.perOrderFees)}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between px-5 py-3.5 gap-3" style={{ borderTop: "1px solid #f1f5f9" }}>
-                    <span className="text-sm" style={{ color: "#475569" }}>
-                      Assumed card processing ({processingAssumption})
-                    </span>
-                    <span className="text-sm font-semibold tabular-nums" style={{ color: "#040d1c" }}>
-                      {usd(results.processingFees)}
-                    </span>
-                  </div>
-                  <div
-                    className="flex items-center justify-between px-5 py-3.5 gap-3"
-                    style={{ borderTop: "1px solid #f1f5f9", background: "#f8fafc" }}
-                  >
-                    <span className="text-sm font-semibold" style={{ color: "#040d1c" }}>
-                      N4Cluster fees per order
-                    </span>
-                    <span className="text-sm font-bold tabular-nums" style={{ color: "#1d4ed8" }}>
-                      {results.feePerOrder === null ? "—" : usd(results.feePerOrder)}
-                    </span>
-                  </div>
+                <div className="flex flex-wrap gap-x-6 gap-y-1 mt-2 text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>
+                  <span>
+                    <strong className="tabular-nums" style={{ color: "var(--color-gold)" }}>{signedUsd0(results.annualFeeDifference)}</strong> over twelve months
+                  </span>
+                  <span>
+                    {results.differencePct === null ? (
+                      "No commission baseline to compare"
+                    ) : (
+                      <><strong className="tabular-nums text-white">{Math.round(results.differencePct)}%</strong> vs commission fees</>
+                    )}
+                  </span>
                 </div>
               </div>
             </div>
@@ -266,67 +258,18 @@ export function ROICalculator() {
       </section>
 
       {/* Estimated difference */}
-      <section className="gradient-hero py-16 md:py-20 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-cobalt-600/10 rounded-full blur-3xl" />
-        </div>
+      <section className="on-dark bg-ink py-12 md:py-16 relative overflow-hidden">
         <Container size="lg" className="relative z-10">
-          <div className="text-center">
-            <p className="text-sm font-semibold uppercase tracking-wider mb-5" style={{ color: "#fdba74" }}>
-              Estimated monthly fee difference
-            </p>
-            <div
-              className="text-5xl sm:text-6xl md:text-7xl font-bold tabular-nums leading-none"
-              style={{ color: lower ? "#fb923c" : "#fca5a5" }}
-            >
-              {signedUsd0(results.monthlyFeeDifference)}
-            </div>
-            <div className="text-lg font-medium mt-3 text-white max-w-xl mx-auto text-balance">
-              {lower
-                ? "lower in fees per month, on the inputs above"
-                : "higher in fees per month, on the inputs above"}
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10 max-w-3xl mx-auto">
-              <div className="rounded-2xl p-6" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.14)" }}>
-                <div className="text-3xl font-bold tabular-nums text-white">
-                  {signedUsd0(results.monthlyFeeDifference)}
-                </div>
-                <div className="text-xs mt-1" style={{ color: "#cbd5e1" }}>
-                  Per month
-                </div>
-              </div>
-              <div className="rounded-2xl p-6" style={{ background: "rgba(249,115,22,0.12)", border: "1px solid rgba(249,115,22,0.35)" }}>
-                <div className="text-3xl font-bold tabular-nums" style={{ color: "#fb923c" }}>
-                  {signedUsd0(results.annualFeeDifference)}
-                </div>
-                <div className="text-xs mt-1" style={{ color: "#fed7aa" }}>
-                  Over twelve months
-                </div>
-              </div>
-              <div className="rounded-2xl p-6" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.14)" }}>
-                <div className="text-3xl font-bold tabular-nums text-white">
-                  {results.differencePct === null
-                    ? "—"
-                    : `${Math.round(results.differencePct)}%`}
-                </div>
-                <div className="text-xs mt-1" style={{ color: "#cbd5e1" }}>
-                  {results.differencePct === null
-                    ? "No commission baseline to compare"
-                    : "Difference vs commission fees"}
-                </div>
-              </div>
-            </div>
-
+          <div>
             {/* Assumptions sit with the number, not in footer small print. */}
-            <div className="mt-10 max-w-3xl mx-auto rounded-2xl p-6 text-left" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.14)" }}>
+            <div className="max-w-3xl mx-auto rounded-2xl p-6 text-left" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.14)" }}>
               <h3 className="text-sm font-bold text-white mb-3">
                 What this estimate assumes
               </h3>
-              <ul className="space-y-2 text-sm" style={{ color: "#cbd5e1" }}>
+              <ul className="space-y-2 text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>
                 <li>
                   It compares <strong className="text-white">fees</strong>, not
-                  profit. Food, labour, occupancy and other costs are unchanged by
+                  profit. Food, labor, occupancy and other costs are unchanged by
                   it, and an amount retained after fees is not profit.
                 </li>
                 <li>
@@ -335,12 +278,12 @@ export function ROICalculator() {
                   apply it to a different amount including taxes, tips or fees.
                 </li>
                 <li>
-                  Courier charges, discounts, advertising and refunds are excluded,
+                  Delivery charges, discounts, advertising and refunds are excluded,
                   and they differ between channels. Comparing marketplace delivery
                   with direct pickup is not a like-for-like delivery comparison.
                 </li>
                 <li>
-                  The {priceDisplay.dinerFee} diner fee is not included. Diners
+                  The Neighborhood fee diners pay is not included. Diners
                   normally pay it; if your restaurant chooses to absorb it, add it
                   to your own costs.
                 </li>
@@ -359,12 +302,12 @@ export function ROICalculator() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-24" style={{ background: "#f8fafc" }}>
+      <section className="py-16 md:py-24" style={{ background: "var(--color-cream-2)" }}>
         <Container size="md" className="text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-balance" style={{ color: "#040d1c" }}>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-balance" style={{ color: "var(--color-ink)" }}>
             Want to check these numbers against your own?
           </h2>
-          <p className="mt-4 text-lg max-w-2xl mx-auto" style={{ color: "#475569" }}>
+          <p className="mt-4 text-lg max-w-2xl mx-auto" style={{ color: "var(--color-ink-3)" }}>
             Bring your actual order volume and commission rate, and we&apos;ll walk
             through what the fees would look like for your restaurant — and what
             setup would involve.
@@ -372,7 +315,7 @@ export function ROICalculator() {
           <div className="mt-8 flex justify-center">
             <Link
               href={demoCta.href}
-              className="inline-flex items-center justify-center gap-2 font-semibold rounded-lg transition-all duration-200 px-8 py-4 text-base bg-cobalt-500 text-white hover:bg-cobalt-600 shadow-sm hover:shadow-md"
+              className="inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-200 px-8 py-4 text-base bg-gold text-ink hover:brightness-95 shadow-sm hover:shadow-md"
             >
               {demoCta.label}
               <ArrowRight size={18} aria-hidden="true" />

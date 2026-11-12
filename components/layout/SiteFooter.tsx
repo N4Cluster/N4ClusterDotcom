@@ -1,109 +1,59 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { Logo } from "@/components/brand/Logo";
 import { footerLinks } from "@/content/site/footer";
+import { siteConfig } from "@/content/site/settings";
 import { CookiePreferencesButton } from "@/components/CookiePreferencesButton";
-import { Linkedin, Twitter, Github } from "lucide-react";
+
+const legalClass = "text-[13px] text-white/70 hover:text-white transition-colors";
 
 export function SiteFooter() {
+  const { phone, phoneHref, email } = siteConfig.contact;
   return (
-    <footer className="bg-navy-950 text-slate-300">
+    <footer className="on-dark bg-ink text-white/75">
       <Container>
-        {/* Top section */}
-        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 border-b border-navy-800">
-          {/* Brand */}
-          <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2.5 group mb-5">
-              <div className="w-8 h-8 rounded-lg gradient-cobalt flex items-center justify-center shadow-sm">
-                <span className="text-white font-bold text-xs tracking-wider">N4</span>
-              </div>
-              <span className="font-bold text-lg tracking-tight text-white">N4Cluster</span>
+        <div className="flex flex-wrap justify-between gap-10 py-16">
+          <div className="flex max-w-[340px] flex-1 basis-64 flex-col gap-3">
+            <Link href="/" aria-label="N4Cluster home" className="self-start">
+              <Logo variant="dark" size={38} />
             </Link>
-            <p className="text-sm text-slate-400 leading-relaxed max-w-xs">
-              Merchant-first infrastructure for local commerce. Branded ordering, orchestration, and AI-assisted growth in one connected platform.
+            <p className="text-sm">
+              Commission-free online ordering for neighborhood restaurants. Made in Franklin, TN.
             </p>
-            <div className="mt-6 flex items-center gap-3">
-              <a
-                href="#"
-                aria-label="Twitter / X"
-                className="w-9 h-9 rounded-lg bg-navy-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-navy-700 transition-colors"
-              >
-                <Twitter size={15} />
-              </a>
-              <a
-                href="#"
-                aria-label="LinkedIn"
-                className="w-9 h-9 rounded-lg bg-navy-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-navy-700 transition-colors"
-              >
-                <Linkedin size={15} />
-              </a>
-              <a
-                href="#"
-                aria-label="GitHub"
-                className="w-9 h-9 rounded-lg bg-navy-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-navy-700 transition-colors"
-              >
-                <Github size={15} />
-              </a>
-            </div>
-
-            {/* Sub-brands */}
-            <div className="mt-8 space-y-2">
-              <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">Platform layers</p>
-              <div className="flex gap-3 flex-wrap">
-                <Link href="/platform#n4sync" className="text-xs text-cobalt-400 hover:text-cobalt-300 transition-colors font-medium">
-                  N4Sync
-                </Link>
-                <span className="text-slate-700">·</span>
-                <Link href="/n4logic" className="text-xs text-teal-400 hover:text-teal-300 transition-colors font-medium">
-                  N4Logic
-                </Link>
-              </div>
-            </div>
+            <p className="text-sm">
+              <a href={phoneHref} className="hover:text-white">{phone}</a>
+              {" · "}
+              <a href={`mailto:${email}`} className="hover:text-white">{email}</a>
+            </p>
           </div>
 
-          {/* Links */}
-          {footerLinks.map((group) => (
-            <div key={group.heading}>
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4">
-                {group.heading}
-              </h3>
-              <ul className="space-y-2.5">
-                {group.links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-slate-400 hover:text-white transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="flex flex-wrap gap-x-14 gap-y-8">
+            {footerLinks.map((group) => (
+              <div key={group.heading}>
+                <h3 className="mb-3 text-sm font-bold text-white">{group.heading}</h3>
+                <ul className="space-y-2.5">
+                  {group.links.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href} className="text-sm hover:text-white transition-colors">
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-slate-400">
-            &copy; {new Date().getFullYear()} N4Cluster. All rights reserved.
-          </p>
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/15 py-6 sm:flex-row">
+          <p className="text-[13px] text-white/70">© {new Date().getFullYear()} N4Cluster Inc. All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            <Link href="/privacy" className="text-xs text-slate-400 hover:text-slate-300 transition-colors">
-              Privacy
-            </Link>
-            <Link href="/terms" className="text-xs text-slate-400 hover:text-slate-300 transition-colors">
-              Terms
-            </Link>
-            <Link href="/terms#sms" className="text-xs text-slate-400 hover:text-slate-300 transition-colors">
-              SMS Terms
-            </Link>
-            <Link href="/sms" className="text-xs text-slate-400 hover:text-slate-300 transition-colors">
-              Text Messaging
-            </Link>
-            <Link href="/cookies" className="text-xs text-slate-400 hover:text-slate-300 transition-colors">
-              Cookies
-            </Link>
-            <CookiePreferencesButton className="text-xs text-slate-400 hover:text-slate-300 transition-colors" />
+            <Link href="/privacy" className={legalClass}>Privacy</Link>
+            <Link href="/terms" className={legalClass}>Terms</Link>
+            <Link href="/terms#sms" className={legalClass}>SMS Terms</Link>
+            <Link href="/sms" className={legalClass}>Text Messaging</Link>
+            <Link href="/cookies" className={legalClass}>Cookies</Link>
+            <CookiePreferencesButton className={legalClass} />
           </div>
         </div>
       </Container>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { proseClasses } from "@/lib/prose";
 import { Container } from "@/components/ui/Container";
 import {
   dealsOptInSteps,
@@ -20,16 +21,16 @@ import {
 } from "@/content/legal/sms-page";
 
 export const metadata: Metadata = {
-  title: "N4Cluster Text Messaging",
+  title: "Text Messaging",
   description:
     "How N4Cluster text messaging works: the opt-in screen and exact disclosure for order notifications, verification codes and N4Cluster Deals, with sample messages.",
 };
 
 export default function SmsPage() {
   return (
-    <section className="bg-white pt-32 pb-20">
+    <section className="bg-cream py-16 sm:py-20">
       <Container size="md">
-        <div className="prose prose-slate max-w-none">
+        <div className={proseClasses}>
           <h1>N4Cluster Text Messaging</h1>
           <p>
             N4Cluster sends three kinds of text messages, each with its own opt-in. Only N4Cluster Deals contains marketing, and it needs its own checkbox. This page shows each opt-in screen, the exact disclosure shown with it, and sample messages.
@@ -44,7 +45,7 @@ export default function SmsPage() {
             width={780}
             height={1688}
             alt="Storefront checkout screen with the text-updates checkbox unchecked by default and the order text message disclosure visible beneath it"
-            className="mx-auto h-auto w-full max-w-sm rounded-lg border border-slate-200"
+            className="mx-auto h-auto w-full max-w-sm rounded-lg border border-line"
           />
           <h3>Disclosure shown at checkout</h3>
           <p>
@@ -52,7 +53,7 @@ export default function SmsPage() {
             <Link href="/terms#sms">Terms</Link> · <Link href="/privacy">Privacy</Link>
           </p>
           <h3>Sample messages</h3>
-          <p className="text-slate-600 text-sm">{orderSampleNote}</p>
+          <p className="text-muted text-sm">{orderSampleNote}</p>
           <ul>
             {orderSamples.map((s) => (
               <li key={s.event}>
@@ -78,7 +79,7 @@ export default function SmsPage() {
             width={768}
             height={942}
             alt="Storefront sign-in card with the Send code button and the verification text message disclosure visible beneath it"
-            className="mx-auto h-auto w-full max-w-sm rounded-lg border border-slate-200"
+            className="mx-auto h-auto w-full max-w-sm rounded-lg border border-line"
           />
           <h3>Disclosure shown beneath Send code</h3>
           <p>
@@ -93,7 +94,7 @@ export default function SmsPage() {
             )}
           </p>
           <h3>Sample messages</h3>
-          <p className="text-slate-600 text-sm">{otpSampleNote}</p>
+          <p className="text-muted text-sm">{otpSampleNote}</p>
           <ul>
             {otpSamples.map((s) => (
               <li key={s.event}>
@@ -119,14 +120,14 @@ export default function SmsPage() {
             width={1400}
             height={760}
             alt={dealsScreenshotAlt.checkout}
-            className="mx-auto h-auto w-full max-w-xl rounded-lg border border-slate-200"
+            className="mx-auto h-auto w-full max-w-xl rounded-lg border border-line"
           />
           <Image
             src="/sms/account-deals-optin.png"
             width={1020}
             height={704}
             alt={dealsScreenshotAlt.account}
-            className="mx-auto mt-4 h-auto w-full max-w-md rounded-lg border border-slate-200"
+            className="mx-auto mt-4 h-auto w-full max-w-md rounded-lg border border-line"
           />
           <h3>Disclosure shown beneath the checkbox</h3>
           <p>
@@ -144,7 +145,7 @@ export default function SmsPage() {
             )}
           </p>
           <h3>Sample messages</h3>
-          <p className="text-slate-600 text-sm">{dealsSampleNote}</p>
+          <p className="text-muted text-sm">{dealsSampleNote}</p>
           <ul>
             {dealsSamples.map((s) => (
               <li key={s.event}>

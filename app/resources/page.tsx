@@ -21,11 +21,11 @@ export default function ResourcesPage() {
       <HeroCentered
         eyebrow="Resources"
         heading="Insights on the future of local commerce"
-        subheading="Explore practical thinking on merchant ownership, orchestration, neighborhood demand, and AI-assisted operations."
+        subheading="Practical thinking on owning your customers, keeping your margin, neighborhood demand, and growth tools that wait for your OK."
         primaryCta={{ label: "Subscribe for Updates", href: "#newsletter" }}
       />
 
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-cream py-16 md:py-24">
         <Container>
           {/* Filter tabs */}
           <div className="flex flex-wrap gap-2 mb-10 justify-center">
@@ -35,8 +35,8 @@ export default function ResourcesPage() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                   activeCategory === cat
-                    ? "bg-cobalt-500 text-white"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                    ? "bg-ink text-white"
+                    : "bg-cream-3 text-ink-2 hover:bg-line"
                 }`}
               >
                 {cat}
@@ -51,7 +51,7 @@ export default function ResourcesPage() {
               ))}
             </div>
           ) : (
-            <p className="text-center text-slate-500 py-16">
+            <p className="text-center text-muted py-16">
               No resources in this category yet. Check back soon.
             </p>
           )}
@@ -59,7 +59,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* Newsletter section */}
-      <section id="newsletter" className="gradient-dark py-16 md:py-24">
+      <section id="newsletter" className="on-dark bg-ink py-16 md:py-24">
         <Container size="lg" className="text-center">
           <SectionIntro
             heading="Stay current on local commerce"

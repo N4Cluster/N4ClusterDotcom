@@ -7,11 +7,11 @@ interface SectionContainerProps extends ComponentPropsWithoutRef<"section"> {
 }
 
 const bgClasses = {
-  white: "bg-white",
-  light: "bg-slate-50",
-  dark: "gradient-dark",
-  navy: "bg-navy-950",
-  "gradient-light": "gradient-section",
+  white: "bg-cream",
+  light: "bg-cream-2",
+  dark: "on-dark bg-ink text-white",
+  navy: "on-dark bg-ink text-white",
+  "gradient-light": "bg-cream",
 };
 
 const paddingClasses = {
