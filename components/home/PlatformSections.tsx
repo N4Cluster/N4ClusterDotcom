@@ -61,7 +61,7 @@ function Ordering() {
         <h3 className={h3}>An ordering site on your own domain, in your own colors.</h3>
         <p className={lede}>On your domain, in your colors, built from your menu. We set it up and clean it up, and nothing goes live without your sign-off.</p>
         <ul className="flex flex-col gap-2.5 font-medium">
-          {["Pickup, delivery and scheduled orders", "Stripe payments, with you as merchant of record", "No website yet? We'll set up your domain too"].map((t) => (
+          {["Pickup, delivery and scheduled orders", "Card payments through Stripe, deposited to you", "No website yet? We'll set up your domain too"].map((t) => (
             <li key={t} className="flex gap-2.5"><span aria-hidden="true" className="font-extrabold text-green">✓</span>{t}</li>
           ))}
         </ul>

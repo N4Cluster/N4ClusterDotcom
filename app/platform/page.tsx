@@ -25,7 +25,7 @@ const pillars = [
       "Mobile-first, fast checkout",
       "Specials, sold-out items and hours update as you change them",
       "You control all pricing and item visibility",
-      "Payments through Stripe — your restaurant is the merchant of record",
+      "Card payments through Stripe, with the money deposited to you",
     ],
     metric: { value: "Fixed price", label: "no commission, whatever the ticket size" },
   },

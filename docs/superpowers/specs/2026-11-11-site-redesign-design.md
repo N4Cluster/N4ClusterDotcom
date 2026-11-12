@@ -93,7 +93,7 @@ Take exact values from the mockup file. Summary:
 | Customer data | "Your customer data is yours — we'll send you a copy whenever you ask." | "export anytime", self-service export, "exportable" |
 | Go-live | "Live in days. Not quarters." with the mockup's Day 1 / Within days / Week 1 / Ongoing timeline, and its qualifier "We scope the exact steps and timing for your restaurant before you commit." Apply on /how-it-works and the FAQ too. | "24 hours", "Day 1" go-live promises beyond the timeline |
 | Delivery | "We dispatch through DoorDash Drive and Uber Direct and chase any order that runs late. Courier charges depend on your address." "Delivery we coordinate" is correct. | — |
-| Payments | Stripe, restaurant is merchant of record. | — |
+| Payments | Stripe. N4Cluster is merchant of record and owns the transaction; the money is deposited to the restaurant (owner correction, 2026-11-12). | — |
 | Domain | "No website yet? We'll set up your domain too." | — |
 | Rewards | Live today: points on menu subtotal, own reward catalog, redeem at checkout. | — |
 | Contact | "Call or text (629) 290-1191 — a founder answers." Email **contact@n4cluster.com** (the mockup's "contacts@" is a typo). | contacts@; **"Text DEMO" or any inbound SMS keyword** — no registered campaign covers it and carrier review flags it (removed 2026-10-31 in 46de05d; the guard test in `tests/site-structure.test.ts` stays). Owner agreed. |
