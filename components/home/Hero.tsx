@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { heroCta } from "@/content/company";
-import { cents, monthly } from "./figures";
 import { OrderCard } from "./OrderCard";
 import { StorefrontPhone } from "./StorefrontPhone";
 
@@ -16,7 +15,7 @@ export function Hero() {
           Stop paying <span className="box-decoration-clone rounded-[14px] bg-gold px-2.5">30%</span> to sell your own food.
         </h1>
         <p className="max-w-[540px] text-xl leading-[1.55] text-ink-2">
-          Your own branded ordering site, built-in rewards and delivery we coordinate. {monthly} a month plus {cents} an order. No commission, ever.
+          Your own branded ordering site, built-in rewards and delivery we coordinate. No commission, ever.
         </p>
         <form
           action="/contact"
