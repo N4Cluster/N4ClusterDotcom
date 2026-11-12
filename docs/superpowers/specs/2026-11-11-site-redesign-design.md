@@ -96,7 +96,8 @@ Take exact values from the mockup file. Summary:
 | Payments | Stripe, restaurant is merchant of record. | — |
 | Domain | "No website yet? We'll set up your domain too." | — |
 | Rewards | Live today: points on menu subtotal, own reward catalog, redeem at checkout. | — |
-| Contact | "Text DEMO to (629) 290-1191 — a founder answers." Email **contact@n4cluster.com** (the mockup's "contacts@" is a typo). | contacts@ |
+| Contact | "Call or text (629) 290-1191 — a founder answers." Email **contact@n4cluster.com** (the mockup's "contacts@" is a typo). | contacts@; **"Text DEMO" or any inbound SMS keyword** — no registered campaign covers it and carrier review flags it (removed 2026-10-31 in 46de05d; the guard test in `tests/site-structure.test.ts` stays). Owner agreed. |
+| Growth campaigns (SMS) | Describe campaigns to lapsed regulars without saying they are sent by text (e.g. "draft a campaign for the regulars who've drifted"; mockup card copy becomes "Send your regulars a double-points offer for tonight?"). | "Text your regulars…", any marketing-text claim — Privacy (2026-10-31) says N4Cluster sends no marketing texts yet. Owner agreed. |
 | Log in | Header "Log in" → `https://merchant.n4cluster.com/merchant/signin` | — |
 | Product names | Remove N4Sync, N4Logic, Neighborhood Hub from all marketing pages; describe what they do in plain words. | the names (legal pages untouched) |
 | Capabilities on kept pages | Owner confirmed **all true today**, keep them (renamed in plain words, no "coming soon"): a listing in an N4Cluster neighborhood directory alongside other local spots; AI demand forecasting; growth campaigns to lapsed regulars with the owner's OK; Google Business Profile kept in sync with the menu; risk protection and delivery handled "on our risk" with delivery-time tracking; multi-location support. | — |
@@ -130,7 +131,7 @@ inline script. Its defaults are the mockup's (400 orders, $35, 25%; rate chips 2
     mockup's photo slot left as a neutral placeholder graphic, not a stock photo;
     "Your restaurant, here." card; "Apply for a pilot spot" → `/contact`.
 11. FAQ — the mockup's five questions with the corrected cancel/data answers, plus the
-    "Text DEMO" contact line.
+    "Call or text (629) 290-1191 — a founder answers" contact line.
 12. Final CTA — "Keep the customer. Keep the margin."
 13. Footer — per mockup, columns Product / Resources / Company, contact line, legal links
     (Privacy, Terms, Cookies, **SMS Terms**, Cookie preferences — keep what's there now).
