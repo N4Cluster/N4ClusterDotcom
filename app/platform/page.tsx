@@ -8,7 +8,7 @@ import { Card } from "@/components/ui/Card";
 import { Check } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Platform — Ordering, Rewards, Growth, Delivery, Discovery",
+  title: "Platform — Ordering, Rewards, Growth, Delivery",
   description: "N4Cluster is four things working together: your own ordering site, a rewards program, growth campaigns, and delivery we coordinate — for one fixed price.",
 };
 
@@ -72,20 +72,6 @@ const pillars = [
       "Courier charges depend on your address",
     ],
     metric: { value: "Tracked", label: "every pickup and drop-off timestamped" },
-  },
-  {
-    id: "discovery",
-    number: "05",
-    tag: "Discovery",
-    headline: "Be found by the neighborhood, not buried by ads.",
-    body: "Your restaurant is listed in an N4Cluster neighborhood directory alongside other local spots, sorted by distance and what people want — not by who paid the biggest commission. Your Google Business Profile stays in step with your menu too.",
-    features: [
-      "A listing in the neighborhood directory with other local spots",
-      "Ranked by distance and preference, not by fees paid",
-      "Your brand stays primary on your own ordering page",
-      "Google Business Profile synced with your menu",
-    ],
-    metric: { value: "Local first", label: "neighbors find you, then order direct" },
   },
 ];
 

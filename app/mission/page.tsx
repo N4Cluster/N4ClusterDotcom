@@ -213,12 +213,12 @@ export default function MissionPage() {
               What it costs
             </h3>
             <p className="mt-3 text-base leading-relaxed text-ink">
-              After the {priceDisplay.trial}: {priceDisplay.merchantFees} in
-              N4Cluster merchant fees. {feeQualifiers.commission}
+              After the {priceDisplay.trial}: one fixed price in N4Cluster
+              merchant fees. {feeQualifiers.commission}
             </p>
             <p className="mt-3 text-sm leading-relaxed text-ink-2">
-              Diners normally pay a {priceDisplay.dinerFee} N4Cluster fee unless the
-              restaurant chooses to absorb it.
+              Diners normally pay a small N4Cluster fee unless the restaurant
+              chooses to absorb it.
             </p>
             <p className="mt-3 text-sm leading-relaxed text-ink-2">
               The trial waives N4Cluster merchant platform and per-order fees.{" "}

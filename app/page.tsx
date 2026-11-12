@@ -11,13 +11,12 @@ import { PilotSection } from "@/components/home/PilotSection";
 import { FinalCta } from "@/components/home/FinalCta";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
 import { homeFaqItems } from "@/content/pages/faq";
-import { priceDisplay } from "@/content/site/pricing";
 import { siteConfig } from "@/content/site/settings";
 
 export const metadata: Metadata = {
   title: "N4Cluster | Commission-Free Online Ordering for Neighborhood Restaurants",
   description:
-    `Give customers who already know your restaurant a direct way to order, under your own brand. Flat ${priceDisplay.merchantFees}. No commission, ever. Keep your delivery apps for discovery.`,
+    `Give customers who already know your restaurant a direct way to order, under your own brand. One fixed price. No commission, ever. Keep your delivery apps for discovery.`,
 };
 
 export default function HomePage() {

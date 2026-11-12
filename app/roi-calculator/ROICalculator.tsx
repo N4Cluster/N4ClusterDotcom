@@ -202,7 +202,7 @@ export function ROICalculator() {
                     N4Cluster fees, same volume
                   </span>
                   <span className="text-xs font-bold px-2 py-1 rounded-full whitespace-nowrap" style={{ background: "var(--color-green-tint)", color: "var(--color-green)" }}>
-                    {priceDisplay.merchantFees}
+                    Fixed price
                   </span>
                 </div>
                 <div className="text-3xl font-bold tabular-nums" style={{ color: "var(--color-green)" }}>
@@ -225,18 +225,10 @@ export function ROICalculator() {
                 <div>
                   <div className="flex items-center justify-between px-5 py-3.5 gap-3">
                     <span className="text-sm" style={{ color: "var(--color-ink-3)" }}>
-                      Platform fee (flat, per month)
+                      N4Cluster fixed fees (monthly + per order)
                     </span>
                     <span className="text-sm font-semibold tabular-nums" style={{ color: "var(--color-ink)" }}>
-                      {usd(results.monthlyFee)}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between px-5 py-3.5 gap-3" style={{ borderTop: "1px solid var(--color-line)" }}>
-                    <span className="text-sm" style={{ color: "var(--color-ink-3)" }}>
-                      Per-order fee ({priceDisplay.perOrder} × {orders.toLocaleString("en-US")})
-                    </span>
-                    <span className="text-sm font-semibold tabular-nums" style={{ color: "var(--color-ink)" }}>
-                      {usd(results.perOrderFees)}
+                      {usd(results.monthlyFee + results.perOrderFees)}
                     </span>
                   </div>
                   <div className="flex items-center justify-between px-5 py-3.5 gap-3" style={{ borderTop: "1px solid var(--color-line)" }}>
@@ -337,7 +329,7 @@ export function ROICalculator() {
                   with direct pickup is not a like-for-like delivery comparison.
                 </li>
                 <li>
-                  The {priceDisplay.dinerFee} diner fee is not included. Diners
+                  The diner fee is not included. Diners
                   normally pay it; if your restaurant chooses to absorb it, add it
                   to your own costs.
                 </li>

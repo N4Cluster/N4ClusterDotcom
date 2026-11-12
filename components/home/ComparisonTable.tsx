@@ -1,10 +1,9 @@
-import { monthly, orderCost } from "./figures";
 import { TRIAL_DAYS } from "@/content/site/pricing";
 
 const cols = ["Marketplace apps", "Flat-fee ordering SaaS", "N4Cluster"] as const;
 const rows: { label: string; cells: [string, string, string] }[] = [
-  { label: "Cost on a $40 order", cells: ["Up to $12.00 (20–30%)", "Card processing, plus the monthly bill", `${orderCost} ($0.50 + card processing)`] },
-  { label: "Monthly fee", cells: ["Varies", "Typically $300–500", `${monthly}, first ${TRIAL_DAYS} days free`] },
+  { label: "Cost on a $40 order", cells: ["Up to $12.00 (20–30%)", "Card processing, plus the monthly bill", "Card processing plus our fixed per-order fee"] },
+  { label: "Monthly fee", cells: ["Varies", "Typically $300–500", `Fixed, first ${TRIAL_DAYS} days free`] },
   { label: "Who owns the customer", cells: ["The app", "You", "You — copy on request"] },
   { label: "Whose brand guests see", cells: ["Theirs", "Yours", "Yours"] },
   { label: "Delivery", cells: ["Inside the commission", "Varies by provider", "We dispatch and track it"] },
@@ -68,7 +67,7 @@ export function ComparisonTable() {
       </div>
 
       <p className="mt-4 text-[13px] text-muted">
-        Commission and SaaS pricing vary by provider. N4Cluster per-order cost assumes card processing at 2.9% + 30¢ on a $40 subtotal; the {monthly} monthly fee is separate.
+        Commission and SaaS pricing vary by provider. N4Cluster&apos;s exact fees are on the pricing page.
       </p>
     </section>
   );

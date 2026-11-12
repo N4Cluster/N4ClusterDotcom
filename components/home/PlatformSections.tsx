@@ -165,12 +165,6 @@ export function PlatformSections() {
             </div>
             <div className="text-[11px] text-muted">Driver picked up · arriving in 9 min</div>
           </Tile>
-          <Tile id="discovery" src="cafe-interior.jpg" alt="A busy restaurant dining room seen from above" n="05" name="Discovery" title="Found when neighbors search."
-            body="Your dishes show up on Google, and your Business Profile stays in sync as your menu changes.">
-            <div className="rounded-full border border-cream-3 px-3 py-1.5 text-xs text-muted">pasta near me</div>
-            <div className="text-sm font-bold text-[#1A47B8]">Maple Street Kitchen · Order online</div>
-            <div className="text-[11px] text-muted">0.8 mi · Open until 9pm · Pickup &amp; delivery</div>
-          </Tile>
         </div>
       </div>
     </section>

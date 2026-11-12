@@ -11,7 +11,7 @@ import { youKeep } from "@/components/home/figures";
 
 export const metadata: Metadata = {
   title: "Solutions — Commission-Free Ordering for Every Restaurant Type",
-  description: `N4Cluster adapts to independent restaurants, multi-location brands, and delivery-first operators — always ${priceDisplay.merchantFees}. No commission, ever.`,
+  description: `N4Cluster adapts to independent restaurants, multi-location brands, and delivery-first operators — always one fixed price. No commission, ever.`,
 };
 
 interface Solution {
@@ -31,14 +31,14 @@ const solutions: Solution[] = [
     id: "independent",
     tag: "For independent restaurants",
     headline: "Stop paying 30% to sell your own food.",
-    subheadline: `You built the menu, the regulars, the reputation. A marketplace app didn't build any of that — it just collects rent on it. N4Cluster gives you a branded ordering channel that's actually yours, for ${priceDisplay.merchantFees}.`,
+    subheadline: `You built the menu, the regulars, the reputation. A marketplace app didn't build any of that — it just collects rent on it. N4Cluster gives you a branded ordering channel that's actually yours, for one fixed price.`,
     bullets: [
       "Your name on the ordering page, not a marketplace logo — customers order from you, not through a middleman",
       "Your customer data is yours — we'll send you a copy whenever you ask.",
       "Growth campaigns draft themselves for the regulars who've drifted — nothing goes out without your OK",
       "A listing in a neighborhood directory puts your kitchen in front of neighbors deciding where to order tonight",
       "We dispatch through DoorDash Drive and Uber Direct and chase any order that runs late",
-      `${priceDisplay.merchantFees}. No commission, ever. ${priceDisplay.cancel}`,
+      `One fixed price. No commission, ever. ${priceDisplay.cancel}`,
     ],
     outcomes: [
       { label: "Kept on a $40 order after card processing", value: youKeep },
@@ -68,7 +68,7 @@ const solutions: Solution[] = [
       "Multi-location support built in — no separate setup for each spot",
       "Menus, specials and sold-out items update as you change them",
       "Every location can be listed in the neighborhood directory for the neighbors close enough to order",
-      `${priceDisplay.merchantFees}. No commission, ever.`,
+      "One fixed price. No commission, ever.",
     ],
     outcomes: [
       { label: "What we take in commission", value: "None. Ever." },
@@ -82,7 +82,7 @@ const solutions: Solution[] = [
       rows: [
         { label: "Ordering experience", value: "One brand" },
         { label: "Rewards", value: "Your own catalog" },
-        { label: "Fees", value: priceDisplay.merchantFees },
+        { label: "Fees", value: "One fixed price" },
       ],
       note: "Card processing and any courier charges are separate.",
     },
@@ -103,7 +103,7 @@ const solutions: Solution[] = [
     outcomes: [
       { label: "Who chases a late order", value: "We do" },
       { label: "Courier charges", value: "Depend on your address" },
-      { label: "Per-order fee", value: priceDisplay.perOrder },
+      { label: "Commission", value: "None" },
     ],
     cta: "Talk about your delivery model",
     ctaHref: "/contact",
@@ -131,7 +131,7 @@ const solutions: Solution[] = [
     ],
     outcomes: [
       { label: "How you start", value: "A conversation" },
-      { label: "What merchants pay", value: priceDisplay.merchantFees },
+      { label: "What merchants pay", value: "One fixed price" },
       { label: "How onboarding starts", value: "Pilot-first" },
     ],
     cta: "Start a partner conversation",
@@ -153,8 +153,8 @@ export default function SolutionsPage() {
     <>
       <HeroCentered
         eyebrow="Solutions"
-        heading="Independent, multi-location, delivery-first — one flat fee."
-        subheading={`However you run your kitchen, the marketplace tax doesn't apply here. No commission, ever — ${priceDisplay.merchantFees}, whether you run one location or four.`}
+        heading="Independent, multi-location, delivery-first — one fixed price."
+        subheading={`However you run your kitchen, the marketplace tax doesn't apply here. No commission, ever — one fixed price, whether you run one location or four.`}
         primaryCta={{ label: "Get a free demo", href: "/contact" }}
         secondaryCta={{ label: "See pricing", href: "/pricing" }}
       />

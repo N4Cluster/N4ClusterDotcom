@@ -6,7 +6,6 @@ import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { SectionIntro } from "@/components/ui/SectionIntro";
 import { Check } from "lucide-react";
-import { priceDisplay } from "@/content/site/pricing";
 
 export const metadata: Metadata = {
   title: "How It Works — Live in Days. Not Quarters.",
@@ -56,7 +55,7 @@ const phases = [
   {
     tag: "Ongoing",
     headline: "Every order compounds.",
-    sub: `Each direct order is a guest you own, at the same flat price: ${priceDisplay.merchantFees}, plus card processing.`,
+    sub: `Each direct order is a guest you own, at the same fixed price, plus card processing.`,
     tasks: [
       "Growth campaigns drafted for the regulars who have drifted — sent only with your OK",
       "High-margin items flagged for a spotlight",
@@ -69,7 +68,7 @@ const phases = [
 
 const summary = [
   { value: "Days", label: "We scope exact timing for your restaurant before you commit" },
-  { value: priceDisplay.merchantFees, label: "Flat. Card processing separate." },
+  { value: "Fixed price", label: "Card processing separate. Numbers on the pricing page." },
   { value: "Tracked", label: "Delivery times on every order" },
   { value: "0%", label: "Commission. Never." },
 ];

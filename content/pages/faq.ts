@@ -14,22 +14,22 @@ export const faqItems: FAQItem[] = [
   {
     question: "Is it really commission-free?",
     answer:
-      "Yes. No commission, ever. You pay $99 a month plus $0.50 per order, and standard card processing (2.9% + 30¢). On a $40 order, you keep $38.04. Any courier charges for delivery are separate.",
+      "Yes. No commission, ever. You pay one fixed price, the same on every order whatever the ticket size, plus standard card processing. On a $40 order, you keep $38.04. The exact figures are on our pricing page. Any courier charges for delivery are separate.",
   },
   {
     question: "What does my customer pay?",
     answer:
-      "Your menu prices, plus a flat $0.99 service fee at checkout. That fee is on top of the order, not taken out of your share, unless you choose to absorb it.",
+      "Your menu prices, plus a small flat service fee at checkout. That fee is on top of the order, not taken out of your share, unless you choose to absorb it.",
   },
   {
     question: "What is N4Cluster?",
     answer:
-      "N4Cluster gives neighborhood restaurants a branded direct-ordering channel, so customers who already know you can order from you under your own name. It includes your own ordering site, a listing in a neighborhood directory, growth tools, and delivery coordination, for a flat $99/month plus $0.50 per order with no commission, ever. Card processing and any courier charges are separate.",
+      "N4Cluster gives neighborhood restaurants a branded direct-ordering channel, so customers who already know you can order from you under your own name. It includes your own ordering site, a listing in a neighborhood directory, growth tools, and delivery coordination, for one fixed price with no commission, ever. Card processing and any courier charges are separate.",
   },
   {
     question: "How is N4Cluster different from marketplace delivery platforms?",
     answer:
-      "Marketplaces typically take 20–30% commission on every order and keep the customer relationship. N4Cluster charges published fees instead of a share of your revenue: a flat $99/month plus $0.50 per order, with no commission, ever. You take orders under your own brand and domain, and the customer and order information from those orders is available to you. Card processing and any courier charges are separate from N4Cluster's fees.",
+      "Marketplaces typically take 20–30% commission on every order and keep the customer relationship. N4Cluster charges one fixed, published price instead of a share of your revenue, with no commission, ever. You take orders under your own brand and domain, and the customer and order information from those orders is available to you. Card processing and any courier charges are separate from N4Cluster's fees.",
   },
   {
     question: "Do I have to quit DoorDash or Uber Eats?",
@@ -37,19 +37,19 @@ export const faqItems: FAQItem[] = [
       "No. You can keep the delivery apps that help people discover your restaurant. N4Cluster gives customers who already know you a direct way to order under your own brand. You decide how each channel fits your business.",
   },
   {
-    question: "What do the $99/month and $0.50 per order cover?",
+    question: "What does the price cover?",
     answer:
-      "They cover the N4Cluster platform: your branded ordering site, your neighborhood directory listing, growth tools, delivery coordination, and POS integration. There are no tiered plans and no add-on modules. Two things are not included: card processing, which your payment processor charges separately, and any courier charges for delivery. Diners normally pay a $0.99 N4Cluster fee at checkout unless you choose to absorb it.",
+      "They cover the N4Cluster platform: your branded ordering site, your neighborhood directory listing, growth tools, delivery coordination, and POS integration. There are no tiered plans and no add-on modules. Two things are not included: card processing, which your payment processor charges separately, and any courier charges for delivery. Diners normally pay a small N4Cluster fee at checkout unless you choose to absorb it.",
   },
   {
-    question: "What is the $0.99 customer fee?",
+    question: "What is the customer fee?",
     answer:
-      "Diners see a $0.99 N4Cluster fee at checkout. It is a platform fee collected by N4Cluster and labelled as N4Cluster's fee, not a surcharge added to your menu prices. If a customer asks you about it, our support team can help you answer. Restaurants who prefer to absorb it or build it into menu pricing can opt out of the customer-facing display.",
+      "Diners see a small N4Cluster fee at checkout. It is a platform fee collected by N4Cluster and labelled as N4Cluster's fee, not a surcharge added to your menu prices. If a customer asks you about it, our support team can help you answer. Restaurants who prefer to absorb it or build it into menu pricing can opt out of the customer-facing display.",
   },
   {
     question: "Will my prices ever increase?",
     answer:
-      "The published per-order rate does not increase merely because an order value or your order volume goes up. It is not a permanent price freeze either: fees can be adjusted, and your merchant agreement governs how. Under the current terms an adjustment must follow a CPI-based formula with a hard cap and at least 90 days written notice; a material change to the pricing model requires 180 days notice and activates your right to exit. You can also lock in your merchant fee ($0.50/order and $99/month) for 1 or 2 years for cost certainty. Your signed agreement is what governs these rights — ask us for the current version before you sign.",
+      "The published per-order rate does not increase merely because an order value or your order volume goes up. It is not a permanent price freeze either: fees can be adjusted, and your merchant agreement governs how. Under the current terms an adjustment must follow a CPI-based formula with a hard cap and at least 90 days written notice; a material change to the pricing model requires 180 days notice and activates your right to exit. You can also lock in your merchant fees for 1 or 2 years for cost certainty. Your signed agreement is what governs these rights — ask us for the current version before you sign.",
   },
   {
     question: "How does N4Cluster help me grow?",
@@ -74,7 +74,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "Can I try it free?",
     answer:
-      "Yes — 30 days. The trial waives N4Cluster's merchant platform fee and per-order fees, so there is no $99/month and no $0.50 per order during that period. Card processing still applies to any card payment you take, and the $0.99 diner fee is a separate charge — ask us how it is handled during your trial. We build a working demo storefront with your real menu and walk you through it before you decide anything.",
+      "Yes — 30 days. The trial waives N4Cluster's merchant platform fee and per-order fees, so you pay no N4Cluster merchant fees during that period. Card processing still applies to any card payment you take, and the diner fee is a separate charge — ask us how it is handled during your trial. We build a working demo storefront with your real menu and walk you through it before you decide anything.",
   },
   {
     question: "I don't have a website. Is that a problem?",

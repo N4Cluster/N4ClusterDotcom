@@ -140,7 +140,7 @@ describe("FAQ commercial accuracy", () => {
   });
 
   it("states that card processing is separate wherever the fees are summarised", () => {
-    const item = find("what do the");
+    const item = find("what does the price");
     expect(item?.answer).toMatch(/card processing/i);
   });
 
@@ -162,6 +162,17 @@ describe("fee claims across merchant acquisition copy", () => {
     "app/mission/page.tsx",
     "app/roi-calculator/ROICalculator.tsx",
   ];
+
+  it("only the pricing page quotes the fee figures", () => {
+    for (const page of [
+      "app/page.tsx", "app/platform/page.tsx", "app/solutions/page.tsx", "app/how-it-works/page.tsx",
+      "app/mission/page.tsx", "app/roi-calculator/page.tsx", "app/roi-calculator/ROICalculator.tsx",
+      "components/home/StatStrip.tsx", "components/home/ComparisonTable.tsx", "components/home/SavingsCalculator.tsx",
+      "content/pages/faq.ts",
+    ]) {
+      expect(read(page), page).not.toMatch(/\$99|\$0\.50|\$0\.99|priceDisplay\.(merchantFees|monthly|perOrder|dinerFee)/);
+    }
+  });
 
   it("pricing page discloses card processing", () => {
     expect(read("app/pricing/page.tsx")).toMatch(/card processing/i);

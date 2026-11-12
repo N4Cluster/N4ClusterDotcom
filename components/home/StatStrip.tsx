@@ -1,16 +1,16 @@
-import { cents, youKeep } from "./figures";
+import { youKeep } from "./figures";
 import { TRIAL_DAYS } from "@/content/site/pricing";
 
 const stats = [
   { value: "$0", caption: "commission on any order, ever" },
-  { value: cents, caption: "flat fee per order, published and fixed" },
+  { value: "Fixed", caption: "one price, whatever the ticket size" },
   { value: youKeep, caption: "what you keep on a $40 order", green: true },
   { value: `${TRIAL_DAYS} days`, caption: "free to start, then month-to-month" },
 ];
 
 export function StatStrip() {
   return (
-    <section aria-label="Pricing at a glance" className="mx-auto max-w-[1280px] px-6 pb-[88px] pt-14">
+    <section aria-label="At a glance" className="mx-auto max-w-[1280px] px-6 pb-[88px] pt-14">
       <div className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] border-t-2 border-ink">
         {stats.map((s) => (
           <div key={s.caption} className="pr-6 pt-7">
