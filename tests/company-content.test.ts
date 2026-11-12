@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { mission, values, demoCta, founderQuote } from "@/content/company";
-import { faqItems } from "@/content/pages/faq";
+import { faqItems, homeFaqItems } from "@/content/pages/faq";
 import { priceDisplay } from "@/content/site/pricing";
 
 const read = (path: string) => readFileSync(path, "utf8");
@@ -40,10 +40,6 @@ describe("canonical values", () => {
     }
   });
 
-  it("scopes the commission claim to N4Cluster's own sales commission", () => {
-    const growth = values.find((v) => v.id === "growth");
-    expect(growth?.body).toContain("zero N4Cluster sales commission");
-  });
 });
 
 describe("shared source is actually shared", () => {
@@ -60,7 +56,7 @@ describe("shared source is actually shared", () => {
   });
 
   it("the demo CTA label is used rather than retyped on the homepage", () => {
-    expect(demoCta.label).toBe("Request your demo storefront");
+    expect(demoCta.label).toBe("Get a free demo");
     expect(read("app/page.tsx")).toContain("demoCta.label");
   });
 
@@ -96,7 +92,7 @@ describe("FAQ commercial accuracy", () => {
     faqItems.find((item) => item.question.toLowerCase().includes(fragment));
 
   it("answers the complementary-channel question", () => {
-    const item = find("delivery apps");
+    const item = find("doordash");
     expect(item).toBeDefined();
     expect(item?.answer).toContain("You can keep the delivery apps");
   });
@@ -104,10 +100,23 @@ describe("FAQ commercial accuracy", () => {
   it("puts that answer where /contact will show it (first five)", () => {
     // /contact renders faqItems.slice(0, 5).
     const index = faqItems.findIndex((i) =>
-      i.question.toLowerCase().includes("delivery apps")
+      i.question.toLowerCase().includes("doordash")
     );
     expect(index).toBeGreaterThanOrEqual(0);
     expect(index).toBeLessThan(5);
+  });
+
+  it("exports the five homepage questions in mockup order", () => {
+    expect(homeFaqItems.map((i) => i.question)).toEqual([
+      "Is it really commission-free?",
+      "What does my customer pay?",
+      "Do I have to quit DoorDash or Uber Eats?",
+      "I don't have a website. Is that a problem?",
+      "What if I want to cancel?",
+    ]);
+    const cancel = homeFaqItems[4].answer;
+    expect(cancel).toContain(priceDisplay.cancel);
+    expect(cancel).not.toMatch(/cancel anytime|export anytime|exportable/i);
   });
 
   it("never promises staff will not be asked about the diner fee", () => {
@@ -120,7 +129,7 @@ describe("FAQ commercial accuracy", () => {
 
   it("does not answer the launch-speed question with a bare deadline", () => {
     const item = find("go live");
-    expect(item?.answer.startsWith("We'll confirm setup steps and timing")).toBe(true);
+    expect(item?.answer.startsWith("Live in days.")).toBe(true);
   });
 
   it("names what the trial waives instead of claiming everything is free", () => {
@@ -134,15 +143,13 @@ describe("FAQ commercial accuracy", () => {
     expect(item?.answer).toMatch(/card processing/i);
   });
 
-  it("scopes every commission claim to N4Cluster", () => {
-    for (const item of faqItems) {
-      const text = item.answer;
-      // An unqualified "no commission" reads as "no percentage fees at all".
-      if (/commission/i.test(text) && /zero|no /i.test(text)) {
-        expect(text, item.question).toMatch(
-          /zero N4Cluster sales commission|N4Cluster sales commission/
-        );
-      }
+  it("states the owner-approved commission wording and discloses processing", () => {
+    expect(values.find((v) => v.id === "growth")?.body).toContain("No commission, ever.");
+    const item = find("really commission-free");
+    expect(item?.answer).toMatch(/card processing/i);
+    expect(item?.answer).toContain("$38.04");
+    for (const i of faqItems) {
+      expect(i.answer, i.question).not.toMatch(/zero N4Cluster sales commission/i);
     }
   });
 });

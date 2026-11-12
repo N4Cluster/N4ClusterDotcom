@@ -38,16 +38,16 @@ export const priceDisplay = {
   merchantFees: "$99/month + $0.50 per order",
   dinerFee: "$0.99",
   trial: "30-day trial",
+  cancel: "Month-to-month. Cancel with 30 days' written notice.",
 } as const;
 
 /**
- * The qualifiers that must accompany a fee claim. Section 8 of the spec requires
- * processing and courier costs to be distinguished from N4Cluster fees, and the
- * commission claim to be scoped to N4Cluster's own sales commission.
+ * The qualifiers that must accompany a fee claim: card processing and courier
+ * costs are always distinguished from N4Cluster's fees.
  */
 export const feeQualifiers = {
   commission:
-    "Zero N4Cluster sales commission. Card processing and any courier charges are separate.",
+    "No commission, ever. Card processing and any courier charges are separate.",
   separateCharges:
     "Card processing and any courier charges are separate. Diners normally pay a $0.99 N4Cluster fee unless the restaurant chooses to absorb it.",
   trialScope:

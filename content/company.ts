@@ -26,7 +26,13 @@ export const complementaryChannels =
 
 /** The single merchant CTA, so the label stays identical across the site. */
 export const demoCta = {
-  label: "Request your demo storefront",
+  label: "Get a free demo",
+  href: "/contact",
+} as const;
+
+/** Hero CTA: the restaurant-name form submits to the same destination. */
+export const heroCta = {
+  label: "Build my demo storefront",
   href: "/contact",
 } as const;
 
@@ -41,12 +47,12 @@ export const values: CompanyValue[] = [
   {
     id: "ownership",
     title: "Your business stays yours.",
-    body: "You control your brand, menu, and prices. Your customer and order data stays accessible and exportable, with customer privacy and communication preferences respected.",
+    body: "You control your brand, menu, and prices. Your customer and order data is yours, and we'll send you a copy whenever you ask, with customer privacy and communication preferences respected.",
   },
   {
     id: "growth",
     title: "Growth should reward your hard work.",
-    body: "We focus on profitable direct orders and repeat business. Our platform uses published monthly and per-order fees, with zero N4Cluster sales commission.",
+    body: "We focus on profitable direct orders and repeat business. Our platform uses published monthly and per-order fees. No commission, ever.",
   },
   {
     id: "simplicity",
