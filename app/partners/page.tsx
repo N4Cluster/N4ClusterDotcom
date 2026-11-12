@@ -19,28 +19,24 @@ const partnerTypes = [
     title: "Logistics partners",
     description:
       "Delivery and fulfillment providers who want to connect into a merchant-aligned operating layer and reach more local commerce operators.",
-    accent: "cobalt" as const,
   },
   {
     icon: Monitor,
     title: "POS and commerce system partners",
     description:
       "Point-of-sale, catalog, and commerce technology providers who want to extend reach and improve interoperability with local operators.",
-    accent: "teal" as const,
   },
   {
     icon: TrendingUp,
     title: "Growth and engagement partners",
     description:
       "Marketing, CRM, and customer engagement platforms that want to connect into the operator workflow rather than sit outside it.",
-    accent: "amber" as const,
   },
   {
     icon: Network,
     title: "Strategic ecosystem partners",
     description:
       "Organizations with aligned interests in improving the local commerce infrastructure — from industry groups to regional networks.",
-    accent: "cobalt" as const,
   },
 ];
 
@@ -63,7 +59,7 @@ export default function PartnersPage() {
         background="light"
       />
 
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-cream py-16 md:py-24">
         <Container size="lg">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div>
@@ -83,15 +79,15 @@ export default function PartnersPage() {
                   "Long-term relationship focus over short-term transaction",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-cobalt-500 flex-shrink-0 mt-1.5" />
-                    <span className="text-sm text-slate-600">{item}</span>
+                    <div className="w-2 h-2 rounded-full bg-gold flex-shrink-0 mt-1.5" />
+                    <span className="text-sm text-ink-3">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div id="partner-form" className="bg-slate-50 border border-slate-200 rounded-2xl p-8">
-              <h3 className="text-xl font-bold text-navy-950 mb-2">Start a partner conversation</h3>
-              <p className="text-sm text-slate-600 mb-6">
+            <div id="partner-form" className="bg-white border border-line rounded-[22px] p-8">
+              <h3 className="font-display text-xl font-bold text-ink mb-2">Start a partner conversation</h3>
+              <p className="text-sm text-ink-3 mb-6">
                 Tell us about your organization and what kind of partnership you have in mind.
               </p>
               <ContactForm variant="partner" />

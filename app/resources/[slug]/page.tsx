@@ -43,11 +43,11 @@ export default async function ResourceArticlePage({
   }
 
   return (
-    <section className="gradient-hero pt-32 pb-12">
+    <section className="bg-cream pt-12 pb-16 md:pt-16">
       <Container size="sm">
         <Link
           href="/resources"
-          className="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition-colors mb-8"
+          className="inline-flex items-center gap-1.5 text-sm text-ink-3 hover:text-ink transition-colors mb-8"
         >
           <ArrowLeft size={14} />
           Back to Resources
@@ -56,14 +56,14 @@ export default async function ResourceArticlePage({
         <div className="mb-6 flex items-center gap-3">
           <Badge variant="accent">{resource.category}</Badge>
           {resource.readTime && (
-            <span className="text-xs text-slate-400">{resource.readTime}</span>
+            <span className="text-xs text-muted">{resource.readTime}</span>
           )}
         </div>
 
-        <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight mb-4">
+        <h1 className="font-display text-3xl sm:text-4xl font-bold text-ink leading-tight mb-4">
           {resource.title}
         </h1>
-        <p className="text-lg text-slate-300 leading-relaxed mb-12">
+        <p className="text-lg text-ink-3 leading-relaxed mb-12">
           {resource.excerpt}
         </p>
 
@@ -71,17 +71,17 @@ export default async function ResourceArticlePage({
           {resource.body.map((paragraph, i) => (
             <p
               key={i}
-              className="text-slate-200 leading-relaxed mb-6 text-base"
+              className="text-ink-2 leading-relaxed mb-6 text-base"
             >
               {paragraph}
             </p>
           ))}
         </article>
 
-        <div className="mt-16 pt-8 border-t border-navy-700">
+        <div className="mt-16 pt-8 border-t border-line">
           <Link
             href="/resources"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-cobalt-400 hover:text-cobalt-300 transition-colors"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink hover:text-ink-2 transition-colors"
           >
             <ArrowLeft size={14} />
             Back to all resources
