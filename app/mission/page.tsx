@@ -217,7 +217,7 @@ export default function MissionPage() {
               merchant fees. {feeQualifiers.commission}
             </p>
             <p className="mt-3 text-sm leading-relaxed text-ink-2">
-              Diners normally pay a small Neighbourhood fee unless the restaurant
+              Diners normally pay a small Neighborhood fee unless the restaurant
               chooses to absorb it.
             </p>
             <p className="mt-3 text-sm leading-relaxed text-ink-2">

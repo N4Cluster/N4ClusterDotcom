@@ -19,7 +19,7 @@ const commissionComparison = [
 ];
 
 const customerFeeDetails = [
-  "Shown at checkout as the Neighbourhood fee — not a restaurant surcharge",
+  "Shown at checkout as the Neighborhood fee — not a restaurant surcharge",
   "Visible to customers at checkout before they complete an order",
   "Directed entirely to platform infrastructure and neighborhood support",
   "N4Cluster handles all customer questions about this fee",
@@ -156,13 +156,13 @@ export default function PricingPage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div className={""}>
               <span className="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4" style={{ background: "rgba(244,179,62,0.25)", color: "var(--color-ink)" }}>
-                Neighbourhood fee
+                Neighborhood fee
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 leading-tight" style={{ color: "var(--color-ink)" }}>
                 That $0.99 checkout fee? Ours to own, not yours to defend.
               </h2>
               <p className="text-base leading-relaxed mb-5" style={{ color: "var(--color-ink-3)" }}>
-                Every customer ordering through an N4Cluster channel sees a <strong style={{ color: "var(--color-ink)" }}>$0.99 Neighbourhood fee</strong> at checkout, described as a fee that supports local operations in their neighbourhood. N4Cluster collects it — it is <em>not</em> a surcharge you tacked onto their ticket.
+                Every customer ordering through an N4Cluster channel sees a <strong style={{ color: "var(--color-ink)" }}>$0.99 Neighborhood fee</strong> at checkout, described as a fee that supports local operations in their neighborhood. N4Cluster collects it — it is <em>not</em> a surcharge you tacked onto their ticket.
               </p>
               <p className="text-base leading-relaxed mb-6" style={{ color: "var(--color-ink-3)" }}>
                 You never touch that money, and it is labelled as our fee rather than a surcharge on your menu prices. If a customer does ask you about it, our support team can help you answer.
@@ -199,7 +199,7 @@ export default function PricingPage() {
                   </div>
                   <div className="flex justify-between py-2" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
                     <div>
-                      <span className="text-xs" style={{ color: "rgba(255,255,255,0.75)" }}>Neighbourhood fee</span>
+                      <span className="text-xs" style={{ color: "rgba(255,255,255,0.75)" }}>Neighborhood fee</span>
                       <div className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.75)" }}>Platform infrastructure — not a restaurant surcharge</div>
                     </div>
                     <span className="text-xs font-semibold" style={{ color: "var(--color-gold)" }}>$0.99</span>
@@ -364,8 +364,8 @@ export default function PricingPage() {
                 a: "Delivery coordination is already included: we dispatch through DoorDash Drive and Uber Direct and chase any order that runs late. Delivery charges depend on your address and are separate, but the coordination behind them costs you nothing extra.",
               },
               {
-                q: "Is the $0.99 Neighbourhood fee mandatory?",
-                a: "By default, yes — the $0.99 Neighbourhood fee shows up at checkout, and we handle it end to end. If you'd rather absorb it or fold it into your menu pricing, you can opt out of the customer-facing display. Your call.",
+                q: "Is the $0.99 Neighborhood fee mandatory?",
+                a: "By default, yes — the $0.99 Neighborhood fee shows up at checkout, and we handle it end to end. If you'd rather absorb it or fold it into your menu pricing, you can opt out of the customer-facing display. Your call.",
               },
               {
                 q: "Can I cancel during a price lock?",
@@ -373,7 +373,7 @@ export default function PricingPage() {
               },
               {
                 q: "What counts as a material change that triggers the 180-day notice and exit right?",
-                a: "Anything that touches the core structure: moving to commission, switching the fee basis from flat/per-order to revenue-based, raising the $99/month platform fee outside the CPI formula, or changing who the Neighbourhood fee is attributed to. Adjustments inside the CPI formula with 90-day notice don't count — those are business as usual.",
+                a: "Anything that touches the core structure: moving to commission, switching the fee basis from flat/per-order to revenue-based, raising the $99/month platform fee outside the CPI formula, or changing who the Neighborhood fee is attributed to. Adjustments inside the CPI formula with 90-day notice don't count — those are business as usual.",
               },
             ].map((faq) => (
               <div key={faq.q} className="rounded-2xl p-6" style={{ background: "var(--color-cream-2)", border: "1px solid var(--color-line)" }}>
@@ -392,7 +392,7 @@ export default function PricingPage() {
             {[
               { value: "$99/mo", label: "Flat platform fee — merchant" },
               { value: "$0.50", label: "Per order — merchant fee" },
-              { value: "$0.99", label: "Neighbourhood fee — paid by the diner" },
+              { value: "$0.99", label: "Neighborhood fee — paid by the diner" },
               { value: "0%", label: "Commission on revenue. Ever." },
             ].map((stat) => (
               <div key={stat.label}>

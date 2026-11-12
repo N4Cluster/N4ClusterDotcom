@@ -14,7 +14,7 @@ interface FAQAccordionProps {
   dark?: boolean;
 }
 
-// Native details/summary: keyboard and screen-reader behaviour for free, closed answers stay out of the a11y tree.
+// Native details/summary: keyboard and screen-reader behavior for free, closed answers stay out of the a11y tree.
 export function FAQAccordion({ eyebrow, heading, subheading, items, dark = false }: FAQAccordionProps) {
   return (
     <section className={`py-16 md:py-24 ${dark ? "on-dark bg-ink" : "bg-cream"}`}>

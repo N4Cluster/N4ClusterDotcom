@@ -269,7 +269,7 @@ export function ROICalculator() {
               <ul className="space-y-2 text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>
                 <li>
                   It compares <strong className="text-white">fees</strong>, not
-                  profit. Food, labour, occupancy and other costs are unchanged by
+                  profit. Food, labor, occupancy and other costs are unchanged by
                   it, and an amount retained after fees is not profit.
                 </li>
                 <li>
@@ -283,7 +283,7 @@ export function ROICalculator() {
                   with direct pickup is not a like-for-like delivery comparison.
                 </li>
                 <li>
-                  The Neighbourhood fee diners pay is not included. Diners
+                  The Neighborhood fee diners pay is not included. Diners
                   normally pay it; if your restaurant chooses to absorb it, add it
                   to your own costs.
                 </li>
