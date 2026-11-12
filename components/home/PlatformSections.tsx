@@ -30,14 +30,14 @@ const menu = [
   ["shrimp-spaghetti.jpg", "Shrimp linguine", "$16.50"],
   ["pasta-penne.jpg", "Penne arrabbiata", "$12.00"],
   ["fried-chicken.jpg", "Crispy chicken", "$11.50"],
-  ["noodle-bowl-egg.jpg", "Noodle bowl", "$14.00"],
+  ["squash-soup.jpg", "Butternut squash soup", "$8.50"],
 ];
 
 function Ordering() {
   return (
     <div id="ordering" className="flex scroll-mt-24 flex-wrap items-center gap-16">
       <Visual>
-        <Photo src="ramen-shrimp.jpg" alt="A bowl of noodles with shrimp" />
+        <Photo src="pasta-penne.jpg" alt="A plate of penne pasta" />
         <div aria-hidden="true" className={`absolute inset-x-7 bottom-7 overflow-hidden rounded-[18px] bg-white ${shadow}`}>
           <div className="flex items-center gap-1.5 border-b border-cream-3 px-3 py-2.5">
             {[0, 1, 2].map((i) => <span key={i} className="size-[9px] rounded-full bg-cream-3" />)}

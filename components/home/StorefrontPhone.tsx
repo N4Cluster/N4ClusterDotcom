@@ -4,7 +4,7 @@ import { orderTotal } from "./figures";
 const items = [
   { name: "Penne arrabbiata", price: "$12.00", src: "pasta-penne" },
   { name: "Crispy chicken", price: "$11.50", src: "fried-chicken" },
-  { name: "Noodle bowl", price: "$14.00", src: "noodle-bowl-egg" },
+  { name: "Butternut squash soup", price: "$8.50", src: "squash-soup" },
 ];
 
 export function StorefrontPhone({ className = "" }: { className?: string }) {
