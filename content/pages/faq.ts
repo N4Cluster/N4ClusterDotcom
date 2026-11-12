@@ -24,7 +24,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "What is N4Cluster?",
     answer:
-      "N4Cluster gives neighborhood restaurants a branded direct-ordering channel, so customers who already know you can order from you under your own name. It includes your own ordering site, a listing in the Neighborhood Hub, growth tools (N4Logic), and delivery coordination (N4Sync), for a flat $99/month plus $0.50 per order with no commission, ever. Card processing and any courier charges are separate.",
+      "N4Cluster gives neighborhood restaurants a branded direct-ordering channel, so customers who already know you can order from you under your own name. It includes your own ordering site, a listing in a neighborhood directory, growth tools, and delivery coordination, for a flat $99/month plus $0.50 per order with no commission, ever. Card processing and any courier charges are separate.",
   },
   {
     question: "How is N4Cluster different from marketplace delivery platforms?",
@@ -39,7 +39,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "What do the $99/month and $0.50 per order cover?",
     answer:
-      "They cover the N4Cluster platform: your branded ordering site, your Neighborhood Hub listing, N4Logic growth tools, N4Sync delivery coordination, and POS integration. There are no tiered plans and no add-on modules. Two things are not included: card processing, which your payment processor charges separately, and any courier charges for delivery. Diners normally pay a $0.99 N4Cluster fee at checkout unless you choose to absorb it.",
+      "They cover the N4Cluster platform: your branded ordering site, your neighborhood directory listing, growth tools, delivery coordination, and POS integration. There are no tiered plans and no add-on modules. Two things are not included: card processing, which your payment processor charges separately, and any courier charges for delivery. Diners normally pay a $0.99 N4Cluster fee at checkout unless you choose to absorb it.",
   },
   {
     question: "What is the $0.99 customer fee?",
@@ -52,19 +52,19 @@ export const faqItems: FAQItem[] = [
       "The published per-order rate does not increase merely because an order value or your order volume goes up. It is not a permanent price freeze either: fees can be adjusted, and your merchant agreement governs how. Under the current terms an adjustment must follow a CPI-based formula with a hard cap and at least 90 days written notice; a material change to the pricing model requires 180 days notice and activates your right to exit. You can also lock in your merchant fee ($0.50/order and $99/month) for 1 or 2 years for cost certainty. Your signed agreement is what governs these rights — ask us for the current version before you sign.",
   },
   {
-    question: "What is N4Logic?",
+    question: "How does N4Cluster help me grow?",
     answer:
-      "N4Logic is the growth-tools layer built into the platform. After you go live it looks at your demand patterns, identifies repeat customer behaviour, suggests campaign timing, flags high-margin items, and can run neighborhood re-engagement campaigns — all with your approval. It also watches for risk signals such as abnormal refund patterns, SLA degradation, and POS sync failures. Every automation is reversible, and none of it changes your pricing. Ask us which capabilities are live today for a restaurant like yours.",
+      "Once you go live, AI demand forecasting looks at your busy windows and repeat-customer behaviour, flags high-margin items, and drafts growth campaigns for the regulars who have drifted. Nothing goes out without your OK, and none of it changes your pricing. Your Google Business Profile is kept in sync with your menu, and multi-location restaurants are supported.",
   },
   {
-    question: "What is N4Sync?",
+    question: "How does delivery work?",
     answer:
-      "N4Sync is N4Cluster's delivery coordination layer. When an order comes in, it handles driver assignment, dispatch, and tracking against the delivery target, so you are not managing a driver pool or chasing logistics exceptions. Coordination is not the same as paying for delivery: courier charges are separate from N4Cluster's fees, and delivery coverage, timing targets and terms depend on your location. Ask us what applies at your address before you rely on it.",
+      "We dispatch through DoorDash Drive and Uber Direct and chase any order that runs late, with delivery-time tracking on every order, so you are not managing drivers. Courier charges depend on your address and are separate from N4Cluster's fees. Ask us what applies at your address before you rely on it.",
   },
   {
-    question: "What is the Neighborhood Hub?",
+    question: "Will my restaurant be listed anywhere besides my own site?",
     answer:
-      "The Neighborhood Hub is a local discovery feed where customers can browse and order from nearby restaurants. It sorts restaurants by distance rather than by who pays the most. Your restaurant appears in the Hub as part of the platform at no additional cost.",
+      "Yes. Your restaurant gets a listing in an N4Cluster neighborhood directory alongside other local spots, sorted by distance rather than by who pays the most. It is part of the platform at no additional cost.",
   },
   {
     question: "How quickly can I go live?",

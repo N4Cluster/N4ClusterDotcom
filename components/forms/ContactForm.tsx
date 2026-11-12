@@ -39,14 +39,14 @@ const businessTypes = [
  */
 const submitLabels: Record<"contact" | "demo" | "partner", string> = {
   contact: "Send Message",
-  demo: "Request a Demo",
+  demo: "Get a free demo",
   partner: "Start the Conversation",
 };
 
 const interestAreas = [
   "Branded Direct Ordering",
-  "Orchestration (N4Sync)",
-  "AI Growth Tools (N4Logic)",
+  "Delivery Coordination",
+  "AI Growth Tools",
   "Multi-location Operations",
   "Integration Partnership",
   "Logistics Partnership",

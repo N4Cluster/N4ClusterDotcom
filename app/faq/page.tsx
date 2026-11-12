@@ -6,7 +6,7 @@ import { faqItems } from "@/content/pages/faq";
 
 export const metadata: Metadata = {
   title: "FAQ",
-  description: "Frequently asked questions about N4Cluster, N4Sync, N4Logic, and the platform.",
+  description: "Frequently asked questions about N4Cluster: fees, trial, delivery, your data and how setup works.",
 };
 
 export default function FAQPage() {
@@ -30,12 +30,12 @@ export default function FAQPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      <section className="gradient-hero pt-32 pb-16">
+      <section className="bg-cream pt-16 pb-16 md:pt-24">
         <Container size="lg" className="text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-5">
+          <h1 className="font-display text-4xl sm:text-5xl font-bold text-ink mb-5">
             Frequently asked questions
           </h1>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+          <p className="text-xl text-ink-3 max-w-2xl mx-auto">
             Answers to common questions about N4Cluster, how it works, and what the platform can do for your business.
           </p>
         </Container>

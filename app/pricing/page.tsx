@@ -3,6 +3,7 @@ import { HeroCentered } from "@/components/sections/HeroCentered";
 import { CTASection } from "@/components/sections/CTASection";
 import { Container } from "@/components/ui/Container";
 import { Check } from "lucide-react";
+import { priceDisplay } from "@/content/site/pricing";
 
 export const metadata: Metadata = {
   title: "Pricing — $99/Month + $0.50 Per Order. No Commission. Ever.",
@@ -11,10 +12,10 @@ export const metadata: Metadata = {
 };
 
 const commissionComparison = [
-  { platform: "High-commission marketplace", rate: "30%", on40: "$12.00", on80: "$24.00", on150: "$45.00", color: "#ef4444" },
-  { platform: "Mid-commission marketplace", rate: "27%", on40: "$10.80", on80: "$21.60", on150: "$40.50", color: "#f97316" },
-  { platform: "Lower-commission marketplace", rate: "25%", on40: "$10.00", on80: "$20.00", on150: "$37.50", color: "#eab308" },
-  { platform: "N4Cluster", rate: "0%", on40: "$0.50", on80: "$0.50", on150: "$0.50", color: "#14b8a6", bold: true },
+  { platform: "High-commission marketplace", rate: "30%", on40: "$12.00", on80: "$24.00", on150: "$45.00", color: "var(--color-red)" },
+  { platform: "Mid-commission marketplace", rate: "27%", on40: "$10.80", on80: "$21.60", on150: "$40.50", color: "var(--color-red)" },
+  { platform: "Lower-commission marketplace", rate: "25%", on40: "$10.00", on80: "$20.00", on150: "$37.50", color: "var(--color-ink-3)" },
+  { platform: "N4Cluster", rate: "0%", on40: "$0.50", on80: "$0.50", on150: "$0.50", color: "var(--color-green)", bold: true },
 ];
 
 const protections = [
@@ -32,7 +33,7 @@ const protections = [
   },
   {
     title: "Nothing's locked behind a paywall",
-    body: "N4Sync, N4Logic, and the Neighborhood Hub are included. There are no add-on modules, tiered feature unlocks, or upgrade tiers.",
+    body: "Ordering, rewards, growth tools, delivery coordination and your neighborhood directory listing are all included. There are no add-on modules, tiered feature unlocks, or upgrade tiers.",
   },
   {
     title: "We can't ambush you with a price hike",
@@ -45,7 +46,7 @@ const protections = [
 ];
 
 const customerFeeDetails = [
-  "Labeled clearly as \"N4Cluster Neighborhood Fee\" — not a restaurant surcharge",
+  "Labeled clearly as an N4Cluster fee — not a restaurant surcharge",
   "Visible to customers at checkout before they complete an order",
   "Directed entirely to platform infrastructure and neighborhood support",
   "N4Cluster handles all customer questions about this fee",
@@ -73,59 +74,59 @@ export default function PricingPage() {
       <HeroCentered
         eyebrow="Pricing"
         heading="$99/month + $0.50 per order. No commission. Ever."
-        subheading="We only make money when your direct ordering actually works — never by skimming your ticket. No revenue share, no fine print, no math you have to double-check at 11pm. Try it free for 30 days. Cancel anytime."
-        primaryCta={{ label: "Request a Demo", href: "/contact" }}
-        secondaryCta={{ label: "See How It Works", href: "/how-it-works" }}
+        subheading={`We only make money when your direct ordering actually works — never by skimming your ticket. No revenue share, no fine print, no math you have to double-check at 11pm. Try it free for 30 days. ${priceDisplay.cancel} Card processing still applies.`}
+        primaryCta={{ label: "Get a free demo", href: "/contact" }}
+        secondaryCta={{ label: "See how it works", href: "/how-it-works" }}
       />
 
       {/* Core fee callout */}
-      <section className="py-16 md:py-20" style={{ background: "#ffffff" }}>
+      <section className="py-16 md:py-20" style={{ background: "#fff" }}>
         <Container size="lg">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <span className="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4" style={{ background: "#f0fdfb", color: "#14b8a6" }}>
+              <span className="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4" style={{ background: "var(--color-green-tint)", color: "var(--color-green)" }}>
                 Merchant fee
               </span>
-              <h2 className="text-3xl sm:text-4xl font-bold mb-5 leading-tight" style={{ color: "#040d1c" }}>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-5 leading-tight" style={{ color: "var(--color-ink)" }}>
                 Two flat fees.<br />No commission. Ever.
               </h2>
-              <p className="text-base leading-relaxed mb-6" style={{ color: "#475569" }}>
-                You pay a flat <strong style={{ color: "#040d1c" }}>$99 per month</strong> platform fee plus <strong style={{ color: "#040d1c" }}>$0.50 per order</strong> processed through N4Cluster — your branded ordering site, the Neighborhood Hub, or any integrated channel. Neither fee scales with your revenue. Neither fluctuates with ticket size.
+              <p className="text-base leading-relaxed mb-6" style={{ color: "var(--color-ink-3)" }}>
+                You pay a flat <strong style={{ color: "var(--color-ink)" }}>$99 per month</strong> platform fee plus <strong style={{ color: "var(--color-ink)" }}>$0.50 per order</strong> processed through N4Cluster — your branded ordering site or any integrated channel. Neither fee scales with your revenue. Neither fluctuates with ticket size.
               </p>
-              <p className="text-base leading-relaxed mb-8" style={{ color: "#475569" }}>
+              <p className="text-base leading-relaxed mb-8" style={{ color: "var(--color-ink-3)" }}>
                 No setup charge. No percentage skimmed from every ticket. What you take from the customer is what you keep — minus fifty cents per order, plus one flat $99 platform fee each month.
               </p>
               <div className="flex items-center gap-4 flex-wrap">
-                <div className="rounded-2xl px-8 py-6 text-center" style={{ background: "#f0fdfb", border: "1.5px solid #14b8a620" }}>
-                  <div className="text-4xl font-bold mb-1" style={{ color: "#040d1c" }}>$99<span className="text-lg">/mo</span></div>
-                  <div className="text-xs font-semibold" style={{ color: "#14b8a6" }}>Platform fee — merchant</div>
+                <div className="rounded-2xl px-8 py-6 text-center" style={{ background: "var(--color-green-tint)", border: "1.5px solid var(--color-line)" }}>
+                  <div className="text-4xl font-bold mb-1" style={{ color: "var(--color-ink)" }}>$99<span className="text-lg">/mo</span></div>
+                  <div className="text-xs font-semibold" style={{ color: "var(--color-green)" }}>Platform fee — merchant</div>
                 </div>
-                <div className="rounded-2xl px-8 py-6 text-center" style={{ background: "#f0fdfb", border: "1.5px solid #14b8a620" }}>
-                  <div className="text-4xl font-bold mb-1" style={{ color: "#040d1c" }}>$0.50</div>
-                  <div className="text-xs font-semibold" style={{ color: "#14b8a6" }}>Per order — merchant fee</div>
+                <div className="rounded-2xl px-8 py-6 text-center" style={{ background: "var(--color-green-tint)", border: "1.5px solid var(--color-line)" }}>
+                  <div className="text-4xl font-bold mb-1" style={{ color: "var(--color-ink)" }}>$0.50</div>
+                  <div className="text-xs font-semibold" style={{ color: "var(--color-green)" }}>Per order — merchant fee</div>
                 </div>
-                <div className="text-sm leading-relaxed" style={{ color: "#64748b" }}>
-                  The entire platform — white-label ordering, Neighborhood Hub, N4Logic AI, N4Sync delivery coordination — is included at this price.
+                <div className="text-sm leading-relaxed" style={{ color: "var(--color-muted)" }}>
+                  The entire platform — your own ordering site, rewards, growth tools and delivery coordination — is included at this price. Card processing (2.9% + 30¢) is separate.
                 </div>
               </div>
             </div>
 
             {/* Commission comparison table */}
             <div>
-              <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid #e2e8f0" }}>
-                <div className="px-5 py-4" style={{ background: "#f8fafc", borderBottom: "1px solid #e2e8f0" }}>
-                  <div className="text-sm font-bold" style={{ color: "#040d1c" }}>Platform fee taken on a $40 / $80 / $150 order</div>
-                  <div className="text-xs mt-0.5" style={{ color: "#64748b" }}>Per-order platform fees only — card processing excluded on both sides, as is N4Cluster&apos;s flat $99/month platform fee. Commission rates are typical published rates.</div>
+              <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid var(--color-line)" }}>
+                <div className="px-5 py-4" style={{ background: "var(--color-cream-2)", borderBottom: "1px solid var(--color-line)" }}>
+                  <div className="text-sm font-bold" style={{ color: "var(--color-ink)" }}>Platform fee taken on a $40 / $80 / $150 order</div>
+                  <div className="text-xs mt-0.5" style={{ color: "var(--color-muted)" }}>Per-order platform fees only — card processing excluded on both sides, as is N4Cluster&apos;s flat $99/month platform fee. Commission rates are typical published rates.</div>
                 </div>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr style={{ borderBottom: "1px solid #e2e8f0", background: "#f8fafc" }}>
-                        <th className="text-left px-5 py-3 text-xs font-semibold" style={{ color: "#64748b" }}>Platform</th>
-                        <th className="text-center px-4 py-3 text-xs font-semibold" style={{ color: "#64748b" }}>Rate</th>
-                        <th className="text-center px-4 py-3 text-xs font-semibold" style={{ color: "#64748b" }}>$40 order</th>
-                        <th className="text-center px-4 py-3 text-xs font-semibold" style={{ color: "#64748b" }}>$80 order</th>
-                        <th className="text-center px-4 py-3 text-xs font-semibold" style={{ color: "#64748b" }}>$150 order</th>
+                      <tr style={{ borderBottom: "1px solid var(--color-line)", background: "var(--color-cream-2)" }}>
+                        <th className="text-left px-5 py-3 text-xs font-semibold" style={{ color: "var(--color-muted)" }}>Platform</th>
+                        <th className="text-center px-4 py-3 text-xs font-semibold" style={{ color: "var(--color-muted)" }}>Rate</th>
+                        <th className="text-center px-4 py-3 text-xs font-semibold" style={{ color: "var(--color-muted)" }}>$40 order</th>
+                        <th className="text-center px-4 py-3 text-xs font-semibold" style={{ color: "var(--color-muted)" }}>$80 order</th>
+                        <th className="text-center px-4 py-3 text-xs font-semibold" style={{ color: "var(--color-muted)" }}>$150 order</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -133,12 +134,12 @@ export default function PricingPage() {
                         <tr
                           key={row.platform}
                           style={{
-                            borderBottom: i < commissionComparison.length - 1 ? "1px solid #f1f5f9" : "none",
-                            background: row.bold ? "#f0fdfb" : "white",
+                            borderBottom: i < commissionComparison.length - 1 ? "1px solid var(--color-line)" : "none",
+                            background: row.bold ? "var(--color-green-tint)" : "white",
                           }}
                         >
                           <td className="px-5 py-3.5">
-                            <span className="font-semibold text-xs" style={{ color: row.bold ? "#040d1c" : "#475569" }}>
+                            <span className="font-semibold text-xs" style={{ color: row.bold ? "var(--color-ink)" : "var(--color-ink-3)" }}>
                               {row.platform}
                             </span>
                           </td>
@@ -146,17 +147,17 @@ export default function PricingPage() {
                             <span className="text-xs font-bold" style={{ color: row.color }}>{row.rate}</span>
                           </td>
                           <td className="px-4 py-3.5 text-center">
-                            <span className="text-xs font-semibold" style={{ color: row.bold ? "#14b8a6" : "#ef4444" }}>
+                            <span className="text-xs font-semibold" style={{ color: row.bold ? "var(--color-green)" : "var(--color-red)" }}>
                               {row.on40}
                             </span>
                           </td>
                           <td className="px-4 py-3.5 text-center">
-                            <span className="text-xs font-semibold" style={{ color: row.bold ? "#14b8a6" : "#ef4444" }}>
+                            <span className="text-xs font-semibold" style={{ color: row.bold ? "var(--color-green)" : "var(--color-red)" }}>
                               {row.on80}
                             </span>
                           </td>
                           <td className="px-4 py-3.5 text-center">
-                            <span className="text-xs font-semibold" style={{ color: row.bold ? "#14b8a6" : "#ef4444" }}>
+                            <span className="text-xs font-semibold" style={{ color: row.bold ? "var(--color-green)" : "var(--color-red)" }}>
                               {row.on150}
                             </span>
                           </td>
@@ -165,8 +166,8 @@ export default function PricingPage() {
                     </tbody>
                   </table>
                 </div>
-                <div className="px-5 py-3.5" style={{ background: "#f0fdfb", borderTop: "1px solid #14b8a620" }}>
-                  <div className="text-xs" style={{ color: "#64748b" }}>
+                <div className="px-5 py-3.5" style={{ background: "var(--color-green-tint)", borderTop: "1px solid var(--color-line)" }}>
+                  <div className="text-xs" style={{ color: "var(--color-muted)" }}>
                     Marketplace fees shown are <em>platform commission only</em> — additional payment processing, listing, and promotional fees often apply separately.
                   </div>
                 </div>
@@ -177,27 +178,27 @@ export default function PricingPage() {
       </section>
 
       {/* Customer fee */}
-      <section className="py-16 md:py-20" style={{ background: "#f8fafc" }}>
+      <section className="py-16 md:py-20" style={{ background: "var(--color-cream-2)" }}>
         <Container size="lg">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div className={""}>
-              <span className="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4" style={{ background: "#fffbeb", color: "#f59e0b" }}>
+              <span className="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4" style={{ background: "rgba(244,179,62,0.25)", color: "var(--color-ink)" }}>
                 Customer fee
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 leading-tight" style={{ color: "#040d1c" }}>
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 leading-tight" style={{ color: "var(--color-ink)" }}>
                 That $0.99 checkout fee? Ours to own, not yours to defend.
               </h2>
-              <p className="text-base leading-relaxed mb-5" style={{ color: "#475569" }}>
-                Every customer ordering through an N4Cluster channel sees a <strong style={{ color: "#040d1c" }}>$0.99 N4Cluster Neighborhood Fee</strong> at checkout. That&apos;s on us — a platform fee we collect, <em>not</em> a surcharge you tacked onto their ticket.
+              <p className="text-base leading-relaxed mb-5" style={{ color: "var(--color-ink-3)" }}>
+                Every customer ordering through an N4Cluster channel sees a <strong style={{ color: "var(--color-ink)" }}>$0.99 N4Cluster fee</strong> at checkout. That&apos;s our fee to explain — a platform fee we collect, <em>not</em> a surcharge you tacked onto their ticket.
               </p>
-              <p className="text-base leading-relaxed mb-6" style={{ color: "#475569" }}>
+              <p className="text-base leading-relaxed mb-6" style={{ color: "var(--color-ink-3)" }}>
                 You never touch that money, and it is labelled as our fee rather than a surcharge on your menu prices. If a customer does ask you about it, our support team can help you answer.
               </p>
               <ul className="space-y-3">
                 {customerFeeDetails.map((detail) => (
                   <li key={detail} className="flex items-start gap-3">
-                    <Check size={14} className="flex-shrink-0 mt-0.5" style={{ color: "#14b8a6" }} />
-                    <span className="text-sm" style={{ color: "#475569" }}>{detail}</span>
+                    <Check size={14} className="flex-shrink-0 mt-0.5" style={{ color: "var(--color-green)" }} />
+                    <span className="text-sm" style={{ color: "var(--color-ink-3)" }}>{detail}</span>
                   </li>
                 ))}
               </ul>
@@ -205,7 +206,7 @@ export default function PricingPage() {
 
             {/* Visual */}
             <div>
-              <div className="rounded-2xl p-6" style={{ background: "#0a1628", border: "1px solid #1e3a70" }}>
+              <div className="on-dark rounded-[22px] bg-ink p-6">
                 <div className="font-bold text-white mb-5 text-sm">Order checkout — what customers see</div>
                 <div className="rounded-xl p-5 mb-4" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}>
                   <div className="text-xs font-semibold text-white mb-4">Order from Rosario&apos;s Kitchen</div>
@@ -215,31 +216,31 @@ export default function PricingPage() {
                     { label: "House Salad", price: "$9.00" },
                   ].map((item) => (
                     <div key={item.label} className="flex justify-between py-2" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                      <span className="text-xs" style={{ color: "#94a3b8" }}>{item.label}</span>
+                      <span className="text-xs" style={{ color: "rgba(255,255,255,0.75)" }}>{item.label}</span>
                       <span className="text-xs font-semibold text-white">{item.price}</span>
                     </div>
                   ))}
                   <div className="flex justify-between py-2 mt-1" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                    <span className="text-xs" style={{ color: "#94a3b8" }}>Subtotal</span>
+                    <span className="text-xs" style={{ color: "rgba(255,255,255,0.75)" }}>Subtotal</span>
                     <span className="text-xs font-semibold text-white">$40.00</span>
                   </div>
                   <div className="flex justify-between py-2" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
                     <div>
-                      <span className="text-xs" style={{ color: "#94a3b8" }}>N4Cluster Neighborhood Fee</span>
-                      <div className="text-xs mt-0.5" style={{ color: "#64748b" }}>Platform infrastructure — not a restaurant surcharge</div>
+                      <span className="text-xs" style={{ color: "rgba(255,255,255,0.75)" }}>N4Cluster fee</span>
+                      <div className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.75)" }}>Platform infrastructure — not a restaurant surcharge</div>
                     </div>
-                    <span className="text-xs font-semibold" style={{ color: "#f59e0b" }}>$0.99</span>
+                    <span className="text-xs font-semibold" style={{ color: "var(--color-gold)" }}>$0.99</span>
                   </div>
                   <div className="flex justify-between py-3 mt-1">
                     <span className="text-sm font-bold text-white">Total</span>
                     <span className="text-sm font-bold text-white">$40.99</span>
                   </div>
                 </div>
-                <div className="rounded-xl p-4" style={{ background: "rgba(20,184,166,0.08)", border: "1px solid rgba(20,184,166,0.2)" }}>
-                  <div className="text-xs font-semibold mb-1" style={{ color: "#14b8a6" }}>What the restaurant keeps</div>
+                <div className="rounded-xl p-4" style={{ background: "rgba(244,179,62,0.1)", border: "1px solid rgba(244,179,62,0.3)" }}>
+                  <div className="text-xs font-semibold mb-1" style={{ color: "var(--color-gold)" }}>What the restaurant keeps</div>
                   <div className="flex items-baseline gap-2">
                     <span className="text-2xl font-bold text-white">$38.04</span>
-                    <span className="text-xs" style={{ color: "#64748b" }}>($40.00 minus $0.50 merchant fee and $1.46 card processing; $99/mo platform fee billed separately)</span>
+                    <span className="text-xs" style={{ color: "rgba(255,255,255,0.75)" }}>($40.00 minus $0.50 merchant fee and $1.46 card processing; $99/mo platform fee billed separately)</span>
                   </div>
                 </div>
               </div>
@@ -249,34 +250,34 @@ export default function PricingPage() {
       </section>
 
       {/* What's included */}
-      <section className="py-16 md:py-20" style={{ background: "#ffffff" }}>
+      <section className="py-16 md:py-20" style={{ background: "#fff" }}>
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4" style={{ background: "#f0f6ff", color: "#2563eb" }}>
+            <span className="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4" style={{ background: "var(--color-green-tint)", color: "var(--color-green)" }}>
               What&apos;s included
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4" style={{ color: "#040d1c" }}>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4" style={{ color: "var(--color-ink)" }}>
               The entire platform. No tiers. No upgrades.
             </h2>
-            <p className="text-base" style={{ color: "#475569" }}>
+            <p className="text-base" style={{ color: "var(--color-ink-3)" }}>
               $99/month plus $0.50 per order is not a stripped-down entry price with upsells behind it. It covers the full platform — everything N4Cluster runs.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {[
               { title: "White-label ordering site", sub: "Fully branded under your domain. Menu, categories, imagery, pricing — yours to control." },
-              { title: "Neighborhood Hub presence", sub: "Your restaurant listed and discoverable in the local Hub — sorted by distance, not commission." },
-              { title: "N4Logic AI Growth Autopilot", sub: "Demand monitoring, campaign activation, and risk protection — running in the background." },
-              { title: "N4Sync delivery coordination", sub: "Driver dispatch, SLA tracking, and exception handling — on our risk, not yours." },
-              { title: "POS integration and sync", sub: "Real-time menu and availability sync from your POS. No manual updates. No extra tablets." },
-              { title: "Merchant dashboard", sub: "Order history, customer data, campaign controls, demand signals, and SLA reporting in one place." },
+              { title: "Neighborhood directory listing", sub: "Your restaurant listed alongside other local spots — sorted by distance, not commission." },
+              { title: "AI forecasting and growth campaigns", sub: "Demand forecasting and campaigns to lapsed regulars — sent only with your OK." },
+              { title: "Delivery coordination", sub: "Dispatch through DoorDash Drive and Uber Direct, delivery-time tracking, and chasing late orders — with risk protection." },
+              { title: "POS integration and sync", sub: "Menu and availability kept in sync with your POS. No manual updates. No extra tablets." },
+              { title: "Merchant dashboard", sub: "Order history, customer data, campaign controls and demand signals in one place." },
             ].map((item) => (
-              <div key={item.title} className="rounded-2xl p-5" style={{ background: "#f8fafc", border: "1px solid #e2e8f0" }}>
-                <div className="w-6 h-6 rounded-full flex items-center justify-center mb-3" style={{ background: "#f0f6ff" }}>
-                  <Check size={12} style={{ color: "#2563eb" }} strokeWidth={2.5} />
+              <div key={item.title} className="rounded-2xl p-5" style={{ background: "var(--color-cream-2)", border: "1px solid var(--color-line)" }}>
+                <div className="w-6 h-6 rounded-full flex items-center justify-center mb-3" style={{ background: "var(--color-green-tint)" }}>
+                  <Check size={12} style={{ color: "var(--color-green)" }} strokeWidth={2.5} />
                 </div>
-                <div className="text-sm font-bold mb-1.5" style={{ color: "#040d1c" }}>{item.title}</div>
-                <div className="text-xs leading-relaxed" style={{ color: "#64748b" }}>{item.sub}</div>
+                <div className="text-sm font-bold mb-1.5" style={{ color: "var(--color-ink)" }}>{item.title}</div>
+                <div className="text-xs leading-relaxed" style={{ color: "var(--color-muted)" }}>{item.sub}</div>
               </div>
             ))}
           </div>
@@ -284,27 +285,27 @@ export default function PricingPage() {
       </section>
 
       {/* Six protections */}
-      <section className="py-16 md:py-24" style={{ background: "#040d1c" }}>
+      <section className="on-dark bg-ink py-16 md:py-24">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4" style={{ background: "rgba(20,184,166,0.15)", color: "#14b8a6" }}>
+            <span className="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4" style={{ background: "rgba(244,179,62,0.2)", color: "var(--color-gold)" }}>
               Pricing protections
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">
               Six things the pricing model will never do.
             </h2>
-            <p className="text-base" style={{ color: "#94a3b8" }}>
+            <p className="text-base" style={{ color: "rgba(255,255,255,0.75)" }}>
               These are contractual commitments — not aspirational language. They exist to prevent the pricing model from drifting toward the marketplace pattern over time.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
             {protections.map((p) => (
               <div key={p.title} className="rounded-2xl p-6" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                <div className="w-5 h-5 rounded-full flex items-center justify-center mb-4" style={{ background: "rgba(20,184,166,0.15)" }}>
-                  <Check size={10} style={{ color: "#14b8a6" }} strokeWidth={2.5} />
+                <div className="w-5 h-5 rounded-full flex items-center justify-center mb-4" style={{ background: "rgba(244,179,62,0.2)" }}>
+                  <Check size={10} style={{ color: "var(--color-gold)" }} strokeWidth={2.5} />
                 </div>
                 <h4 className="text-sm font-bold text-white mb-2">{p.title}</h4>
-                <p className="text-xs leading-relaxed" style={{ color: "#94a3b8" }}>{p.body}</p>
+                <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>{p.body}</p>
               </div>
             ))}
           </div>
@@ -312,24 +313,24 @@ export default function PricingPage() {
       </section>
 
       {/* Price lock */}
-      <section className="py-16 md:py-20" style={{ background: "#f8fafc" }}>
+      <section className="py-16 md:py-20" style={{ background: "var(--color-cream-2)" }}>
         <Container size="lg">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div>
-              <span className="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4" style={{ background: "#fffbeb", color: "#f59e0b" }}>
+              <span className="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4" style={{ background: "rgba(244,179,62,0.25)", color: "var(--color-ink)" }}>
                 Price lock — optional
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 leading-tight" style={{ color: "#040d1c" }}>
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 leading-tight" style={{ color: "var(--color-ink)" }}>
                 Lock your rate. Sleep better for 1 or 2 years.
               </h2>
-              <p className="text-base leading-relaxed mb-5" style={{ color: "#475569" }}>
-                Pricing gets reviewed once a year by default. Want more certainty for your own planning? Lock the merchant fee — $0.50/order and the $99/month platform fee — for 1 or 2 years. You won&apos;t get a discount for locking in; the price is already as flat as it gets. This just buys you predictability — a lock fixes the rate, not you. You can still cancel anytime.
+              <p className="text-base leading-relaxed mb-5" style={{ color: "var(--color-ink-3)" }}>
+                Pricing gets reviewed once a year by default. Want more certainty for your own planning? Lock the merchant fee — $0.50/order and the $99/month platform fee — for 1 or 2 years. You won&apos;t get a discount for locking in; the price is already as flat as it gets. This just buys you predictability — a lock fixes the rate, not you. A lock fixes the rate; it doesn&apos;t change how you cancel.
               </p>
               <div className="space-y-3 mb-8">
                 {priceLockDetails.map((item) => (
-                  <div key={item.term} className="rounded-xl p-4" style={{ background: "#ffffff", border: "1px solid #e2e8f0" }}>
-                    <div className="text-xs font-bold mb-1" style={{ color: "#040d1c" }}>{item.term}</div>
-                    <div className="text-xs leading-relaxed" style={{ color: "#64748b" }}>{item.body}</div>
+                  <div key={item.term} className="rounded-xl p-4" style={{ background: "#fff", border: "1px solid var(--color-line)" }}>
+                    <div className="text-xs font-bold mb-1" style={{ color: "var(--color-ink)" }}>{item.term}</div>
+                    <div className="text-xs leading-relaxed" style={{ color: "var(--color-muted)" }}>{item.body}</div>
                   </div>
                 ))}
               </div>
@@ -337,29 +338,29 @@ export default function PricingPage() {
 
             {/* Adjustment formula */}
             <div>
-              <span className="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4" style={{ background: "#f0f6ff", color: "#2563eb" }}>
+              <span className="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4" style={{ background: "var(--color-green-tint)", color: "var(--color-green)" }}>
                 Adjustment formula
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 leading-tight" style={{ color: "#040d1c" }}>
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 leading-tight" style={{ color: "var(--color-ink)" }}>
                 If we ever adjust pricing, here&apos;s the exact math.
               </h2>
-              <p className="text-base leading-relaxed mb-6" style={{ color: "#475569" }}>
+              <p className="text-base leading-relaxed mb-6" style={{ color: "var(--color-ink-3)" }}>
                 Once any lock period ends, pricing can be adjusted annually within the capped formula set out in your merchant agreement rather than at our discretion. The agreement is what governs it — ask us for the current terms before you sign.
               </p>
-              <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid #e2e8f0" }}>
+              <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid var(--color-line)" }}>
                 {adjustmentFormula.map((row, i) => (
                   <div
                     key={row.label}
                     className="flex items-start gap-4 px-5 py-4"
-                    style={{ borderBottom: i < adjustmentFormula.length - 1 ? "1px solid #f1f5f9" : "none" }}
+                    style={{ borderBottom: i < adjustmentFormula.length - 1 ? "1px solid var(--color-line)" : "none" }}
                   >
-                    <div className="text-xs font-semibold w-36 flex-shrink-0" style={{ color: "#64748b" }}>{row.label}</div>
-                    <div className="text-xs font-bold" style={{ color: "#040d1c" }}>{row.value}</div>
+                    <div className="text-xs font-semibold w-36 flex-shrink-0" style={{ color: "var(--color-muted)" }}>{row.label}</div>
+                    <div className="text-xs font-bold" style={{ color: "var(--color-ink)" }}>{row.value}</div>
                   </div>
                 ))}
               </div>
-              <div className="rounded-xl p-4 mt-4" style={{ background: "#f0f6ff", border: "1px solid rgba(37,99,235,0.15)" }}>
-                <div className="text-xs leading-relaxed" style={{ color: "#475569" }}>
+              <div className="rounded-xl p-4 mt-4" style={{ background: "var(--color-green-tint)", border: "1px solid var(--color-line)" }}>
+                <div className="text-xs leading-relaxed" style={{ color: "var(--color-ink-3)" }}>
                   Any adjustment that falls outside this formula — or constitutes a material change to the pricing model — triggers the full 180-day notice requirement and activates merchant exit rights.
                 </div>
               </div>
@@ -369,16 +370,16 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 md:py-20" style={{ background: "#ffffff" }}>
+      <section className="py-16 md:py-20" style={{ background: "#fff" }}>
         <Container size="md">
           <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: "#040d1c" }}>Pricing questions</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: "var(--color-ink)" }}>Pricing questions</h2>
           </div>
           <div className="space-y-4">
             {[
               {
                 q: "Can I try it free?",
-                a: "Yes — 30 days free. No fee while you try it: no $99/month and no per-order fee during your trial. We build a working demo storefront with your real menu and walk you through it before you decide anything.",
+                a: "Yes — 30 days free. No N4Cluster fee while you try it: no $99/month and no per-order fee during your trial. Card processing still applies to any card payment you take. We build a working demo storefront with your real menu and walk you through it before you decide anything.",
               },
               {
                 q: "Is there a setup fee?",
@@ -390,24 +391,24 @@ export default function PricingPage() {
               },
               {
                 q: "What if I want to offer delivery — does that cost extra?",
-                a: "N4Sync delivery coordination is already included. Driver management, dispatch, and SLA tracking — covered. Paying the actual courier is a separate logistics cost, same as it would be anywhere, but the coordination behind it costs you nothing extra.",
+                a: "Delivery coordination is already included: we dispatch through DoorDash Drive and Uber Direct and chase any order that runs late. Courier charges depend on your address and are separate, but the coordination behind them costs you nothing extra.",
               },
               {
                 q: "Is the $0.99 customer fee mandatory?",
-                a: "By default, yes — the $0.99 Neighborhood Fee shows up at checkout, and we handle it end to end. If you'd rather absorb it or fold it into your menu pricing, you can opt out of the customer-facing display. Your call.",
+                a: "By default, yes — the $0.99 N4Cluster fee shows up at checkout, and we handle it end to end. If you'd rather absorb it or fold it into your menu pricing, you can opt out of the customer-facing display. Your call.",
               },
               {
-                q: "Can I cancel anytime — even during a price lock?",
-                a: "Yes. No lock-in and no minimum term. The price lock only fixes your rate; it never chains you to us. Your orders and customer list are yours, and you can export them anytime.",
+                q: "Can I cancel during a price lock?",
+                a: "It's month-to-month: cancel with 30 days' written notice. The price lock only fixes your rate; it never chains you to us. Your customer data is yours — we'll send you a copy whenever you ask.",
               },
               {
                 q: "What counts as a material change that triggers the 180-day notice and exit right?",
                 a: "Anything that touches the core structure: moving to commission, switching the fee basis from flat/per-order to revenue-based, raising the $99/month platform fee outside the CPI formula, or changing who the customer fee is attributed to. Adjustments inside the CPI formula with 90-day notice don't count — those are business as usual.",
               },
             ].map((faq) => (
-              <div key={faq.q} className="rounded-2xl p-6" style={{ background: "#f8fafc", border: "1px solid #e2e8f0" }}>
-                <div className="text-sm font-bold mb-3" style={{ color: "#040d1c" }}>{faq.q}</div>
-                <div className="text-sm leading-relaxed" style={{ color: "#475569" }}>{faq.a}</div>
+              <div key={faq.q} className="rounded-2xl p-6" style={{ background: "var(--color-cream-2)", border: "1px solid var(--color-line)" }}>
+                <div className="text-sm font-bold mb-3" style={{ color: "var(--color-ink)" }}>{faq.q}</div>
+                <div className="text-sm leading-relaxed" style={{ color: "var(--color-ink-3)" }}>{faq.a}</div>
               </div>
             ))}
           </div>
@@ -415,18 +416,18 @@ export default function PricingPage() {
       </section>
 
       {/* Summary strip */}
-      <section className="py-12" style={{ background: "#040d1c" }}>
+      <section className="on-dark bg-ink py-12">
         <Container>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
               { value: "$99/mo", label: "Flat platform fee — merchant" },
               { value: "$0.50", label: "Per order — merchant fee" },
-              { value: "$0.99", label: "Neighborhood fee — customer-facing, N4Cluster's" },
+              { value: "$0.99", label: "Diner fee — customer-facing, N4Cluster's" },
               { value: "0%", label: "Commission on revenue. Ever." },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
-                <div className="text-xs" style={{ color: "#64748b" }}>{stat.label}</div>
+                <div className="text-xs" style={{ color: "rgba(255,255,255,0.75)" }}>{stat.label}</div>
               </div>
             ))}
           </div>
@@ -436,8 +437,8 @@ export default function PricingPage() {
       <CTASection
         heading="Ready to run the numbers for your restaurant?"
         subheading="Tell us your current order volume and we'll show you exactly what N4Cluster would cost — and what you'd keep versus your current setup."
-        primaryCta={{ label: "Request a Demo", href: "/contact" }}
-        secondaryCta={{ label: "See How It Works", href: "/how-it-works" }}
+        primaryCta={{ label: "Get a free demo", href: "/contact" }}
+        secondaryCta={{ label: "See how it works", href: "/how-it-works" }}
         dark={false}
       />
     </>

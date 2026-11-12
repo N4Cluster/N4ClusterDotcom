@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import { mission, values, demoCta, founderQuote } from "@/content/company";
 import { faqItems, homeFaqItems } from "@/content/pages/faq";
 import { pilotRestaurants } from "@/content/pages/pilot";
-import { priceDisplay } from "@/content/site/pricing";
+import { feeQualifiers, priceDisplay } from "@/content/site/pricing";
 
 const read = (path: string) => readFileSync(path, "utf8");
 
@@ -177,9 +177,11 @@ describe("fee claims across merchant acquisition copy", () => {
 
   it("the mission page shows the trial scope and the separate charges", () => {
     const page = read("app/mission/page.tsx");
-    expect(page).toContain("Card processing and any courier charges are separate");
+    expect(page).toContain("feeQualifiers.commission");
+    expect(feeQualifiers.commission).toContain("No commission, ever.");
+    expect(feeQualifiers.commission).toContain("Card processing and any courier charges are separate");
     expect(page).toContain("waives N4Cluster merchant platform and per-order fees");
-    expect(page).toContain("Zero N4Cluster sales commission");
+    expect(page).not.toMatch(/zero N4Cluster sales commission/i);
   });
 
   it("quotes the fees from the single pricing source", () => {
