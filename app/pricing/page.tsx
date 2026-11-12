@@ -20,28 +20,20 @@ const commissionComparison = [
 
 const protections = [
   {
-    title: "One fee. Zero surprises.",
-    body: "The $99/month platform fee is quoted up front and never hidden. No add-on modules, no usage-based minimums, no surprise line items. It applies after the trial in every month, including a slow one.",
+    title: "No commission.",
+    body: "We charge a fixed fee per order, never a percentage. A $200 order costs you the same as a $20 one. Card processing is charged separately by your processor.",
   },
   {
-    title: "Your revenue stays yours",
-    body: "N4Cluster takes $0.50 from a $200 order, not a percentage of it — the fee is fixed to the transaction, not the ticket size. Card processing is charged separately by your processor.",
+    title: "No hidden fees.",
+    body: "One monthly fee, quoted up front. Everything is included: ordering, rewards, growth tools and delivery coordination. There are no add-on modules, upgrade tiers, minimums or surprise line items.",
   },
   {
-    title: "Your prices, your call",
-    body: "We will never require you to match or mirror pricing from third-party platforms. Your direct channel prices are yours to set.",
+    title: "No price-matching rules.",
+    body: "You never have to match the prices on delivery apps. What you charge on your own site is your call.",
   },
   {
-    title: "Nothing's locked behind a paywall",
-    body: "Ordering, rewards, growth tools and delivery coordination are all included. There are no add-on modules, tiered feature unlocks, or upgrade tiers.",
-  },
-  {
-    title: "We can't ambush you with a price hike",
-    body: "Pricing cannot change without 90–180 days of written advance notice. Increases are capped by formula — not at discretion.",
-  },
-  {
-    title: "Protected Exit Right",
-    body: "If we ever materially change the pricing model, you have the right to exit your engagement under pre-defined terms without penalty.",
+    title: "No surprise changes.",
+    body: "Any pricing change comes with 90–180 days' written notice, and increases are capped by a formula. If we ever materially change the pricing model, you can leave without penalty.",
   },
 ];
 
@@ -283,7 +275,7 @@ export default function PricingPage() {
         </Container>
       </section>
 
-      {/* Six protections */}
+      {/* The 4 N's */}
       <section className="on-dark bg-ink py-16 md:py-24">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-12">
@@ -291,20 +283,18 @@ export default function PricingPage() {
               Pricing protections
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">
-              Six things the pricing model will never do.
+              The 4 N&apos;s of N4Cluster
             </h2>
             <p className="text-base" style={{ color: "rgba(255,255,255,0.75)" }}>
-              These are contractual commitments — not aspirational language. They exist to prevent the pricing model from drifting toward the marketplace pattern over time.
+              Four promises written into your agreement, so our pricing never drifts toward the marketplace model.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
             {protections.map((p) => (
               <div key={p.title} className="rounded-2xl p-6" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                <div className="w-5 h-5 rounded-full flex items-center justify-center mb-4" style={{ background: "rgba(244,179,62,0.2)" }}>
-                  <Check size={10} style={{ color: "var(--color-gold)" }} strokeWidth={2.5} />
-                </div>
-                <h4 className="text-sm font-bold text-white mb-2">{p.title}</h4>
-                <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>{p.body}</p>
+                <div aria-hidden="true" className="font-display mb-3 text-4xl font-extrabold leading-none" style={{ color: "var(--color-gold)" }}>N</div>
+                <h3 className="text-base font-bold text-white mb-2">{p.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>{p.body}</p>
               </div>
             ))}
           </div>
