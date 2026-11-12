@@ -111,18 +111,18 @@ export function ROICalculator() {
   return (
     <>
       {/* Calculator */}
-      <section className="py-16 md:py-24" style={{ background: "#fff" }}>
+      <section className="py-8 md:py-10" style={{ background: "#fff" }}>
         <Container size="lg">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-10">
             {/* Inputs */}
-            <div className="rounded-2xl p-6 md:p-8" style={{ background: "var(--color-cream-2)", border: "1px solid var(--color-line)" }}>
+            <div className="rounded-2xl p-6 md:p-7 flex flex-col" style={{ background: "var(--color-cream-2)", border: "1px solid var(--color-line)" }}>
               <span
-                className="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-6"
+                className="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-5 self-start"
                 style={{ background: "var(--color-green-tint)", color: "var(--color-green)" }}
               >
                 Your numbers
               </span>
-              <div className="space-y-8">
+              <div className="space-y-6">
                 <div>
                   <Slider
                     label="Orders you expect to receive directly per month"
@@ -168,17 +168,17 @@ export function ROICalculator() {
                   onChange={setCommission}
                 />
               </div>
-              <p className="text-xs leading-relaxed mt-8" style={{ color: "var(--color-ink-3)" }}>
+              <p className="text-xs leading-relaxed mt-auto pt-6" style={{ color: "var(--color-ink-3)" }}>
                 Use your own commission rate rather than an assumed market figure.
-                Everything below updates instantly — no sign-up, no email required.
+                Everything updates instantly — no sign-up, no email required.
               </p>
             </div>
 
             {/* Results */}
-            <div className="space-y-5">
+            <div className="flex flex-col gap-4">
               {/* Comparison cost */}
-              <div className="rounded-2xl p-6" style={{ background: "rgba(184,55,31,0.06)", border: "1px solid rgba(184,55,31,0.25)" }}>
-                <div className="flex flex-wrap items-center justify-between mb-2 gap-2">
+              <div className="rounded-2xl px-6 py-5" style={{ background: "rgba(184,55,31,0.06)", border: "1px solid rgba(184,55,31,0.25)" }}>
+                <div className="flex flex-wrap items-center justify-between mb-1 gap-2">
                   <span className="text-sm font-semibold" style={{ color: "var(--color-red)" }}>
                     Marketplace commission, at your rate
                   </span>
@@ -190,66 +190,66 @@ export function ROICalculator() {
                   {usd(results.comparisonMonthlyFees)}
                   <span className="text-sm font-medium ml-1">/ mo</span>
                 </div>
-                <div className="text-xs mt-2" style={{ color: "var(--color-red)" }}>
+                <div className="text-xs mt-1" style={{ color: "var(--color-red)" }}>
                   {orders.toLocaleString("en-US")} orders × {usd0(avgTicket)} subtotal × {commission}%
                 </div>
               </div>
 
-              {/* N4Cluster fees */}
-              <div className="rounded-2xl p-6" style={{ background: "var(--color-green-tint)", border: "1px solid var(--color-line)" }}>
-                <div className="flex flex-wrap items-center justify-between mb-2 gap-2">
+              {/* N4Cluster fees, with the breakdown folded in */}
+              <div className="rounded-2xl px-6 py-5" style={{ background: "var(--color-green-tint)", border: "1px solid var(--color-line)" }}>
+                <div className="flex flex-wrap items-center justify-between mb-1 gap-2">
                   <span className="text-sm font-semibold" style={{ color: "var(--color-green-deep)" }}>
                     N4Cluster fees, same volume
                   </span>
-                  <span className="text-xs font-bold px-2 py-1 rounded-full whitespace-nowrap" style={{ background: "var(--color-green-tint)", color: "var(--color-green)" }}>
-                    Fixed price
+                  <span className="text-xs font-bold px-2 py-1 rounded-full whitespace-nowrap" style={{ color: "var(--color-green)" }}>
+                    Fixed price, no commission
                   </span>
                 </div>
                 <div className="text-3xl font-bold tabular-nums" style={{ color: "var(--color-green)" }}>
                   {usd(results.n4MonthlyFees)}
                   <span className="text-sm font-medium ml-1">/ mo</span>
                 </div>
-                <div className="text-xs mt-2" style={{ color: "var(--color-green-deep)" }}>
-                  Flat monthly fee, a fixed fee per order, and an assumed card
-                  processing charge — no commission, ever.
-                </div>
+                <dl className="mt-3 text-sm" style={{ color: "var(--color-green-deep)" }}>
+                  {[
+                    ["Fixed fees (monthly + per order)", usd(results.monthlyFee + results.perOrderFees)],
+                    [`Assumed card processing (${processingAssumption})`, usd(results.processingFees)],
+                    ["Fees per order", results.feePerOrder === null ? "—" : usd(results.feePerOrder)],
+                  ].map(([k, v]) => (
+                    <div key={k} className="flex justify-between gap-3 py-1.5" style={{ borderTop: "1px solid var(--color-line)" }}>
+                      <dt>{k}</dt>
+                      <dd className="font-semibold tabular-nums">{v}</dd>
+                    </div>
+                  ))}
+                </dl>
               </div>
 
-              {/* Fee breakdown */}
-              <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid var(--color-line)" }}>
-                <div className="px-5 py-3" style={{ background: "var(--color-cream-2)", borderBottom: "1px solid var(--color-line)" }}>
-                  <span className="text-xs font-bold uppercase tracking-wider" style={{ color: "var(--color-ink-3)" }}>
-                    N4Cluster fee breakdown
+              {/* Estimated difference: in the same view as the sliders */}
+              <div className="on-dark bg-ink rounded-2xl px-6 py-5 flex-1 flex flex-col justify-center">
+                <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--color-gold)" }}>
+                  Estimated monthly fee difference
+                </p>
+                <div className="flex flex-wrap items-baseline gap-x-3 mt-1">
+                  <span
+                    className="text-5xl font-bold tabular-nums leading-tight"
+                    style={{ color: lower ? "var(--color-gold)" : "#ffffff" }}
+                  >
+                    {signedUsd0(results.monthlyFeeDifference)}
+                  </span>
+                  <span className="text-sm text-white">
+                    {lower ? "lower in fees per month" : "higher in fees per month"}
                   </span>
                 </div>
-                <div>
-                  <div className="flex items-center justify-between px-5 py-3.5 gap-3">
-                    <span className="text-sm" style={{ color: "var(--color-ink-3)" }}>
-                      N4Cluster fixed fees (monthly + per order)
-                    </span>
-                    <span className="text-sm font-semibold tabular-nums" style={{ color: "var(--color-ink)" }}>
-                      {usd(results.monthlyFee + results.perOrderFees)}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between px-5 py-3.5 gap-3" style={{ borderTop: "1px solid var(--color-line)" }}>
-                    <span className="text-sm" style={{ color: "var(--color-ink-3)" }}>
-                      Assumed card processing ({processingAssumption})
-                    </span>
-                    <span className="text-sm font-semibold tabular-nums" style={{ color: "var(--color-ink)" }}>
-                      {usd(results.processingFees)}
-                    </span>
-                  </div>
-                  <div
-                    className="flex items-center justify-between px-5 py-3.5 gap-3"
-                    style={{ borderTop: "1px solid var(--color-line)", background: "var(--color-cream-2)" }}
-                  >
-                    <span className="text-sm font-semibold" style={{ color: "var(--color-ink)" }}>
-                      N4Cluster fees per order
-                    </span>
-                    <span className="text-sm font-bold tabular-nums" style={{ color: "var(--color-green)" }}>
-                      {results.feePerOrder === null ? "—" : usd(results.feePerOrder)}
-                    </span>
-                  </div>
+                <div className="flex flex-wrap gap-x-6 gap-y-1 mt-2 text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>
+                  <span>
+                    <strong className="tabular-nums" style={{ color: "var(--color-gold)" }}>{signedUsd0(results.annualFeeDifference)}</strong> over twelve months
+                  </span>
+                  <span>
+                    {results.differencePct === null ? (
+                      "No commission baseline to compare"
+                    ) : (
+                      <><strong className="tabular-nums text-white">{Math.round(results.differencePct)}%</strong> vs commission fees</>
+                    )}
+                  </span>
                 </div>
               </div>
             </div>
@@ -258,57 +258,11 @@ export function ROICalculator() {
       </section>
 
       {/* Estimated difference */}
-      <section className="on-dark bg-ink py-16 md:py-20 relative overflow-hidden">
+      <section className="on-dark bg-ink py-12 md:py-16 relative overflow-hidden">
         <Container size="lg" className="relative z-10">
-          <div className="text-center">
-            <p className="text-sm font-semibold uppercase tracking-wider mb-5" style={{ color: "var(--color-gold)" }}>
-              Estimated monthly fee difference
-            </p>
-            <div
-              className="text-5xl sm:text-6xl md:text-7xl font-bold tabular-nums leading-none"
-              style={{ color: lower ? "var(--color-gold)" : "#ffffff" }}
-            >
-              {signedUsd0(results.monthlyFeeDifference)}
-            </div>
-            <div className="text-lg font-medium mt-3 text-white max-w-xl mx-auto text-balance">
-              {lower
-                ? "lower in fees per month, on the inputs above"
-                : "higher in fees per month, on the inputs above"}
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10 max-w-3xl mx-auto">
-              <div className="rounded-2xl p-6" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.14)" }}>
-                <div className="text-3xl font-bold tabular-nums text-white">
-                  {signedUsd0(results.monthlyFeeDifference)}
-                </div>
-                <div className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.75)" }}>
-                  Per month
-                </div>
-              </div>
-                            <div className="rounded-2xl p-6" style={{ background: "rgba(244,179,62,0.15)", border: "1px solid rgba(244,179,62,0.5)" }}>
-                <div className="text-3xl font-bold tabular-nums" style={{ color: "var(--color-gold)" }}>
-                  {signedUsd0(results.annualFeeDifference)}
-                </div>
-                <div className="text-xs mt-1" style={{ color: "var(--color-gold)" }}>
-                  Over twelve months
-                </div>
-              </div>
-              <div className="rounded-2xl p-6" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.14)" }}>
-                <div className="text-3xl font-bold tabular-nums text-white">
-                  {results.differencePct === null
-                    ? "—"
-                    : `${Math.round(results.differencePct)}%`}
-                </div>
-                <div className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.75)" }}>
-                  {results.differencePct === null
-                    ? "No commission baseline to compare"
-                    : "Difference vs commission fees"}
-                </div>
-              </div>
-            </div>
-
+          <div>
             {/* Assumptions sit with the number, not in footer small print. */}
-            <div className="mt-10 max-w-3xl mx-auto rounded-2xl p-6 text-left" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.14)" }}>
+            <div className="max-w-3xl mx-auto rounded-2xl p-6 text-left" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.14)" }}>
               <h3 className="text-sm font-bold text-white mb-3">
                 What this estimate assumes
               </h3>
