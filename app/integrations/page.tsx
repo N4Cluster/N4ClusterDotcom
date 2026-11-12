@@ -26,7 +26,7 @@ const integrationCategories = [
     icon: Monitor,
     title: "POS and catalog systems",
     description:
-      "Connect point-of-sale and catalog management systems to keep menu data, pricing, and availability synchronized.",
+      "Point-of-sale and catalog providers we'd like to work alongside to keep menu data, pricing, and availability consistent.",
   },
   {
     icon: CreditCard,
@@ -65,7 +65,7 @@ const architectureFeatures = [
     icon: Webhook,
     title: "Webhook and event-driven patterns",
     description:
-      "Real-time integration via webhooks and event streams — keeping systems in sync without constant polling.",
+      "Where a partnership makes sense, we'll explore event-driven connections that keep systems in sync.",
   },
   {
     icon: Puzzle,

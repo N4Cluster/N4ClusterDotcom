@@ -124,13 +124,13 @@ const solutions: Solution[] = [
     subheadline:
       "If you serve restaurants, you know what a commission-hungry partner does to trust. N4Cluster runs on a flat fee, not a cut of the merchant's ticket, so your integration doesn't inherit that conflict.",
     bullets: [
-      "Connect with webhooks and event triggers — built to plug in without a six-month integration project",
+      "Talk to us about how your product could work alongside N4Cluster, without a six-month integration project",
       "Start with a focused pilot, prove it works, then expand",
       "We make money on a flat fee — not by skimming the merchants you both serve",
-      "Aggregated insights only — a merchant's data is never shown to a competitor",
+      "Your customer data is yours — we'll send you a copy whenever you ask.",
     ],
     outcomes: [
-      { label: "How you connect", value: "API / webhook" },
+      { label: "How you start", value: "A conversation" },
       { label: "What merchants pay", value: priceDisplay.merchantFees },
       { label: "How onboarding starts", value: "Pilot-first" },
     ],
@@ -139,11 +139,11 @@ const solutions: Solution[] = [
     panel: {
       title: "Where partners connect",
       rows: [
-        { label: "Point of sale and catalog", value: "Menu and availability" },
+        { label: "Menu and catalog tools", value: "Working alongside us" },
         { label: "Delivery networks", value: "Dispatch and tracking" },
         { label: "Marketing and CRM", value: "Customer engagement" },
       ],
-      note: "Examples of integration categories, not a list of live connections.",
+      note: "Examples of partnership categories, not a list of live integrations.",
     },
   },
 ];

@@ -58,7 +58,7 @@ export const resources: Resource[] = [
       "The dominant narrative around AI in commerce is automation: remove the human, let the algorithm decide. But for local businesses, fully automated decision-making is often the wrong approach. The operator knows their business, their neighborhood, and their customers better than any model.",
       "The more valuable application of AI is decision support. Instead of replacing the operator's judgment, AI should enhance it. Surface the right data at the right time. Identify patterns that are hard to see manually. Suggest actions, but let the operator decide.",
       "This is the philosophy behind N4Cluster's demand forecasting and growth campaigns. They analyze order patterns and customer behavior to generate actionable suggestions. But nothing goes out without the merchant's OK. Pricing, promotions, and operations never change autonomously.",
-      "There are hard guardrails built into the system. Your customer data is never shared across merchants. The tools never optimize for platform revenue at the merchant's expense. Nothing irreversible happens without explicit consent. These are not just policies; they are architectural constraints.",
+      "The guardrail is simple: nothing goes out without the merchant's OK. And your customer data is yours — we'll send you a copy whenever you ask.",
     ],
   },
   {
@@ -89,7 +89,7 @@ export const resources: Resource[] = [
       "The second step is identifying the cost of fragmentation. How much time does staff spend on manual coordination? How often do orders fall through the cracks between systems? How much visibility do you lose because data lives in silos? These costs are often invisible but significant.",
       "The third step is defining what a coherent stack looks like for your business. The goal is not to replace everything at once. It is to identify the critical integration points where a single orchestration layer would eliminate the most friction.",
       "For most operators, the highest-value integration points are: order ingestion (bringing all channels into one flow), delivery assignment (routing to the right partner automatically), and customer communication (sending status updates without manual intervention).",
-      "A platform like N4Cluster is designed to sit at these integration points. It connects your existing POS, delivery partners, and payment systems into a single flow. You keep the tools that work. You replace the manual glue with automated orchestration.",
+      "A platform like N4Cluster is designed to sit at these integration points. It brings ordering, delivery, and payments into a single flow, alongside the tools you already use. You keep the tools that work. You replace the manual glue with automated orchestration.",
       "The final step is measuring improvement. Track order completion rates, average fulfillment time, customer complaint frequency, and staff time spent on coordination. These metrics will tell you whether your stack is getting more coherent or more fragmented over time.",
       "Building a better stack is not a one-time project. It is an ongoing practice of reducing friction, improving visibility, and maintaining control over your operations. The businesses that invest in this practice will operate more efficiently and grow more sustainably than those that don't.",
     ],
