@@ -183,3 +183,12 @@
     box-shadow: 0 10px 25px -8px rgba(4, 13, 28, 0.35);
   }
 }
+
+@keyframes n4marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.n4-track { animation: n4marquee 70s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .n4-track { animation: none; }
+}

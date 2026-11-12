@@ -3,6 +3,9 @@ import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Hero } from "@/components/home/Hero";
 import { StatStrip } from "@/components/home/StatStrip";
 import { PlatformSections } from "@/components/home/PlatformSections";
+import { SavingsCalculator } from "@/components/home/SavingsCalculator";
+import { PhotoMarquee } from "@/components/home/PhotoMarquee";
+import { ComparisonTable } from "@/components/home/ComparisonTable";
 import { TrustStrip } from "@/components/sections/TrustStrip";
 import { CTASection } from "@/components/sections/CTASection";
 import { StepTimeline } from "@/components/sections/StepTimeline";
@@ -166,6 +169,9 @@ export default function HomePage() {
       <Hero />
       <StatStrip />
       <PlatformSections />
+      <SavingsCalculator />
+      <PhotoMarquee />
+      <ComparisonTable />
 
       {/* ── Trust strip ── */}
       <TrustStrip items={trustItems} />
