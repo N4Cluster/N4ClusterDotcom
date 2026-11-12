@@ -36,11 +36,11 @@ export function CookieConsent() {
       role="dialog"
       aria-label="Cookie consent"
     >
-      <div className="mx-auto max-w-3xl rounded-xl bg-navy-950 border border-navy-700 px-6 py-4 shadow-2xl flex flex-col sm:flex-row items-start sm:items-center gap-4">
-        <p className="flex-1 text-sm text-slate-300 leading-relaxed">
+      <div className="mx-auto max-w-3xl on-dark rounded-[22px] bg-ink px-6 py-4 shadow-2xl flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <p className="flex-1 text-sm text-white/80 leading-relaxed">
           We use analytics cookies to understand how the site is used. They load
           only if you accept. See our{" "}
-          <Link href="/cookies" className="text-cobalt-300 hover:underline">
+          <Link href="/cookies" className="text-gold hover:underline">
             Cookie Notice
           </Link>{" "}
           for details.
@@ -48,13 +48,13 @@ export function CookieConsent() {
         <div className="flex items-center gap-3 shrink-0">
           <button
             onClick={() => setConsent("denied")}
-            className="text-sm font-medium text-slate-300 hover:text-white transition-colors px-3 py-1.5 rounded-lg"
+            className="text-sm font-medium text-white/80 hover:text-white transition-colors px-3 py-1.5 rounded-full"
           >
             Decline
           </button>
           <button
             onClick={() => setConsent("granted")}
-            className="bg-cobalt-500 hover:bg-cobalt-600 text-white text-sm font-semibold px-5 py-2 rounded-lg transition-colors"
+            className="bg-gold hover:brightness-95 text-ink text-sm font-semibold px-5 py-2 rounded-full transition-colors"
           >
             Accept
           </button>

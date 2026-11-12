@@ -116,32 +116,32 @@ export function ContactForm({ variant = "contact", dark = false }: ContactFormPr
 
   const inputClass = (hasError: boolean) =>
     cn(
-      "w-full rounded-lg border px-4 py-2.5 text-sm transition-colors focus:outline-none focus:ring-2",
+      "w-full rounded-xl border px-4 py-2.5 text-sm transition-colors focus:outline-none focus:ring-2",
       dark
-        ? "bg-navy-800 border-navy-700 text-white placeholder-slate-500 focus:border-cobalt-500 focus:ring-cobalt-500/20"
-        : "bg-white border-slate-300 text-navy-950 placeholder-slate-400 focus:border-cobalt-500 focus:ring-cobalt-500/20",
-      hasError && "border-red-400 focus:border-red-400 focus:ring-red-400/20"
+        ? "bg-white/10 border-white/30 text-white placeholder-white/50 focus:border-gold focus:ring-gold/30"
+        : "bg-white border-muted text-ink placeholder-muted focus:border-ink focus:ring-ink/20",
+      hasError && "border-red focus:border-red focus:ring-red/20"
     );
 
   const labelClass = cn(
     "block text-sm font-medium mb-1.5",
-    dark ? "text-slate-300" : "text-slate-700"
+    dark ? "text-white/85" : "text-ink-2"
   );
 
-  const errorClass = "mt-1 text-xs text-red-500";
+  const errorClass = cn("mt-1 text-xs", dark ? "text-[#ffb4a3]" : "text-red");
 
   if (status === "success") {
     return (
-      <div className={`rounded-2xl border p-10 text-center ${dark ? "bg-navy-800 border-navy-700" : "bg-slate-50 border-slate-200"}`}>
-        <div className="w-14 h-14 rounded-full bg-teal-500/15 flex items-center justify-center mx-auto mb-5">
-          <svg className="w-6 h-6 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+      <div className={`rounded-[22px] border p-10 text-center ${dark ? "bg-white/10 border-white/20" : "bg-white border-line"}`}>
+        <div className="w-14 h-14 rounded-full bg-green-tint flex items-center justify-center mx-auto mb-5">
+          <svg className="w-6 h-6 text-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className={`text-xl font-bold mb-2 ${dark ? "text-white" : "text-navy-950"}`}>
+        <h3 className={`font-display text-xl font-bold mb-2 ${dark ? "text-white" : "text-ink"}`}>
           Thanks for reaching out.
         </h3>
-        <p className={`text-sm ${dark ? "text-slate-400" : "text-slate-600"}`}>
+        <p className={`text-sm ${dark ? "text-white/75" : "text-ink-3"}`}>
           We&apos;ll review your submission and follow up soon.
         </p>
       </div>
@@ -282,13 +282,13 @@ export function ContactForm({ variant = "contact", dark = false }: ContactFormPr
         <label className="flex items-start gap-3 cursor-pointer">
           <input
             type="checkbox"
-            className="mt-0.5 h-4 w-4 rounded border-slate-300 text-cobalt-500 focus:ring-cobalt-500"
+            className="mt-0.5 h-4 w-4 rounded border-muted text-ink focus:ring-ink"
             checked={formData.consent}
             onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
           />
-          <span className={`text-xs leading-relaxed ${dark ? "text-slate-400" : "text-slate-600"}`}>
+          <span className={`text-xs leading-relaxed ${dark ? "text-white/75" : "text-ink-3"}`}>
             I agree to N4Cluster&apos;s{" "}
-            <a href="/privacy" className="text-cobalt-500 hover:underline">Privacy Policy</a>{" "}
+            <a href="/privacy" className="underline underline-offset-2 hover:no-underline">Privacy Policy</a>{" "}
             and consent to being contacted about my inquiry.
           </span>
         </label>
@@ -296,13 +296,13 @@ export function ContactForm({ variant = "contact", dark = false }: ContactFormPr
       </div>
 
       {status === "error" && (
-        <p className="text-sm text-red-500">Something went wrong. Please try again.</p>
+        <p className={cn("text-sm", dark ? "text-[#ffb4a3]" : "text-red")}>Something went wrong. Please try again.</p>
       )}
 
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="w-full bg-cobalt-500 hover:bg-cobalt-600 disabled:opacity-60 text-white font-semibold py-3 px-6 rounded-lg transition-colors text-sm"
+        className="w-full bg-gold hover:brightness-95 disabled:opacity-60 text-ink font-semibold py-3 px-6 rounded-full transition-all text-sm"
       >
         {status === "submitting" ? "Submitting…" : submitLabels[variant]}
       </button>

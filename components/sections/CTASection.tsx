@@ -17,16 +17,11 @@ export function CTASection({
   dark = true,
 }: CTASectionProps) {
   return (
-    <section className={`${dark ? "gradient-dark" : "bg-slate-50"} py-16 md:py-24 relative overflow-hidden`}>
-      {dark && (
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cobalt-600/15 rounded-full blur-3xl" />
-        </div>
-      )}
-      <Container size="lg" className="relative z-10 text-center">
+    <section className={`${dark ? "on-dark bg-ink" : "bg-cream-2"} py-16 md:py-24`}>
+      <Container size="lg" className="text-center">
         <h2
-          className={`text-3xl sm:text-4xl font-bold tracking-tight text-balance ${
-            dark ? "text-white" : "text-navy-950"
+          className={`font-display text-3xl sm:text-4xl font-bold tracking-tight text-balance ${
+            dark ? "text-white" : "text-ink"
           }`}
         >
           {heading}
@@ -34,7 +29,7 @@ export function CTASection({
         {subheading && (
           <p
             className={`mt-4 text-lg max-w-2xl mx-auto ${
-              dark ? "text-slate-300" : "text-slate-600"
+              dark ? "text-white/75" : "text-ink-3"
             }`}
           >
             {subheading}
@@ -49,6 +44,7 @@ export function CTASection({
               href={secondaryCta.href}
               size="lg"
               variant={dark ? "outline" : "secondary"}
+              className={dark ? "border-white text-white hover:bg-white hover:text-ink" : undefined}
             >
               {secondaryCta.label}
             </Button>

@@ -10,7 +10,7 @@ export function Divider({ className, dark = false }: DividerProps) {
     <hr
       className={cn(
         "border-0 border-t",
-        dark ? "border-navy-700" : "border-slate-200",
+        dark ? "border-white/15" : "border-line",
         className
       )}
     />

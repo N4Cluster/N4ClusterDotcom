@@ -5,7 +5,7 @@ export interface Step {
   number: string | number;
   title: string;
   description: string;
-  accent?: "cobalt" | "teal" | "amber";
+  accent?: string; // accepted for backward compatibility; unused
 }
 
 interface StepTimelineProps {
@@ -16,39 +16,29 @@ interface StepTimelineProps {
   dark?: boolean;
 }
 
-// Darker steps so white badge text clears WCAG AA (4.5:1): white on teal-500 and
-// amber-500 measures 2.5:1 and 2.2:1. See the "Darker" tokens in DESIGN.md.
-const accentBg = {
-  cobalt: "#1a4fd6",
-  teal: "#0a5f56",
-  amber: "#7c4a08",
-};
-
 export function StepTimeline({ eyebrow, heading, subheading, steps, dark = false }: StepTimelineProps) {
   return (
-    <section className={`py-16 md:py-24 ${dark ? "gradient-dark" : "bg-white"}`}>
+    <section className={`py-16 md:py-24 ${dark ? "on-dark bg-ink" : "bg-cream"}`}>
       <Container>
         <SectionIntro eyebrow={eyebrow} heading={heading} subheading={subheading} dark={dark} />
         <div className="relative">
           {/* Desktop connecting line */}
-          <div className="hidden md:block absolute top-8 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+          <div className="hidden md:block absolute top-8 left-0 right-0 h-px bg-gradient-to-r from-transparent via-line to-transparent" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
-            {steps.map((step, idx) => {
-              const accent = step.accent ?? (["cobalt", "teal", "amber", "cobalt"] as const)[idx % 4];
+            {steps.map((step) => {
               return (
                 <div key={step.title} className="relative">
                   <div className="flex flex-col items-start md:items-center md:text-center">
                     <div
-                      className="min-w-16 h-16 px-3 rounded-2xl flex items-center justify-center font-bold text-sm text-white mb-5 flex-shrink-0 whitespace-nowrap shadow-md"
-                      style={{ background: accentBg[accent] }}
+                      className="min-w-16 h-16 px-3 rounded-2xl flex items-center justify-center font-display font-bold text-sm mb-5 flex-shrink-0 whitespace-nowrap bg-gold text-ink"
                     >
                       {step.number}
                     </div>
-                    <h3 className={`text-lg font-bold mb-2 ${dark ? "text-white" : "text-navy-950"}`}>
+                    <h3 className={`font-display text-lg font-bold mb-2 ${dark ? "text-white" : "text-ink"}`}>
                       {step.title}
                     </h3>
-                    <p className={`text-sm leading-relaxed ${dark ? "text-slate-400" : "text-slate-600"}`}>
+                    <p className={`text-sm leading-relaxed ${dark ? "text-white/75" : "text-ink-3"}`}>
                       {step.description}
                     </p>
                   </div>

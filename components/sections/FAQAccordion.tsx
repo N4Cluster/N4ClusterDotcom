@@ -1,10 +1,5 @@
-"use client";
-
-import { useId, useState } from "react";
 import { Container } from "@/components/ui/Container";
 import { SectionIntro } from "@/components/ui/SectionIntro";
-import { ChevronDown } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 export interface FAQItem {
   question: string;
@@ -19,79 +14,38 @@ interface FAQAccordionProps {
   dark?: boolean;
 }
 
+// Native details/summary: keyboard and screen-reader behaviour for free, closed answers stay out of the a11y tree.
 export function FAQAccordion({ eyebrow, heading, subheading, items, dark = false }: FAQAccordionProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const baseId = useId();
-
-  const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
-
   return (
-    <section className={`py-16 md:py-24 ${dark ? "gradient-dark" : "bg-white"}`}>
+    <section className={`py-16 md:py-24 ${dark ? "on-dark bg-ink" : "bg-cream"}`}>
       <Container size="lg">
         {heading && (
           <SectionIntro eyebrow={eyebrow} heading={heading} subheading={subheading} dark={dark} />
         )}
-        <div className="max-w-3xl mx-auto space-y-3">
-          {items.map((item, i) => {
-            const isOpen = openIndex === i;
-            const panelId = `${baseId}-panel-${i}`;
-            const buttonId = `${baseId}-button-${i}`;
-
-            return (
-              <div
-                key={item.question}
-                className={`rounded-xl border ${
-                  dark ? "border-navy-700 bg-navy-800/50" : "border-slate-200 bg-white"
+        <div className={`mx-auto max-w-3xl border-b ${dark ? "border-white/15" : "border-line"}`}>
+          {items.map((item) => (
+            <details
+              key={item.question}
+              className={`group border-t py-5 md:py-[22px] ${dark ? "border-white/15" : "border-line"}`}
+            >
+              <summary
+                className={`flex cursor-pointer list-none items-center justify-between gap-4 text-[17px] font-bold md:text-[19px] [&::-webkit-details-marker]:hidden ${
+                  dark ? "text-white" : "text-ink"
                 }`}
               >
-                <button
-                  id={buttonId}
-                  onClick={() => toggle(i)}
-                  className={cn(
-                    "flex w-full items-center justify-between px-6 py-5 text-left transition-colors rounded-xl",
-                    dark ? "hover:bg-navy-800" : "hover:bg-slate-50",
-                    isOpen && (dark ? "bg-navy-800" : "bg-slate-50")
-                  )}
-                  aria-expanded={isOpen}
-                  aria-controls={panelId}
+                {item.question}
+                <span
+                  aria-hidden="true"
+                  className="shrink-0 text-[26px] leading-none transition-transform duration-200 group-open:rotate-45"
                 >
-                  <span
-                    className={`font-semibold text-sm sm:text-base pr-4 ${
-                      dark ? "text-white" : "text-navy-950"
-                    }`}
-                  >
-                    {item.question}
-                  </span>
-                  <ChevronDown
-                    size={18}
-                    aria-hidden="true"
-                    className={cn(
-                      "flex-shrink-0 transition-transform duration-200",
-                      dark ? "text-slate-400" : "text-slate-500",
-                      isOpen && "rotate-180"
-                    )}
-                  />
-                </button>
-                {/*
-                  Rendered only while open. The previous version animated a
-                  max-height, which capped long answers at 384px and left closed
-                  answers in the accessibility tree for screen readers to read out.
-                */}
-                {isOpen && (
-                  <div
-                    id={panelId}
-                    role="region"
-                    aria-labelledby={buttonId}
-                    className={`px-6 pb-5 text-sm leading-relaxed ${
-                      dark ? "text-slate-300" : "text-slate-600"
-                    }`}
-                  >
-                    {item.answer}
-                  </div>
-                )}
-              </div>
-            );
-          })}
+                  +
+                </span>
+              </summary>
+              <p className={`mt-3 text-base leading-relaxed ${dark ? "text-white/75" : "text-ink-3"}`}>
+                {item.answer}
+              </p>
+            </details>
+          ))}
         </div>
       </Container>
     </section>

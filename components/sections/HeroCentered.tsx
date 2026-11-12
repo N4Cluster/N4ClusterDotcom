@@ -17,33 +17,28 @@ export function HeroCentered({
   subheading,
   primaryCta,
   secondaryCta,
-  dark = true,
+  dark = false,
 }: HeroCenteredProps) {
   return (
     <section
-      className={`${dark ? "gradient-hero" : "bg-slate-50"} pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden`}
+      className={`${dark ? "on-dark bg-ink" : "bg-cream"} pt-16 pb-16 md:pt-24 md:pb-24 relative overflow-hidden`}
     >
-      {dark && (
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-cobalt-600/10 rounded-full blur-3xl" />
-        </div>
-      )}
       <Container size="lg" className="relative z-10 text-center">
         {eyebrow && (
           <div className="mb-5">
-            <Badge variant={dark ? "dark" : "cobalt"}>{eyebrow}</Badge>
+            <Badge variant={dark ? "dark" : "accent"}>{eyebrow}</Badge>
           </div>
         )}
         <h1
-          className={`text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-balance leading-tight ${
-            dark ? "text-white" : "text-navy-950"
+          className={`font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-balance leading-tight ${
+            dark ? "text-white" : "text-ink"
           }`}
         >
           {heading}
         </h1>
         <p
           className={`mt-6 text-xl leading-relaxed max-w-2xl mx-auto ${
-            dark ? "text-slate-300" : "text-slate-600"
+            dark ? "text-white/75" : "text-ink-3"
           }`}
         >
           {subheading}
@@ -60,6 +55,7 @@ export function HeroCentered({
                 href={secondaryCta.href}
                 size="lg"
                 variant={dark ? "outline" : "secondary"}
+                className={dark ? "border-white text-white hover:bg-white hover:text-ink" : undefined}
               >
                 {secondaryCta.label}
               </Button>

@@ -11,10 +11,10 @@ export function Card({ className, hover = false, bordered = false, dark = false,
   return (
     <div
       className={cn(
-        "rounded-2xl p-6",
-        dark ? "bg-navy-900 text-white" : "bg-white",
-        bordered && !dark && "border border-slate-200",
-        bordered && dark && "border border-navy-700",
+        "rounded-[22px] p-6",
+        dark ? "on-dark bg-ink text-white" : "bg-white",
+        bordered && !dark && "border border-line",
+        bordered && dark && "border border-ink-2",
         hover && "card-hover cursor-pointer",
         className
       )}
@@ -28,9 +28,9 @@ export function CardHeader({ className, ...props }: ComponentPropsWithoutRef<"di
 }
 
 export function CardTitle({ className, ...props }: ComponentPropsWithoutRef<"h3">) {
-  return <h3 className={cn("text-xl font-bold text-navy-950", className)} {...props} />;
+  return <h3 className={cn("font-display text-xl font-bold text-ink", className)} {...props} />;
 }
 
 export function CardBody({ className, ...props }: ComponentPropsWithoutRef<"div">) {
-  return <div className={cn("text-slate-600 leading-relaxed", className)} {...props} />;
+  return <div className={cn("text-ink-3 leading-relaxed", className)} {...props} />;
 }

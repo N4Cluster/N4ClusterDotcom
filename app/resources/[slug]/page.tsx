@@ -54,7 +54,7 @@ export default async function ResourceArticlePage({
         </Link>
 
         <div className="mb-6 flex items-center gap-3">
-          <Badge variant="cobalt">{resource.category}</Badge>
+          <Badge variant="accent">{resource.category}</Badge>
           {resource.readTime && (
             <span className="text-xs text-slate-400">{resource.readTime}</span>
           )}
