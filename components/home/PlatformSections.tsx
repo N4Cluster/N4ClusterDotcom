@@ -61,7 +61,7 @@ function Ordering() {
         <h3 className={h3}>An ordering site on your own domain, in your own colors.</h3>
         <p className={lede}>On your domain, in your colors, built from your menu. We set it up and clean it up, and nothing goes live without your sign-off.</p>
         <ul className="flex flex-col gap-2.5 font-medium">
-          {["Pickup, delivery and scheduled orders", "Card payments through Stripe, deposited to you", "No website yet? We'll set up your domain too"].map((t) => (
+          {["Pickup, delivery and scheduled orders", "Card payments through Stripe, deposited to you"].map((t) => (
             <li key={t} className="flex gap-2.5"><span aria-hidden="true" className="font-extrabold text-green">✓</span>{t}</li>
           ))}
         </ul>
@@ -112,7 +112,7 @@ function Growth() {
             <span className="on-dark flex size-[22px] items-center justify-center rounded-md bg-ink font-display text-[9px] text-gold">N4</span>
             SUGGESTED CAMPAIGN
           </div>
-          <div className="text-[15px] font-bold leading-snug">Tuesdays run slow. Send your regulars a double-points offer for tonight?</div>
+          <div className="text-[15px] font-bold leading-snug">12 regulars haven&apos;t ordered in a month. Send them a double-points offer?</div>
           <div className="flex gap-2">
             <span className="on-dark flex min-h-11 flex-1 items-center justify-center rounded-[10px] bg-ink text-sm font-bold text-white">Approve</span>
             <span className="flex min-h-11 flex-1 items-center justify-center rounded-[10px] border border-line bg-white text-sm font-bold">Edit</span>
@@ -121,8 +121,8 @@ function Growth() {
       </Visual>
       <div className="flex min-w-0 flex-[1_1_420px] flex-col gap-[18px]">
         <Label n="03" name="Growth" />
-        <h3 className={h3}>We draft a campaign for your slow nights, and nothing goes out until you approve it.</h3>
-        <p className={lede}>We spot your quiet nights and draft a campaign for the regulars who&apos;ve drifted. You approve it, we send it. You stay in the kitchen.</p>
+        <h3 className={h3}>We draft a campaign to bring your regulars back, and nothing goes out until you approve it.</h3>
+        <p className={lede}>When regulars drift, we draft a campaign to bring them back. You approve it, we send it. You stay in the kitchen.</p>
       </div>
     </div>
   );
@@ -158,7 +158,7 @@ export function PlatformSections() {
         <Growth />
         <div className="-mt-10 grid grid-cols-[repeat(auto-fit,minmax(min(340px,100%),1fr))] gap-6">
           <Tile id="delivery" src="salmon-lemon.jpg" alt="Roasted salmon with lemon and herbs" n="04" name="Delivery" title="When a guest wants delivery, we send the driver."
-            body="We dispatch through DoorDash Drive and Uber Direct and chase any order that runs late.">
+            body="We dispatch through Uber Direct and chase any order that runs late.">
             <div className="flex justify-between text-xs font-bold"><span>Order #1045</span><span className="text-green">On time</span></div>
             <div className="flex gap-1">
               {[1, 1, 1, 0].map((on, i) => <div key={i} className={`h-[5px] flex-1 rounded-full ${on ? "bg-green" : "bg-cream-3"}`} />)}

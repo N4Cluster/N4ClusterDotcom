@@ -449,8 +449,8 @@ export default function PrivacyPage() {
           </h2>
           <p>
             N4Cluster may use artificial intelligence, machine learning, and
-            related technologies through N4Cluster capabilities, including
-            N4Logic, to support functions such as demand forecasting, operational
+            related technologies through N4Cluster capabilities to support
+            functions such as demand forecasting, operational
             analytics, recommendations, promotional insights, anomaly detection,
             merchant decision support, and product improvement.
           </p>

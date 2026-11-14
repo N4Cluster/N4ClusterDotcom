@@ -6,6 +6,7 @@ import { FAQAccordion } from "@/components/sections/FAQAccordion";
 import { restaurantFromParam } from "@/lib/prefill";
 import { faqItems } from "@/content/pages/faq";
 import { siteConfig } from "@/content/site/settings";
+import { demoCta } from "@/content/company";
 
 export const metadata: Metadata = {
   title: "Contact and Request a Demo",
@@ -30,16 +31,16 @@ export default async function ContactPage({
                 <Badge variant="accent">Get in touch</Badge>
               </div>
               <h1 className="font-display text-4xl sm:text-5xl font-bold text-ink text-balance leading-tight mb-5">
-                Let&apos;s explore what N4Cluster could support for your business
+                Let&apos;s build your demo storefront.
               </h1>
               <p className="text-lg text-ink-3 leading-relaxed mb-8">
-                Tell us about your business, operating model, or pilot interest, and we&apos;ll follow up with the right next step.
+                Tell us about your restaurant and we&apos;ll build a working demo with your real menu. Asking about a pilot or a partnership instead? Use the same form and we&apos;ll follow up.
               </p>
 
               <div className="space-y-5">
                 {[
                   {
-                    title: "Request your demo storefront",
+                    title: demoCta.label,
                     description: "We'll build a working demo with your real menu, then walk you through it. Free, and yours to look at before you decide anything.",
                   },
                   {

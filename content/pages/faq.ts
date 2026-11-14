@@ -39,7 +39,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "What does the price cover?",
     answer:
-      "They cover the N4Cluster platform: your branded ordering site, rewards, growth tools, delivery coordination, and POS integration. There are no tiered plans and no add-on modules. Two things are not included: card processing, which your payment processor charges separately, and any delivery charges. Diners normally pay a small N4Cluster fee at checkout unless you choose to absorb it.",
+      "It covers the N4Cluster platform: your branded ordering site, rewards, growth tools, delivery coordination, and menu setup. There are no tiered plans and no add-on modules. Two things are not included: card processing, which your payment processor charges separately, and any delivery charges. Diners normally pay a small Neighborhood fee at checkout unless you choose to absorb it.",
   },
   {
     question: "What is the Neighborhood fee?",
@@ -54,17 +54,17 @@ export const faqItems: FAQItem[] = [
   {
     question: "How does N4Cluster help me grow?",
     answer:
-      "Once you go live, we draft win-back campaigns for the regulars who have drifted. Nothing goes out without your OK. Separately, AI demand forecasting shows your busy windows and flags high-margin items. None of it changes your pricing. Your Google Business Profile is kept in sync with your menu, and multi-location restaurants are supported.",
+      "Once you go live, we draft win-back campaigns for the regulars who have drifted. Nothing goes out without your OK, and none of it changes your pricing. Multi-location restaurants are supported.",
   },
   {
     question: "How does delivery work?",
     answer:
-      "We dispatch through DoorDash Drive and Uber Direct and chase any order that runs late, with delivery-time tracking on every order, so you are not managing drivers. Delivery charges depend on your address and are separate from N4Cluster's fees. Ask us what applies at your address before you rely on it.",
+      "We dispatch through Uber Direct and chase any order that runs late, with delivery-time tracking on every order, so you are not managing drivers. Delivery charges depend on your address and are separate from N4Cluster's fees. Ask us what applies at your address before you rely on it.",
   },
   {
     question: "How quickly can I go live?",
     answer:
-      "Live in days. Not quarters. We scope the exact steps and timing for your restaurant before you commit. When you connect your POS, your menu can be imported and structured automatically and your ordering site built for your review, so nothing goes live without your sign-off. How long that takes depends on your POS, how your menu is structured, and how quickly you can review it — so we would rather scope it with you than quote a deadline that may not hold.",
+      "Live in days. Not quarters. We build your menu and ordering site from the menu you use today, for your review, so nothing goes live without your sign-off. The exact timing depends on how your menu is structured and how quickly you can review it, so we scope the steps and timing with you before you commit.",
   },
   {
     question: "Can I try it free?",
@@ -74,7 +74,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "I don't have a website. Is that a problem?",
     answer:
-      "Not at all. We'll set up your domain too and build your ordering site for you.",
+      "Not at all. We build your ordering site for you.",
   },
   {
     question: "What if I want to cancel?",
@@ -86,9 +86,9 @@ export const faqItems: FAQItem[] = [
       `No. ${priceDisplay.cancel} Your customer data is yours — we'll send you a copy whenever you ask, before, during, or after you leave. Customer privacy and communication preferences still apply to how that information can be used.`,
   },
   {
-    question: "What POS systems does N4Cluster integrate with?",
+    question: "Do I need to connect my POS?",
     answer:
-      "N4Cluster integrates with major POS systems including Toast, Square, Clover, Lightspeed, and others. POS connection enables automatic menu import, real-time availability sync, and direct order injection into your kitchen workflow — no extra tablets required. Contact us to confirm your specific POS is supported before you commit.",
+      "No. Orders arrive in your merchant dashboard, and we set up your menu for you. Tell us which POS you use and we'll tell you exactly what works with it today, before you commit.",
   },
 ];
 

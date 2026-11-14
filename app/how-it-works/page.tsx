@@ -19,10 +19,9 @@ const phases = [
     headline: "A call, then we build. You approve.",
     sub: "We walk through your menu, hours and delivery area and show you your demo storefront. Nothing launches until you say go.",
     tasks: [
-      "POS connected — menu data imported",
+      "Your menu set up for you from the one you use today",
       "Categories, descriptions and missing items cleaned up for your review",
       "Delivery area set up for your address",
-      "No website yet? We'll set up your domain too",
     ],
     merchant: "Review your preview site and approve to launch.",
     n4cluster: "Build your ordering site and clean up your menu.",
@@ -33,9 +32,9 @@ const phases = [
     sub: "Your branded ordering site goes live under your name, on your own domain.",
     tasks: [
       "Branded ordering site live under your domain",
-      "Menu and availability kept in step with your POS",
+      "Specials, sold-out items and hours updated from your merchant dashboard",
       "Rewards switched on: points on the menu subtotal, redeemed at checkout",
-      "Delivery coordinated through DoorDash Drive and Uber Direct",
+      "Delivery coordinated through Uber Direct",
     ],
     merchant: "Accept your first direct orders.",
     n4cluster: "Track delivery times and chase any order that runs late.",
@@ -45,12 +44,11 @@ const phases = [
     headline: "Point your regulars to it.",
     sub: "A QR code at your counter and your Google listing send guests to your own site.",
     tasks: [
-      "Google Business Profile kept in sync with your menu",
-      "AI demand forecasting starts learning your busy windows",
+      "A QR code for your counter that opens your ordering site",
       "Repeat-customer data builds up in your account",
     ],
     merchant: "Share your link with the guests who already love you.",
-    n4cluster: "Keep your listing current and surface demand signals.",
+    n4cluster: "Help you put your link in front of your regulars.",
   },
   {
     tag: "Ongoing",
@@ -58,7 +56,6 @@ const phases = [
     sub: `Each direct order is a guest you own, at the same fixed price, plus card processing.`,
     tasks: [
       "Growth campaigns drafted for the regulars who have drifted — sent only with your OK",
-      "High-margin items flagged for a spotlight",
       "Your customer data is yours — we'll send you a copy whenever you ask",
     ],
     merchant: "Run your restaurant. Review suggestions and approve what you want.",

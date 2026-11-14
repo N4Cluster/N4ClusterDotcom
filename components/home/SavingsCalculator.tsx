@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { PROCESSING_FLAT, PROCESSING_RATE } from "@/content/site/pricing";
 import { HOME_SAVINGS_DEFAULTS, homeSavings } from "@/lib/home-savings";
+import { demoCta } from "@/content/company";
 
 const RATES = [20, 25, 30] as const;
 const usd = (n: number) => `$${Math.round(n).toLocaleString("en-US")}`;
@@ -77,7 +78,7 @@ export function SavingsCalculator() {
               <div className={`${display} text-[clamp(54px,6vw,76px)] leading-none tracking-[-0.04em] text-green`}>{usd(r.monthlySaving)}</div>
               <div className="mt-1.5">a month · <strong>{usd(r.yearlySaving)}</strong> a year</div>
             </div>
-            <Link href="/contact" className="rounded-full bg-gold px-[22px] py-[15px] text-center font-bold text-ink no-underline">Get my free demo storefront</Link>
+            <Link href={demoCta.href} className="rounded-full bg-gold px-[22px] py-[15px] text-center font-bold text-ink no-underline">{demoCta.label}</Link>
             <p className="text-xs leading-normal text-muted">
               Same menu subtotal on both channels, though apps often push menu prices higher to offset commission. N4Cluster: our fixed price (figures on the <Link href="/pricing" className="underline">pricing page</Link>) + card processing ({+(PROCESSING_RATE * 100).toFixed(1)}% + {Math.round(PROCESSING_FLAT * 100)}¢). The Neighborhood fee diners pay isn&apos;t part of your cost.
             </p>
