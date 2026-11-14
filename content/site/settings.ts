@@ -6,6 +6,12 @@ export const siteConfig = {
   url: "https://www.n4cluster.com",
   ogImage: "https://www.n4cluster.com/og-image.png",
 
+  /** Must match the brand registration (TCR BN2CZLB, EIN record) exactly. */
+  company: {
+    legalName: "N4Cluster Inc",
+    street: "2001 Cumberland Valley Dr, Franklin, TN 37064",
+  },
+
   loginUrl: "https://merchant.n4cluster.com/merchant/signin",
 
   contact: {

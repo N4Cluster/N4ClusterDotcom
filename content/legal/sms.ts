@@ -2,7 +2,7 @@
  * SMS program wording registered with our Telnyx 10DLC campaigns (brand
  * "N4Cluster", TCR ID BN2CZLB): the Low Volume Mixed campaign C7Q0BFG for
  * order notifications, the 2FA campaign C9LCZ0T for verification codes, and
- * the Marketing campaign "N4Cluster Deals" (not yet registered).
+ * the Marketing campaign "N4Cluster Deals" (TCR C1DB2ES, resubmitted Nov 2026).
  *
  * Carrier vetting compares these pages against the campaign forms, so the text
  * here is verbatim and must not be reworded. A change to any string means the
@@ -20,6 +20,7 @@ export const smsTermsIntro =
 export const smsPrograms = [
   {
     title: "1. Order notifications",
+    anchor: "sms-orders",
     items: [
       "Who: diners who order from a restaurant through an N4Cluster-powered storefront.",
       'How to join: check "Text me updates about this order from N4Cluster" at checkout. Consent is not a condition of purchase.',
@@ -29,6 +30,7 @@ export const smsPrograms = [
   },
   {
     title: "2. Verification codes",
+    anchor: "sms-verification",
     items: [
       "Program: N4Cluster Verification Codes.",
       "Who: diners using N4Cluster-powered storefronts.",
@@ -40,8 +42,9 @@ export const smsPrograms = [
   },
   {
     title: "3. N4Cluster Deals",
+    anchor: "sms-deals",
     items: [
-      "Program: N4Cluster Deals, recurring automated marketing texts sent by N4Cluster.",
+      "Program: N4Cluster Deals, a marketing text program of N4Cluster Inc. Recurring automated marketing texts, sent by N4Cluster. Program details: https://www.n4cluster.com/sms/deals.",
       "Who: diners who check the optional N4Cluster Deals box at checkout or in account settings. The box is never pre-checked.",
       "What you'll receive: offers, new menu items and reminders to order again from restaurants you have ordered from on N4Cluster. Restaurants do not send these texts and never receive your SMS consent.",
       "Frequency: message frequency varies.",
@@ -63,8 +66,8 @@ export const smsPrivacyHeading = "Text messaging (SMS)";
 
 /** First paragraph of the Privacy Policy's SMS subsection. */
 export const smsPrivacyIntro =
-  "N4Cluster sends three text message programs, each with its own opt-in, described in our SMS Terms (https://www.n4cluster.com/terms#sms): order notifications, verification codes, and N4Cluster Deals. N4Cluster Deals sends recurring marketing texts about restaurants you have ordered from, only if you check the separate, optional marketing box. Consent to marketing texts is not a condition of purchase. Message frequency varies. Replying STOP to an N4Cluster text ends texts from that program. Message and data rates may apply.";
+  "N4Cluster sends three text message programs, each with its own opt-in, described in our SMS Terms (https://www.n4cluster.com/terms#sms): order notifications (https://www.n4cluster.com/sms/orders), verification codes (https://www.n4cluster.com/sms/verification), and N4Cluster Deals (https://www.n4cluster.com/sms/deals). N4Cluster Deals sends recurring marketing texts about restaurants you have ordered from, only if you check the separate, optional marketing box. Consent to marketing texts is not a condition of purchase. Message frequency varies. Replying STOP to an N4Cluster text ends texts from that program. Message and data rates may apply.";
 
 /** The sentence carrier reviewers look for in the Privacy Policy. */
 export const smsPrivacyStatement =
-  "Mobile numbers and SMS opt-in data will not be sold or shared with third parties for marketing or promotional purposes. Text messaging originator opt-in data and consent will not be shared with any third parties, except service providers that help us deliver messages (such as our SMS provider).";
+  "No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.";

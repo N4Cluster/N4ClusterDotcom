@@ -3,12 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { proseClasses } from "@/lib/prose";
 import { Container } from "@/components/ui/Container";
+import { DealsScreenshots } from "@/components/sms/DealsScreenshots";
 import {
   dealsOptInSteps,
   dealsReplies,
   dealsSampleNote,
   dealsSamples,
-  dealsScreenshotAlt,
   orderSampleNote,
   orderSamples,
   otpOptInSteps,
@@ -109,26 +109,16 @@ export default function SmsPage() {
           <p>
             Diners who check the optional N4Cluster Deals box receive recurring marketing texts about restaurants they have ordered from. The box is separate from the order-texts box and is never pre-checked.
           </p>
+          <p>
+            Program details: <Link href="/sms/deals">N4Cluster Deals — Marketing Text Messages</Link>
+          </p>
           <h3>How to opt in</h3>
           <ol>
             {dealsOptInSteps.map((step) => (
               <li key={step}>{step}</li>
             ))}
           </ol>
-          <Image
-            src="/sms/checkout-deals-optin.png"
-            width={1400}
-            height={760}
-            alt={dealsScreenshotAlt.checkout}
-            className="mx-auto h-auto w-full max-w-xl rounded-lg border border-line"
-          />
-          <Image
-            src="/sms/account-deals-optin.png"
-            width={1020}
-            height={704}
-            alt={dealsScreenshotAlt.account}
-            className="mx-auto mt-4 h-auto w-full max-w-md rounded-lg border border-line"
-          />
+          <DealsScreenshots />
           <h3>Disclosure shown beneath the checkbox</h3>
           <p>
             <strong>{smsDealsCheckboxLabel}</strong>

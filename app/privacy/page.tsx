@@ -21,7 +21,7 @@ export default function PrivacyPage() {
       <Container size="md">
         <div className={proseClasses}>
           <h1>Privacy Policy</h1>
-          <p className="text-muted text-sm">Last updated: November 5, 2026</p>
+          <p className="text-muted text-sm">Last updated: November 13, 2026</p>
 
           <p>
             This Privacy Policy explains how N4Cluster Inc (“N4Cluster,” “we,”
@@ -350,10 +350,9 @@ export default function PrivacyPage() {
             </li>
           </ul>
           <p>
-            None of the categories above includes text messaging originator
-            opt-in data or consent. We share those only with the service
-            providers that deliver our text messages. See{" "}
-            <a href="#sms">Text messaging (SMS)</a>.
+            All the above categories exclude text messaging originator opt-in
+            data and consent; this information will not be shared with any
+            third parties. See <a href="#sms">Text messaging (SMS)</a>.
           </p>
           <p>
             We do not sell personal information for money. We do not currently
