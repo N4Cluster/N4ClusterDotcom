@@ -32,15 +32,16 @@ export function CookieConsent() {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-50 p-4 sm:p-6"
+      className="fixed bottom-0 left-0 right-0 z-50 on-dark bg-ink shadow-2xl"
       role="dialog"
       aria-label="Cookie consent"
     >
-      <div className="mx-auto max-w-3xl rounded-xl bg-navy-950 border border-navy-700 px-6 py-4 shadow-2xl flex flex-col sm:flex-row items-start sm:items-center gap-4">
-        <p className="flex-1 text-sm text-slate-300 leading-relaxed">
+      {/* Slim bar so it doesn't cover the homepage stat strip on a first visit. */}
+      <div className="mx-auto max-w-[1280px] px-4 py-2.5 flex flex-wrap items-center gap-x-4 gap-y-2">
+        <p className="flex-1 min-w-[220px] text-xs text-white/80 leading-snug">
           We use analytics cookies to understand how the site is used. They load
           only if you accept. See our{" "}
-          <Link href="/cookies" className="text-cobalt-300 hover:underline">
+          <Link href="/cookies" className="text-gold hover:underline">
             Cookie Notice
           </Link>{" "}
           for details.
@@ -48,13 +49,13 @@ export function CookieConsent() {
         <div className="flex items-center gap-3 shrink-0">
           <button
             onClick={() => setConsent("denied")}
-            className="text-sm font-medium text-slate-300 hover:text-white transition-colors px-3 py-1.5 rounded-lg"
+            className="text-sm font-medium text-white/80 hover:text-white transition-colors px-3 py-1.5 rounded-full"
           >
             Decline
           </button>
           <button
             onClick={() => setConsent("granted")}
-            className="bg-cobalt-500 hover:bg-cobalt-600 text-white text-sm font-semibold px-5 py-2 rounded-lg transition-colors"
+            className="focus-visible:outline-white bg-gold hover:brightness-95 text-ink text-sm font-semibold px-4 py-1.5 rounded-full transition-colors"
           >
             Accept
           </button>

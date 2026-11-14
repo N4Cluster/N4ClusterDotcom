@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { proseClasses } from "@/lib/prose";
 import { Container } from "@/components/ui/Container";
 import { LinkedText } from "@/components/legal/LinkedText";
 import {
@@ -16,11 +17,11 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <section className="bg-white pt-32 pb-20">
+    <section className="bg-cream py-16 sm:py-20">
       <Container size="md">
-        <div className="prose prose-slate max-w-none">
+        <div className={proseClasses}>
           <h1>Privacy Policy</h1>
-          <p className="text-slate-600 text-sm">Last updated: November 5, 2026</p>
+          <p className="text-muted text-sm">Last updated: November 5, 2026</p>
 
           <p>
             This Privacy Policy explains how N4Cluster Inc (“N4Cluster,” “we,”
@@ -448,8 +449,8 @@ export default function PrivacyPage() {
           </h2>
           <p>
             N4Cluster may use artificial intelligence, machine learning, and
-            related technologies through N4Cluster capabilities, including
-            N4Logic, to support functions such as demand forecasting, operational
+            related technologies through N4Cluster capabilities to support
+            functions such as demand forecasting, operational
             analytics, recommendations, promotional insights, anomaly detection,
             merchant decision support, and product improvement.
           </p>

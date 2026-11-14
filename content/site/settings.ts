@@ -1,29 +1,18 @@
 export const siteConfig = {
   name: "N4Cluster",
-  tagline: "Infrastructure for Local Commerce",
+  tagline: "Commission-free online ordering for neighborhood restaurants",
   description:
-    "N4Cluster helps local businesses own the customer relationship with merchant-first ordering, neighborhood demand growth, orchestration, and AI-assisted operations.",
+    "N4Cluster gives neighborhood restaurants their own online ordering site, delivery coordination and tools to bring regulars back, for a flat monthly fee with no commission.",
   url: "https://www.n4cluster.com",
   ogImage: "https://www.n4cluster.com/og-image.png",
 
-  subBrands: {
-    n4sync: {
-      name: "N4Sync",
-      tagline: "Orchestration and Integration Layer",
-      color: "teal",
-    },
-    n4logic: {
-      name: "N4Logic",
-      tagline: "AI Intelligence and Growth Automation",
-      color: "amber",
-    },
-  },
+  loginUrl: "https://merchant.n4cluster.com/merchant/signin",
 
   contact: {
-    demoEmail: "demo@n4cluster.com",
-    pressEmail: "press@n4cluster.com",
+    email: "contact@n4cluster.com",
     phone: "(629) 290-1191",
     phoneHref: "tel:+16292901191",
+    founderLine: "Call or text (629) 290-1191 — a founder answers.",
   },
 
   social: {

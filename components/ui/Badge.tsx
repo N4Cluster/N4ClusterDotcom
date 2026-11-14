@@ -1,19 +1,19 @@
 import { cn } from "@/lib/utils";
 import type { ComponentPropsWithoutRef } from "react";
 
-type BadgeVariant = "default" | "cobalt" | "teal" | "amber" | "dark" | "outline";
+type BadgeVariant = "default" | "accent" | "teal" | "amber" | "dark" | "outline";
 
 interface BadgeProps extends ComponentPropsWithoutRef<"span"> {
   variant?: BadgeVariant;
 }
 
 const variantClasses: Record<BadgeVariant, string> = {
-  default: "bg-slate-100 text-slate-700",
-  cobalt: "bg-cobalt-500/10 text-cobalt-600",
-  teal: "bg-teal-500/10 text-teal-600",
-  amber: "bg-amber-400/15 text-amber-600",
-  dark: "bg-navy-900 text-cobalt-300",
-  outline: "border border-slate-300 text-slate-600 bg-transparent",
+  default: "bg-cream-3 text-ink-2",
+  accent: "bg-green-tint text-green-deep",
+  teal: "bg-green-tint text-green-deep",
+  amber: "bg-gold/25 text-ink",
+  dark: "bg-white/10 text-gold",
+  outline: "border border-line text-ink-3 bg-transparent",
 };
 
 export function Badge({ variant = "default", className, ...props }: BadgeProps) {

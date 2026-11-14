@@ -1,8 +1,9 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { mission, values, demoCta, founderQuote } from "@/content/company";
-import { faqItems } from "@/content/pages/faq";
-import { priceDisplay } from "@/content/site/pricing";
+import { faqItems, homeFaqItems } from "@/content/pages/faq";
+import { pilotRestaurants } from "@/content/pages/pilot";
+import { feeQualifiers, priceDisplay } from "@/content/site/pricing";
 
 const read = (path: string) => readFileSync(path, "utf8");
 
@@ -40,10 +41,6 @@ describe("canonical values", () => {
     }
   });
 
-  it("scopes the commission claim to N4Cluster's own sales commission", () => {
-    const growth = values.find((v) => v.id === "growth");
-    expect(growth?.body).toContain("zero N4Cluster sales commission");
-  });
 });
 
 describe("shared source is actually shared", () => {
@@ -59,9 +56,9 @@ describe("shared source is actually shared", () => {
     expect(read("app/about/page.tsx")).not.toContain("const principles");
   });
 
-  it("the demo CTA label is used rather than retyped on the homepage", () => {
-    expect(demoCta.label).toBe("Request your demo storefront");
-    expect(read("app/page.tsx")).toContain("demoCta.label");
+  it("the hero CTA label is used rather than retyped on the homepage", () => {
+    expect(demoCta.label).toBe("Get a free demo");
+    expect(read("components/home/Hero.tsx")).toContain("heroCta.label");
   });
 
   it("the calculator reads its rates from the pricing source", () => {
@@ -96,7 +93,7 @@ describe("FAQ commercial accuracy", () => {
     faqItems.find((item) => item.question.toLowerCase().includes(fragment));
 
   it("answers the complementary-channel question", () => {
-    const item = find("delivery apps");
+    const item = find("doordash");
     expect(item).toBeDefined();
     expect(item?.answer).toContain("You can keep the delivery apps");
   });
@@ -104,10 +101,23 @@ describe("FAQ commercial accuracy", () => {
   it("puts that answer where /contact will show it (first five)", () => {
     // /contact renders faqItems.slice(0, 5).
     const index = faqItems.findIndex((i) =>
-      i.question.toLowerCase().includes("delivery apps")
+      i.question.toLowerCase().includes("doordash")
     );
     expect(index).toBeGreaterThanOrEqual(0);
     expect(index).toBeLessThan(5);
+  });
+
+  it("exports the five homepage questions in mockup order", () => {
+    expect(homeFaqItems.map((i) => i.question)).toEqual([
+      "Is it really commission-free?",
+      "What does my customer pay?",
+      "Do I have to quit DoorDash or Uber Eats?",
+      "I don't have a website. Is that a problem?",
+      "What if I want to cancel?",
+    ]);
+    const cancel = homeFaqItems[4].answer;
+    expect(cancel).toContain("30 days free, then month-to-month. Cancel with 30 days' written notice.");
+    expect(cancel).not.toMatch(/cancel anytime|export anytime|exportable/i);
   });
 
   it("never promises staff will not be asked about the diner fee", () => {
@@ -120,7 +130,7 @@ describe("FAQ commercial accuracy", () => {
 
   it("does not answer the launch-speed question with a bare deadline", () => {
     const item = find("go live");
-    expect(item?.answer.startsWith("We'll confirm setup steps and timing")).toBe(true);
+    expect(item?.answer.startsWith("Live in days.")).toBe(true);
   });
 
   it("names what the trial waives instead of claiming everything is free", () => {
@@ -130,19 +140,17 @@ describe("FAQ commercial accuracy", () => {
   });
 
   it("states that card processing is separate wherever the fees are summarised", () => {
-    const item = find("what do the");
+    const item = find("what does the price");
     expect(item?.answer).toMatch(/card processing/i);
   });
 
-  it("scopes every commission claim to N4Cluster", () => {
-    for (const item of faqItems) {
-      const text = item.answer;
-      // An unqualified "no commission" reads as "no percentage fees at all".
-      if (/commission/i.test(text) && /zero|no /i.test(text)) {
-        expect(text, item.question).toMatch(
-          /zero N4Cluster sales commission|N4Cluster sales commission/
-        );
-      }
+  it("states the owner-approved commission wording and discloses processing", () => {
+    expect(values.find((v) => v.id === "growth")?.body).toContain("No commission, ever.");
+    const item = find("really commission-free");
+    expect(item?.answer).toMatch(/card processing/i);
+    expect(item?.answer).toContain("$38.04");
+    for (const i of faqItems) {
+      expect(i.answer, i.question).not.toMatch(/zero N4Cluster sales commission/i);
     }
   });
 });
@@ -154,6 +162,21 @@ describe("fee claims across merchant acquisition copy", () => {
     "app/mission/page.tsx",
     "app/roi-calculator/ROICalculator.tsx",
   ];
+
+  it("only the pricing page quotes the fee figures", () => {
+    for (const page of [
+      "app/page.tsx", "app/platform/page.tsx", "app/solutions/page.tsx", "app/how-it-works/page.tsx",
+      "app/mission/page.tsx", "app/roi-calculator/page.tsx", "app/roi-calculator/ROICalculator.tsx",
+      "components/home/StatStrip.tsx", "components/home/ComparisonTable.tsx", "components/home/SavingsCalculator.tsx",
+      "content/pages/faq.ts",
+    ]) {
+      expect(read(page), page).not.toMatch(/\$99|\$0\.50|\$0\.99|priceDisplay\.(merchantFees|monthly|perOrder|dinerFee)/);
+    }
+  });
+
+  it("pricing page discloses card processing", () => {
+    expect(read("app/pricing/page.tsx")).toMatch(/card processing/i);
+  });
 
   it("no page promises free or unconditional 30-minute delivery", () => {
     for (const page of pages) {
@@ -169,13 +192,33 @@ describe("fee claims across merchant acquisition copy", () => {
 
   it("the mission page shows the trial scope and the separate charges", () => {
     const page = read("app/mission/page.tsx");
-    expect(page).toContain("Card processing and any courier charges are separate");
+    expect(page).toContain("feeQualifiers.commission");
+    expect(feeQualifiers.commission).toContain("No commission, ever.");
+    expect(feeQualifiers.commission).toContain("Card processing and any delivery charges are separate");
     expect(page).toContain("waives N4Cluster merchant platform and per-order fees");
-    expect(page).toContain("Zero N4Cluster sales commission");
+    expect(page).not.toMatch(/zero N4Cluster sales commission/i);
   });
 
   it("quotes the fees from the single pricing source", () => {
     expect(priceDisplay.merchantFees).toBe("$99/month + $0.50 per order");
     expect(read("app/mission/page.tsx")).toContain("priceDisplay");
+  });
+});
+
+describe("homepage finish", () => {
+  it("pilot list has Pasta and Pita Grill with no invented quote or results", () => {
+    expect(pilotRestaurants[0].name).toBe("Pasta and Pita Grill");
+    expect(pilotRestaurants[0].quote).toBeNull();
+    expect(pilotRestaurants[0].results).toBeNull();
+  });
+
+  it("homepage uses demoCta.label and not the old city pair", () => {
+    const src = read("app/page.tsx") + read("components/home/FinalCta.tsx");
+    expect(src).toContain("demoCta.label");
+    expect(read("app/page.tsx")).not.toContain("Franklin & Columbia");
+  });
+
+  it("pilot section uses no stock photo", () => {
+    expect(read("components/home/PilotSection.tsx")).not.toContain("/images/stock/");
   });
 });

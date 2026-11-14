@@ -7,7 +7,7 @@ export interface Feature {
   icon?: LucideIcon;
   title: string;
   description: string;
-  accent?: "cobalt" | "teal" | "amber";
+  accent?: string; // accepted for backward compatibility; all icon chips share one style
 }
 
 interface FeatureGridProps {
@@ -19,12 +19,6 @@ interface FeatureGridProps {
   dark?: boolean;
   background?: "white" | "light" | "dark";
 }
-
-const accentClasses = {
-  cobalt: "bg-cobalt-500/10 text-cobalt-600",
-  teal: "bg-teal-500/10 text-teal-600",
-  amber: "bg-amber-400/15 text-amber-600",
-};
 
 const colClasses = {
   2: "grid-cols-1 sm:grid-cols-2",
@@ -43,10 +37,10 @@ export function FeatureGrid({
 }: FeatureGridProps) {
   const bgClass =
     background === "light"
-      ? "bg-slate-50"
+      ? "bg-cream-2"
       : background === "dark"
-      ? "gradient-dark"
-      : "bg-white";
+      ? "on-dark bg-ink"
+      : "bg-cream";
 
   return (
     <section className={`${bgClass} py-16 md:py-24`}>
@@ -58,28 +52,27 @@ export function FeatureGrid({
           dark={dark}
         />
         <div className={`grid ${colClasses[columns]} gap-6`}>
-          {features.map((feature, i) => {
+          {features.map((feature) => {
             const Icon = feature.icon;
-            const accent = feature.accent ?? (["cobalt", "teal", "amber"] as const)[i % 3];
             return (
               <Card
                 key={feature.title}
                 bordered
                 hover
                 dark={dark}
-                className={dark ? "bg-navy-800 border-navy-700" : ""}
+                className={dark ? "bg-white/5 border-white/15" : ""}
               >
                 {Icon && (
                   <div
-                    className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${accentClasses[accent]}`}
+                    className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${dark ? "bg-gold text-ink" : "bg-gold/25 text-ink"}`}
                   >
                     <Icon size={20} />
                   </div>
                 )}
-                <h3 className={`text-lg font-bold mb-2 ${dark ? "text-white" : "text-navy-950"}`}>
+                <h3 className={`font-display text-lg font-bold mb-2 ${dark ? "text-white" : "text-ink"}`}>
                   {feature.title}
                 </h3>
-                <p className={`text-sm leading-relaxed ${dark ? "text-slate-400" : "text-slate-600"}`}>
+                <p className={`text-sm leading-relaxed ${dark ? "text-white/75" : "text-ink-3"}`}>
                   {feature.description}
                 </p>
               </Card>
