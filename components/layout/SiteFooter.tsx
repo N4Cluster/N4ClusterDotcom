@@ -9,6 +9,7 @@ const legalClass = "text-[13px] text-white/70 hover:text-white transition-colors
 
 export function SiteFooter() {
   const { phone, phoneHref, email } = siteConfig.contact;
+  const { legalName, street } = siteConfig.company;
   return (
     <footer className="on-dark bg-ink text-white/75">
       <Container>
@@ -19,6 +20,9 @@ export function SiteFooter() {
             </Link>
             <p className="text-sm">
               Commission-free online ordering for neighborhood restaurants. Made in Franklin, TN.
+            </p>
+            <p className="text-sm">
+              {legalName} · {street}
             </p>
             <p className="text-sm">
               <a href={phoneHref} className="hover:text-white">{phone}</a>

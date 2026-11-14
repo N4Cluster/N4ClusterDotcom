@@ -20,6 +20,9 @@ const staticRoutes = [
   "/privacy",
   "/terms",
   "/sms",
+  "/sms/deals",
+  "/sms/orders",
+  "/sms/verification",
   "/cookies",
 ];
 
