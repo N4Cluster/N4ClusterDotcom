@@ -19,6 +19,7 @@ import {
 } from "@/content/legal/sms-page";
 import { siteConfig } from "@/content/site/settings";
 import { dealsScreenshots } from "@/components/sms/DealsScreenshots";
+import { smsFooterLinks } from "@/lib/sms-footer-links";
 
 const read = (path: string) => readFileSync(path, "utf8");
 /** Page source without comments and import lines: what can reach the rendered page. */
@@ -146,5 +147,24 @@ describe("brand identity in the site footer", () => {
   it("shows the legal name and street address on every page", () => {
     const footer = read("components/layout/SiteFooter.tsx");
     expect(footer).toContain("{legalName} · {street}");
+  });
+});
+
+describe("site footer on the per-campaign pages", () => {
+  it("links only that program's Terms section, and never the combined /sms page", () => {
+    for (const [path, anchor] of [
+      ["/sms/deals", "sms-deals"],
+      ["/sms/orders", "sms-orders"],
+      ["/sms/verification", "sms-verification"],
+      ["/sms/deals/", "sms-deals"],
+    ]) {
+      expect(smsFooterLinks(path), path).toEqual([{ label: "SMS Terms", href: `/terms#${anchor}` }]);
+    }
+  });
+
+  it("keeps both SMS links everywhere else", () => {
+    for (const path of ["/", "/sms", "/terms", "/privacy", null]) {
+      expect(smsFooterLinks(path).map((l) => l.href), String(path)).toEqual(["/terms#sms", "/sms"]);
+    }
   });
 });

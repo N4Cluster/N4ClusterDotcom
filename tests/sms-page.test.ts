@@ -1,5 +1,6 @@
 import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
+import { smsFooterLinks } from "@/lib/sms-footer-links";
 import {
   dealsOptInSteps,
   dealsReplies,
@@ -236,9 +237,8 @@ describe("sms page", () => {
   });
 
   it("footerLinksTextMessaging", () => {
-    const footer = read("components/layout/SiteFooter.tsx");
-    expect(footer).toMatch(/href="\/sms"[^>]*>\s*Text Messaging\s*</);
-    expect(footer.indexOf("SMS Terms")).toBeLessThan(footer.indexOf("Text Messaging"));
+    expect(smsFooterLinks("/").map((l) => l.label)).toEqual(["SMS Terms", "Text Messaging"]);
+    expect(smsFooterLinks("/sms")[1]).toEqual({ label: "Text Messaging", href: "/sms" });
   });
 
   it("sitemapIncludesSms", () => {
