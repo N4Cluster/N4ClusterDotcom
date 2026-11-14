@@ -1,5 +1,5 @@
 import { readdirSync, readFileSync, statSync } from "node:fs";
-import { join } from "node:path";
+import { join, sep } from "node:path";
 import { describe, expect, it } from "vitest";
 
 // Legal pages/content are protected by diff review, /t/* is out of scope.
@@ -15,12 +15,19 @@ const PHRASES = [
   "text demo",
   "franklin & columbia",
   "zero n4cluster sales commission",
+  // Not live yet (owner, 2026-11-13): Uber Direct only; no forecasting, GBP sync or domain setup claims.
+  "doordash drive",
+  "forecasting",
+  "google business profile",
+  "high-margin items",
+  "set up your domain",
 ];
 
 function walk(dir: string): string[] {
   return readdirSync(dir).flatMap((name) => {
     const p = join(dir, name);
-    if (SKIP.includes(p)) return [];
+    // SKIP is written with "/"; join() uses "\" on Windows.
+    if (SKIP.includes(p.split(sep).join("/"))) return [];
     return statSync(p).isDirectory() ? walk(p) : /\.tsx?$/.test(p) ? [p] : [];
   });
 }

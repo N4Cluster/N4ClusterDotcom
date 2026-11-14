@@ -18,7 +18,7 @@ const pillars = [
     number: "01",
     tag: "Ordering",
     headline: "Your brand. Your domain. Your ordering experience.",
-    body: "Your ordering site runs on your own domain, branded top to bottom — not tucked inside someone else's app with your logo as an afterthought. Customers order from you, and the relationship stays yours. No website yet? We'll set up your domain too.",
+    body: "Your ordering site runs on your own domain, branded top to bottom — not tucked inside someone else's app with your logo as an afterthought. Customers order from you, and the relationship stays yours.",
     features: [
       "Menu, categories, pricing and availability imported for you",
       "Runs under your own domain, not ours",
@@ -48,12 +48,9 @@ const pillars = [
     number: "03",
     tag: "Growth",
     headline: "We help your regulars come back.",
-    body: "When a regular drifts, we draft a win-back campaign for them, and nothing goes out without your OK. Separately, AI demand forecasting shows your busy windows so you can plan prep and staffing.",
+    body: "When a regular drifts, we draft a win-back campaign for them, and nothing goes out without your OK.",
     features: [
       "Win-back campaigns for regulars who have drifted, sent only with your OK",
-      "AI demand forecasting for your busy windows and prep time",
-      "High-margin items flagged for a spotlight",
-      "Google Business Profile kept in sync with your menu",
       "Multi-location support if you run more than one spot",
     ],
     metric: { value: "You decide", label: "campaigns wait for your approval" },
@@ -63,9 +60,9 @@ const pillars = [
     number: "04",
     tag: "Delivery",
     headline: "Delivery we coordinate, so late orders aren't your problem.",
-    body: "We dispatch through DoorDash Drive and Uber Direct and chase any order that runs late. Delivery charges depend on your address. Delivery runs on our risk protection, with delivery-time tracking on every order.",
+    body: "We dispatch through Uber Direct and chase any order that runs late. Delivery charges depend on your address. Delivery runs on our risk protection, with delivery-time tracking on every order.",
     features: [
-      "Dispatch through DoorDash Drive and Uber Direct",
+      "Dispatch through Uber Direct",
       "Delivery-time tracking on every order — no manual checking",
       "We chase any order that runs late",
       "Risk protection: driver-side failures are ours to handle",
@@ -85,7 +82,7 @@ const protections = [
 const infra = [
   { title: "Compute & orchestration", description: "Google Kubernetes Engine and Cloud Run for hosting, auto-scaling, and serverless workloads." },
   { title: "Data & analytics", description: "BigQuery for near-real-time merchant analytics and neighborhood demand insight." },
-  { title: "AI & machine learning", description: "Vertex AI powering menu intelligence, demand forecasting, and campaign drafting." },
+  { title: "AI & machine learning", description: "Vertex AI powering menu intelligence and campaign drafting." },
   { title: "Event streaming", description: "Pub/Sub for real-time order events, integration webhooks, and service-to-service messaging." },
   { title: "Security & isolation", description: "Cloud IAM, Secret Manager, and VPC Service Controls for tenant isolation and PII boundaries." },
   { title: "Observability", description: "Cloud Operations Suite for tracing, metrics, alerting, and SLO tracking." },

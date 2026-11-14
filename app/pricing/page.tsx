@@ -239,10 +239,10 @@ export default function PricingPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {[
               { title: "White-label ordering site", sub: "Fully branded under your domain. Menu, categories, imagery, pricing — yours to control." },
-              { title: "Win-back campaigns and forecasting", sub: "Campaigns that bring lapsed regulars back, sent only with your OK. Plus AI demand forecasting for your busy windows." },
-              { title: "Delivery coordination", sub: "Dispatch through DoorDash Drive and Uber Direct, delivery-time tracking, and chasing late orders — with risk protection." },
+              { title: "Win-back campaigns", sub: "Campaigns that bring lapsed regulars back, sent only with your OK." },
+              { title: "Delivery coordination", sub: "Dispatch through Uber Direct, delivery-time tracking, and chasing late orders — with risk protection." },
               { title: "POS integration and sync", sub: "Menu and availability kept in sync with your POS. No manual updates. No extra tablets." },
-              { title: "Merchant dashboard", sub: "Order history, customer data, campaign controls and demand signals in one place." },
+              { title: "Merchant dashboard", sub: "Order history, customer data and campaign controls in one place." },
             ].map((item) => (
               <div key={item.title} className="rounded-2xl p-5" style={{ background: "var(--color-cream-2)", border: "1px solid var(--color-line)" }}>
                 <div className="w-6 h-6 rounded-full flex items-center justify-center mb-3" style={{ background: "var(--color-green-tint)" }}>
@@ -361,7 +361,7 @@ export default function PricingPage() {
               },
               {
                 q: "What if I want to offer delivery — does that cost extra?",
-                a: "Delivery coordination is already included: we dispatch through DoorDash Drive and Uber Direct and chase any order that runs late. Delivery charges depend on your address and are separate, but the coordination behind them costs you nothing extra.",
+                a: "Delivery coordination is already included: we dispatch through Uber Direct and chase any order that runs late. Delivery charges depend on your address and are separate, but the coordination behind them costs you nothing extra.",
               },
               {
                 q: "Is the $0.99 Neighborhood fee mandatory?",

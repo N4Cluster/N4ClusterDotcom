@@ -36,7 +36,7 @@ const solutions: Solution[] = [
       "Your name on the ordering page, not a marketplace logo — orders come to you directly, on your own site",
       "Your customer data is yours — we'll send you a copy whenever you ask.",
       "Growth campaigns draft themselves for the regulars who've drifted — nothing goes out without your OK",
-      "We dispatch through DoorDash Drive and Uber Direct and chase any order that runs late",
+      "We dispatch through Uber Direct and chase any order that runs late",
       `One fixed price. No commission, ever. ${priceDisplay.cancel}`,
     ],
     outcomes: [
@@ -90,12 +90,11 @@ const solutions: Solution[] = [
     tag: "For delivery-first operators",
     headline: "When delivery is the business, a late driver can't be your problem.",
     subheadline:
-      "You can't control a driver stuck in traffic. You can control who chases it. We dispatch through DoorDash Drive and Uber Direct and chase any order that runs late. Delivery charges depend on your address.",
+      "You can't control a driver stuck in traffic. You can control who chases it. We dispatch through Uber Direct and chase any order that runs late. Delivery charges depend on your address.",
     bullets: [
-      "Dispatch through DoorDash Drive and Uber Direct",
+      "Dispatch through Uber Direct",
       "Delivery-time tracking on every order, timestamped from pickup to drop-off",
       "Risk protection: delivery is handled on our risk, not yours",
-      "AI demand forecasting spots your next rush before it hits",
       "Availability stays current, so you're not taking orders for what the kitchen ran out of",
     ],
     outcomes: [
@@ -108,7 +107,7 @@ const solutions: Solution[] = [
     panel: {
       title: "How a delivery runs",
       rows: [
-        { label: "Dispatch", value: "DoorDash Drive / Uber Direct" },
+        { label: "Dispatch", value: "Uber Direct" },
         { label: "Tracking", value: "Every pickup and drop-off" },
         { label: "Late order", value: "We chase it" },
       ],
