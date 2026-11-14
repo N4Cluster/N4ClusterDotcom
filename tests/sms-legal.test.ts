@@ -37,6 +37,7 @@ describe("SMS terms wording", () => {
   it("describes order notifications: who, how to join, what, how often", () => {
     expect(smsPrograms[0]).toEqual({
       title: "1. Order notifications",
+      anchor: "sms-orders",
       items: [
         "Who: diners who order from a restaurant through an N4Cluster-powered storefront.",
         'How to join: check "Text me updates about this order from N4Cluster" at checkout. Consent is not a condition of purchase.',
@@ -50,6 +51,7 @@ describe("SMS terms wording", () => {
     // Merchant-dashboard SMS login is not built, so the program must not claim it.
     expect(smsPrograms[1]).toEqual({
       title: "2. Verification codes",
+      anchor: "sms-verification",
       items: [
         "Program: N4Cluster Verification Codes.",
         "Who: diners using N4Cluster-powered storefronts.",
@@ -66,8 +68,9 @@ describe("SMS terms wording", () => {
   it("describes N4Cluster Deals: program, who, what, how often, consent", () => {
     expect(smsPrograms[2]).toEqual({
       title: "3. N4Cluster Deals",
+      anchor: "sms-deals",
       items: [
-        "Program: N4Cluster Deals, recurring automated marketing texts sent by N4Cluster.",
+        "Program: N4Cluster Deals, a marketing text program of N4Cluster Inc. Recurring automated marketing texts, sent by N4Cluster. Program details: https://www.n4cluster.com/sms/deals.",
         "Who: diners who check the optional N4Cluster Deals box at checkout or in account settings. The box is never pre-checked.",
         "What you'll receive: offers, new menu items and reminders to order again from restaurants you have ordered from on N4Cluster. Restaurants do not send these texts and never receive your SMS consent.",
         "Frequency: message frequency varies.",
@@ -100,7 +103,7 @@ describe("SMS terms wording", () => {
     // The 2FA campaign quotes one program block, so each block carries the shared lines.
     expect(page).toMatch(/smsPrograms\.map\([\s\S]*program\.items\.map[\s\S]*smsSharedItems\.map[\s\S]*\)\)\}/);
     expect(page).not.toContain("smsSharedTitle");
-    expect(page).toContain("Last updated: November 5, 2026");
+    expect(page).toContain("Last updated: November 13, 2026");
   });
 });
 
@@ -108,14 +111,15 @@ describe("SMS privacy wording", () => {
   it("describes all three programs", () => {
     expect(smsPrivacyHeading).toBe("Text messaging (SMS)");
     expect(smsPrivacyIntro).toBe(
-      "N4Cluster sends three text message programs, each with its own opt-in, described in our SMS Terms (https://www.n4cluster.com/terms#sms): order notifications, verification codes, and N4Cluster Deals. N4Cluster Deals sends recurring marketing texts about restaurants you have ordered from, only if you check the separate, optional marketing box. Consent to marketing texts is not a condition of purchase. Message frequency varies. Replying STOP to an N4Cluster text ends texts from that program. Message and data rates may apply."
+      "N4Cluster sends three text message programs, each with its own opt-in, described in our SMS Terms (https://www.n4cluster.com/terms#sms): order notifications (https://www.n4cluster.com/sms/orders), verification codes (https://www.n4cluster.com/sms/verification), and N4Cluster Deals (https://www.n4cluster.com/sms/deals). N4Cluster Deals sends recurring marketing texts about restaurants you have ordered from, only if you check the separate, optional marketing box. Consent to marketing texts is not a condition of purchase. Message frequency varies. Replying STOP to an N4Cluster text ends texts from that program. Message and data rates may apply."
     );
   });
 
-  it("keeps the exact non-sharing sentence reviewers look for", () => {
+  it("keeps the exact non-sharing sentence carriers require, with no carve-out", () => {
     expect(smsPrivacyStatement).toBe(
-      "Mobile numbers and SMS opt-in data will not be sold or shared with third parties for marketing or promotional purposes. Text messaging originator opt-in data and consent will not be shared with any third parties, except service providers that help us deliver messages (such as our SMS provider)."
+      "No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties."
     );
+    expect(smsPrivacyStatement).not.toMatch(/except|service provider/i);
   });
 
   it("is rendered by the Privacy page under the #sms anchor, with a current date", () => {
@@ -124,7 +128,7 @@ describe("SMS privacy wording", () => {
     expect(page).toContain("{smsPrivacyHeading}");
     expect(page).toContain("<LinkedText text={smsPrivacyIntro} />");
     expect(page).toContain("{smsPrivacyStatement}");
-    expect(page).toContain("Last updated: November 5, 2026");
+    expect(page).toContain("Last updated: November 13, 2026");
   });
 
   it("is not contradicted by a broader sharing clause elsewhere in the policy", () => {
@@ -157,9 +161,38 @@ describe("SMS privacy wording", () => {
     const page = read("app/privacy/page.tsx");
     const section5 = page.slice(page.indexOf('id="how-we-disclose"'), page.indexOf("We do not sell personal information"));
     expect(section5.replace(/\s+/g, " ")).toContain(
-      "None of the categories above includes text messaging originator opt-in data or consent. We share those only with the service providers that deliver our text messages. See"
+      "All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties. See"
     );
+    expect(section5).not.toContain("We share those only");
     expect(section5).toContain('<a href="#sms">Text messaging (SMS)</a>');
+  });
+});
+
+describe("SMS Terms program anchors", () => {
+  it("gives each program its own anchor and keeps #sms on the parent heading", () => {
+    expect(smsPrograms.map((p) => p.anchor)).toEqual(["sms-orders", "sms-verification", "sms-deals"]);
+    const page = read("app/terms/page.tsx");
+    expect(page).toContain("id={smsAnchor}");
+    expect(page).toContain("<h3 id={program.anchor}");
+  });
+
+  it("names N4Cluster Deals as a marketing program of N4Cluster Inc, with every required term", () => {
+    const deals = smsPrograms.find((p) => p.anchor === "sms-deals")!;
+    const text = [...deals.items, ...smsSharedItems].join(" ");
+    expect(deals.items[0]).toBe(
+      "Program: N4Cluster Deals, a marketing text program of N4Cluster Inc. Recurring automated marketing texts, sent by N4Cluster. Program details: https://www.n4cluster.com/sms/deals."
+    );
+    for (const required of [
+      "Consent is not a condition of purchase.",
+      "message frequency varies",
+      "Message and data rates may apply.",
+      "reply HELP, email contact@n4cluster.com",
+      "reply STOP (or UNSUBSCRIBE, CANCEL, END, QUIT)",
+      "Reply START to resubscribe.",
+      "Carriers are not liable for delayed or undelivered messages.",
+      "https://www.n4cluster.com/privacy",
+      "box is never pre-checked",
+    ]) expect(text).toContain(required);
   });
 });
 

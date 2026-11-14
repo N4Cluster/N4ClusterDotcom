@@ -22,7 +22,7 @@ export default function TermsPage() {
       <Container size="md">
         <div className={proseClasses}>
           <h1>Terms of Service</h1>
-          <p className="text-muted text-sm">Last updated: November 5, 2026</p>
+          <p className="text-muted text-sm">Last updated: November 13, 2026</p>
 
           <p>
             These Terms of Service (&quot;Terms&quot;) govern your access to and use of the N4Cluster website located at n4cluster.com (the &quot;Site&quot;). By using the Site, you agree to these Terms.
@@ -69,7 +69,7 @@ export default function TermsPage() {
           <p>{smsTermsIntro}</p>
           {smsPrograms.map((program) => (
             <div key={program.title}>
-              <h3>{program.title}</h3>
+              <h3 id={program.anchor} className="scroll-mt-24">{program.title}</h3>
               <ul>
                 {program.items.map((item) => (
                   <li key={item}>{item}</li>
