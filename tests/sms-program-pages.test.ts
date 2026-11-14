@@ -18,6 +18,7 @@ import {
   smsOrderDisclosure,
 } from "@/content/legal/sms-page";
 import { siteConfig } from "@/content/site/settings";
+import { dealsScreenshots } from "@/components/sms/DealsScreenshots";
 
 const read = (path: string) => readFileSync(path, "utf8");
 /** Page source without comments and import lines: what can reach the rendered page. */
@@ -125,6 +126,19 @@ describe("/sms/orders and /sms/verification", () => {
     }
     expect(page).toContain("sms2faDisclosureParts.map");
     expect(page).not.toMatch(/\/sms\/(deals|orders)/);
+  });
+});
+
+describe("Deals screenshots", () => {
+  it("exist as PNGs at least 1.5x a 400px card, and the <Image> size is the file's real size", () => {
+    expect(dealsScreenshots.map((s) => s.src)).toEqual(["/sms/deals-checkout.png", "/sms/deals-account.png"]);
+    for (const s of dealsScreenshots) {
+      const buf = readFileSync(`public${s.src}`);
+      expect(buf.subarray(1, 4).toString()).toBe("PNG");
+      expect(buf.readUInt32BE(16)).toBe(s.width);
+      expect(buf.readUInt32BE(20)).toBe(s.height);
+      expect(s.width).toBeGreaterThanOrEqual(600);
+    }
   });
 });
 
