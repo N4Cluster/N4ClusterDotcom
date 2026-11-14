@@ -241,7 +241,7 @@ export default function PricingPage() {
               { title: "White-label ordering site", sub: "Fully branded under your domain. Menu, categories, imagery, pricing — yours to control." },
               { title: "Win-back campaigns", sub: "Campaigns that bring lapsed regulars back, sent only with your OK." },
               { title: "Delivery coordination", sub: "Dispatch through Uber Direct, delivery-time tracking, and chasing late orders — with risk protection." },
-              { title: "POS integration and sync", sub: "Menu and availability kept in sync with your POS. No manual updates. No extra tablets." },
+              { title: "Menu setup", sub: "We set up your menu for you. Specials, sold-out items and hours change from your merchant dashboard." },
               { title: "Merchant dashboard", sub: "Order history, customer data and campaign controls in one place." },
             ].map((item) => (
               <div key={item.title} className="rounded-2xl p-5" style={{ background: "var(--color-cream-2)", border: "1px solid var(--color-line)" }}>

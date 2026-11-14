@@ -39,7 +39,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "What does the price cover?",
     answer:
-      "It covers the N4Cluster platform: your branded ordering site, rewards, growth tools, delivery coordination, and POS integration. There are no tiered plans and no add-on modules. Two things are not included: card processing, which your payment processor charges separately, and any delivery charges. Diners normally pay a small Neighborhood fee at checkout unless you choose to absorb it.",
+      "It covers the N4Cluster platform: your branded ordering site, rewards, growth tools, delivery coordination, and menu setup. There are no tiered plans and no add-on modules. Two things are not included: card processing, which your payment processor charges separately, and any delivery charges. Diners normally pay a small Neighborhood fee at checkout unless you choose to absorb it.",
   },
   {
     question: "What is the Neighborhood fee?",
@@ -64,7 +64,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "How quickly can I go live?",
     answer:
-      "Live in days. Not quarters. When you connect your POS, your menu can be imported and structured automatically and your ordering site built for your review, so nothing goes live without your sign-off. The exact timing depends on your POS, how your menu is structured, and how quickly you can review it, so we scope the steps and timing with you before you commit.",
+      "Live in days. Not quarters. We build your menu and ordering site from the menu you use today, for your review, so nothing goes live without your sign-off. The exact timing depends on how your menu is structured and how quickly you can review it, so we scope the steps and timing with you before you commit.",
   },
   {
     question: "Can I try it free?",
@@ -86,9 +86,9 @@ export const faqItems: FAQItem[] = [
       `No. ${priceDisplay.cancel} Your customer data is yours — we'll send you a copy whenever you ask, before, during, or after you leave. Customer privacy and communication preferences still apply to how that information can be used.`,
   },
   {
-    question: "What POS systems does N4Cluster integrate with?",
+    question: "Do I need to connect my POS?",
     answer:
-      "N4Cluster integrates with major POS systems including Toast, Square, Clover, Lightspeed, and others. POS connection enables automatic menu import, real-time availability sync, and direct order injection into your kitchen workflow — no extra tablets required. Contact us to confirm your specific POS is supported before you commit.",
+      "No. Orders arrive in your merchant dashboard, and we set up your menu for you. Tell us which POS you use and we'll tell you exactly what works with it today, before you commit.",
   },
 ];
 

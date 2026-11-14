@@ -20,7 +20,7 @@ const pillars = [
     headline: "Your brand. Your domain. Your ordering experience.",
     body: "Your ordering site runs on your own domain, branded top to bottom — not tucked inside someone else's app with your logo as an afterthought. Customers order from you, and the relationship stays yours.",
     features: [
-      "Menu, categories, pricing and availability imported for you",
+      "Menu, categories and pricing set up for you",
       "Runs under your own domain, not ours",
       "Mobile-first, fast checkout",
       "Specials, sold-out items and hours update as you change them",

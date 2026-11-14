@@ -19,7 +19,7 @@ const phases = [
     headline: "A call, then we build. You approve.",
     sub: "We walk through your menu, hours and delivery area and show you your demo storefront. Nothing launches until you say go.",
     tasks: [
-      "POS connected — menu data imported",
+      "Your menu set up for you from the one you use today",
       "Categories, descriptions and missing items cleaned up for your review",
       "Delivery area set up for your address",
     ],
@@ -32,7 +32,7 @@ const phases = [
     sub: "Your branded ordering site goes live under your name, on your own domain.",
     tasks: [
       "Branded ordering site live under your domain",
-      "Menu and availability kept in step with your POS",
+      "Specials, sold-out items and hours updated from your merchant dashboard",
       "Rewards switched on: points on the menu subtotal, redeemed at checkout",
       "Delivery coordinated through Uber Direct",
     ],
