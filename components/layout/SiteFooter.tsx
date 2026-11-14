@@ -4,6 +4,7 @@ import { Logo } from "@/components/brand/Logo";
 import { footerLinks } from "@/content/site/footer";
 import { siteConfig } from "@/content/site/settings";
 import { CookiePreferencesButton } from "@/components/CookiePreferencesButton";
+import { SmsFooterLinks } from "@/components/layout/SmsFooterLinks";
 
 const legalClass = "text-[13px] text-white/70 hover:text-white transition-colors";
 
@@ -54,8 +55,7 @@ export function SiteFooter() {
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             <Link href="/privacy" className={legalClass}>Privacy</Link>
             <Link href="/terms" className={legalClass}>Terms</Link>
-            <Link href="/terms#sms" className={legalClass}>SMS Terms</Link>
-            <Link href="/sms" className={legalClass}>Text Messaging</Link>
+            <SmsFooterLinks className={legalClass} />
             <Link href="/cookies" className={legalClass}>Cookies</Link>
             <CookiePreferencesButton className={legalClass} />
           </div>

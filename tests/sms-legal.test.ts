@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
+import { smsFooterLinks } from "@/lib/sms-footer-links";
 import {
   smsAnchor,
   smsPrivacyHeading,
@@ -199,6 +200,7 @@ describe("SMS Terms program anchors", () => {
 describe("SMS links from every page", () => {
   it("puts SMS Terms in the footer next to Privacy and Terms", () => {
     const footer = read("components/layout/SiteFooter.tsx");
-    expect(footer).toMatch(/href="\/terms#sms"[^>]*>\s*SMS Terms\s*</);
+    expect(footer.indexOf("<SmsFooterLinks")).toBeGreaterThan(footer.indexOf('href="/terms"'));
+    expect(smsFooterLinks("/")[0]).toEqual({ label: "SMS Terms", href: "/terms#sms" });
   });
 });
