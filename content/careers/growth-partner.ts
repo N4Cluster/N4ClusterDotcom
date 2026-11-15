@@ -33,7 +33,7 @@ export const growthPartner = {
   meta: ["Independent contractor", "Commission only", "No cap", "Open to anyone in the US"],
   headline: "Every order they take pays you.",
   shareFigure: "75%",
-  shareCaption: "of what each restaurant you sign pays N4Cluster, for its first 6 months.",
+  shareCaption: "of the fees each restaurant you sign generates for N4Cluster, for its first 6 months.",
   pay: [
     `Each month: 75% of the monthly service fee the restaurant actually pays, from its second month. That's ${partnerPay.serviceFeeAtStandard} a month at our standard $99.`,
     `Every order: +${partnerPay.perOrder}, 75% of the $0.50 order fee and the $0.99 Neighborhood fee.`,

@@ -43,6 +43,22 @@ describe("CareerApplicationForm", () => {
     expect(src).not.toMatch(/\bSMS\b|text you/);
   });
 
+  it("announces errors and success to assistive tech", () => {
+    expect(src).toContain('(["name", "phone", "email", "city"] as const).find');
+    expect(src).toMatch(/getElementById\(firstInvalid\)\?\.focus\(\)/);
+    expect(src).toContain('role="status"');
+    expect(src).toMatch(/<h3 ref=\{successHeadingRef\} tabIndex=\{-1\}/);
+    expect(src).toMatch(/status === "success"\) successHeadingRef\.current\?\.focus\(\)/);
+  });
+
+  it("marks required fields and uses a unique honeypot id", () => {
+    expect(src.match(/aria-required="true"/g)).toHaveLength(4);
+    expect(src).not.toMatch(/\srequired[\s>=]/);
+    expect(src).toContain('id="careers_hp_website"');
+    expect(src).toContain('htmlFor="careers_hp_website"');
+    expect(src).not.toContain('id="hp_website"');
+  });
+
   it("uses the server's phone and email rules", () => {
     expect(src).toMatch(/import \{[^}]*isValidPhone[^}]*\} from "@\/lib\/validation"/);
     expect(src).toMatch(/import \{[^}]*isValidEmail[^}]*\} from "@\/lib\/validation"/);

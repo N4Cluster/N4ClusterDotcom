@@ -19,4 +19,9 @@ describe("privacy policy Job Applicants section", () => {
       expect(flat).toContain(s);
     }
   });
+
+  it("points the rights section at Contact Us (Section 18)", () => {
+    expect(flat).toContain("listed in Section 18");
+    expect(flat).not.toContain("listed in Section 17");
+  });
 });

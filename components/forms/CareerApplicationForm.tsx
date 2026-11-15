@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { getUtmParams } from "@/lib/utm";
 import { isValidEmail, isValidPhone } from "@/lib/validation";
@@ -27,6 +27,12 @@ export function CareerApplicationForm() {
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
+  const successHeadingRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (status === "success") successHeadingRef.current?.focus();
+  }, [status]);
+
   // Messages match the /api/careers responses.
   const validate = () => {
     const next: FieldErrors = {};
@@ -43,6 +49,10 @@ export function CareerApplicationForm() {
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
+      const firstInvalid = (["name", "phone", "email", "city"] as const).find(
+        (k) => validationErrors[k]
+      );
+      if (firstInvalid) document.getElementById(firstInvalid)?.focus();
       return;
     }
     setErrors({});
@@ -96,13 +106,13 @@ export function CareerApplicationForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-[22px] border border-line bg-white p-10 text-center">
+      <div role="status" className="rounded-[22px] border border-line bg-white p-10 text-center">
         <div className="w-14 h-14 rounded-full bg-green-tint flex items-center justify-center mx-auto mb-5">
           <svg className="w-6 h-6 text-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="font-display text-xl font-bold mb-2 text-ink">{"Thanks, we've got your application."}</h3>
+        <h3 ref={successHeadingRef} tabIndex={-1} className="font-display text-xl font-bold mb-2 text-ink outline-none">{"Thanks, we've got your application."}</h3>
         <p className="text-sm text-ink-3">{"We'll call or email you."}</p>
       </div>
     );
@@ -114,6 +124,7 @@ export function CareerApplicationForm() {
         <label className={labelClass} htmlFor="name">Full name *</label>
         <input
           id="name"
+          aria-required="true"
           type="text"
           autoComplete="name"
           {...fieldProps("name")}
@@ -126,6 +137,7 @@ export function CareerApplicationForm() {
         <label className={labelClass} htmlFor="phone">Phone *</label>
         <input
           id="phone"
+          aria-required="true"
           type="tel"
           autoComplete="tel"
           {...fieldProps("phone")}
@@ -138,6 +150,7 @@ export function CareerApplicationForm() {
         <label className={labelClass} htmlFor="email">Email *</label>
         <input
           id="email"
+          aria-required="true"
           type="email"
           autoComplete="email"
           {...fieldProps("email")}
@@ -150,6 +163,7 @@ export function CareerApplicationForm() {
         <label className={labelClass} htmlFor="city">City *</label>
         <input
           id="city"
+          aria-required="true"
           type="text"
           autoComplete="address-level2"
           placeholder="City, State"
@@ -172,9 +186,9 @@ export function CareerApplicationForm() {
 
       {/* Honeypot: hidden from real users, bots auto-fill it */}
       <div aria-hidden="true" className="absolute opacity-0 h-0 w-0 overflow-hidden" tabIndex={-1}>
-        <label htmlFor="hp_website">Website</label>
+        <label htmlFor="careers_hp_website">Website</label>
         <input
-          id="hp_website"
+          id="careers_hp_website"
           type="text"
           tabIndex={-1}
           autoComplete="off"

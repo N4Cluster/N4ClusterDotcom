@@ -45,7 +45,16 @@ export async function POST(req: NextRequest) {
     });
     return NextResponse.json({ ok: true });
   } catch (err: unknown) {
-    console.error("Careers application mail error:", err);
+    // Log only the message and status: the Gmail error object's config holds
+    // the request body (the applicant's details), so never log it whole.
+    const e = err as { status?: unknown; code?: unknown } | null;
+    const status =
+      typeof e?.status === "number" ? e.status : typeof e?.code === "number" ? e.code : undefined;
+    console.error(
+      "Careers application mail error:",
+      err instanceof Error ? err.message : String(err),
+      ...(status !== undefined ? [status] : [])
+    );
     return NextResponse.json(
       { ok: false, error: "Failed to send your application. Please try again later." },
       { status: 500 }

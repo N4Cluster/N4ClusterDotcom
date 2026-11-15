@@ -31,4 +31,11 @@ describe("Growth Partner pay figures", () => {
     const src = readFileSync("content/careers/growth-partner.ts", "utf8");
     expect(src).toContain('from "@/content/site/pricing"');
   });
+
+  it("share caption matches the pay terms", () => {
+    expect(growthPartner.shareCaption).toBe(
+      "of the fees each restaurant you sign generates for N4Cluster, for its first 6 months."
+    );
+    expect(growthPartner.shareCaption).not.toContain("pays N4Cluster");
+  });
 });

@@ -632,7 +632,7 @@ export default function PrivacyPage() {
           <p>
             To exercise a privacy right, email{" "}
             <a href="mailto:privacy@n4cluster.com">privacy@n4cluster.com</a> or use
-            the contact method listed in Section 17. We may need to verify your
+            the contact method listed in Section 18. We may need to verify your
             identity and authority before completing certain requests. Authorized
             agents may submit requests where permitted by law, subject to
             verification requirements.

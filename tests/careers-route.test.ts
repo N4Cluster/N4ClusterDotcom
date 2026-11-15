@@ -71,6 +71,9 @@ describe("POST /api/careers", () => {
       "Failed to send your application. Please try again later."
     );
     expect(spy).toHaveBeenCalled();
+    for (const call of spy.mock.calls) {
+      for (const arg of call) expect(typeof arg).not.toBe("object");
+    }
     spy.mockRestore();
   });
 
