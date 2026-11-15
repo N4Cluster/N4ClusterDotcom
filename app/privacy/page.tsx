@@ -21,7 +21,7 @@ export default function PrivacyPage() {
       <Container size="md">
         <div className={proseClasses}>
           <h1>Privacy Policy</h1>
-          <p className="text-muted text-sm">Last updated: November 13, 2026</p>
+          <p className="text-muted text-sm">Last updated: November 14, 2026</p>
 
           <p>
             This Privacy Policy explains how N4Cluster Inc (“N4Cluster,” “we,”
@@ -194,7 +194,7 @@ export default function PrivacyPage() {
           <h3>Payment-related information</h3>
           <p>
             Full payment card numbers and card security codes are collected and
-            processed by third-party payment processors, such as Square and other
+            processed by third-party payment processors, such as Stripe and other
             processors that N4Cluster or a restaurant partner may support.
             N4Cluster does not store full payment card numbers or card security
             codes. We may receive limited payment and transaction information,
@@ -365,7 +365,7 @@ export default function PrivacyPage() {
           <h2 id="payments">6. Payments</h2>
           <p>
             Payments made through the Services are processed by third-party
-            payment processors, such as Square and other processors that
+            payment processors, such as Stripe and other processors that
             N4Cluster or the applicable restaurant may support. Payment
             processors collect and process payment credentials under their own
             privacy notices and terms. N4Cluster does not store full payment card
