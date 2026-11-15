@@ -3,27 +3,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { proseClasses } from "@/lib/prose";
 import { Container } from "@/components/ui/Container";
-import { DealsScreenshots } from "@/components/sms/DealsScreenshots";
 import {
-  dealsOptInSteps,
-  dealsReplies,
-  dealsSampleNote,
-  dealsSamples,
   orderSampleNote,
   orderSamples,
   otpOptInSteps,
   otpSampleNote,
   otpSamples,
   sms2faDisclosureParts,
-  smsDealsCheckboxLabel,
-  smsDealsDisclosureParts,
   smsOrderDisclosure,
 } from "@/content/legal/sms-page";
 
 export const metadata: Metadata = {
   title: "Text Messaging",
   description:
-    "How N4Cluster text messaging works: the opt-in screen and exact disclosure for order notifications, verification codes and N4Cluster Deals, with sample messages.",
+    "How N4Cluster text messaging works: the opt-in screen, exact disclosure and sample messages for order notifications and verification codes, with a link to N4Cluster Deals.",
 };
 
 export default function SmsPage() {
@@ -33,7 +26,7 @@ export default function SmsPage() {
         <div className={proseClasses}>
           <h1>N4Cluster Text Messaging</h1>
           <p>
-            N4Cluster sends three kinds of text messages, each with its own opt-in. Only N4Cluster Deals contains marketing, and it needs its own checkbox. This page shows each opt-in screen, the exact disclosure shown with it, and sample messages.
+            N4Cluster sends three kinds of text messages, each with its own opt-in. Only N4Cluster Deals contains marketing, and it needs its own checkbox. This page shows the opt-in screen, the exact disclosure and sample messages for order notifications and verification codes.
           </p>
 
           <h2>Order notifications</h2>
@@ -107,54 +100,9 @@ export default function SmsPage() {
 
           <h2>N4Cluster Deals</h2>
           <p>
-            Diners who check the optional N4Cluster Deals box receive recurring marketing texts about restaurants they have ordered from. The box is separate from the order-texts box and is never pre-checked.
+            N4Cluster Deals is a separate marketing program with its own optional checkbox. Its opt-in, disclosure and sample messages are on its own page:{" "}
+            <Link href="/sms/deals">N4Cluster Deals — Marketing Text Messages</Link>.
           </p>
-          <p>
-            Program details: <Link href="/sms/deals">N4Cluster Deals — Marketing Text Messages</Link>
-          </p>
-          <h3>How to opt in</h3>
-          <ol>
-            {dealsOptInSteps.map((step) => (
-              <li key={step}>{step}</li>
-            ))}
-          </ol>
-          <DealsScreenshots />
-          <h3>Disclosure shown beneath the checkbox</h3>
-          <p>
-            <strong>{smsDealsCheckboxLabel}</strong>
-          </p>
-          <p>
-            {smsDealsDisclosureParts.map((part, i) =>
-              part.type === "link" ? (
-                <Link key={i} href={part.href}>
-                  {part.text}
-                </Link>
-              ) : (
-                part.text
-              ),
-            )}
-          </p>
-          <h3>Sample messages</h3>
-          <p className="text-muted text-sm">{dealsSampleNote}</p>
-          <ul>
-            {dealsSamples.map((s) => (
-              <li key={s.event}>
-                <strong>{s.event}</strong>
-                <br />
-                {s.body}
-              </li>
-            ))}
-          </ul>
-          <h3>Confirmation, help and opt-out messages</h3>
-          <ul>
-            {dealsReplies.map((s) => (
-              <li key={s.event}>
-                <strong>{s.event}</strong>
-                <br />
-                {s.body}
-              </li>
-            ))}
-          </ul>
 
           <h2>More information</h2>
           <ul>
