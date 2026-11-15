@@ -185,24 +185,20 @@ describe("sms page", () => {
       "N4Cluster sends three kinds of text messages, each with its own opt-in. Only N4Cluster Deals contains marketing, and it needs its own checkbox.",
     );
     expect(page).not.toContain("Neither includes marketing");
+    // Marketing details live only on /sms/deals, so this page (cited by the 2FA campaign) stays
+    // about order and verification texts: the Deals section is a one-paragraph pointer.
     const section = page.slice(deals, more);
-    expect(section).toContain("How to opt in");
-    expect(section).toContain("dealsOptInSteps.map");
-    expect(section).toContain("Disclosure shown beneath the checkbox");
-    expect(section).toContain("{smsDealsCheckboxLabel}");
-    expect(section).toContain("smsDealsDisclosureParts.map");
-    expect(section).toContain("dealsSamples.map");
-    expect(section).toContain("Confirmation, help and opt-out messages");
-    expect(section).toContain("dealsReplies.map");
+    expect(section).toContain('href="/sms/deals"');
+    for (const detail of ["How to opt in", "dealsOptInSteps", "<DealsScreenshots />", "smsDealsCheckboxLabel", "smsDealsDisclosureParts", "dealsSamples", "dealsReplies"]) {
+      expect(section).not.toContain(detail);
+    }
+    expect(page).not.toContain("@/components/sms/DealsScreenshots");
     // Verbatim from notification-service DealsTemplates and the Telnyx Deals campaign.
     expect(dealsReplies).toEqual([
       { event: "After you opt in", body: "N4Cluster Deals: You're signed up for marketing offers from N4Cluster about restaurants you've ordered from. Msg frequency varies. Msg&data rates may apply. Reply HELP for help, STOP to opt out." },
       { event: "If you reply HELP", body: "N4Cluster Deals: For help, email contact@n4cluster.com or visit https://www.n4cluster.com/sms/deals. Msg frequency varies. Msg&data rates may apply. Reply STOP to opt out." },
       { event: "If you reply STOP", body: "N4Cluster Deals: You are unsubscribed from marketing texts and will receive no further messages from this program. Reply START to resubscribe." },
     ]);
-    expect(section).not.toContain("TODO(sms-deals-screenshots)");
-    expect(section).toContain("<DealsScreenshots />");
-    expect(section).toContain('href="/sms/deals"');
     expect(dealsOptInSteps).toEqual([
       "Order on any N4Cluster-powered restaurant storefront (example: https://pastaandpitagrill.com), or open your account settings on that storefront.",
       `Check the separate, optional box "Text me N4Cluster Deals: marketing offers about restaurants I've ordered from." It is unchecked by default, and your order goes through whether or not you check it.`,
