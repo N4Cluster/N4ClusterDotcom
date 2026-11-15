@@ -141,6 +141,11 @@ describe("Deals screenshots", () => {
       expect(s.width).toBeGreaterThanOrEqual(600);
     }
   });
+
+  it("caption each crop with where the checkbox appears", () => {
+    expect(dealsScreenshots.map((s) => s.caption)).toEqual(["At checkout", "In account settings"]);
+    expect(read("components/sms/DealsScreenshots.tsx")).toContain("<figcaption");
+  });
 });
 
 describe("brand identity in the site footer", () => {

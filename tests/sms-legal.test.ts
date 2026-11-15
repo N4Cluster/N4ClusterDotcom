@@ -129,7 +129,13 @@ describe("SMS privacy wording", () => {
     expect(page).toContain("{smsPrivacyHeading}");
     expect(page).toContain("<LinkedText text={smsPrivacyIntro} />");
     expect(page).toContain("{smsPrivacyStatement}");
-    expect(page).toContain("Last updated: November 13, 2026");
+    expect(page).toContain("Last updated: November 14, 2026");
+  });
+
+  it("names Stripe as the payment processor, matching the homepage", () => {
+    const page = read("app/privacy/page.tsx");
+    expect(page).toContain("such as Stripe and other");
+    expect(page).not.toMatch(/Square/);
   });
 
   it("is not contradicted by a broader sharing clause elsewhere in the policy", () => {
