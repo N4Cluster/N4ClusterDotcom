@@ -21,6 +21,7 @@ export const footerLinks = [
       { label: "About", href: "/about" },
       { label: "Mission", href: "/mission" },
       { label: "Solutions", href: "/solutions" },
+      { label: "Careers", href: "/careers" },
       { label: "Contact", href: "/contact" },
     ],
   },
