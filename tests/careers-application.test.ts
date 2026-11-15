@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { LIMITS, parseCareerApplication } from "@/lib/validation";
+import { LIMITS, isValidPhone, parseCareerApplication } from "@/lib/validation";
 import { careerApplicationEmail } from "@/lib/careers";
 
 const valid = { name: "Sam Ortiz", phone: "(615) 555-0100", email: "sam@example.com", city: "Austin, TX" };
@@ -47,5 +47,14 @@ describe("careerApplicationEmail", () => {
   });
   it("says so when no experience was given", () => {
     expect(careerApplicationEmail({ ...app, experience: "" }).body).toContain("Sales experience: none given");
+  });
+});
+
+describe("isValidPhone", () => {
+  it.each(["(615) 555-0100", "615.555.0100 ext 2", "+44 20 7946 0958", "555 0100"])("accepts %s", (v) => {
+    expect(isValidPhone(v)).toBe(true);
+  });
+  it.each(["123456", "1234567890123456"])("rejects %s", (v) => {
+    expect(isValidPhone(v)).toBe(false);
   });
 });

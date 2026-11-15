@@ -164,7 +164,8 @@ export interface CareerApplication {
  */
 const PHONE_SHAPE = /^(\+?[\d\s().-]+?)(?:\s*(?:x|ext\.?)\s*\d{1,6})?$/i;
 
-function isValidPhone(value: string): boolean {
+/** True when `value` is a phone number the server accepts: 7-15 digits plus an optional extension. */
+export function isValidPhone(value: string): boolean {
   const match = PHONE_SHAPE.exec(value);
   if (!match) return false;
   const digits = match[1].replace(/\D/g, "").length;

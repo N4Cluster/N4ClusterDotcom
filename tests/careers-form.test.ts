@@ -42,4 +42,11 @@ describe("CareerApplicationForm", () => {
     expect(src).toContain("We'll call or email you.");
     expect(src).not.toMatch(/\bSMS\b|text you/);
   });
+
+  it("uses the server's phone and email rules", () => {
+    expect(src).toMatch(/import \{[^}]*isValidPhone[^}]*\} from "@\/lib\/validation"/);
+    expect(src).toMatch(/import \{[^}]*isValidEmail[^}]*\} from "@\/lib\/validation"/);
+    expect(src).not.toMatch(/replace\(\/\D/);
+    expect(src).not.toMatch(/\.length < 10/);
+  });
 });

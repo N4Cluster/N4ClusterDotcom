@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { getUtmParams } from "@/lib/utm";
+import { isValidEmail, isValidPhone } from "@/lib/validation";
 
 interface FormData {
   name: string;
@@ -30,8 +31,8 @@ export function CareerApplicationForm() {
   const validate = () => {
     const next: FieldErrors = {};
     if (!formData.name.trim()) next.name = "Name is required.";
-    if (formData.phone.replace(/\D/g, "").length < 10) next.phone = "A valid phone number is required.";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) next.email = "A valid email is required.";
+    if (!isValidPhone(formData.phone.trim())) next.phone = "A valid phone number is required.";
+    if (!isValidEmail(formData.email.trim())) next.email = "A valid email is required.";
     if (!formData.city.trim()) next.city = "City is required.";
     return next;
   };
