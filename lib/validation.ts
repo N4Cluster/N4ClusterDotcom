@@ -9,6 +9,7 @@
 /** Upper bounds so a scripted POST can't push megabytes through the mail quota. */
 export const LIMITS = {
   name: 100,
+  phone: 40,
   email: 254, // RFC 5321 maximum length of a forward-path
   company: 200,
   shortField: 100,
@@ -133,6 +134,77 @@ export function parseContactSubmission(
       message:
         typeof raw.message === "string"
           ? raw.message.replace(/\0/g, "").slice(0, LIMITS.message)
+          : "",
+      utm_source: readString(raw.utm_source, LIMITS.utm),
+      utm_medium: readString(raw.utm_medium, LIMITS.utm),
+      utm_campaign: readString(raw.utm_campaign, LIMITS.utm),
+      utm_content: readString(raw.utm_content, LIMITS.utm),
+      utm_term: readString(raw.utm_term, LIMITS.utm),
+    },
+  };
+}
+
+export interface CareerApplication {
+  name: string;
+  phone: string;
+  email: string;
+  city: string;
+  experience: string;
+  utm_source: string;
+  utm_medium: string;
+  utm_campaign: string;
+  utm_content: string;
+  utm_term: string;
+}
+
+/**
+ * Phone shape: digits with the usual separators, an optional leading +, and an
+ * optional extension. The main part must carry 7 to 15 digits (E.164 maximum),
+ * which rejects "123" and runaway digit strings without picking a country.
+ */
+const PHONE_SHAPE = /^(\+?[\d\s().-]+?)(?:\s*(?:x|ext\.?)\s*\d{1,6})?$/i;
+
+/** True when `value` is a phone number the server accepts: 7-15 digits plus an optional extension. */
+export function isValidPhone(value: string): boolean {
+  const match = PHONE_SHAPE.exec(value);
+  if (!match) return false;
+  const digits = match[1].replace(/\D/g, "").length;
+  return digits >= 7 && digits <= 15;
+}
+
+export function parseCareerApplication(
+  body: unknown
+): ParseResult<CareerApplication> {
+  if (typeof body !== "object" || body === null) {
+    return { ok: false, error: "Invalid request body." };
+  }
+  const raw = body as Record<string, unknown>;
+
+  const name = readString(raw.name, LIMITS.name);
+  const phone = readString(raw.phone, LIMITS.phone);
+  const city = readString(raw.city, LIMITS.shortField);
+
+  if (!name) return { ok: false, error: "Name is required." };
+  if (!isValidPhone(phone)) {
+    return { ok: false, error: "A valid phone number is required." };
+  }
+  if (!isValidEmail(raw.email)) {
+    return { ok: false, error: "A valid email is required." };
+  }
+  if (!city) return { ok: false, error: "City is required." };
+
+  return {
+    ok: true,
+    data: {
+      name,
+      phone,
+      email: raw.email,
+      city,
+      // Multi-line like the contact message: lands in the body, never a header,
+      // so newlines are preserved and only NUL and the length are policed.
+      experience:
+        typeof raw.experience === "string"
+          ? raw.experience.replace(/\0/g, "").slice(0, LIMITS.message)
           : "",
       utm_source: readString(raw.utm_source, LIMITS.utm),
       utm_medium: readString(raw.utm_medium, LIMITS.utm),

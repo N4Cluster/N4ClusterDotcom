@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { HeroCentered } from "@/components/sections/HeroCentered";
 import { FeatureGrid } from "@/components/sections/FeatureGrid";
 import { CTASection } from "@/components/sections/CTASection";
 import { Container } from "@/components/ui/Container";
+import { Badge } from "@/components/ui/Badge";
 import { SectionIntro } from "@/components/ui/SectionIntro";
+import { CareerApplicationForm } from "@/components/forms/CareerApplicationForm";
+import { growthPartner } from "@/content/careers/growth-partner";
 import { ContactForm } from "@/components/forms/ContactForm";
-import { Target, Wrench, Star, Users } from "lucide-react";
+import { Check, Target, Wrench, Star, Users } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Careers",
   description:
-    "Help build the future infrastructure of local commerce. Join a small team working on category-creation challenges.",
+    "Join N4Cluster as a Restaurant Growth Partner: an independent-contractor, commission-only role signing independent restaurants in your own city.",
 };
 
 const reasons = [
@@ -43,12 +45,68 @@ const reasons = [
 export default function CareersPage() {
   return (
     <>
-      <HeroCentered
-        eyebrow="Careers"
-        heading="Help build the future infrastructure of local commerce"
-        subheading="We're building systems for merchant ownership, orchestration, and intelligent growth. If that excites you, we'd love to hear from you."
-        primaryCta={{ label: "Introduce Yourself", href: "#introduce-yourself" }}
-      />
+      <header className="bg-cream pt-16 md:pt-24 pb-10 md:pb-14">
+        <Container size="md">
+          <h1 className="font-display text-4xl md:text-5xl font-extrabold tracking-tight text-ink">
+            Careers at N4Cluster
+          </h1>
+          <p className="mt-5 text-lg text-ink-2">
+            We build direct ordering for independent restaurants at flat utility pricing, not commission. Right now we&apos;re looking for people to bring it to restaurants in their own city.
+          </p>
+          <a
+            href="#growth-partner"
+            className="mt-6 inline-block text-sm font-semibold text-ink underline underline-offset-4 hover:text-ink-2 transition-colors"
+          >
+            See the Restaurant Growth Partner role
+          </a>
+        </Container>
+      </header>
+
+      <section id="growth-partner" className="scroll-mt-24 bg-cream pb-16 md:pb-24">
+        <Container size="xl">
+          <div className="on-dark rounded-[32px] bg-ink p-6 text-white sm:p-10 lg:p-12">
+            <div className="grid gap-10 lg:grid-cols-2 lg:gap-12 lg:items-start">
+              <div>
+                <Badge variant="dark" className="text-white">{growthPartner.badge}</Badge>
+                <h2 className="mt-5 font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
+                  {growthPartner.title}
+                </h2>
+                <p className="mt-3 text-sm text-white/80">{growthPartner.meta.join(" · ")}</p>
+                <p className="mt-8 font-display text-3xl font-bold leading-tight sm:text-4xl">
+                  {growthPartner.headline}
+                </p>
+                <div className="mt-5 flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                  <span className="font-display text-7xl font-extrabold leading-none text-gold">
+                    {growthPartner.shareFigure}
+                  </span>
+                  <span className="min-w-0 flex-1 basis-48 text-white/80">{growthPartner.shareCaption}</span>
+                </div>
+                <ul className="mt-6 space-y-3 text-white/90">
+                  {growthPartner.pay.map((line) => (
+                    <li key={line} className="border-t border-white/15 pt-3">{line}</li>
+                  ))}
+                </ul>
+                <ul className="mt-6 space-y-2">
+                  {growthPartner.points.map((point) => (
+                    <li key={point} className="flex items-start gap-3">
+                      <Check aria-hidden="true" className="mt-1 h-4 w-4 shrink-0 text-white/80" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-6 text-white/90">{growthPartner.arrangement}</p>
+                <p className="mt-4 text-sm text-white/70">{growthPartner.footnote}</p>
+              </div>
+              <div className="on-light rounded-[22px] bg-white p-6 text-ink sm:p-8">
+                <h3 className="font-display text-2xl font-bold">Apply</h3>
+                <div className="mt-5">
+                  <CareerApplicationForm />
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
 
       <FeatureGrid
         eyebrow="Why join N4Cluster"
@@ -57,40 +115,6 @@ export default function CareersPage() {
         columns={4}
         background="light"
       />
-
-      {/* Open roles */}
-      <section className="bg-cream py-16 md:py-24">
-        <Container>
-          <SectionIntro
-            heading="Open roles"
-            subheading="We are building a small, focused team. These are the areas where we are currently looking for people."
-          />
-          <div className="max-w-3xl mx-auto space-y-4">
-            {[
-              { title: "Product Engineer (Full-stack)", type: "Full-time", area: "Engineering" },
-              { title: "Platform Designer (UX / UI)", type: "Full-time", area: "Design" },
-              { title: "Commerce Growth Lead", type: "Full-time", area: "Growth" },
-              { title: "Merchant Success Manager", type: "Full-time", area: "Operations" },
-            ].map((role) => (
-              <div
-                key={role.title}
-                className="flex items-center justify-between bg-white border border-line rounded-[22px] px-6 py-5 hover:border-ink/30 transition-all"
-              >
-                <div>
-                  <h3 className="font-display font-bold text-ink">{role.title}</h3>
-                  <p className="text-sm text-muted">{role.area} · {role.type}</p>
-                </div>
-                <a
-                  href="#introduce-yourself"
-                  className="text-sm font-semibold text-ink underline underline-offset-4 hover:text-ink-2 transition-colors"
-                >
-                  Apply
-                </a>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
 
       {/* Introduction form */}
       <section id="introduce-yourself" className="bg-cream-2 py-16 md:py-24">

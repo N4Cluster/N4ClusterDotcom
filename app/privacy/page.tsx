@@ -94,6 +94,9 @@ export default function PrivacyPage() {
               <a href="#changes">Changes to This Policy</a>
             </li>
             <li>
+              <a href="#applicants">Job Applicants</a>
+            </li>
+            <li>
               <a href="#contact">Contact Us</a>
             </li>
           </ol>
@@ -629,7 +632,7 @@ export default function PrivacyPage() {
           <p>
             To exercise a privacy right, email{" "}
             <a href="mailto:privacy@n4cluster.com">privacy@n4cluster.com</a> or use
-            the contact method listed in Section 17. We may need to verify your
+            the contact method listed in Section 18. We may need to verify your
             identity and authority before completing certain requests. Authorized
             agents may submit requests where permitted by law, subject to
             verification requirements.
@@ -759,7 +762,21 @@ export default function PrivacyPage() {
             notice as required by law or appropriate to the circumstances.
           </p>
 
-          <h2 id="contact">17. Contact Us</h2>
+          <h2 id="applicants">17. Job Applicants</h2>
+          <p>
+            If you apply for a role through our careers page, we collect your
+            name, phone number, email address, city, any sales experience you
+            choose to share, and the campaign details (UTM parameters) of the
+            link that brought you to the page. We use this information only to
+            review your application and to contact you about it by phone call
+            or email; we do not send text messages to applicants. We do not
+            sell applicant information or share it with third parties for their
+            marketing. We keep applications for 12 months and then delete them.
+            You can ask us to delete yours sooner by emailing
+            contact@n4cluster.com.
+          </p>
+
+          <h2 id="contact">18. Contact Us</h2>
           <p>For questions, comments, or privacy requests, contact:</p>
           <address className="not-italic">
             N4Cluster Inc
